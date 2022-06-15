@@ -91,7 +91,7 @@ const NETWORKS = {
     },
     97: {
         name: "Binance Smart Chain Testnet",
-        rpcURL: "https://data-seed-prebsc-1-s1.binance.org:8545",
+        rpcURL: "https://data-seed-prebsc-2-s1.binance.org:8545",
         currency: {
             name: "Binance Coin",
             symbol: "tBNB",
@@ -126,13 +126,11 @@ const NETWORKS = {
 
 
 const walletConnectOptions = {
-    rpc: objectMap(NETWORKS, (value) => (value.rpcURL)),
+    // rpc: objectMap(NETWORKS, (value) => (value.rpcURL)),
+    rpc:"https://data-seed-prebsc-2-s1.binance.org:8545",
     qrcodeModalOptions: {
-        mobileLinks: [
-            "rainbow",
-            "trust",
-        ],
-    }
+        
+    },
 }
 
 function init() {
@@ -147,6 +145,8 @@ function init() {
             }
         }
     });
+
+
 
     toastr.options.progressBar = true;
     toastr.options.showMethod = 'slideDown';

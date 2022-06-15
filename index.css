@@ -1343,3 +1343,7 @@ select{
     line-height: 20px;
     color: #242424;
 }
+
+.walletconnect-qrcode__image{
+  height: fit-content;
+}
