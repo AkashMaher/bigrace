@@ -300,6 +300,13 @@ const main = `<section>
       </div>
     </section>
     <section>
+    <div id="video">
+      <h1 class="videotitle">BigRace Video</h1>
+      <iframe width="800" height="450" src="https://www.youtube.com/embed/p1dvMqgHJp8">
+      </iframe>
+    </div>
+    </section>
+    <section>
       <div class="horses-back-container">
         <div class="d-flex flex-column align-items-center">
           <div
@@ -734,49 +741,23 @@ async function isInvited() {
         document.querySelector('#activate').addEventListener('click', activate)
       }
     } 
-    // else if (search == '?stat'){
-
-    //   document.getElementById('root').innerHTML = stat;
-    // } 
-    // else if (search == '?dashboard') {
-    //   document.getElementById('root').innerHTML = dashboard;
-    // }
-    // else if (search == '?profile') {
-    //   document.getElementById('root').innerHTML = profile;
-    // }
-    // else if (search == '?in-game') {
-    //   document.getElementById('root').innerHTML = ingame;
-    //   sliderVal()
-    //   auto2()
-    //   document.querySelector("#SpeedUp").addEventListener("click", onSpeedUp);
-    //   document.querySelector("#finishRace").addEventListener("click", finishRace);
-    // }
-    // else if (search == '?bonus') {
-    //   document.getElementById('root').innerHTML = bonus;
-    // }
-    // else if (search == '?game') {
-    //   document.getElementById('root').innerHTML = game;
-    //   window.addEventListener('load', async () => {
-    //     auto1()
-    //     StartCountDown()
-    //     document.querySelector("#buyTicket").addEventListener("click", onBuy);
-    //     document.querySelector("#horse1").addEventListener("click", chooseHorse1);
-    //     document.querySelector("#horse2").addEventListener("click", chooseHorse2);
-    //     document.querySelector("#horse3").addEventListener("click", chooseHorse3);
-    //     document.querySelector("#horse4").addEventListener("click", chooseHorse4);
-    //     document.querySelector("#StartRace").addEventListener("click", onStartRace);
-    //   });
-    // }
-    // else if (search == '?game-win') {
-    //   document.getElementById('root').innerHTML = gamewin;
-    //   auto3()
-    // } 
+    
     else {
       document.getElementById('root').innerHTML = main;
       document.querySelector('#activate2').addEventListener('click', activate)
       // document.querySelector("#register").addEventListener("click", register);
     }
-    // window.open('./invite.html', '_self')
+
+    async function readPdfEng(){
+      var pdf = new PDFObject({
+        url: "./assets/pdfs/Big Race_ English.pdf",
+        id: "pdfRendered",
+        pdfOpenParams: {
+          view: "FitH"
+        }
+      }).embed("root");
+    }
+   
 
 }
 isInvited()
@@ -787,37 +768,7 @@ isInvited()
 
 
 
-// async function PlayNow(){
-//   window.open('./?game','_self')
-//   // document.getElementById('root').innerHTML = game;
-//   // window.addEventListener('load', async () => {
-//   //   auto1()
-//   //   StartCountDown()
-//   //   document.querySelector("#buyTicket").addEventListener("click", onBuy);
-//   //   document.querySelector("#horse1").addEventListener("click", chooseHorse1);
-//   //   document.querySelector("#horse2").addEventListener("click", chooseHorse2);
-//   //   document.querySelector("#horse3").addEventListener("click", chooseHorse3);
-//   //   document.querySelector("#horse4").addEventListener("click", chooseHorse4);
-//   //   document.querySelector("#StartRace").addEventListener("click", onStartRace);
-//   // });
-// }
-
-// async function DashboardView(){
-//   window.open('./?dashboard', '_self')
-// }
-
-// async function StatView(){
-//   window.open('./?stat', '_self')
-// }
-
-// async function Bonus(){
-//   window.open('./?bonus', '_self')
-// }
-
 
 window.addEventListener('load', async () => {
-  // document.querySelector("#play").addEventListener("click", PlayNow);
-  // document.querySelector("#dashboardView").addEventListener("click", DashboardView);
-  // document.querySelector("#statView").addEventListener("click", StatView);
-  // document.querySelector("#bonus").addEventListener("click", Bonus);
+  document.querySelector("#engPdf").addEventListener("click", readPdfEng);
 });

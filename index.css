@@ -1347,3 +1347,22 @@ select{
 .walletconnect-qrcode__image{
   height: fit-content;
 }
+
+#connected{
+  display: none;
+}
+
+#video{
+  text-align: center;
+}
+
+.videotitle{
+  font-family: var(--bs-body-font-family);
+    font-weight: var(--bs-body-font-weight);
+    line-height: var(--bs-body-line-height);
+    color: var(--bs-body-color);
+}
+
+iframe{
+  z-index: 100;
+}

@@ -71,20 +71,276 @@
             <img src="./assets/img/wallet.png" class="" alt="" />
             <span id="connectName">Connect</span>
           </button>
-
-          <button class="wallet-bnb-btn d-flex justify-content-center align-items-center p-2" id="connected">
+          <div id="connected">
+          <button class="wallet-bnb-btn d-flex justify-content-center align-items-center p-2" >
             <img class="mob-none" src="./assets/img/bnb.png" alt="" />
             <p class="mb-0" id="balance"></p>
             <img src="./assets/img/wallet.png" class="" alt="" />
             <span class="mob-none" id="address"></span>
           </button>
+          </div>
           <button class="logout-btn" id="disconnect">
             <img src="./assets/img/logout.png" alt="" />
           </button>
         </div>
       </div>
     </nav>
-    <div id="root"></div>
+    <div id="root">
+      <section>
+        <div class="headline-container">
+          <div class="container col-12 d-flex justify-content-center justify-content-md-end">
+            <div class="headline-main-container">
+              <h1>Big Race</h1>
+              <h4>Register or Login</h4>
+              <button type="button" id="register" data-bs-toggle="modal" data-bs-target="#exampleModal2">
+                Fast Registration
+              </button>
+              <div class="modal fade" id="exampleModal3" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <button type="button" class="btn-close-modal" data-bs-dismiss="modal" aria-label="Close"></button>
+                <div class="modal-dialog modal-dialog-centered">
+                  <div class="modal-content">
+                    <div class="modal-body modal-body-wallet activated-body-wallet">
+                      <h1 class="mb-0">Activated</h1>
+                      <div>
+                        <p class="text-center">
+                          Congratulations! You’re already Big Race farm 16
+                          activated
+                        </p>
+                      </div>
+                      <div class="d-flex mt-5 justify-content-center">
+                        <button class="w-50">Okay</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <button type="button" class="btn-close-modal" data-bs-dismiss="modal" aria-label="Close"></button>
+                <div class="modal-dialog modal-dialog-centered modal">
+                  <div class="modal-content">
+                    <div class="modal-body modal-body-wallet">
+                      <h1 class="mb-0">Activate wallet</h1>
+                      <div>
+                        <p>Activate Big Race in one transaction with BNB</p>
+                        <div class="activate-wallet-input">
+                          <label for="basic-url" class="form-label">Amount for activation</label>
+                          <div class="selectLvls">
+                            <select name="lvls" id="lvls" class="lvls">
+                              <option value="1">Level 1D (0,07 BNB)</option>
+                              <option value="2">Level 2D (0,1 BNB)</option>
+                              <option value="3">Level 3D (0,14 BNB)</option>
+                              <option value="16">Level 16 (8 BNB)</option>
+      
+                            </select>
+                          </div>
+                          <!-- <div class="input-group mb-3">
+                                <input
+                                  type="text"
+                                  class="form-control"
+                                  id="basic-url"
+                                  aria-describedby="basic-addon3"
+                                />
+                              </div> -->
+                        </div>
+                      </div>
+                      <div class="d-flex justify-content-center">
+                        <button id="activate2">Activate Farm</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <button type="button" class="btn-close-modal" data-bs-dismiss="modal" aria-label="Close"></button>
+                <div class="modal-dialog modal-dialog-centered">
+                  <div class="modal-content">
+                    <div class="modal-body modal-body-wallet">
+                      <h1 class="mb-0">Connect Wallet</h1>
+                      <div class="d-flex wallet-card align-items-center">
+                        <img src="./assets/img/metamask.png" alt="" />
+                        <div>
+                          <h4 class="mb-0">Metamask</h4>
+                          <p class="mb-0">Desktop/DApp in app</p>
+                        </div>
+                      </div>
+                      <div class="d-flex wallet-card mb-0 align-items-center">
+                        <img src="./assets/img/trust-wallet.png" alt="" />
+                        <div>
+                          <h4 class="mb-0">Trust Wallet</h4>
+                          <p class="mb-0">Desktop/DApp in app</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section>
+        <div class="desc-game-container container">
+          <div class="desc-game-main-container">
+            <h2 class="text-center desc-game-title mb-0">Описание игры</h2>
+            <p class="desc-game-text">
+              Ставки на скачки делают уже более 300 лет. В мире об особенностях
+              этого спорта знают только посвящённые.
+              <br /><br />
+              Big Race вам предлагает не только поставить на выбранную лошадь, но
+              и принимать активное участие в соревнованиях разгоняя лошадь.
+              <br />
+              <br /><br />
+              Основные особенности участия на лошадинных скачках.
+            </p>
+            <div>
+              <div class="d-flex align-items-center justify-content-between desc-step-container">
+                <div class="d-flex align-items-start mob-card-condition">
+                  <p class="number-rounded">1</p>
+                  <img class="mob-condition-img" src="./assets/img/clock.png" alt="" />
+                  <div class="step-desc-container">
+                    <p class="mb-0">
+                      Скачки длятся 30 минут: 10 минут на выбор лошади, 10 минут
+                      забег и 10 минут распределение выигрыша победителям.
+                    </p>
+                  </div>
+                </div>
+                <div class="w-50 d-flex justify-content-center desc-condition-img">
+                  <img src="./assets/img/clock.png" alt="" />
+                </div>
+              </div>
+              <div class="d-flex align-items-center justify-content-between desc-step-container">
+                <div class="d-flex align-items-start mob-card-condition">
+                  <p class="number-rounded">2</p>
+                  <img class="mob-condition-img" src="./assets/img/horses.png" alt="" />
+                  <div class="step-desc-container">
+                    <p class="mb-0">
+                      Выбрать лошадь можно только один раз в забег (0.05 BNB)
+                    </p>
+                  </div>
+                </div>
+                <div class="w-50 d-flex justify-content-center desc-condition-img">
+                  <img src="./assets/img/horses.png" alt="" />
+                </div>
+              </div>
+              <div class="d-flex align-items-center justify-content-between desc-step-container">
+                <div class="d-flex align-items-start mob-card-condition">
+                  <p class="number-rounded">3</p>
+                  <img class="mob-condition-img" src="./assets/img/imgBtn.png" alt="" />
+                  <div class="step-desc-container">
+                    <p class="mb-0">
+                      Во время забега можно ускорить свою лошадь ( с помощью
+                      кнопки <ускорение от 0.01 BNB>)на которую вы сделали ставку
+                        и она быстрее финиширует
+                    </p>
+                  </div>
+                </div>
+                <div class="w-50 d-flex justify-content-center desc-condition-img">
+                  <img src="./assets/img/imgBtn.png" alt="" />
+                </div>
+              </div>
+              <div class="d-flex align-items-center justify-content-between desc-step-container">
+                <div class="d-flex align-items-start mob-card-condition">
+                  <p class="number-rounded">4</p>
+                  <img class="mob-condition-img" src="./assets/img/champ.png" alt="" />
+                  <div class="step-desc-container">
+                    <p class="mb-0">
+                      После финиша между победителями распределяется выигрыш в
+                      соответствии с размером вашего вклада в ускорения лошади.
+                    </p>
+                  </div>
+                </div>
+                <div class="w-50 d-flex justify-content-center desc-condition-img">
+                  <img src="./assets/img/champ.png" alt="" />
+                </div>
+              </div>
+              <div class="d-flex align-items-center justify-content-between desc-step-container mb-0">
+                <div class="d-flex align-items-start mob-card-condition">
+                  <p class="number-rounded">5</p>
+                  <div class="step-desc-container">
+                    <p class="mb-0">
+                      Также вы можете организовывать команды и таким образом
+                      увеличивать шансы что ваша лошадь победит.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section>
+        <div class="present-back">
+          <h1 class="text-center document-card-title">Презентации</h1>
+          <div class="d-flex justify-content-center document-card-container align-items-center">
+            <div class="mob-document-container">
+              <div class="d-flex flex-column align-items-center document-card">
+                <img src="./assets/img/document.png" alt="" />
+                <a id="ruPdf" href="./assets/pdfs/Big Race_Ru.pdf">Russian pdf</a>
+              </div>
+              <div class="d-flex flex-column align-items-center document-card">
+                <img src="./assets/img/document.png" alt="" />
+                <a id="engPdf" href="./assets/pdfs/Big Race_ English.pdf">English pdf</a>
+              </div>
+              <div class="d-flex flex-column mr-0 align-items-center document-card">
+                <img src="./assets/img/document.png" alt="" />
+                <a id="hindiPdf" href="./assets/pdfs/Big Race_Hindi.pdf">Hindi pdf</a>
+              </div>
+              
+              
+            </div>
+          </div>
+        </div>
+      </section>
+      <section>
+        <div id="video">
+          <h1 class="videotitle">BigRace Video</h1>
+          <iframe width="800" height="450" src="https://www.youtube.com/embed/p1dvMqgHJp8">
+          </iframe>
+          
+        </div>
+        
+        
+      </section>
+      <section>
+        <div class="horses-back-container">
+          <div class="d-flex flex-column align-items-center">
+            <div class="people-count-container d-flex flex-column align-items-center">
+              <h2>Сейчас участников</h2>
+              <h1><span id="participants">0</span></h1>
+              <button><a href="./game.html" class="plybtn">Хочу в игру</a></button>
+            </div>
+            <div class="preview-container">
+              <h1>Preview Mode</h1>
+              <p class="preview-subtitle">
+                Look up any big race member account in preview mode. Enter ID
+                or BNB address to preview.
+              </p>
+              <div class="preview-search-container">
+                <p>Enter ID or BNB wallet</p>
+                <div class="d-flex align-items-center">
+                  <div class="input-group mob-search-container">
+                    <input type="text" class="form-control" aria-describedby="inputGroup-sizing-default"
+                      placeholder="Искать по ID участника" />
+                    <button>Найти</button>
+                  </div>
+                </div>
+              </div>
+              <div class="result-container d-flex justify-content-between align-items-center">
+                <div>
+                  <p class="mb-0">ID 87321</p>
+                  <p class="result-sub-text mb-0">8 levels</p>
+                </div>
+                <div>
+                  <p class="mb-0">16 BNB</p>
+                </div>
+      
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+    
     <script src="https://unpkg.com/web3@latest/dist/web3.min.js"></script>
     <script type="text/javascript" src="https://unpkg.com/web3modal"></script>
     <script type="text/javascript" src="https://unpkg.com/@walletconnect/web3-provider"></script>

@@ -159,6 +159,10 @@
   .wallet-td {
     width: 80vw !important;
   }
+    iframe {
+      width: 90%;
+      height: 200px;
+    }
 }
 @media only screen and (max-width: 600px) {
   .form-select {
@@ -413,6 +417,10 @@
     height: 100%;
     padding: 0 1rem !important;
   }
+  iframe{
+    width: 90%;
+    height: 300px;
+  }
 }
 
 @media only screen and (max-width: 389px) {
@@ -422,4 +430,8 @@
     width: 100%;
     margin-top: 1rem;
   }
+    iframe {
+      width: 90%;
+      height: 200px;
+    }
 }

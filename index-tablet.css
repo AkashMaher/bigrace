@@ -363,7 +363,21 @@
     margin-bottom: 0.5rem !important;
     font-size: 18px !important;
   }
+    iframe {
+      width: 90%;
+      height: 350px;
+    }
 }
+
+
+@media only screen and (min-width: 700px) and (max-width: 850px) {
+  iframe {
+      width: 90%;
+      height: 400px;
+    }
+
+}
+
 @media only screen and (max-width: 1300px) {
   .invite-inner-container {
     padding: 1rem;
@@ -399,4 +413,5 @@
   .profile-container {
     padding: 0 2rem;
   }
+  
 }
