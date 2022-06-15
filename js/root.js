@@ -748,18 +748,7 @@ async function isInvited() {
       // document.querySelector("#register").addEventListener("click", register);
     }
 
-    async function readPdfEng(){
-      var pdf = new PDFObject({
-        url: "./assets/pdfs/Big Race_ English.pdf",
-        id: "pdfRendered",
-        pdfOpenParams: {
-          view: "FitH"
-        }
-      }).embed("root");
-    }
-   
-
-}
+    
 isInvited()
 
 
@@ -770,5 +759,5 @@ isInvited()
 
 
 window.addEventListener('load', async () => {
-  document.querySelector("#engPdf").addEventListener("click", readPdfEng);
+  // document.querySelector("#engPdf").addEventListener("click", readPdfEng);
 });
