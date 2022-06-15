@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Big race | profile</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
+      crossorigin="anonymous"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=K2D:ital,wght@1,800&family=Montserrat:wght@400;500;600;700&family=Roboto:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+    <link rel="stylesheet" href="index.css" />
+    <link rel="stylesheet" href="index-tablet.css" />
+    <link rel="stylesheet" href="index-mob.css" />
+  </head>
+  <body class="mb-0">
+    <nav class="navbar navbar-expand-lg bg-light">
+      <div class="container-fluid px-0 d-flex justify-content-between">
+        <button
+          id="closeBtn"
+          class="navbar-toggler"
+          type="button"
+          onclick="closeNav()"
+        >
+          <span class="navbar-close-icon"></span>
+        </button>
+        <button
+          id="openBtn"
+          class="navbar-toggler"
+          type="button"
+          onclick="openNav()"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <a class="navbar-brand" href="#">Big Race</a>
+
+        <div class="ml-auto d-flex align-items-center button-bnb-container">
+          <div class="select-dropdown">
+            <div class="textBox d-flex justify-content-between">
+              <div class="d-flex justify-content-center align-items-center">
+                <img
+                  id="textBox-img"
+                  class="ml-0"
+                  src="./assets/img/russia.png"
+                  alt=""
+                />
+                <p id="textBox-text">Русский</p>
+              </div>
+              <img
+                class="ml-auto select-arrow"
+                src="./assets/img/select.svg"
+                alt=""
+              />
+            </div>
+            <div class="option">
+              <div onclick="show('Русский')">
+                <img src="./assets/img/russia.png" alt="" />
+                <p>Русский</p>
+              </div>
+              <div onclick="show('English')">
+                <img src="./assets/img/eng.png" alt="" />
+                <p>English</p>
+              </div>
+              <div onclick="show('Hindi')">
+                <img src="./assets/img/hindi.png" alt="" />
+                <p>Hindi</p>
+              </div>
+            </div>
+          </div>
+          <button type="button" id="connect" class="wallet-btn d-flex justify-content-center align-items-center p-2">
+            <img src="./assets/img/wallet.png" class="" alt="" />
+            <span id="connectName">Connect wallet</span>
+          </button>
+          
+          <button class="wallet-bnb-btn d-flex justify-content-center align-items-center p-2" id="connected">
+            <img class="mob-none" src="./assets/img/bnb.png" alt="" />
+            <p class="mb-0" id="balance"></p>
+            <img src="./assets/img/wallet.png" class="" alt="" />
+            <span class="mob-none" id="address"></span>
+          </button>
+          <button class="logout-btn" id="disconnect">
+            <img src="./assets/img/logout.png" alt="" />
+          </button>
+        </div>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown"></div>
+      </div>
+    </nav>
+    <section class="section-bg section-back-h-100 d-flex align-items-start">
+      <div id="mySidebar" class="sidebar-container">
+        <div>
+          <div class="d-flex align-items-center sidebar-card-container">
+            <img src="./assets/img/sidebar/play.png" alt="" />
+            <a href="game.html" id="play">Play now</a>
+          </div>
+          <div class="d-flex align-items-center sidebar-card-container">
+            <img src="./assets/img/sidebar/dashboard.png" alt="" />
+            <a href="dashboard.html" id="dashboardView">Dashboard</a>
+          </div>
+          <div class="d-flex align-items-center sidebar-card-container">
+            <img src="./assets/img/sidebar/stats.png" alt="" />
+            <a href="stat.html" id="statView">Stats</a>
+          </div>
+          
+          <div class="d-flex align-items-center sidebar-card-container">
+            <img src="./assets/img/sidebar/information.png" alt="" />
+            <a href="#">Information</a>
+          </div>
+          
+        </div>
+        <div>
+          <div class="notification-container">
+            <img src="./assets/img/sidebar/notification.png" alt="" />
+            <a href="#">Notifier bot</a>
+          </div>
+        </div>
+      </div>
+      <div class="content-container w-100 d-flex justify-content-center">
+        <div class="position-relative">
+          <img
+            class="mob-none width-tablet"
+            src="./assets/img/profile-paper.png"
+            alt=""
+          />
+          <img
+            class="desk-none bonus-padding"
+            src="./assets/img/id-layer-mob.png"
+            alt=""
+          />
+          <div class="position-absolute profile-container w-100">
+            <div
+              class="d-flex align-items-center justify-content-between profile-inner-container"
+            >
+              <div class="d-flex align-items-center avatar-container">
+                <img src="./assets/img/avatar.png" alt="" />
+                <div class="avatar-desc-container">
+                  <h2>ID <span id="userId">0000001</span></h2>
+                  <p class="mb-0 mt-0">
+                    <span id="userAddress">0x00...000</span>
+                    <button class="copy-btn" id="copyAddress">
+                      <img src="./assets/img/copy.png" alt="" />
+                    </button>
+                  </p>
+                  <p class="mb-0 text-w-link">
+                    Invited By <a href="#"><span id="referId">ID 000000</span></a>
+                  </p>
+                </div>
+              </div>
+              <div class="link-profile-container">
+                <p class="mb-0">My personal link ?</p>
+                <a href="#"><span id="MyReferLink">bigrace.game/?invite=0000001</span></a>
+                <div class="d-flex align-items-center link-profile-button">
+                  <button id="copyReferLink">Copy</button>
+                  <button class="mr-0" id="shareLink">Share</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <div class="share-dialog">
+      <header>
+        <h3 class="dialog-title">Share Invite Link</h3>
+        <button class="close-button"><svg>
+            <use href="#close"></use>
+          </svg></button>
+      </header>
+      <div class="targets">
+        <a class="button" id="FacebookShare">
+          <svg>
+            <use href="#facebook"></use>
+          </svg>
+          <span>Facebook</span>
+        </a>
+    
+        <a class="button" id="TwitterShare">
+          <svg>
+            <use href="#twitter"></use>
+          </svg>
+          <span>Twitter</span>
+        </a>
+    
+        <!-- <a class="button" id="LinkedInShare">
+          <svg>
+            <use href="#linkedin"></use>
+          </svg>
+          <span>LinkedIn</span>
+        </a>
+    
+        <a class="button" id="EmailShare">
+          <svg>
+            <use href="#email"></use>
+          </svg>
+          <span>Email</span>
+        </a> -->
+      </div>
+      <div class="link">
+        <div class="pen-url"><span id="inviteLinkShare"></span></div>
+        <button class="copy-link" id="copylinkinvite">Copy Link</button>
+      </div>
+    </div>
+    
+    
+    
+    <svg class="hidden">
+      <defs>
+        <symbol id="share-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+          stroke-linecap="round" stroke-linejoin="round" class="feather feather-share">
+          <path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"></path>
+          <polyline points="16 6 12 2 8 6"></polyline>
+          <line x1="12" y1="2" x2="12" y2="15"></line>
+        </symbol>
+    
+        <symbol id="facebook" viewBox="0 0 24 24" fill="#3b5998" stroke="#3b5998" stroke-width="2" stroke-linecap="round"
+          stroke-linejoin="round" class="feather feather-facebook">
+          <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+        </symbol>
+    
+        <symbol id="twitter" viewBox="0 0 24 24" fill="#1da1f2" stroke="#1da1f2" stroke-width="2" stroke-linecap="round"
+          stroke-linejoin="round" class="feather feather-twitter">
+          <path
+            d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z">
+          </path>
+        </symbol>
+    
+        <symbol id="email" viewBox="0 0 24 24" fill="#777" stroke="#fafafa" stroke-width="2" stroke-linecap="round"
+          stroke-linejoin="round" class="feather feather-mail">
+          <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+          <polyline points="22,6 12,13 2,6"></polyline>
+        </symbol>
+    
+        <symbol id="linkedin" viewBox="0 0 24 24" fill="#0077B5" stroke="#0077B5" stroke-width="2" stroke-linecap="round"
+          stroke-linejoin="round" class="feather feather-linkedin">
+          <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+          <rect x="2" y="9" width="4" height="12"></rect>
+          <circle cx="4" cy="4" r="2"></circle>
+        </symbol>
+    
+        <symbol id="close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+          stroke-linejoin="round" class="feather feather-x-square">
+          <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+          <line x1="9" y1="9" x2="15" y2="15"></line>
+          <line x1="15" y1="9" x2="9" y2="15"></line>
+        </symbol>
+      </defs>
+    </svg>
+    <script src="https://unpkg.com/web3@latest/dist/web3.min.js"></script>
+    <script type="text/javascript" src="https://unpkg.com/web3modal"></script>
+    <script type="text/javascript" src="https://unpkg.com/@walletconnect/web3-provider"></script>
+    <script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
+    
+    <script type="text/javascript" src="./js/wallet.js"></script>
+    <script type="text/javascript" src="./js/profile.js"></script>
+    <script>
+      userInfo();
+      function show(text) {
+        document.getElementById("textBox-text").innerHTML = text;
+        if (text === "Русский") {
+          document.getElementById("textBox-img").src =
+            "./assets/img/russia.png";
+        } else if (text === "English") {
+          document.getElementById("textBox-img").src = "./assets/img/eng.png";
+        } else if (text === "Hindi") {
+          document.getElementById("textBox-img").src = "./assets/img/hindi.png";
+        }
+      }
+
+      let dropdown = document.querySelector(".select-dropdown");
+      dropdown.onclick = function () {
+        dropdown.classList.toggle("active-dropdown");
+      };
+    </script>
+    <script>
+      function openNav() {
+        document.getElementById("mySidebar").style.opacity = "1";
+        document.getElementById("mySidebar").style.zIndex = "1";
+        document.getElementById("openBtn").style.display = "none";
+        document.getElementById("closeBtn").style.display = "flex";
+        document.getElementsByTagName("body")[0].style.overflow = "hidden";
+      }
+      function closeNav() {
+        document.getElementById("mySidebar").style.opacity = "0";
+        document.getElementById("mySidebar").style.zIndex = "-1";
+        document.getElementById("openBtn").style.display = "flex";
+        document.getElementById("closeBtn").style.display = "none";
+        document.getElementsByTagName("body")[0].style.overflow = "auto";
+      }
+    </script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
