@@ -283,15 +283,15 @@ const main = `<section>
           <div class="mob-document-container">
             <div class="d-flex flex-column align-items-center document-card">
                 <img src="./assets/img/document.png" alt="" />
-                <button id="ruPdf" href="./assets/pdfs/Big Race_Ru.pdf">Russian pdf</button>
+                <a class='pdfsname' id="ruPdf" href="./assets/pdfs/Big Race_Ru.pdf">Russian pdf</a>
               </div>
               <div class="d-flex flex-column align-items-center document-card">
                 <img src="./assets/img/document.png" alt="" />
-                <button id="engPdf" href="./assets/pdfs/Big Race_ English.pdf">English pdf</button>
+                <a class='pdfsname' id="engPdf" href="./assets/pdfs/Big Race_ English.pdf">English pdf</a>
               </div>
               <div class="d-flex flex-column mr-0 align-items-center document-card">
                 <img src="./assets/img/document.png" alt="" />
-                <button id="hindiPdf" href="./assets/pdfs/Big Race_Hindi.pdf">Hindi pdf</button>
+                <a class='pdfsname' id="hindiPdf" href="./assets/pdfs/Big Race_Hindi.pdf">Hindi pdf</a>
             </div>
           </div>
         </div>

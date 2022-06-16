@@ -1366,3 +1366,24 @@ select{
 iframe{
   z-index: 100;
 }
+
+.pdfsname{
+  /* border: 3px solid rgb(251, 54, 54); */
+  background: #ffb91d;
+  text-decoration: none;
+  padding: 8px 2rem;
+    border: none;
+    background: #ffb91d;
+    border-radius: 12px;
+    margin-top: 2rem;
+  font-family: "Montserrat";
+    font-style: normal;
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 15px;
+    color: #3f3f3f;
+}
+
+.pdfsname:hover{
+  color: white;
+}
