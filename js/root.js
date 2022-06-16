@@ -21,14 +21,14 @@ const main = `<section>
         >
           <div class="headline-main-container">
             <h1>Big Race</h1>
-            <h4>Register or Login</h4>
+            <h4>Зарегистрируйтесь или войдите</h4>
             <button
               type="button"
               id="register"
               data-bs-toggle="modal"
               data-bs-target="#exampleModal2"
             >
-              Fast Registration
+              Быстрая регистрация
             </button>
             <div
               class="modal fade"
@@ -78,19 +78,19 @@ const main = `<section>
               <div class="modal-dialog modal-dialog-centered modal">
                 <div class="modal-content">
                   <div class="modal-body modal-body-wallet">
-                    <h1 class="mb-0">Activate wallet</h1>
+                    <h1 class="mb-0">Активировать кошелек</h1>
                     <div>
-                      <p>Activate Big Race in one transaction with BNB</p>
+                      <p>Активируйте Big Race за одну транзакцию с BNB</p>
                       <div class="activate-wallet-input">
                         <label for="basic-url" class="form-label"
-                          >Amount for activation</label
+                          >Выберите ферму</label
                         >
                         <div class="selectLvls">
                         <select name="lvls" id="lvls" class="lvls">
-                        <option value="1">Level 1D (0,07 BNB)</option>
-                        <option value="2">Level 2D (0,1 BNB)</option>
-                        <option value="3">Level 3D (0,14 BNB)</option>
-                        <option value="16">Level 16 (8 BNB)</option>
+                        <option value="1">Уровень 1D (0,07 BNB)</option>
+                        <option value="2">Уровень 2D (0,1 BNB)</option>
+                        <option value="3">Уровень 3D (0,14 BNB)</option>
+                        <option value="16">Уровень 16 (8 BNB)</option>
                         
                         </select>
                         </div>
@@ -105,7 +105,7 @@ const main = `<section>
                       </div>
                     </div>
                     <div class="d-flex justify-content-center">
-                      <button id="activate2">Activate Farm</button>
+                      <button id="activate2">Активировать ферму</button>
                     </div>
                   </div>
                 </div>
@@ -282,18 +282,16 @@ const main = `<section>
         >
           <div class="mob-document-container">
             <div class="d-flex flex-column align-items-center document-card">
-              <img src="./assets/img/document.png" alt="" />
-              <button>Russian pdf</button>
-            </div>
-            <div class="d-flex flex-column align-items-center document-card">
-              <img src="./assets/img/document.png" alt="" />
-              <button>English pdf</button>
-            </div>
-            <div
-              class="d-flex flex-column mr-0 align-items-center document-card"
-            >
-              <img src="./assets/img/document.png" alt="" />
-              <button>Hindi pdf</button>
+                <img src="./assets/img/document.png" alt="" />
+                <button id="ruPdf" href="./assets/pdfs/Big Race_Ru.pdf">Russian pdf</button>
+              </div>
+              <div class="d-flex flex-column align-items-center document-card">
+                <img src="./assets/img/document.png" alt="" />
+                <button id="engPdf" href="./assets/pdfs/Big Race_ English.pdf">English pdf</button>
+              </div>
+              <div class="d-flex flex-column mr-0 align-items-center document-card">
+                <img src="./assets/img/document.png" alt="" />
+                <button id="hindiPdf" href="./assets/pdfs/Big Race_Hindi.pdf">Hindi pdf</button>
             </div>
           </div>
         </div>
@@ -301,7 +299,7 @@ const main = `<section>
     </section>
     <section>
     <div id="video">
-      <h1 class="videotitle">BigRace Video</h1>
+      <h1 class="videotitle">Видео большой гонки</h1>
       <iframe width="800" height="450" src="https://www.youtube.com/embed/p1dvMqgHJp8">
       </iframe>
     </div>
@@ -317,37 +315,27 @@ const main = `<section>
             <button><a href="./game.html" class="plybtn">Хочу в игру</a></button>
           </div>
           <div class="preview-container">
-            <h1>Preview Mode</h1>
+            <h1>Режим предварительного просмотра</h1>
             <p class="preview-subtitle">
-              Look up any big race member account in preview mode. Enter ID
-              or BNB address to preview.
+              Найдите любую учетную запись BigRace в режиме предварительного просмотра. Введите идентификатор
+              или адрес BNB для предварительного просмотра.
             </p>
             <div class="preview-search-container">
-              <p>Enter ID or BNB wallet</p>
+              <p>Введите ID или кошелек BNB</p>
               <div class="d-flex align-items-center">
                 <div class="input-group mob-search-container">
                   <input
                     type="text"
                     class="form-control"
+                    id="inputPreviewId"
                     aria-describedby="inputGroup-sizing-default"
-                    placeholder="Искать по ID участника"
+                    placeholder="Поиск по идентификатору пользователя или адресу BNB"
                   />
-                  <button>Найти</button>
+                  <button id="preview">Найти</button>
                 </div>
               </div>
             </div>
-            <div
-              class="result-container d-flex justify-content-between align-items-center"
-            >
-              <div>
-                <p class="mb-0">ID 87321</p>
-                <p class="result-sub-text mb-0">8 levels</p>
-              </div>
-              <div>
-                <p class="mb-0">16 BNB</p>
-              </div>
-              
-            </div>
+            
           </div>
         </div>
       </div>
@@ -746,10 +734,20 @@ async function isInvited() {
       document.getElementById('root').innerHTML = main;
       document.querySelector('#activate2').addEventListener('click', activate)
       // document.querySelector("#register").addEventListener("click", register);
+      document.querySelector('#preview').addEventListener('click', PreviewId)
     }
 
-    
+  }
 isInvited()
+
+
+async function PreviewId(){
+  if (!account) return toastr.error('Пожалуйста, сначала войдите с кошельком','ОШИБКА')
+  let UID = await document.getElementById('inputPreviewId').value;
+  console.log(UID)
+  window.open(`./profile.html?user=${UID}`, '_self')
+  
+}
 
 
 

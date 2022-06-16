@@ -28,7 +28,7 @@ async function userInfo(){
             console.log(adder)
             document.getElementById('userAddress').textContent = `${adder}`;
             document.getElementById('userId').textContent = `${Uid}`;
-            inviteLink = `https://bigrace.io/?invite=${Uid}`
+            inviteLink = `https://bigrace.io?invite=${Uid}`
             document.getElementById('MyReferLink').textContent = `${inviteLink}`
             document.getElementById('inviteLinkShare').textContent = `${inviteLink}`
             
@@ -41,7 +41,7 @@ async function userInfo(){
             console.log(adder)
             document.getElementById('userId').textContent = `${code}`;
             document.getElementById('userAddress').textContent = `${adder}`;
-            inviteLink = `https://bigrace.io/?invite=${code}`
+            inviteLink = `https://bigrace.io?invite=${code}`
             document.getElementById('MyReferLink').textContent = `${inviteLink}`
             document.getElementById('inviteLinkShare').textContent = `${inviteLink}`
 
@@ -56,7 +56,7 @@ async function userInfo(){
         console.log(adder)
         document.getElementById('userId').textContent = `${Uid}`;
         document.getElementById('userAddress').textContent = `${adder}`;
-        inviteLink = `https://bigrace.io/?invite=${Uid}`
+        inviteLink = `https://bigrace.io?invite=${Uid}`
         document.getElementById('MyReferLink').textContent = `${inviteLink}`
         document.getElementById('inviteLinkShare').textContent = `${inviteLink}`
     }
