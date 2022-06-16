@@ -283,7 +283,7 @@ const main = `<section>
           <div class="mob-document-container">
             <div class="d-flex flex-column align-items-center document-card">
                 <img src="./assets/img/document.png" alt="" />
-                <a class='pdfsname' id="ruPdf" href="./assets/pdfs/Big Race_Ru.pdf">Russian pdf</a>
+                <a class='pdfsname' id="ruPdf" href="./assets/pdfs/Big Race_Ru.pdf">Русский pdf</a>
               </div>
               <div class="d-flex flex-column align-items-center document-card">
                 <img src="./assets/img/document.png" alt="" />
