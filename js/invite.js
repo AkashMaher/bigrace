@@ -21,13 +21,20 @@ async function invCheck(){
 async function activate(){
     if (!account) return;
     let id = document.getElementById('lvls').value;
+    
     if(id==1){
+        Referval = '50000000000000000'
+    }
+    else if(id==2){
         Referval = '70000000000000000'
-    } else if(id==2){
+    } 
+    else if(id==3){
         Referval = '100000000000000000'
-    } else if(id==3){
+    } 
+    else if(id==4){
         Referval = '140000000000000000'
-    } else if(id==16){
+    }
+    else if(id==16){
         Referval = '8000000000000000000'
     }
     await matrix.methods.addUser(id,code).send({from:account,value:Referval})

@@ -89,9 +89,10 @@ const main = `<section>
                         >
                         <div class="selectLvls">
                         <select name="lvls" id="lvls" class="lvls">
-                        <option value="1">Уровень 1D (0,07 BNB)</option>
-                        <option value="2">Уровень 2D (0,1 BNB)</option>
-                        <option value="3">Уровень 3D (0,14 BNB)</option>
+                        <option value="1">Уровень 1д (0,05 BNB)</option>
+                        <option value="2">Уровень 2д (0,07 BNB)</option>
+                        <option value="3">Уровень 3д (0,1 BNB)</option>
+                        <option value="4">Уровень 4д (0,14 BNB)</option>
                         <option value="16">Уровень 16 (8 BNB)</option>
                         
                         </select>
@@ -411,8 +412,8 @@ const invited = `<section class="section-bg section-back-h-100 d-flex align-item
             </div>
             <div>
                 <div class="notification-container">
-                    <img src="./assets/img/sidebar/telegram.png" alt="" />
-                    <a href="https://t.me/BIGRACE_game" target="_blank">Телеграмма</a>
+                  <img class="tgicon" src="./assets/img/sidebar/telegram.png" alt="" />
+                  <a href="https://t.me/BIGRACE_game" target="_blank">Телеграмма</a>
                 </div>
             </div>
       </div>
@@ -442,10 +443,11 @@ const invited = `<section class="section-bg section-back-h-100 d-flex align-item
                         >
                         <div class="selectLvls">
                         <select name="lvls" id="lvls" class="lvls">
-                        <option value="1">Level 1D (0,07 BNB)</option>
-                        <option value="2">Level 2D (0,1 BNB)</option>
-                        <option value="3">Level 3D (0,14 BNB)</option>
-                        <option value="16">Level 16 (8 BNB)</option>
+                        <option value="1">Уровень 1д (0,05 BNB)</option>
+                        <option value="2">Уровень 2д (0,07 BNB)</option>
+                        <option value="3">Уровень 3д (0,1 BNB)</option>
+                        <option value="4">Уровень 4д (0,14 BNB)</option>
+                        <option value="16">Уровень 16 (8 BNB)</option>
                         
                         </select>
                         </div>

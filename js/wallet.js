@@ -129,6 +129,10 @@ const walletConnectOptions = {
     // rpc: objectMap(NETWORKS, (value) => (value.rpcURL)),
     rpc:"https://data-seed-prebsc-2-s1.binance.org:8545",
     qrcodeModalOptions: {
+        mobileLinks: [
+            "metamask",
+            "trust",
+        ],
         
     },
 }

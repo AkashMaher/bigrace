@@ -1385,3 +1385,9 @@ iframe{
 .infoss{
   text-decoration: underline;
 }
+
+.tgicon{
+  width: 25px;
+  height: inherit;
+  color: #3f3f3f;
+}
