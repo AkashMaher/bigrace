@@ -461,7 +461,7 @@ body {
 }
 .sidebar-container {
   background: rgba(255, 255, 255, 0.9);
-  padding: 1.5rem 4.25rem 1.5rem 1.5rem;
+  padding: 1.5rem 1.25rem 1.5rem 1.5rem;
   max-width: 245px;
   width: 100%;
   height: 100%;
@@ -487,7 +487,8 @@ body {
 .notification-container {
   background: #0088CC;
   border-radius: 12px;
-  padding: 0.75rem;
+  width: fit-content;
+  padding: 0.4rem;
   margin-top: 413px;
 }
 .notification-container a {
@@ -514,12 +515,12 @@ body {
 .content-container {
   padding-left: 1.25rem;
   padding-top: 1.625rem;
-  row-gap: 2rem;
-  column-gap: 1.5rem;
+  row-gap: 0rem;
+  column-gap: 4.5rem;
 }
 .horse-card-container {
-  width: 266px;
-  height: 198px;
+  width: 250px;
+  height: 164px;
   background-image: url("./assets/img/card-horse.png");
   background-repeat: no-repeat;
   background-size: 100% 100%;
@@ -528,8 +529,8 @@ body {
   font-family: "Montserrat", sans-serif;
   font-style: normal;
   font-weight: 700;
-  font-size: 14px;
-  line-height: 17px;
+  font-size: 10px;
+  line-height: 1px;
   color: #ffffff;
 }
 .main-card-text {
@@ -562,7 +563,7 @@ body {
   margin-right: 4px;
 }
 .card-top-text {
-  margin-top: 0.85rem;
+  margin-top: 0.7rem;
 }
 .clock-card-main-container h4 {
   font-family: "Montserrat", sans-serif;
@@ -573,7 +574,7 @@ body {
   color: #ffffff;
 }
 .clock-card-main-container img {
-  margin-top: 2rem;
+  margin-top: 1.5rem;
   margin-bottom: 0.75rem;
 }
 .clock-card-main-container p {
@@ -581,7 +582,7 @@ body {
   font-style: normal;
   font-weight: 400;
   font-size: 16px;
-  line-height: 20px;
+  line-height: 14px;
   color: #ffffff;
 }
 .horse-clock-container {
@@ -601,8 +602,8 @@ body {
   font-family: "Montserrat";
   font-style: normal;
   font-weight: 700;
-  font-size: 12px;
-  line-height: 15px;
+  font-size: 17px;
+  line-height: 20px;
   color: #ffffff;
 }
 .bar-card-main-container .progress {
@@ -1390,4 +1391,14 @@ iframe{
   width: 25px;
   height: inherit;
   color: #3f3f3f;
+}
+
+.text-cetr{
+  padding: 30px 20px;
+  font-size: 1.2rem;
+}
+
+.farmimg{
+  padding: 3rem;
+  width: 70rem;
 }

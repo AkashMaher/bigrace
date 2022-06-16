@@ -1,6 +1,6 @@
 async function auto3() {
     await delay(3000)
-    if (!account) return window.open('./','_self');
+    // if (!account) return window.open('./','_self');
     setInterval(async function () {
 
         RacIter = await racing.methods.racIter().call();
@@ -9,7 +9,7 @@ async function auto3() {
         EndTime = await racing.methods.timeStampStop(RacIter).call();
         Winner = await racing.methods.winners(RacIter).call()
         // console.log(RacIter, StartTime, EndTime, Winner)
-        document.getElementById('winner').textContent = `Horse #${Winner} Won`
+        document.getElementById('winner').textContent = `Лошадь #${Winner} Выиграл`
 
 },5000)
  
