@@ -438,10 +438,23 @@ async function onBuyTicket(){
 }
 
 
+
+function openNavs() {
+    if(document.getElementById('mySidenav').style.width=='250px'){
+        closeNavs()
+    } else{
+    document.getElementById("mySidenav").style.width = "250px";
+    }
+}
+
+function closeNavs() {
+    document.getElementById("mySidenav").style.width = "0";
+}
 // async function onRegister(){
 //     if(!account) return toastr.info('please connect wallet ')
 //     document.querySelector('.modal').style.display = 'block';
 // }
+
 
 window.addEventListener('load', async () => {
     init();

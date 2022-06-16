@@ -135,6 +135,10 @@
   #closeBtn {
     display: none;
   }
+
+  .menu-btn{
+    display: flex;
+  }
   .navbar-close-icon {
     display: inline-block;
     vertical-align: middle;
