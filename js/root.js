@@ -844,19 +844,7 @@ async function isInvited() {
 isInvited()
 
 
-async function PreviewId(){
-  if (!account) return toastr.error('Пожалуйста, сначала войдите с кошельком','ОШИБКА')
-  let UID = await document.getElementById('inputPreviewId').value;
-  console.log(UID.isNaN)
-  if(UID.isNaN)
-  console.log(UID)
-  let addres = await matrix.methods.ReferalAddress('1', UID).call()
 
-  document.getElementById('userID').textContent = `ID пользователя : ${UID}`;
-  document.getElementById('WalletAddress').textContent = `Адрес кошелька : ${addres}`;
-  
-  
-}
 
 async function automate2() {
   setInterval(async function () {

@@ -351,7 +351,31 @@ async function onRefreshPage() {
 
 }
 
+async function PreviewId() {
+    if (!account) return toastr.error('Пожалуйста, сначала войдите с кошельком', 'ОШИБКА')
+    let inputVal = await document.getElementById('inputPreviewId').value;
+    let adder = inputVal.length
+    console.log(adder)
+    console.log(account)
 
+    if (adder == 42) {
+        let owner = await matrix.methods.owner().call()
+        let userId = await matrix.methods.ReferalNumber('1', inputVal).call()
+        if (userId == '0' && inputVal != owner) return toastr.error('User Not Registered')
+        document.getElementById('userID').textContent = `ID пользователя : ${userId}`;
+        document.getElementById('WalletAddress').textContent = `Адрес кошелька : ${inputVal}`;
+    } else {
+        // console.log(UID)
+        
+        let addres = await matrix.methods.ReferalAddress('1', inputVal).call()
+        if (addres == '0x0000000000000000000000000000000000000000') return toastr.error('Invalid User Id')
+
+        document.getElementById('userID').textContent = `ID пользователя : ${inputVal}`;
+        document.getElementById('WalletAddress').textContent = `Адрес кошелька : ${addres}`;
+    }
+
+
+}
 
 
 async function chooseHorse1(){
