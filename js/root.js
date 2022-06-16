@@ -853,6 +853,7 @@ async function automate2() {
       document.getElementById('ifNo').style.display = 'flex'
       // console.log('test1')
     } else {
+      
       document.getElementById('ifNo').style.display = 'none'
       document.getElementById('ifYes').style.display = 'flex'
       // console.log('test2')
