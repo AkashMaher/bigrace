@@ -13,6 +13,8 @@ let tnxHash;
 let code;
 let horseNum;
 let balance;
+let userId;
+let owner;
 
 
 
@@ -187,7 +189,7 @@ async function onConnect() {
     console.log(`disconnected =`+ disconnected)
     if(disconnected === 'true') {toastr.success('Wallet Connected','SUCCESS')}
         // sessionStorage.setItem('disconnected', false)}
-    else if(account) {toastr.info('Wallet Already Connected', 'INFO')}
+    else if(account) {console.log('already connected')}
     
 
     console.log("Opening a dialog", web3Modal);
@@ -229,6 +231,8 @@ async function onConnect() {
         let bals = await web3.utils.fromWei(bal, 'ether');
         let balan = parseFloat(bals)
         balance = balan.toFixed(2);
+        owner = await matrix.methods.owner().call()
+        userId = await matrix.methods.ReferalNumber('1', account).call()
         // console.log(balance)
         // document.getElementById('balance').innerHTML = `${balance} BNB`
 
@@ -239,6 +243,11 @@ async function onConnect() {
         // console.log("Provider is ", provider, "till here")
         // console.log('test')
         toastr.success('Wallet Connected', 'SUCCESS')
+        if (userId == '0' && account != owner) {
+            console.log('new user')
+        } else{
+            window.open('./profile.html','_self')
+        }
     } catch (e) {
         console.log("Could not get a wallet connection", e);
         return;
@@ -282,6 +291,8 @@ async function onRefreshPage() {
     if (!isConnected) return console.log('Not Connected'), web3Modal.clearCachedProvider();
 
     console.log("Opening a dialog", web3Modal);
+    
+    
     try {
         provider = await web3Modal.connect();
 
@@ -315,6 +326,8 @@ async function onRefreshPage() {
         console.log(adder)
         // document.getElementById('address').textContent = `${adder}`;
 
+        owner = await matrix.methods.owner().call()
+        userId = await matrix.methods.ReferalNumber('1', inputVal).call()
         let bal = await web3.eth.getBalance(`${account}`)
         let bals = await web3.utils.fromWei(bal, 'ether');
         let balan = parseFloat(bals)

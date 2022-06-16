@@ -1,19 +1,4 @@
 
-
-// let msg;
-// let globalSignature;
-
-// async function activate(){
-//     if(!account) return;
-//     const message = 'Sign with Big Race'
-//     const msg = `0x${bops.from(message, 'utf8').toString('hex')}`;
-//     const sign = await web3.currentProvider.request({
-//         method: 'personal_sign',
-//         params: [msg, account, 'Sign with Big Race'],
-//     });
-//     console.log('sign : ' + sign);
-//     globalSignature = sign;
-// }
 const main = `<section>
       <div class="headline-container">
         <div
@@ -24,12 +9,12 @@ const main = `<section>
             <h4>Зарегистрируйтесь или войдите</h4>
             <div class="" id='ifNo'>
                 <button type="button" id="register">
-                  Быстрая регистрация
+                  Войдите или зарегистрируйтесь
                 </button>
               </div>
               <div class="noview" id='ifYes'>
               <button type="button" data-bs-toggle="modal" data-bs-target="#exampleModal2">
-                Быстрая регистрация
+                Войдите или зарегистрируйтесь
               </button>
               </div>
             <div
@@ -445,34 +430,7 @@ const main = `<section>
     </section>`
 
 const invited = `<section class="section-bg section-back-h-100 d-flex align-items-start">
-      <div id="mySidebar" class="sidebar-container">
-        <div>
-                <div class="d-flex align-items-center sidebar-card-container">
-                    <img src="./assets/img/sidebar/play.png" alt="" />
-                    <a href="#" id="play">Играть сейчас</a>
-                </div>
-                <div class="d-flex align-items-center sidebar-card-container">
-                    <img src="./assets/img/sidebar/dashboard.png" alt="" />
-                    <a href="farms.html" id="dashboardView">Фермы</a>
-                </div>
-                <div class="d-flex align-items-center sidebar-card-container">
-                    <img src="./assets/img/sidebar/stats.png" alt="" />
-                    <a href="stat.html" id="statView">Статистика</a>
-                </div>
-
-                <div class="d-flex align-items-center sidebar-card-container">
-                    <img src="./assets/img/sidebar/information.png" alt="" />
-                    <a href="info.html">Информация</a>
-                </div>
-
-            </div>
-            <div>
-                <div class="notification-container">
-                  <img class="tgicon" src="./assets/img/sidebar/telegram.png" alt="" />
-                  <a href="https://t.me/BIGRACE_game" target="_blank">Телеграмма</a>
-                </div>
-            </div>
-      </div>
+      
       
       <div
               class="modal fade"
@@ -548,7 +506,7 @@ const invited = `<section class="section-bg section-back-h-100 d-flex align-item
               </h2>
               
             </button>
-            <div class="" id='ifNo'>
+            <div class="invitesss" id='ifNo'>
                 <button type="button" id="register">
                   Зарегистрируйтесь сейчас
                 </button>
@@ -864,18 +822,23 @@ async function automate2() {
 
 
 async function automate(){
-  setInterval(async function ()  {
+  var y= setInterval(async function ()  {
     if (!account) {
       document.getElementById('playy').style.display = 'none'
       document.getElementById('ifYes').style.display = 'none'
       document.getElementById('ifNo').style.display = 'flex'
       // console.log('test1')
     } else {
-      document.getElementById('ifNo').style.display = 'none'
-      document.getElementById('logintoPlay').style.display = 'none'
-      document.getElementById('ifYes').style.display = 'flex'
-      document.getElementById('playy').style.display = 'flex'
-      // console.log('test2')
+      owner = await matrix.methods.owner().call()
+      userId = await matrix.methods.ReferalNumber('1', account).call()
+      if (userId == '0' && account != owner) {
+        document.getElementById('ifNo').style.display = 'none'
+        document.getElementById('logintoPlay').style.display = 'none'
+        document.getElementById('ifYes').style.display = 'flex'
+        document.getElementById('playy').style.display = 'flex'
+      } else {
+        clearInterval(y);
+      } 
     }
   }, 1000);
   
