@@ -27,7 +27,7 @@
   <body>
     <nav class="navbar navbar-expand-lg bg-light">
       <div class="container-fluid px-0 d-flex justify-content-between">
-        <a class="navbar-brand" href="#">Big Race</a>
+        <a class="navbar-brand" href="./index.html">Big Race</a>
 
         <div class="ml-auto d-flex align-items-center button-container">
           <div class="select-dropdown">
@@ -62,7 +62,7 @@
               </div>
             </div>
           </div>
-          <button
+          <!-- <button
             type="button"
             
             id="connect"
@@ -70,8 +70,8 @@
           >
             <img src="./assets/img/wallet.png" class="" alt="" />
             <span id="connectName">Connect</span>
-          </button>
-          <div id="connected">
+          </button> -->
+          <!-- <div id="connected">
           <button class="wallet-bnb-btn d-flex justify-content-center align-items-center p-2" >
             <img class="mob-none" src="./assets/img/bnb.png" alt="" />
             <p class="mb-0" id="balance"></p>
@@ -81,7 +81,7 @@
           </div>
           <button class="logout-btn" id="disconnect">
             <img src="./assets/img/logout.png" alt="" />
-          </button>
+          </button> -->
         </div>
       </div>
     </nav>
@@ -92,9 +92,16 @@
             <div class="headline-main-container">
               <h1>Big Race</h1>
               <h4>Register or Login</h4>
-              <button type="button" id="register" data-bs-toggle="modal" data-bs-target="#exampleModal2">
+              <div class="">
+                <button type="button" id="register">
+                  Fast Registration
+                </button>
+              </div>
+              <div class="noview">
+              <button type="button" data-bs-toggle="modal" data-bs-target="#exampleModal2">
                 Fast Registration
               </button>
+              </div>
               <div class="modal fade" id="exampleModal3" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <button type="button" class="btn-close-modal" data-bs-dismiss="modal" aria-label="Close"></button>
                 <div class="modal-dialog modal-dialog-centered">
@@ -275,15 +282,31 @@
             <div class="mob-document-container">
               <div class="d-flex flex-column align-items-center document-card">
                 <img src="./assets/img/document.png" alt="" />
-                <a class='pdfsname' id="ruPdf" href="./assets/pdfs/Big Race_Ru.pdf">Русский pdf</a>
+                <a class='pdfsname'  href="./assets/pdfs/Big Race_Ru.pdf">Русский pdf</a>
               </div>
               <div class="d-flex flex-column align-items-center document-card">
                 <img src="./assets/img/document.png" alt="" />
-                <a class='pdfsname' id="engPdf" href="./assets/pdfs/Big Race_ English.pdf">English pdf</a>
+                <a class='pdfsname'  href="./assets/pdfs/Big Race_ English.pdf">English pdf</a>
               </div>
               <div class="d-flex flex-column mr-0 align-items-center document-card">
                 <img src="./assets/img/document.png" alt="" />
-                <a class='pdfsname' id="hindiPdf" href="./assets/pdfs/Big Race_Hindi.pdf">Hindi pdf</a>
+                <a class='pdfsname'  href="./assets/pdfs/Big Race_Hindi.pdf">Hindi pdf</a>
+              </div>
+              <div class="d-flex flex-column mr-0 align-items-center document-card">
+                <img src="./assets/img/document.png" alt="" />
+                <a class='pdfsname'  href="./assets/pdfs/Big Race_ Indonesia.pdf">Indonesia pdf</a>
+              </div>
+              <div class="d-flex flex-column mr-0 align-items-center document-card">
+                <img src="./assets/img/document.png" alt="" />
+                <a class='pdfsname' href="./assets/pdfs/Big Race_ Italian.pdf">Italian pdf</a>
+              </div>
+              <div class="d-flex flex-column mr-0 align-items-center document-card">
+                <img src="./assets/img/document.png" alt="" />
+                <a class='pdfsname' href="./assets/pdfs/Big Race_ Vietnam.pdf">Vietnam pdf</a>
+              </div>
+              <div class="d-flex flex-column mr-0 align-items-center document-card">
+                <img src="./assets/img/document.png" alt="" />
+                <a class='pdfsname'  href="./assets/pdfs/Big Race_FARSI.pdf">Farsi pdf</a>
               </div>
               
               
@@ -307,7 +330,7 @@
             <div class="people-count-container d-flex flex-column align-items-center">
               <h2>Сейчас участников</h2>
               <h1><span id="participants">0</span></h1>
-              <button><a href="./game.html" class="plybtn">Хочу в игру</a></button>
+              <button type="button" data-bs-toggle="modal" data-bs-target="#exampleModal2">Хочу в игру</button>
             </div>
             <div class="preview-container">
               <h1>Preview Mode</h1>
@@ -327,11 +350,11 @@
               </div>
               <div class="result-container d-flex justify-content-between align-items-center">
                 <div>
-                  <p class="mb-0">ID 87321</p>
-                  <p class="result-sub-text mb-0">8 levels</p>
+                  <p class="mb-0" ><span id="userID"></span></p>
+                  <p class="result-sub-text mb-0"><span id="WalletAddress"></span></p>
                 </div>
                 <div>
-                  <p class="mb-0">16 BNB</p>
+                  <p class="mb-0"><span id="userlvl"></span></p>
                 </div>
       
               </div>

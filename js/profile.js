@@ -130,7 +130,6 @@ async function tweetshare() {
 window.addEventListener('load', async () => {
     document.querySelector("#copyAddress").addEventListener("click", copyAddress);
     document.querySelector("#copyReferLink").addEventListener("click", copyInviteLink);
-    document.querySelector("#connected").addEventListener("click", onConnected);
     document.querySelector("#copylinkinvite").addEventListener("click", copyInviteLink);
     document.querySelector('#FacebookShare').addEventListener("click", fbshare)
     document.querySelector('#TwitterShare').addEventListener("click", tweetshare)

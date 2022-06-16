@@ -11,7 +11,7 @@ async function auto1(){
     // await setInterval(async function () {
     
     console.log(balance)
-    document.getElementById('balanceonBuyPage').textContent = `${balance} BNB`
+    // document.getElementById('balanceonBuyPage').textContent = `${balance} BNB`
     setInterval(async function () {
     RacIter = await racing.methods.racIter().call();
     StartTime = await racing.methods.timeStampStart(RacIter).call();

@@ -3,7 +3,10 @@ let mul;
 
 async function onSpeedUp(){
     delay(3000);
-    if(!account) return toastr.info('please connect wallet');
+    if (!account) return toastr.info('Пожалуйста, подключите свой кошелек');
+    let race = await racing.methods.racingEnded().call()
+    console.log(race)
+    if (race == true) return toastr.info('Гонка уже завершена','Информация')
     let inputVal = parseFloat(document.getElementById('range-input').value*100)
     let slideVal = parseFloat(slider.value)
     console.log(inputVal, slideVal)
@@ -28,7 +31,7 @@ async function auto2() {
     // await setInterval(async function () {
     
         console.log(balance)
-        document.getElementById('balanceonBuyPage2').textContent = `${balance} BNB`
+        // document.getElementById('balanceonBuyPage2').textContent = `${balance} BNB`
     setInterval(async function () {
         RacIter = await racing.methods.racIter().call();
         StartTime = await racing.methods.timeStampStart(RacIter).call();
@@ -69,8 +72,9 @@ async function auto2() {
                 if (distance < 0) {
                     clearInterval(x);
                     // document.getElementById("startCountDown").textContent = "Started";
-                    document.getElementById('finishRace').style.display = 'flex';
-                    document.getElementById('accelarate').style.display = 'none';
+                    // document.getElementById('finishRace').style.display = 'flex';
+                    // document.getElementById('accelarate').style.display = 'none';
+                    window.open('./game-win.html', '_self')
                     
                 } else {
                     // document.getElementById('StartRace').style.display = 'none';
@@ -85,36 +89,9 @@ async function auto2() {
     }, 10000);
 }
 
-async function finishRace(){
-    if(!account) return;
-    await racing.methods.finish().send({from:account})
-    await delay(3000)
-    window.open('./game-win.html', '_self')
-}
-
-
-// async function sliderVal(){
-//     var slider = document.getElementById("myRange");
-//     var output = document.getElementById("demo");
-//     var input = document.getElementById("range-input");
-//     output.innerHTML = '0.0' + slider.value + 'BNB';
-//     input.value = '0.0' + slider.value;
-
-//     slider.oninput = function () {
-//         if (this.value < 10) {
-//             output.innerHTML = '0.0' + this.value + 'BNB';
-//             input.value = '0.0' + slider.value;
-//         } else if (this.value > 9) {
-//             output.innerHTML = '0.' + this.value + 'BNB';
-//             input.value = '0.' + slider.value;
-//         }
-//     };
-// }
 
 window.addEventListener('load', async () => {
-    // auto()
-    // document.querySelector("#SpeedUp").addEventListener("click", onSpeedUp);
-    // document.querySelector("#finishRace").addEventListener("click", finishRace);
+
 
     
 });

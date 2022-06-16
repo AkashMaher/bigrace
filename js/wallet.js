@@ -219,21 +219,22 @@ async function onConnect() {
         let lastader = account.slice(38, 42);
         let adder = `${ader}...${lastader}`;
         console.log(adder)
-        document.getElementById('address').textContent = `${adder}`;
+        // document.getElementById('address').textContent = `${adder}`;
 
         let bal = await web3.eth.getBalance(`${account}`)
         let bals = await web3.utils.fromWei(bal, 'ether');
         let balan = parseFloat(bals)
         balance = balan.toFixed(2);
-        console.log(balance)
-        document.getElementById('balance').innerHTML = `${balance} BNB`
+        // console.log(balance)
+        // document.getElementById('balance').innerHTML = `${balance} BNB`
 
         sessionStorage.setItem('WalletConnected', true);
-        document.getElementById('connectName').textContent = 'Connected';
-        document.querySelector('.logout-btn').style.display = 'flex';
+        // document.getElementById('connectName').textContent = 'Connected';
+        // document.querySelector('.logout-btn').style.display = 'flex';
         sessionStorage.setItem('disconnected', false)
-        console.log("Provider is ", provider, "till here")
-        console.log('test')
+        // console.log("Provider is ", provider, "till here")
+        // console.log('test')
+        toastr.success('Wallet Connected', 'SUCCESS')
     } catch (e) {
         console.log("Could not get a wallet connection", e);
         return;
@@ -252,8 +253,8 @@ async function onDisconnect(){
     console.log(isConnected)
     if (!isConnected) return console.log('Not Connected');
     // await web3Modal.clearCachedProvider();
-    document.getElementById('connectName').textContent = 'Connect Wallet';
-    document.querySelector('.logout-btn').style.display = 'none';
+    // document.getElementById('connectName').textContent = 'Connect Wallet';
+    // document.querySelector('.logout-btn').style.display = 'none';
     sessionStorage.setItem('WalletConnected', false);
     sessionStorage.setItem('disconnected', true);
     toastr.success('Disconnected', 'SUCCESS')
@@ -308,19 +309,19 @@ async function onRefreshPage() {
         let lastader = account.slice(38, 42);
         let adder = `${ader}...${lastader}`;
         console.log(adder)
-        document.getElementById('address').textContent = `${adder}`;
+        // document.getElementById('address').textContent = `${adder}`;
 
         let bal = await web3.eth.getBalance(`${account}`)
         let bals = await web3.utils.fromWei(bal, 'ether');
         let balan = parseFloat(bals)
         balance = balan.toFixed(2);
         console.log(balance)
-        document.getElementById('balance').innerHTML = `${balance} BNB`
+        // document.getElementById('balance').innerHTML = `${balance} BNB`
 
 
         console.log("Provider is ", provider, "till here")
-        document.getElementById('connectName').textContent = 'Connected';
-        document.querySelector('.logout-btn').style.display = 'flex';
+        // document.getElementById('connectName').textContent = 'Connected';
+        // document.querySelector('.logout-btn').style.display = 'flex';
 
 
         setInterval(async function () {
@@ -335,7 +336,7 @@ async function onRefreshPage() {
             let balan = parseFloat(bals)
             balance = balan.toFixed(2);
             // console.log(balance)
-            document.getElementById('balance').innerHTML = `${balance} BNB`
+            // document.getElementById('balance').innerHTML = `${balance} BNB`
             
         }, 30000);
 
@@ -381,12 +382,12 @@ async function chooseHorse4() {
     console.log(horseNum)
 }
 
-async function onStartRace() {
-    if(!account) return toastr.info('please connect wallet');
-    await racing.methods.startRacing().send({from:account})
-    toastr.info('racing started')
-    auto()
-}
+// async function onStartRace() {
+//     if(!account) return toastr.info('please connect wallet');
+//     await racing.methods.startRacing().send({from:account})
+//     toastr.info('racing started')
+//     auto()
+// }
 async function onBuyTicket(){
     if(!account) return toastr.info('please login by connect wallet')
     console.log(horseNum)
@@ -417,10 +418,10 @@ async function onBuyTicket(){
 window.addEventListener('load', async () => {
     init();
     onRefreshPage();
-    document.querySelector("#connect").addEventListener("click", onConnect);
+    // document.querySelector("#connect").addEventListener("click", onConnect);
     // document.querySelector("#connect2").addEventListener("click", onConnect);
-    document.querySelector("#disconnect").addEventListener("click", onDisconnect);
-    document.querySelector("#connected").addEventListener("click", onConnected);
+    // document.querySelector("#disconnect").addEventListener("click", onDisconnect);
+    // document.querySelector("#connected").addEventListener("click", onConnected);
     
 });
 

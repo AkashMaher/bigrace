@@ -26,41 +26,16 @@
   <body class="mb-0">
     <nav class="navbar navbar-expand-lg bg-light">
       <div class="container-fluid px-0 d-flex justify-content-between">
-        <button
-          id="closeBtn"
-          class="navbar-toggler"
-          type="button"
-          onclick="closeNav()"
-        >
-          <span class="navbar-close-icon"></span>
-        </button>
-        <button
-          id="openBtn"
-          class="navbar-toggler"
-          type="button"
-          onclick="openNav()"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <a class="navbar-brand" href="#">Big Race</a>
-
-        <div class="ml-auto d-flex align-items-center button-bnb-container">
+        <a class="navbar-brand" href="./index.html">Big Race</a>
+    
+        <div class="ml-auto d-flex align-items-center button-container">
           <div class="select-dropdown">
             <div class="textBox d-flex justify-content-between">
               <div class="d-flex justify-content-center align-items-center">
-                <img
-                  id="textBox-img"
-                  class="ml-0"
-                  src="./assets/img/russia.png"
-                  alt=""
-                />
+                <img id="textBox-img" class="ml-0" src="./assets/img/russia.png" alt="" />
                 <p id="textBox-text">Русский</p>
               </div>
-              <img
-                class="ml-auto select-arrow"
-                src="./assets/img/select.svg"
-                alt=""
-              />
+              <img class="ml-auto select-arrow" src="./assets/img/select.svg" alt="" />
             </div>
             <div class="option">
               <div onclick="show('Русский')">
@@ -77,24 +52,8 @@
               </div>
             </div>
           </div>
-          <button type="button" id="connect" class="wallet-btn d-flex justify-content-center align-items-center p-2">
-            <img src="./assets/img/wallet.png" class="" alt="" />
-            <span id="connectName">Connect</span>
-          </button>
-          
-          <div id="connected">
-            <button class="wallet-bnb-btn d-flex justify-content-center align-items-center p-2">
-              <img class="mob-none" src="./assets/img/bnb.png" alt="" />
-              <p class="mb-0" id="balance"></p>
-              <img src="./assets/img/wallet.png" class="" alt="" />
-              <span class="mob-none" id="address"></span>
-            </button>
-          </div>
-          <button class="logout-btn" id="disconnect">
-            <img src="./assets/img/logout.png" alt="" />
-          </button>
+    
         </div>
-        <div class="collapse navbar-collapse" id="navbarNavDropdown"></div>
       </div>
     </nav>
     <section class="section-bg d-flex align-items-start">
@@ -106,7 +65,7 @@
           </div>
           <div class="d-flex align-items-center sidebar-card-container">
             <img src="./assets/img/sidebar/dashboard.png" alt="" />
-            <a href="dashboard.html" id="dashboardView">Dashboard</a>
+            <a href="farms.html" id="dashboardView">FARMS</a>
           </div>
           <div class="d-flex align-items-center sidebar-card-container">
             <img src="./assets/img/sidebar/stats.png" alt="" />
@@ -115,14 +74,14 @@
           
           <div class="d-flex align-items-center sidebar-card-container">
             <img src="./assets/img/sidebar/information.png" alt="" />
-            <a href="#">Information</a>
+            <a href="info.html">Information</a>
           </div>
           
         </div>
         <div>
           <div class="notification-container">
-            <img src="./assets/img/sidebar/notification.png" alt="" />
-            <a href="#">Notifier bot</a>
+            <img src="./assets/img/sidebar/telegram.png" alt="" />
+            <a href="https://t.me/BIGRACE_game" target="_blank">Notifier bot</a>
           </div>
         </div>
       </div>
@@ -134,7 +93,7 @@
         
         <div class="horse-card-container">
           <div class="d-flex align-items-center justify-content-between card-top-text">
-            <p class="mb-0 left-card-text">Farm 16</p>
+            <p class="mb-0 left-card-text">FARM 16</p>
             <p class="mb-0 right-card-text d-flex align-items-center">
               <img src="./assets/img/bnb.png" alt="" />8
             </p>
@@ -148,7 +107,7 @@
         </div>
         <div class="horse-card-container horse-clock-container">
           <div class="d-flex align-items-center justify-content-between card-top-text">
-            <p class="mb-0 left-card-text">farm 15</p>
+            <p class="mb-0 left-card-text">FARM 15</p>
             <p class="mb-0 right-card-text d-flex align-items-center">
               <img src="./assets/img/bnb.png" alt="" />6,5
               <!--price here-->
@@ -164,7 +123,7 @@
           <div
             class="d-flex align-items-center justify-content-between card-top-text"
           >
-            <p class="mb-0 left-card-text">farm 14</p>
+            <p class="mb-0 left-card-text">FARM 14</p>
             <p class="mb-0 right-card-text d-flex align-items-center">
               <img src="./assets/img/bnb.png" alt="" /> 4,4
             </p>
@@ -179,7 +138,7 @@
         </div>
         <div class="horse-card-container horse-clock-container">
           <div class="d-flex align-items-center justify-content-between card-top-text">
-            <p class="mb-0 left-card-text">farm 13</p>
+            <p class="mb-0 left-card-text">FARM 13</p>
             <p class="mb-0 right-card-text d-flex align-items-center">
               <img src="./assets/img/bnb.png" alt="" />3,2
               <!--price here-->
@@ -193,7 +152,7 @@
         </div>
         <div class="horse-card-container horse-clock-container">
           <div class="d-flex align-items-center justify-content-between card-top-text">
-            <p class="mb-0 left-card-text">farm 12</p>
+            <p class="mb-0 left-card-text">FARM 12</p>
             <p class="mb-0 right-card-text d-flex align-items-center">
               <img src="./assets/img/bnb.png" alt="" />2,6
               <!--price here-->
@@ -207,7 +166,7 @@
         </div>
         <div class="horse-card-container horse-clock-container">
           <div class="d-flex align-items-center justify-content-between card-top-text">
-            <p class="mb-0 left-card-text">farm 11</p>
+            <p class="mb-0 left-card-text">FARM 11</p>
             <p class="mb-0 right-card-text d-flex align-items-center">
               <img src="./assets/img/bnb.png" alt="" />1,6
               <!--price here-->
@@ -221,7 +180,7 @@
         </div>
         <div class="horse-card-container horse-clock-container">
           <div class="d-flex align-items-center justify-content-between card-top-text">
-            <p class="mb-0 left-card-text">farm 10</p>
+            <p class="mb-0 left-card-text">FARM 10</p>
             <p class="mb-0 right-card-text d-flex align-items-center">
               <img src="./assets/img/bnb.png" alt="" />1,1
               <!--price here-->
@@ -235,7 +194,7 @@
         </div>
         <div class="horse-card-container horse-clock-container">
           <div class="d-flex align-items-center justify-content-between card-top-text">
-            <p class="mb-0 left-card-text">farm 9</p>
+            <p class="mb-0 left-card-text">FARM 9</p>
             <p class="mb-0 right-card-text d-flex align-items-center">
               <img src="./assets/img/bnb.png" alt="" />0,8
               <!--price here-->
@@ -249,7 +208,7 @@
         </div>
         <div class="horse-card-container horse-clock-container">
           <div class="d-flex align-items-center justify-content-between card-top-text">
-            <p class="mb-0 left-card-text">farm 8</p>
+            <p class="mb-0 left-card-text">FARM 8</p>
             <p class="mb-0 right-card-text d-flex align-items-center">
               <img src="./assets/img/bnb.png" alt="" />0,55
               <!--price here-->
@@ -263,7 +222,7 @@
         </div>
         <div class="horse-card-container horse-clock-container">
           <div class="d-flex align-items-center justify-content-between card-top-text">
-            <p class="mb-0 left-card-text">farm 7</p>
+            <p class="mb-0 left-card-text">FARM 7</p>
             <p class="mb-0 right-card-text d-flex align-items-center">
               <img src="./assets/img/bnb.png" alt="" />0,4
               <!--price here-->
@@ -277,7 +236,7 @@
         </div>
         <div class="horse-card-container horse-clock-container">
           <div class="d-flex align-items-center justify-content-between card-top-text">
-            <p class="mb-0 left-card-text">farm 6</p>
+            <p class="mb-0 left-card-text">FARM 6</p>
             <p class="mb-0 right-card-text d-flex align-items-center">
               <img src="./assets/img/bnb.png" alt="" />0,28
               <!--price here-->
@@ -291,7 +250,7 @@
         </div>
         <div class="horse-card-container horse-clock-container">
           <div class="d-flex align-items-center justify-content-between card-top-text">
-            <p class="mb-0 left-card-text">farm 5</p>
+            <p class="mb-0 left-card-text">FARM 5</p>
             <p class="mb-0 right-card-text d-flex align-items-center">
               <img src="./assets/img/bnb.png" alt="" />0,2
               <!--price here-->
@@ -305,7 +264,7 @@
         </div>
         <div class="horse-card-container horse-clock-container">
           <div class="d-flex align-items-center justify-content-between card-top-text">
-            <p class="mb-0 left-card-text">farm 4</p>
+            <p class="mb-0 left-card-text">FARM 4</p>
             <p class="mb-0 right-card-text d-flex align-items-center">
               <img src="./assets/img/bnb.png" alt="" />0,14
               <!--price here-->
@@ -319,7 +278,7 @@
         </div>
         <div class="horse-card-container">
           <div class="d-flex align-items-center justify-content-between card-top-text">
-            <p class="mb-0 left-card-text">Farm 3</p>
+            <p class="mb-0 left-card-text">FARM 3</p>
             <p class="mb-0 right-card-text d-flex align-items-center">
               <img src="./assets/img/bnb.png" alt="" />0,1
             </p>
@@ -333,7 +292,7 @@
         </div>
         <div class="horse-card-container">
           <div class="d-flex align-items-center justify-content-between card-top-text">
-            <p class="mb-0 left-card-text">Farm 2</p>
+            <p class="mb-0 left-card-text">FARM 2</p>
             <p class="mb-0 right-card-text d-flex align-items-center">
               <img src="./assets/img/bnb.png" alt="" />0,07
             </p>
@@ -347,7 +306,7 @@
         </div>
         <div class="horse-card-container">
           <div class="d-flex align-items-center justify-content-between card-top-text">
-            <p class="mb-0 left-card-text">Farm 1</p>
+            <p class="mb-0 left-card-text">FARM 1</p>
             <p class="mb-0 right-card-text d-flex align-items-center">
               <img src="./assets/img/bnb.png" alt="" /> 0,05
             </p>

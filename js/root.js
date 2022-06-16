@@ -22,14 +22,16 @@ const main = `<section>
           <div class="headline-main-container">
             <h1>Big Race</h1>
             <h4>Зарегистрируйтесь или войдите</h4>
-            <button
-              type="button"
-              id="register"
-              data-bs-toggle="modal"
-              data-bs-target="#exampleModal2"
-            >
-              Быстрая регистрация
-            </button>
+            <div class="" id='ifNo'>
+                <button type="button" id="register">
+                  Быстрая регистрация
+                </button>
+              </div>
+              <div class="noview" id='ifYes'>
+              <button type="button" data-bs-toggle="modal" data-bs-target="#exampleModal2">
+                Быстрая регистрация
+              </button>
+              </div>
             <div
               class="modal fade"
               id="exampleModal3"
@@ -282,18 +284,51 @@ const main = `<section>
         >
           <div class="mob-document-container">
             <div class="d-flex flex-column align-items-center document-card">
-                <img src="./assets/img/document.png" alt="" />
-                <a class='pdfsname' id="ruPdf" href="./assets/pdfs/Big Race_Ru.pdf">Русский pdf</a>
+                <a class='pdfsname'  href="./assets/pdfs/Big Race_Ru.pdf">
+                <img src="./assets/img/document.png" alt="" /><br/>
+                <button>Русский pdf</button></a>
               </div>
               <div class="d-flex flex-column align-items-center document-card">
-                <img src="./assets/img/document.png" alt="" />
-                <a class='pdfsname' id="engPdf" href="./assets/pdfs/Big Race_ English.pdf">English pdf</a>
+                <a class='pdfsname'  href="./assets/pdfs/Big Race_ English.pdf">  
+                <img src="./assets/img/document.png" alt="" /><br/>
+                <button>English pdf</button></a>
               </div>
               <div class="d-flex flex-column mr-0 align-items-center document-card">
-                <img src="./assets/img/document.png" alt="" />
-                <a class='pdfsname' id="hindiPdf" href="./assets/pdfs/Big Race_Hindi.pdf">Hindi pdf</a>
-            </div>
+                <a class='pdfsname'  href="./assets/pdfs/Big Race_Hindi.pdf">
+                <img src="./assets/img/document.png" alt="" /><br/>
+                <button>Hindi pdf</button></a>
+              </div>
+              <div class="d-flex flex-column mr-0 align-items-center document-card">
+              <a class='pdfsname'  href="./assets/pdfs/Big Race_ Indonesia.pdf">  
+              <img src="./assets/img/document.png" alt="" /><br/>
+                <button>Indonesia pdf</button></a>
+              </div>
+              
           </div>
+
+          
+
+        </div>
+        <div
+          class="d-flex justify-content-center document-card-container align-items-center"
+        >
+        <div class="mob-document-container">
+        <div class="d-flex flex-column mr-0 align-items-center document-card">
+              <a class='pdfsname' href="./assets/pdfs/Big Race_ Italian.pdf">  
+              <img src="./assets/img/document.png" alt="" /><br/>
+                <button>Italian pdf</button></a>
+              </div>
+              <div class="d-flex flex-column mr-0 align-items-center document-card">
+                <a class='pdfsname' href="./assets/pdfs/Big Race_ Vietnam.pdf">
+              <img src="./assets/img/document.png" alt="" /><br/>
+                <button>Vietnam pdf</button></a>
+              </div>
+              <div class="d-flex flex-column mr-0 align-items-center document-card">
+              <a class='pdfsname'  href="./assets/pdfs/Big Race_FARSI.pdf">  
+              <img src="./assets/img/document.png" alt="" /><br/>
+                <button>Farsi pdf</button></a>
+              </div>
+        </div>
         </div>
       </div>
     </section>
@@ -312,7 +347,8 @@ const main = `<section>
           >
             <h2>Сейчас участников</h2>
             <h1><span id="participants">0</span></h1>
-            <button><a href="./game.html" class="plybtn">Хочу в игру</a></button>
+            <p  id="logintoPlay">войдите, чтобы играть</p>
+            <button class="noview" id='playy' type="button" data-bs-toggle="modal" data-bs-target="#exampleModal2">Хочу в игру</button>
           </div>
           <div class="preview-container">
             <h1>Режим предварительного просмотра</h1>
@@ -335,6 +371,16 @@ const main = `<section>
                 </div>
               </div>
             </div>
+            <div class="result-container d-flex justify-content-between align-items-center">
+                <div>
+                  <p class="mb-0" ><span id="userID"></span></p>
+                  <p class="result-sub-text mb-0"><span id="WalletAddress"></span></p>
+                </div>
+                <div>
+                  <p class="mb-0"><span id="userlvl"></span></p>
+                </div>
+      
+              </div>
             
           </div>
         </div>
@@ -350,7 +396,7 @@ const invited = `<section class="section-bg section-back-h-100 d-flex align-item
           </div>
           <div class="d-flex align-items-center sidebar-card-container">
             <img src="./assets/img/sidebar/dashboard.png" alt="" />
-            <a href="#" id="dashboardView">Dashboard</a>
+            <a href="farms.html" id="dashboardView">FARMS</a>
           </div>
           <div class="d-flex align-items-center sidebar-card-container">
             <img src="./assets/img/sidebar/stats.png" alt="" />
@@ -365,8 +411,8 @@ const invited = `<section class="section-bg section-back-h-100 d-flex align-item
         </div>
         <div>
           <div class="notification-container">
-            <img src="./assets/img/sidebar/notification.png" alt="" />
-            <a href="#">Notifier bot</a>
+            <img src="./assets/img/sidebar/telegram.png" alt="" />
+            <a href="https://t.me/BIGRACE_game" target="_blank">Notifier bot</a>
           </div>
         </div>
       </div>
@@ -442,14 +488,19 @@ const invited = `<section class="section-bg section-back-h-100 d-flex align-item
                 invites you to <br />
                 Big Race
               </h2>
-              <button
-              type="button"
-              id="register"
-              data-bs-toggle="modal"
-              data-bs-target="#exampleModal2"
-            >
-              Play Now
+              
             </button>
+            <div class="" id='ifNo'>
+                <button type="button" id="register">
+                  Зарегистрируйтесь сейчас
+                </button>
+              </div>
+              <div class="noview" id='ifYes'>
+              <button type="button" data-bs-toggle="modal" data-bs-target="#exampleModal2">
+                Зарегистрируйтесь сейчас
+              </button>
+              </div>
+
             </div>
           </div>
         </div>
@@ -466,33 +517,23 @@ const game = `<section class="section-bg d-flex align-items-start">
           </div>
           <div class="d-flex align-items-center sidebar-card-container">
             <img src="./assets/img/sidebar/dashboard.png" alt="" />
-            <a href="#" id="dashboardView">Dashboard</a>
+            <a href="farms.html" id="dashboardView">FARMS</a>
           </div>
           <div class="d-flex align-items-center sidebar-card-container">
             <img src="./assets/img/sidebar/stats.png" alt="" />
             <a href="#" id="statView">Stats</a>
           </div>
-          <div class="d-flex align-items-center sidebar-card-container">
-            <img src="./assets/img/sidebar/partner.png" alt="" />
-            <a href="#" id="bonus">Partner bonus</a>
-          </div>
+          
           <div class="d-flex align-items-center sidebar-card-container">
             <img src="./assets/img/sidebar/information.png" alt="" />
             <a href="#">Information</a>
           </div>
-          <div class="d-flex align-items-center sidebar-card-container">
-            <img src="./assets/img/sidebar/telegram.png" alt="" />
-            <a href="#">Telegram bots</a>
-          </div>
-          <div class="d-flex align-items-center sidebar-card-container mb-0">
-            <img src="./assets/img/sidebar/promo.png" alt="" />
-            <a href="#">Promo</a>
-          </div>
+          
         </div>
         <div>
-          <div class="notification-container notification-game">
-            <img src="./assets/img/sidebar/notification.png" alt="" />
-            <a href="#">Notifier bot</a>
+          <div class="notification-container">
+            <img src="./assets/img/sidebar/telegram.png" alt="" />
+            <a href="https://t.me/BIGRACE_game" target="_blank">Notifier bot</a>
           </div>
         </div>
       </div>
@@ -721,11 +762,14 @@ async function isInvited() {
     if(search){
       if(!code){
           document.getElementById('root').innerHTML = main;
+        automate()
         document.querySelector('#activate2').addEventListener('click', activate)
-        // document.querySelector("#register").addEventListener("click", register);
+        document.querySelector("#register").addEventListener("click", onConnect);
       } else{
           document.getElementById('root').innerHTML = invited;
         invCheck()
+        automate2()
+        document.querySelector("#register").addEventListener("click", onConnect)
         document.querySelector('#activate').addEventListener('click', activate)
       }
     } 
@@ -733,7 +777,8 @@ async function isInvited() {
     else {
       document.getElementById('root').innerHTML = main;
       document.querySelector('#activate2').addEventListener('click', activate)
-      // document.querySelector("#register").addEventListener("click", register);
+      automate()
+      document.querySelector("#register").addEventListener("click", onConnect);
       document.querySelector('#preview').addEventListener('click', PreviewId)
     }
 
@@ -745,11 +790,47 @@ async function PreviewId(){
   if (!account) return toastr.error('Пожалуйста, сначала войдите с кошельком','ОШИБКА')
   let UID = await document.getElementById('inputPreviewId').value;
   console.log(UID)
-  window.open(`./profile.html?user=${UID}`, '_self')
+  let addres = await matrix.methods.ReferalAddress('1', UID).call()
+
+  document.getElementById('userID').textContent = `ID пользователя : ${UID}`;
+  document.getElementById('WalletAddress').textContent = `Адрес кошелька : ${addres}`;
+  
   
 }
 
+async function automate2() {
+  setInterval(async function () {
+    if (!account) {
+      document.getElementById('ifYes').style.display = 'none'
+      document.getElementById('ifNo').style.display = 'flex'
+      // console.log('test1')
+    } else {
+      document.getElementById('ifNo').style.display = 'none'
+      document.getElementById('ifYes').style.display = 'flex'
+      // console.log('test2')
+    }
+  }, 1000);
 
+}
+
+
+async function automate(){
+  setInterval(async function ()  {
+    if (!account) {
+      document.getElementById('playy').style.display = 'none'
+      document.getElementById('ifYes').style.display = 'none'
+      document.getElementById('ifNo').style.display = 'flex'
+      // console.log('test1')
+    } else {
+      document.getElementById('ifNo').style.display = 'none'
+      document.getElementById('logintoPlay').style.display = 'none'
+      document.getElementById('ifYes').style.display = 'flex'
+      document.getElementById('playy').style.display = 'flex'
+      // console.log('test2')
+    }
+  }, 1000);
+  
+}
 
 
 
