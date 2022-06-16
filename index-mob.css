@@ -143,7 +143,24 @@
   .wallet-btn span {
     display: none;
   }
+    .farmimg {
+      width: 31rem;
+    }
 }
+
+@media only screen and (max-width: 538px) {
+  .farmimg {
+    width: 28rem;
+  }
+}
+
+@media only screen and (max-width: 489px) {
+  .farmimg {
+    width: 26rem;
+  }
+}
+
+
 @media only screen and (max-width: 460px) {
   .bonus-table {
     width: 234vw !important;
@@ -159,10 +176,15 @@
   .wallet-td {
     width: 80vw !important;
   }
+    .farmimg {
+      width: 21rem;
+    }
+  
     iframe {
       width: 90%;
       height: 200px;
     }
+        
 }
 @media only screen and (max-width: 600px) {
   .form-select {
@@ -434,4 +456,9 @@
       width: 90%;
       height: 200px;
     }
+
+    .farmimg {
+      width: 16rem;
+    }
 }
+

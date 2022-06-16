@@ -172,24 +172,19 @@ const main = `<section>
 
 
             Каждый выбирает любую доступную ферму.<br/>
-            Активировав ферму, участник автоматически встает на линию, в которой есть свободные места. Свободные места распределяются и назначаются случайным образом смарт-контрактом.<br/>
+            Активировав ферму, участник автоматически встает на линию, в которой есть свободные места. Свободные места распределяются и назначаются случайным образом смарт-контрактом.<br/><br/>
 
+            Участники у которых все 16 ферм,они получают пассивный заработок с игры «скачки» и других последующих создаваемых гемблинг игр.<br/>
           </p>
           <div>
           <img class="farmimg" src="./assets/img/horse/farms.png" alt="">
           </div>
-          
-          
-            
-          </div>
-        </div>
-      </div>
-    </section>
-    <section>
-      <div class="desc-game-container container">
-        <div class="desc-game-main-container">
-          <h3 class="text-center desc-game-title mb-0">100% ОТ СУММЫ АКТИВАЦИИ УРОВНЯ ДЕЛИТСЯ НА 4 ЧАСТИ: 74%, 13%, 8%, 5%</h3>
+
+
+          <h3>100% ОТ СУММЫ АКТИВАЦИИ УРОВНЯ ДЕЛИТСЯ НА 4 ЧАСТИ: 74%, 13%, 8%, 5%</h3>
           <p class="desc-game-text text-cetr">
+
+          
 
             – эти 4 части от одной транзакции сразу же распределяются на кошельки участников согласно правилам игры.<br/> <br/>
 
@@ -200,10 +195,11 @@ const main = `<section>
             1-й вышестоящая ферма получает 13% <br/><br/>
             2-й вышестоящая ферма получает 8%<br/><br/>
             3-й вышестоящая ферма получает 5%<br/><br/>
-
-            
-
           </p>
+
+          <div>
+          <img class="farmimg" src="./assets/img/horse/farm2.jpg" alt="">
+          </div>
           
           
           
@@ -212,10 +208,11 @@ const main = `<section>
         </div>
       </div>
     </section>
+    
     <section>
       <div class="desc-game-container container">
         <div class="desc-game-main-container">
-          <h2 class="text-center desc-game-title mb-0">Описание игры</h2>
+          <h2 class="text-center desc-game-title mb-0">Описание игры "Скачки на лошадях"</h2>
           <p class="desc-game-text">
             Ставки на скачки делают уже более 300 лет. В мире об особенностях
             этого спорта знают только посвящённые.
@@ -850,6 +847,8 @@ isInvited()
 async function PreviewId(){
   if (!account) return toastr.error('Пожалуйста, сначала войдите с кошельком','ОШИБКА')
   let UID = await document.getElementById('inputPreviewId').value;
+  console.log(UID.isNaN)
+  if(UID.isNaN)
   console.log(UID)
   let addres = await matrix.methods.ReferalAddress('1', UID).call()
 

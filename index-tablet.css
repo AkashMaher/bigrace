@@ -108,6 +108,15 @@
   .horses-card-tablet {
     justify-content: center;
   }
+    .farmimg {
+      width: 60rem;
+    }
+}
+
+@media only screen and (max-width: 1200px) {
+  .farmimg {
+      width: 50rem;
+    }
 }
 
 @media only screen and (max-width: 993px) {
@@ -223,6 +232,9 @@
     padding: 0 !important;
     font-size: 10pt;
   }
+    .farmimg {
+      width: 37rem;
+    }
 }
 
 @media only screen and (max-width: 1440px) {
@@ -292,6 +304,12 @@
     overflow: auto;
     overflow-y: hidden;
   }
+}
+
+@media only screen and (max-width: 767px) {
+  .farmimg {
+      width: 26rem;
+    }
 }
 @media only screen and (min-width: 600px) and (max-width: 790px) {
   .bonus-table {
