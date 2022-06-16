@@ -1357,6 +1357,7 @@ select{
 #video{
   text-align: center;
   padding-bottom: 50px;
+  padding-top: 125px;
 }
 
 .videotitle{
@@ -1504,4 +1505,19 @@ iframe{
   line-height: 15px;
   color: #3f3f3f;
   text-decoration: none;
+}
+
+.pdf-card-container {
+  width: 250px;
+  height: 164px;
+  /* background-image: url("./assets/img/card-horse.png"); */
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+
+.pdf-container {
+  padding-left: 1.25rem;
+  padding-top: 1.625rem;
+  row-gap: 9rem;
+  column-gap: 4.5rem;
 }

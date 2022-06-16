@@ -161,31 +161,7 @@
 }
 
 
-@media only screen and (max-width: 460px) {
-  .bonus-table {
-    width: 234vw !important;
-  }
-  .bonus-table .wallet-th,
-  .wallet-td {
-    width: 50vw !important;
-  }
-  .table {
-    width: 180vw !important;
-  }
-  .wallet-th,
-  .wallet-td {
-    width: 80vw !important;
-  }
-    .farmimg {
-      width: 21rem;
-    }
-  
-    iframe {
-      width: 90%;
-      height: 200px;
-    }
-        
-}
+
 @media only screen and (max-width: 600px) {
   .form-select {
     font-size: 12pt;
@@ -445,6 +421,36 @@
   }
 }
 
+@media only screen and (max-width: 460px) {
+  .bonus-table {
+    width: 234vw !important;
+  }
+
+  .bonus-table .wallet-th,
+  .wallet-td {
+    width: 50vw !important;
+  }
+
+  .table {
+    width: 180vw !important;
+  }
+
+  .wallet-th,
+  .wallet-td {
+    width: 80vw !important;
+  }
+
+  .farmimg {
+    width: 21rem;
+  }
+
+  iframe {
+    width: 90%;
+    height: 250px;
+  }
+
+}
+
 @media only screen and (max-width: 389px) {
   .button-bnb-container {
     display: flex;
@@ -454,7 +460,7 @@
   }
     iframe {
       width: 90%;
-      height: 200px;
+      height: 180px;
     }
 
     .farmimg {
