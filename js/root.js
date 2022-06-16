@@ -390,31 +390,31 @@ const main = `<section>
 const invited = `<section class="section-bg section-back-h-100 d-flex align-items-start">
       <div id="mySidebar" class="sidebar-container">
         <div>
-          <div class="d-flex align-items-center sidebar-card-container">
-            <img src="./assets/img/sidebar/play.png" alt="" />
-            <a href="#" id="play">Play now</a>
-          </div>
-          <div class="d-flex align-items-center sidebar-card-container">
-            <img src="./assets/img/sidebar/dashboard.png" alt="" />
-            <a href="farms.html" id="dashboardView">FARMS</a>
-          </div>
-          <div class="d-flex align-items-center sidebar-card-container">
-            <img src="./assets/img/sidebar/stats.png" alt="" />
-            <a href="#" id="statView">Stats</a>
-          </div>
-          
-          <div class="d-flex align-items-center sidebar-card-container">
-            <img src="./assets/img/sidebar/information.png" alt="" />
-            <a href="#">Information</a>
-          </div>
-          
-        </div>
-        <div>
-          <div class="notification-container">
-            <img src="./assets/img/sidebar/telegram.png" alt="" />
-            <a href="https://t.me/BIGRACE_game" target="_blank">Notifier bot</a>
-          </div>
-        </div>
+                <div class="d-flex align-items-center sidebar-card-container">
+                    <img src="./assets/img/sidebar/play.png" alt="" />
+                    <a href="#" id="play">Играть сейчас</a>
+                </div>
+                <div class="d-flex align-items-center sidebar-card-container">
+                    <img src="./assets/img/sidebar/dashboard.png" alt="" />
+                    <a href="farms.html" id="dashboardView">Фермы</a>
+                </div>
+                <div class="d-flex align-items-center sidebar-card-container">
+                    <img src="./assets/img/sidebar/stats.png" alt="" />
+                    <a href="stat.html" id="statView">Статистика</a>
+                </div>
+
+                <div class="d-flex align-items-center sidebar-card-container">
+                    <img src="./assets/img/sidebar/information.png" alt="" />
+                    <a href="info.html">Информация</a>
+                </div>
+
+            </div>
+            <div>
+                <div class="notification-container">
+                    <img src="./assets/img/sidebar/telegram.png" alt="" />
+                    <a href="https://t.me/BIGRACE_game" target="_blank">Телеграмма</a>
+                </div>
+            </div>
       </div>
       
       <div
@@ -485,7 +485,7 @@ const invited = `<section class="section-bg section-back-h-100 d-flex align-item
               <img src="./assets/img/avatar.png" alt="" />
               <h1><span id="inviteCode"></span></h1>
               <h2 class="text-center">
-                invites you to <br />
+                приглашает вас <br />
                 Big Race
               </h2>
               
