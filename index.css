@@ -1522,3 +1522,13 @@ iframe{
   column-gap: 4.5rem;
 }
 
+.smalltext button{
+  font-size: 16px;
+}
+
+.langName{
+  display: flex;
+  text-decoration: none;
+  color: black
+}
+

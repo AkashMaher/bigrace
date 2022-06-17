@@ -7,12 +7,12 @@ const main = `<section>
           <div class="headline-main-container">
             <h1>Big Race</h1>
             <h4>Зарегистрируйтесь или войдите</h4>
-            <div class="" id='ifNo'>
+            <div class="smalltext" id='ifNo'>
                 <button type="button" id="register">
                   Войдите или зарегистрируйтесь
                 </button>
               </div>
-              <div class="noview" id='ifYes'>
+              <div class="noview smalltext" id='ifYes'>
               <button type="button" data-bs-toggle="modal" data-bs-target="#exampleModal2">
                 Войдите или зарегистрируйтесь
               </button>
@@ -377,7 +377,13 @@ const main = `<section>
     <section>
     <div id="video">
       <h1 class="videotitle">Видео большой гонки</h1>
-      <iframe width="800" height="450" src="https://www.youtube.com/embed/p1dvMqgHJp8">
+      <iframe width="800" height="450" src="https://www.youtube.com/embed/p1dvMqgHJp8"
+      allowfullscreen="allowfullscreen"
+        mozallowfullscreen="mozallowfullscreen" 
+        msallowfullscreen="msallowfullscreen" 
+        oallowfullscreen="oallowfullscreen" 
+        webkitallowfullscreen="webkitallowfullscreen"
+        >
       </iframe>
     </div>
     </section>
@@ -510,12 +516,12 @@ const invited = `<section class="section-bg section-back-h-100 d-flex align-item
               </h2>
               
             </button>
-            <div class="invitesss" id='ifNo'>
+            <div class="invitesss smalltext" id='ifNo'>
                 <button type="button" id="register">
                   Зарегистрируйтесь сейчас
                 </button>
               </div>
-              <div class="noview" id='ifYes'>
+              <div class="noview smalltext" id='ifYes'>
               <button type="button" data-bs-toggle="modal" data-bs-target="#exampleModal2">
                 Зарегистрируйтесь сейчас
               </button>
@@ -770,23 +776,124 @@ const game = `<section class="section-bg d-flex align-items-start">
     </section>
     `
 
+
+async function invCheck() {
+  if (!account) return;
+  await delay(4000);
+  let Url = window.location.href;
+  let url = new URL(Url);
+  code = url.searchParams.get("invite");
+  console.log(code)
+  if (code == null || code == undefined) {
+    code = 0;
+  }
+  // if (code.length != 6) {document.getElementById('inviteCode').textContent = 'Invalid invite code'}
+  document.getElementById('inviteCode').textContent = `ID ${code}`;
+  maxNum = await matrix.methods.ReferalNum(1).call()
+  console.log(maxNum)
+  if (code > maxNum - 1) {
+    document.getElementById('inviteCode').textContent = `Invalid Id`
+    code = 0
+  }
+}
+
+
+async function activate() {
+  if (!account) return;
+  let id = document.getElementById('lvls').value;
+  console.log(code)
+  // code = await parseInt(code)
+  if (code == NaN) {
+    if (id == '1') {
+      Referval = '50000000000000000'
+    }
+    else if (id == '2') {
+      Referval = '70000000000000000'
+    }
+    else if (id == "3") {
+      Referval = '100000000000000000'
+    }
+    else if (id == "4") {
+      Referval = '140000000000000000'
+    }
+    else if (id == "16") {
+      Referval = '8000000000000000000'
+    }
+    console.log(id, Referval,account)
+
+    await matrix.methods.addUser(id, 0).send({ from: account, value: Referval })
+    delay(4000)
+    window.open(`./profile.html`, '_self')
+
+  }else if (code == null) {
+    code = 0
+    if (id == '1') {
+      Referval = '50000000000000000'
+    }
+    else if (id == '2') {
+      Referval = '70000000000000000'
+    }
+    else if (id == "3") {
+      Referval = '100000000000000000'
+    }
+    else if (id == "4") {
+      Referval = '140000000000000000'
+    }
+    else if (id == "16") {
+      Referval = '8000000000000000000'
+    }
+    console.log(id)
+
+    await matrix.methods.addUser(id, 0).send({ from: account, value: Referval })
+    delay(4000)
+    window.open(`./profile.html`, '_self')
+
+  } else{
+    if (id == '1') {
+      Referval = '50000000000000000'
+    }
+    else if (id == '2') {
+      Referval = '70000000000000000'
+    }
+    else if (id == "3") {
+      Referval = '100000000000000000'
+    }
+    else if (id == "4") {
+      Referval = '140000000000000000'
+    }
+    else if (id == "16") {
+      Referval = '8000000000000000000'
+    }
+    console.log(id)
+
+    await matrix.methods.addUser(id, code).send({ from: account, value: Referval })
+    delay(4000)
+    window.open(`./profile.html`, '_self')
+  }
+  console.log(code)
+
+  
+}
+
 async function isInvited() {
+  
     let Url = window.location.href;
     let url = new URL(Url);
     code = url.searchParams.get("invite");
   let search =  window.location.search;
   console.log(search)
     let pathname = window.location.pathname
-    console.log(code)
+    console.log('code is: '+code)
     console.log(pathname)
     if(search){
       if(!code){
-          document.getElementById('root').innerHTML = main;
+          // document.getElementById('root').innerHTML = main;
         automate()
         document.querySelector('#activate2').addEventListener('click', activate)
         document.querySelector("#register").addEventListener("click", onConnect);
       } else{
-          document.getElementById('root').innerHTML = invited;
+          // document.getElementById('root').innerHTML = invited;
+          window.open('./invite.html','_self')
         invCheck()
         automate2()
         document.querySelector("#register").addEventListener("click", onConnect)
@@ -795,7 +902,7 @@ async function isInvited() {
     } 
     
     else {
-      document.getElementById('root').innerHTML = main;
+      // document.getElementById('root').innerHTML = main;
       document.querySelector('#activate2').addEventListener('click', activate)
       automate()
       document.querySelector("#register").addEventListener("click", onConnect);

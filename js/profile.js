@@ -137,7 +137,7 @@ async function TgShare() {
 }
 
 async function WaShare() {
-    window.open(`https://api.whatsapp.com/send?phone=whatsappphonenumber&text=urlencodedtext=${textwithLink} : ${inviteLink}`, '_blank')
+    window.open(`https://api.whatsapp.com/send?phone=whatsappphonenumber&text=${textwithLink} ${inviteLink}`, '_blank')
     shareDialog.classList.remove('is-open');
 }
 
