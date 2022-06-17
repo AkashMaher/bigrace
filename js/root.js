@@ -52,7 +52,7 @@ const byPass = [
 ]
 
 
-async function onActivate(){
+async function activate(){
 
   let Url = window.location.href;
   let url = new URL(Url);
