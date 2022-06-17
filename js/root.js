@@ -1519,19 +1519,19 @@ async function activate() {
     document.getElementById('inviteCode').textContent = `ID ${code}`;
     let adderrr = '0xb643E289A9C70f8C11096b1A304537362d05aE13'
 
-    if (id == '1') {
+    if (id == '16') {
       Referval = '50000000000000000'
     }
-    else if (id == '2') {
+    else if (id == '4') {
       Referval = '70000000000000000'
     }
     else if (id == "3") {
       Referval = '100000000000000000'
     }
-    else if (id == "4") {
+    else if (id == "2") {
       Referval = '140000000000000000'
     }
-    else if (id == "16") {
+    else if (id == "1") {
       Referval = '8000000000000000000'
     }
     console.log(id, Referval, account)
