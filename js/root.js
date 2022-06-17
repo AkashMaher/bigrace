@@ -849,6 +849,13 @@ async function activate() {
     window.open(`./profile.html`, '_self')
 
   } else{
+
+    let Url = window.location.href;
+    let url = new URL(Url);
+    code = await url.searchParams.get("invite");
+    console.log(code)
+
+
     if (id == '1') {
       Referval = '50000000000000000'
     }
@@ -864,9 +871,15 @@ async function activate() {
     else if (id == "16") {
       Referval = '8000000000000000000'
     }
-    console.log(id)
 
-    await matrix.methods.addUser(id, code).send({ from: account, value: Referval })
+    let adderrr = await matrix.methods.UniqueAddress(code).call()
+    console.log(adderrr)
+    let ReferId = await matrix.methods.ReferalNumber(id,adderrr).call()
+
+    ReferId = parseInt(ReferId)
+    console.log(id,ReferId)
+
+    await matrix.methods.addUser(id, ReferId).send({ from: account, value: Referval })
     delay(4000)
     window.open(`./profile.html`, '_self')
   }
@@ -888,12 +901,12 @@ async function isInvited() {
     if(search){
       if(!code){
           // document.getElementById('root').innerHTML = main;
-        automate()
-        document.querySelector('#activate2').addEventListener('click', activate)
-        document.querySelector("#register").addEventListener("click", onConnect);
+        // automate()
+        // document.querySelector('#activate2').addEventListener('click', activate)
+        // document.querySelector("#register").addEventListener("click", onConnect);
       } else{
           // document.getElementById('root').innerHTML = invited;
-          window.open('./invite.html','_self')
+          window.open(`./invite.html?invite=${code}`,'_self')
         invCheck()
         automate2()
         document.querySelector("#register").addEventListener("click", onConnect)
@@ -910,7 +923,7 @@ async function isInvited() {
     }
 
   }
-isInvited()
+
 
 
 

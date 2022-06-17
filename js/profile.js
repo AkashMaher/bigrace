@@ -23,7 +23,7 @@ async function userInfo(){
             UserAddress = account;
             referre = await matrix.methods.ParentId('1', account).call();
             console.log(referre)
-            let Uid = await matrix.methods.ReferalNumber('1',UserAddress).call();
+            let Uid = await matrix.methods.UniqueID(UserAddress).call();
             console.log(Uid)
             let ader = UserAddress.slice(0, 5);
             let lastader = UserAddress.slice(37, 42);
@@ -37,7 +37,7 @@ async function userInfo(){
             document.getElementById('inviteLinkShare').textContent = `${inviteLink}`
             
         } else{
-            UserAddress = await matrix.methods.ReferalAddress('1',code).call()
+            UserAddress = await matrix.methods.UniquieAddress(code).call()
             console.log(UserAddress)
             referre = await matrix.methods.ParentId('1', UserAddress).call();
             let ader = UserAddress.slice(0, 5);
@@ -54,7 +54,7 @@ async function userInfo(){
         }
     } else {
         UserAddress = account;
-        let Uid = await matrix.methods.ReferalNumber('1', UserAddress).call()
+        let Uid = await matrix.methods.UniqueID(UserAddress).call()
         referre = await matrix.methods.ParentId('1', UserAddress).call();
         console.log(Uid)
         let ader = UserAddress.slice(0, 5);
