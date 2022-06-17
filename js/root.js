@@ -1700,7 +1700,7 @@ async function activate() {
     }
     console.log(id, Referval,account)
 
-    await matrix.methods.addUser(InputID, ReferId).send({ from: account, value: Referval })
+    await matrix.methods.addUser(InputID, 0).send({ from: account, value: Referval })
     delay(4000)
     window.open(`./profile.html`, '_self')
 
@@ -1729,7 +1729,7 @@ async function activate() {
     }
     console.log(id)
 
-    await matrix.methods.addUser(InputID, ReferId).send({ from: account, value: Referval })
+    await matrix.methods.addUser(InputID, 0).send({ from: account, value: Referval })
     delay(4000)
     window.open(`./profile.html`, '_self')
 
