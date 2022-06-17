@@ -49,18 +49,19 @@ async function userInfo(){
                 for (i = 0; i < byPass.length; i++) {
                     if (code === byPass[i][0]) {
                         UserAddress = byPass[i][1]
-                        console.log(UAddress)
+                        // console.log(UAddress)
+                        let ader = UserAddress.slice(0, 5);
+                        let lastader = UserAddress.slice(37, 42);
+                        let adder = `${ader}....${lastader}`;
+                        console.log(adder)
+                        document.getElementById('userId').textContent = `${code}`;
+                        document.getElementById('userAddress').textContent = `${adder}`;
+                        inviteLink = `https://bigrace.io?invite=${code}`
+                        // document.getElementById('referId').textContent = `${referre}`;
+                        document.getElementById('MyReferLink').textContent = `${inviteLink}`
+                        document.getElementById('inviteLinkShare').textContent = `${inviteLink}`
                     }
-                    let ader = UserAddress.slice(0, 5);
-                    let lastader = UserAddress.slice(37, 42);
-                    let adder = `${ader}....${lastader}`;
-                    console.log(adder)
-                    document.getElementById('userId').textContent = `${code}`;
-                    document.getElementById('userAddress').textContent = `${adder}`;
-                    inviteLink = `https://bigrace.io?invite=${code}`
-                    // document.getElementById('referId').textContent = `${referre}`;
-                    document.getElementById('MyReferLink').textContent = `${inviteLink}`
-                    document.getElementById('inviteLinkShare').textContent = `${inviteLink}`
+                    
                 }
             } else {
                 UserAddress = await matrix.methods.UniqueAddress(code).call()
@@ -86,9 +87,15 @@ async function userInfo(){
         UserAddress = account;
         Uid = await matrix.methods.UniqueID(UserAddress).call()
         let admin = await matrix.methods.UniqueAddress(0).call()
+        console.log(Uid)
 
-        if(Uid===0 && UserAddress != admin){
-
+        if(Uid==='0' && UserAddress !== admin){
+            // console.log(Uid,'testing111')
+            document.getElementById('userId').textContent = 'No User'
+            document.getElementById('userAddress').textContent = ''
+            document.getElementById('MyReferLink').textContent = ``
+            document.getElementById('inviteLinkShare').textContent = ``
+        } else{
             for (let i = 0; i > byPass.length; i++) {
                 if (account === byPass[i][1]) {
                     Uid = byPass[i][0];
@@ -104,32 +111,29 @@ async function userInfo(){
                     document.getElementById('inviteLinkShare').textContent = `${inviteLink}`
                     // document.getElementById('referId').textContent = `${referre}`;
                 }
-                else{
-                    document.getElementById('userId').textContent = 'No User Found'
-                    document.getElementById('userAddress').textContent = ''
-                    document.getElementById('MyReferLink').textContent = ``
-                    document.getElementById('inviteLinkShare').textContent = ``
-                }
+                else {
+                    Uid = await matrix.methods.UniqueID(UserAddress).call()
+                    console.log(Uid)
+                    let ader = UserAddress.slice(0, 5);
+                    let lastader = UserAddress.slice(37, 42);
+                    let adder = `${ader}....${lastader}`;
+                    console.log(adder)
+                    document.getElementById('userId').textContent = `${Uid}`;
+                    document.getElementById('userAddress').textContent = `${adder}`;
+                    inviteLink = `https://bigrace.io?invite=${Uid}`
+                    document.getElementById('MyReferLink').textContent = `${inviteLink}`
+                    document.getElementById('inviteLinkShare').textContent = `${inviteLink}`
             }
-        } else{
-            Uid = await matrix.methods.UniqueID(UserAddress).call()
-            console.log(Uid)
-            let ader = UserAddress.slice(0, 5);
-            let lastader = UserAddress.slice(37, 42);
-            let adder = `${ader}....${lastader}`;
-            console.log(adder)
-            document.getElementById('userId').textContent = `${Uid}`;
-            document.getElementById('userAddress').textContent = `${adder}`;
-            inviteLink = `https://bigrace.io?invite=${Uid}`
-            document.getElementById('MyReferLink').textContent = `${inviteLink}`
-            document.getElementById('inviteLinkShare').textContent = `${inviteLink}`
+            
+        }
+        } 
             // document.getElementById('referId').textContent = `${referre}`;
 
-        }
+    }
         // referre = await matrix.methods.ParentId('1', UserAddress).call();
         
-    }
 }
+
 
 async function copyAddress(){
 
