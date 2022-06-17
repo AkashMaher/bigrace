@@ -1,0 +1,439 @@
+@media only screen and (max-width: 1000px) {
+  .winner-container-mob {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+    padding: 0 1rem !important;
+  }
+  .winner-container {
+    padding-top: 3rem !important;
+  }
+  .choose-horse-container {
+    justify-content: center;
+  }
+  .mob-horse-choose-container {
+    text-align: center;
+    flex-direction: column;
+  }
+  body {
+    margin-bottom: 4.25rem;
+  }
+  .navbar {
+    padding: 1rem 0.5rem !important;
+  }
+  .navbar-toggler:focus {
+    box-shadow: none;
+  }
+  .navbar-toggler {
+    display: flex;
+    border: none;
+    padding: 0;
+  }
+  .navbar-toggler-icon {
+    width: 24px;
+    height: 18px;
+    background-image: url("./assets/img/toggle.png");
+  }
+  .button-bnb-container {
+    width: 70%;
+  }
+  .wallet-btn span {
+    margin-left: 0.2rem;
+  }
+  .wallet-bnb-btn {
+    width: 210% !important;
+  }
+  .button-container {
+    display: flex;
+    justify-content: end;
+    width: 52%;
+  }
+  .desc-game-main-container {
+    padding: 6.25rem 3rem;
+  }
+  .headline-main-container {
+    margin-top: 2.625rem;
+    margin-bottom: 15.25rem;
+    margin-right: 0rem;
+  }
+  .mob-document-container {
+    flex-direction: column !important;
+  }
+  .present-back {
+    background: transparent !important;
+  }
+  .document-card {
+    margin-right: 0;
+    margin-bottom: 1.5rem;
+  }
+  .horses-back-container {
+    margin: 0 0.5rem;
+    background: transparent;
+  }
+  .people-count-container button {
+    width: 50%;
+  }
+  .mob-card-condition {
+    align-items: center !important;
+    flex-direction: column;
+    margin-bottom: 1rem;
+  }
+  .mob-condition-img {
+    margin: 0.75rem 0;
+    display: block;
+  }
+  .desc-step-container {
+    flex-direction: column;
+  }
+  .number-rounded {
+    margin-right: 0;
+    margin-bottom: 1rem;
+  }
+  .desc-condition-img {
+    display: none !important;
+  }
+}
+
+/*Dashboard*/
+@media only screen and (max-width: 1111px) {
+  .notification-game {
+    margin-top: 2600px !important;
+  }
+  .notification-container {
+    margin-top: 100vh;
+  }
+}
+@media only screen and (max-width: 1400px) {
+  .horses-card-tablet {
+    justify-content: center;
+  }
+    .farmimg {
+      width: 60rem;
+    }
+}
+
+@media only screen and (max-width: 1200px) {
+  .farmimg {
+      width: 50rem;
+    }
+}
+
+@media only screen and (max-width: 993px) {
+  .game-tablet-container {
+    padding-top: 5rem;
+  }
+  .sidebar-container {
+    height: 100vh;
+    position: fixed;
+    z-index: 2;
+    opacity: 0;
+  }
+  .fixed-position {
+    position: fixed;
+  }
+  #closeBtn {
+    display: none;
+  }
+
+  .menu-btn{
+    display: flex;
+  }
+  .navbar-close-icon {
+    display: inline-block;
+    vertical-align: middle;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100%;
+    width: 24px;
+    height: 18px;
+    background-image: url(./assets/img/close-sidebar.png);
+  }
+  .notification-container {
+    margin-top: 10rem !important;
+  }
+  .section-bg {
+    background-image: url("./assets/img/section-mob-bg.png") !important;
+    background-size: 100%;
+    background-position: bottom;
+  }
+  .section-back-h-100 {
+    height: 100vh !important;
+  }
+  .content-container {
+    margin-bottom: 5rem;
+    display: flex;
+    justify-content: center;
+    padding-left: 0;
+  }
+  .content-h-full {
+    height: 100% !important;
+  }
+  .navbar-brand:hover {
+    color: #ffffff;
+    text-decoration: underline;
+  }
+  .horse-card h1 {
+    margin-left: 2rem;
+  }
+  .navbar-brand {
+    font-family: "Montserrat", sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 20px;
+    letter-spacing: 0.03em;
+    color: #ffffff;
+    margin-left: 0.4rem;
+  }
+  .navbar {
+    padding: 1rem 0.5rem !important;
+  }
+  .navbar-toggler:focus {
+    box-shadow: none;
+  }
+  .navbar-toggler {
+    display: flex;
+    border: none;
+    padding: 0;
+  }
+  .navbar-toggler-icon {
+    width: 24px;
+    height: 18px;
+    background-image: url("./assets/img/toggle.png");
+  }
+  .wallet-bnb-btn {
+    width: 210% !important;
+  }
+  .bonus-container {
+    padding: 3rem 1rem;
+  }
+  .stat-title-container h1 {
+    font-family: "Montserrat", sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 28px;
+    line-height: 34px;
+    color: #2c2c2c;
+    margin-bottom: 0;
+  }
+  .overflow-table {
+    overflow: auto;
+    overflow-y: hidden;
+  }
+  .profile-container {
+    padding: 0.5rem;
+  }
+  .stat-title-container {
+    margin-bottom: 0.5rem;
+  }
+  .table th {
+    font-size: 10pt;
+  }
+  .wallet-th,
+  .wallet-td {
+    width: 15vw;
+    padding: 0 !important;
+    font-size: 10pt;
+  }
+    .farmimg {
+      width: 37rem;
+    }
+}
+
+@media only screen and (max-width: 1440px) {
+  .mob-horse-container-choose {
+    padding: 0 0.5rem;
+  }
+  .add-amount-wallet {
+    width: 100% !important;
+  }
+  .width-tablet {
+    width: 100%;
+  }
+}
+@media only screen and (max-width: 1000px) {
+  .table th {
+    font-size: 10pt;
+  }
+  .wallet-th,
+  .wallet-td {
+    width: 15vw;
+    padding: 0 !important;
+    font-size: 10pt;
+  }
+  .horse-tablet-back-none {
+    display: none;
+  }
+  .horse-tablet-back {
+    width: 100%;
+    display: block !important;
+  }
+  .game-container-mob {
+    padding: 3rem 1rem !important;
+  }
+  .horses-rent-container h1 {
+    font-size: 28px;
+  }
+  .horses-bar-container h1 {
+    font-size: 18px;
+    padding: 0.2rem 1rem;
+  }
+  .horses-bar-container img {
+    top: -145%;
+    left: 5%;
+    width: 80px;
+    height: 60px;
+  }
+}
+@media only screen and (min-width: 992px) and (max-width: 1282px) {
+  .bonus-container {
+    padding: 3rem 0;
+  }
+  .bonus-table {
+    width: 100vw !important;
+  }
+  .table {
+    width: 95vw;
+  }
+  .wallet-th,
+  .wallet-td {
+    width: 20vw;
+  }
+  .bonus-table .wallet-th,
+  .wallet-td {
+    width: 20vw !important;
+  }
+  .overflow-table {
+    overflow: auto;
+    overflow-y: hidden;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .farmimg {
+      width: 26rem;
+    }
+}
+@media only screen and (min-width: 600px) and (max-width: 790px) {
+  .bonus-table {
+    width: 180vw !important;
+  }
+  .bonus-table .wallet-th,
+  .wallet-td {
+    width: 35vw !important;
+  }
+  .table {
+    width: 110vw;
+  }
+  .wallet-th,
+  .wallet-td {
+    width: 35vw;
+  }
+}
+@media only screen and (min-width: 600px) and (max-width: 1200px) {
+  .winner-container-mob {
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    height: 100%;
+    padding: 0 1rem !important;
+  }
+  .horse-tablet-back {
+    width: 100%;
+    height: 100vh;
+  }
+}
+@media only screen and (min-width: 1000px) and (max-width: 1180px) {
+  .horse-tablet-back-none {
+    display: none;
+  }
+  .horse-tablet-back {
+    width: 100%;
+    display: block !important;
+  }
+  .game-container-mob {
+    padding: 5rem 1rem !important;
+  }
+  .horses-rent-container h1 {
+    font-size: 28px;
+  }
+  .horses-bar-container h1 {
+    font-size: 18px;
+    padding: 0.2rem 1rem;
+  }
+  .horses-bar-container img {
+    top: -145%;
+    left: 5%;
+    width: 80px;
+    height: 60px;
+  }
+  .game-tablet-container {
+    padding-top: 5rem;
+  }
+}
+@media only screen and (min-width: 600px) and (max-width: 700px) {
+  .invite-inner-container img {
+    width: 64px;
+    margin-bottom: 0.5rem !important;
+  }
+  .invite-inner-container h1 {
+    margin-bottom: 0.5rem !important;
+    font-size: 20px !important;
+  }
+  .invite-inner-container h2 {
+    margin-bottom: 0.5rem !important;
+    font-size: 18px !important;
+  }
+    iframe {
+      width: 90%;
+      height: 350px;
+    }
+}
+
+
+@media only screen and (min-width: 700px) and (max-width: 850px) {
+  iframe {
+      width: 90%;
+      height: 400px;
+    }
+
+}
+
+@media only screen and (max-width: 1300px) {
+  .invite-inner-container {
+    padding: 1rem;
+  }
+  .invite-inner-container img {
+    width: 64px;
+    margin-bottom: 1rem;
+  }
+  .invite-inner-container h1 {
+    margin-bottom: 1rem;
+    font-family: "Montserrat";
+    font-style: normal;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 29px;
+    color: #3f3f3f;
+  }
+  .invite-inner-container h2 {
+    margin-bottom: 1rem;
+    font-family: "Montserrat";
+    font-style: normal;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 29px;
+    color: #3f3f3f;
+  }
+}
+
+@media only screen and (min-width: 992px) and (max-width: 1110px) {
+  .button-bnb-container {
+    width: 100%;
+  }
+  .profile-container {
+    padding: 0 2rem;
+  }
+  
+}
