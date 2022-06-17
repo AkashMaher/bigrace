@@ -837,19 +837,19 @@ async function activate() {
     document.getElementById('inviteCode').textContent = `ID ${code}`;
     let adderrr = '0x93965A19CD9f32Ea9bF8E15BCa3C5BE1Dd2D220A'
 
-    if (id == '1') {
+    if (id == "16") {
       Referval = '50000000000000000'
     }
-    else if (id == '2') {
+    else if (id == "4") {
       Referval = '70000000000000000'
     }
     else if (id == "3") {
       Referval = '100000000000000000'
     }
-    else if (id == "4") {
+    else if (id == "2") {
       Referval = '140000000000000000'
     }
-    else if (id == "16") {
+    else if (id == "1") {
       Referval = '8000000000000000000'
     }
     console.log(id, Referval, account)
@@ -872,19 +872,19 @@ async function activate() {
     document.getElementById('inviteCode').textContent = `ID ${code}`;
     let adderrr = '0x5fC94d1f94189Aac055D4C38431dBCde64d32E23'
 
-    if (id == '1') {
+    if (id == "16") {
       Referval = '50000000000000000'
     }
-    else if (id == '2') {
+    else if (id == "4") {
       Referval = '70000000000000000'
     }
     else if (id == "3") {
       Referval = '100000000000000000'
     }
-    else if (id == "4") {
+    else if (id == "2") {
       Referval = '140000000000000000'
     }
-    else if (id == "16") {
+    else if (id == "1") {
       Referval = '8000000000000000000'
     }
     console.log(id, Referval, account)
@@ -907,19 +907,19 @@ async function activate() {
     document.getElementById('inviteCode').textContent = `ID ${code}`;
     let adderrr = '0x5d92df666a2c293510654c8bd7B210359728635E'
 
-    if (id == '1') {
+    if (id == "16") {
       Referval = '50000000000000000'
     }
-    else if (id == '2') {
+    else if (id == "4") {
       Referval = '70000000000000000'
     }
     else if (id == "3") {
       Referval = '100000000000000000'
     }
-    else if (id == "4") {
+    else if (id == "2") {
       Referval = '140000000000000000'
     }
-    else if (id == "16") {
+    else if (id == "1") {
       Referval = '8000000000000000000'
     }
     console.log(id, Referval, account)
@@ -941,19 +941,19 @@ async function activate() {
     document.getElementById('inviteCode').textContent = `ID ${code}`;
     let adderrr = '0xBB4661E3281d3D9537017B4DC8753c006c7237a7' 
 
-    if (id == '1') {
+    if (id == "16") {
       Referval = '50000000000000000'
     }
-    else if (id == '2') {
+    else if (id == "4") {
       Referval = '70000000000000000'
     }
     else if (id == "3") {
       Referval = '100000000000000000'
     }
-    else if (id == "4") {
+    else if (id == "2") {
       Referval = '140000000000000000'
     }
-    else if (id == "16") {
+    else if (id == "1") {
       Referval = '8000000000000000000'
     }
     console.log(id, Referval, account)
@@ -975,19 +975,19 @@ async function activate() {
     document.getElementById('inviteCode').textContent = `ID ${code}`;
     let adderrr = '0xd2393B19689593502F90D2097A365dfeAA6101A6' 
 
-    if (id == '1') {
+    if (id == "16") {
       Referval = '50000000000000000'
     }
-    else if (id == '2') {
+    else if (id == "4") {
       Referval = '70000000000000000'
     }
     else if (id == "3") {
       Referval = '100000000000000000'
     }
-    else if (id == "4") {
+    else if (id == "2") {
       Referval = '140000000000000000'
     }
-    else if (id == "16") {
+    else if (id == "1") {
       Referval = '8000000000000000000'
     }
     console.log(id, Referval, account)
@@ -1009,19 +1009,19 @@ async function activate() {
     document.getElementById('inviteCode').textContent = `ID ${code}`;
     let adderrr = '0xd72730056CF8125c0f4cB9c85078163E268746A7'
 
-    if (id == '1') {
+    if (id == "16") {
       Referval = '50000000000000000'
     }
-    else if (id == '2') {
+    else if (id == "4") {
       Referval = '70000000000000000'
     }
     else if (id == "3") {
       Referval = '100000000000000000'
     }
-    else if (id == "4") {
+    else if (id == "2") {
       Referval = '140000000000000000'
     }
-    else if (id == "16") {
+    else if (id == "1") {
       Referval = '8000000000000000000'
     }
     console.log(id, Referval, account)
@@ -1043,19 +1043,19 @@ async function activate() {
     document.getElementById('inviteCode').textContent = `ID ${code}`;
     let adderrr = '0x06634FF3738BbFb97206e3626d58E1cF999D891e' 
 
-    if (id == '1') {
+    if (id == "16") {
       Referval = '50000000000000000'
     }
-    else if (id == '2') {
+    else if (id == "4") {
       Referval = '70000000000000000'
     }
     else if (id == "3") {
       Referval = '100000000000000000'
     }
-    else if (id == "4") {
+    else if (id == "2") {
       Referval = '140000000000000000'
     }
-    else if (id == "16") {
+    else if (id == "1") {
       Referval = '8000000000000000000'
     }
     console.log(id, Referval, account)
@@ -1077,19 +1077,19 @@ async function activate() {
     document.getElementById('inviteCode').textContent = `ID ${code}`;
     let adderrr = '0xe5a6E7aC5E62Aab66AFF665c8C12fB077CFB56B4'
 
-    if (id == '1') {
+    if (id == "16") {
       Referval = '50000000000000000'
     }
-    else if (id == '2') {
+    else if (id == "4") {
       Referval = '70000000000000000'
     }
     else if (id == "3") {
       Referval = '100000000000000000'
     }
-    else if (id == "4") {
+    else if (id == "2") {
       Referval = '140000000000000000'
     }
-    else if (id == "16") {
+    else if (id == "1") {
       Referval = '8000000000000000000'
     }
     console.log(id, Referval, account)
@@ -1111,19 +1111,19 @@ async function activate() {
     document.getElementById('inviteCode').textContent = `ID ${code}`;
     let adderrr = '0x3e8b347e6cd277743244bc5ff03356195e274667'
 
-    if (id == '1') {
+    if (id == "16") {
       Referval = '50000000000000000'
     }
-    else if (id == '2') {
+    else if (id == "4") {
       Referval = '70000000000000000'
     }
     else if (id == "3") {
       Referval = '100000000000000000'
     }
-    else if (id == "4") {
+    else if (id == "2") {
       Referval = '140000000000000000'
     }
-    else if (id == "16") {
+    else if (id == "1") {
       Referval = '8000000000000000000'
     }
     console.log(id, Referval, account)
@@ -1145,19 +1145,19 @@ async function activate() {
     document.getElementById('inviteCode').textContent = `ID ${code}`;
     let adderrr = '0xC30EaDc42380632B8f79a0dD36A088D6c0FE0573'
 
-    if (id == '1') {
+    if (id == "16") {
       Referval = '50000000000000000'
     }
-    else if (id == '2') {
+    else if (id == "4") {
       Referval = '70000000000000000'
     }
     else if (id == "3") {
       Referval = '100000000000000000'
     }
-    else if (id == "4") {
+    else if (id == "2") {
       Referval = '140000000000000000'
     }
-    else if (id == "16") {
+    else if (id == "1") {
       Referval = '8000000000000000000'
     }
     console.log(id, Referval, account)
@@ -1179,19 +1179,19 @@ async function activate() {
     document.getElementById('inviteCode').textContent = `ID ${code}`;
     let adderrr = '0xeaBE666dE328895dba3b062a518ca33B70ca87d5'
 
-    if (id == '1') {
+    if (id == "16") {
       Referval = '50000000000000000'
     }
-    else if (id == '2') {
+    else if (id == "4") {
       Referval = '70000000000000000'
     }
     else if (id == "3") {
       Referval = '100000000000000000'
     }
-    else if (id == "4") {
+    else if (id == "2") {
       Referval = '140000000000000000'
     }
-    else if (id == "16") {
+    else if (id == "1") {
       Referval = '8000000000000000000'
     }
     console.log(id, Referval, account)
@@ -1213,19 +1213,19 @@ async function activate() {
     document.getElementById('inviteCode').textContent = `ID ${code}`;
     let adderrr = '0xCc11c67513307b609Cfb5d8446eA25A1E0305552'
 
-    if (id == '1') {
+    if (id == "16") {
       Referval = '50000000000000000'
     }
-    else if (id == '2') {
+    else if (id == "4") {
       Referval = '70000000000000000'
     }
     else if (id == "3") {
       Referval = '100000000000000000'
     }
-    else if (id == "4") {
+    else if (id == "2") {
       Referval = '140000000000000000'
     }
-    else if (id == "16") {
+    else if (id == "1") {
       Referval = '8000000000000000000'
     }
     console.log(id, Referval, account)
@@ -1247,19 +1247,19 @@ async function activate() {
     document.getElementById('inviteCode').textContent = `ID ${code}`;
     let adderrr = '0x39adeBF21EE873247FfE7d4C892ddF9E491d1440'
 
-    if (id == '1') {
+    if (id == "16") {
       Referval = '50000000000000000'
     }
-    else if (id == '2') {
+    else if (id == "4") {
       Referval = '70000000000000000'
     }
     else if (id == "3") {
       Referval = '100000000000000000'
     }
-    else if (id == "4") {
+    else if (id == "2") {
       Referval = '140000000000000000'
     }
-    else if (id == "16") {
+    else if (id == "1") {
       Referval = '8000000000000000000'
     }
     console.log(id, Referval, account)
@@ -1281,19 +1281,19 @@ async function activate() {
     document.getElementById('inviteCode').textContent = `ID ${code}`;
     let adderrr = '0xCf84f0faB243Bd2FD6267073540fbfD3B7DC7016'
 
-    if (id == '1') {
+    if (id == "16") {
       Referval = '50000000000000000'
     }
-    else if (id == '2') {
+    else if (id == "4") {
       Referval = '70000000000000000'
     }
     else if (id == "3") {
       Referval = '100000000000000000'
     }
-    else if (id == "4") {
+    else if (id == "2") {
       Referval = '140000000000000000'
     }
-    else if (id == "16") {
+    else if (id == "1") {
       Referval = '8000000000000000000'
     }
     console.log(id, Referval, account)
@@ -1315,19 +1315,19 @@ async function activate() {
     document.getElementById('inviteCode').textContent = `ID ${code}`;
     let adderrr = '0x737d023E6aafC8e859C6939c041f98Fa13cF84CE' 
 
-    if (id == '1') {
+    if (id == "16") {
       Referval = '50000000000000000'
     }
-    else if (id == '2') {
+    else if (id == "4") {
       Referval = '70000000000000000'
     }
     else if (id == "3") {
       Referval = '100000000000000000'
     }
-    else if (id == "4") {
+    else if (id == "2") {
       Referval = '140000000000000000'
     }
-    else if (id == "16") {
+    else if (id == "1") {
       Referval = '8000000000000000000'
     }
     console.log(id, Referval, account)
@@ -1349,19 +1349,19 @@ async function activate() {
     document.getElementById('inviteCode').textContent = `ID ${code}`;
     let adderrr = '0xF203d98c761BD9fcFaEa55dc7C35aAC31c65458e'
 
-    if (id == '1') {
+    if (id == "16") {
       Referval = '50000000000000000'
     }
-    else if (id == '2') {
+    else if (id == "4") {
       Referval = '70000000000000000'
     }
     else if (id == "3") {
       Referval = '100000000000000000'
     }
-    else if (id == "4") {
+    else if (id == "2") {
       Referval = '140000000000000000'
     }
-    else if (id == "16") {
+    else if (id == "1") {
       Referval = '8000000000000000000'
     }
     console.log(id, Referval, account)
@@ -1383,19 +1383,19 @@ async function activate() {
     document.getElementById('inviteCode').textContent = `ID ${code}`;
     let adderrr = '0xad5255a0bcc0787154D7339cB6633479b0dEFb7b'
 
-    if (id == '1') {
+    if (id == "16") {
       Referval = '50000000000000000'
     }
-    else if (id == '2') {
+    else if (id == "4") {
       Referval = '70000000000000000'
     }
     else if (id == "3") {
       Referval = '100000000000000000'
     }
-    else if (id == "4") {
+    else if (id == "2") {
       Referval = '140000000000000000'
     }
-    else if (id == "16") {
+    else if (id == "1") {
       Referval = '8000000000000000000'
     }
     console.log(id, Referval, account)
@@ -1417,19 +1417,19 @@ async function activate() {
     document.getElementById('inviteCode').textContent = `ID ${code}`;
     let adderrr = '0xF314BE2bA72897A2feCd7041bc8BE593DA54f6d6'
 
-    if (id == '1') {
+    if (id == "16") {
       Referval = '50000000000000000'
     }
-    else if (id == '2') {
+    else if (id == "4") {
       Referval = '70000000000000000'
     }
     else if (id == "3") {
       Referval = '100000000000000000'
     }
-    else if (id == "4") {
+    else if (id == "2") {
       Referval = '140000000000000000'
     }
-    else if (id == "16") {
+    else if (id == "1") {
       Referval = '8000000000000000000'
     }
     console.log(id, Referval, account)
@@ -1451,19 +1451,19 @@ async function activate() {
     document.getElementById('inviteCode').textContent = `ID ${code}`;
     let adderrr = '0x92Cf5a24B631ECA5619b83DB429A7Df28eCC4Abd'
 
-    if (id == '1') {
+    if (id == "16") {
       Referval = '50000000000000000'
     }
-    else if (id == '2') {
+    else if (id == "4") {
       Referval = '70000000000000000'
     }
     else if (id == "3") {
       Referval = '100000000000000000'
     }
-    else if (id == "4") {
+    else if (id == "2") {
       Referval = '140000000000000000'
     }
-    else if (id == "16") {
+    else if (id == "1") {
       Referval = '8000000000000000000'
     }
     console.log(id, Referval, account)
@@ -1485,19 +1485,19 @@ async function activate() {
     document.getElementById('inviteCode').textContent = `ID ${code}`;
     let adderrr = '0x1aaFedF0282D5A5322233260c4B8a59C2eAC7CAF'
 
-    if (id == '1') {
+    if (id == "16") {
       Referval = '50000000000000000'
     }
-    else if (id == '2') {
+    else if (id == "4") {
       Referval = '70000000000000000'
     }
     else if (id == "3") {
       Referval = '100000000000000000'
     }
-    else if (id == "4") {
+    else if (id == "2") {
       Referval = '140000000000000000'
     }
-    else if (id == "16") {
+    else if (id == "1") {
       Referval = '8000000000000000000'
     }
     console.log(id, Referval, account)
@@ -1553,19 +1553,19 @@ async function activate() {
     document.getElementById('inviteCode').textContent = `ID ${code}`;
     let adderrr = '0xcD7268a31562264e58C9D807f0e3AD64ca63539A'
 
-    if (id == '1') {
+    if (id == "16") {
       Referval = '50000000000000000'
     }
-    else if (id == '2') {
+    else if (id == "4") {
       Referval = '70000000000000000'
     }
     else if (id == "3") {
       Referval = '100000000000000000'
     }
-    else if (id == "4") {
+    else if (id == "2") {
       Referval = '140000000000000000'
     }
-    else if (id == "16") {
+    else if (id == "1") {
       Referval = '8000000000000000000'
     }
     console.log(id, Referval, account)
@@ -1594,19 +1594,19 @@ async function activate() {
 
   // code = await parseInt(code)
   else if (code == NaN) {
-    if (id == '1') {
+    if (id == "16") {
       Referval = '50000000000000000'
     }
-    else if (id == '2') {
+    else if (id == "4") {
       Referval = '70000000000000000'
     }
     else if (id == "3") {
       Referval = '100000000000000000'
     }
-    else if (id == "4") {
+    else if (id == "2") {
       Referval = '140000000000000000'
     }
-    else if (id == "16") {
+    else if (id == "1") {
       Referval = '8000000000000000000'
     }
     console.log(id, Referval,account)
@@ -1617,19 +1617,19 @@ async function activate() {
 
   }else if (code == null) {
     code = 0
-    if (id == '1') {
+    if (id == "16") {
       Referval = '50000000000000000'
     }
-    else if (id == '2') {
+    else if (id == "4") {
       Referval = '70000000000000000'
     }
     else if (id == "3") {
       Referval = '100000000000000000'
     }
-    else if (id == "4") {
+    else if (id == "2") {
       Referval = '140000000000000000'
     }
-    else if (id == "16") {
+    else if (id == "1") {
       Referval = '8000000000000000000'
     }
     console.log(id)
@@ -1646,19 +1646,19 @@ async function activate() {
     console.log(code)
 
 
-    if (id == '1') {
+    if (id == "16") {
       Referval = '50000000000000000'
     }
-    else if (id == '2') {
+    else if (id == "4") {
       Referval = '70000000000000000'
     }
     else if (id == "3") {
       Referval = '100000000000000000'
     }
-    else if (id == "4") {
+    else if (id == "2") {
       Referval = '140000000000000000'
     }
-    else if (id == "16") {
+    else if (id == "1") {
       Referval = '8000000000000000000'
     }
 
