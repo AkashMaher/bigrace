@@ -230,26 +230,21 @@ async function onConnect() {
         let lastader = account.slice(38, 42);
         let adder = `${ader}...${lastader}`;
         console.log(adder)
-        // document.getElementById('address').textContent = `${adder}`;
 
         let bal = await web3.eth.getBalance(`${account}`)
         let bals = await web3.utils.fromWei(bal, 'ether');
         let balan = parseFloat(bals)
         balance = balan.toFixed(2);
         owner = await matrix.methods.owner().call();
-        userId = await matrix.methods.ReferalNumber('1', account).call();
-        referr = await matrix.methods.ParentId('1',account).call();
-        // console.log(balance)
-        // document.getElementById('balance').innerHTML = `${balance} BNB`
+        // userId = await matrix.methods.ReferalNumber('1', account).call();
+        // referr = await matrix.methods.ParentId('1',account).call();
 
         sessionStorage.setItem('WalletConnected', true);
-        // document.getElementById('connectName').textContent = 'Connected';
-        // document.querySelector('.logout-btn').style.display = 'flex';
         sessionStorage.setItem('disconnected', false)
-        // console.log("Provider is ", provider, "till here")
-        // console.log('test')
         toastr.success('Wallet Connected', 'SUCCESS')
         if (userId == '0' && account != owner) {
+            document.getElementById('ifYes').style.display = 'flex';
+            document.getElementById('ifNo').style.display = 'none';
             console.log('new user')
         } else{
             window.open('./profile.html','_self')
@@ -260,33 +255,6 @@ async function onConnect() {
     }
 
 }
-
-
-
-async function onConnected(){
-    if(!account) return toastr.error('Please connect wallet', 'ERROR');
-    window.open(`https://bscscan.com/address/${account}`, '_block')
-}
-async function onDisconnect(){
-    let isConnected = sessionStorage.getItem('WalletConnected');
-    console.log(isConnected)
-    if (!isConnected) return console.log('Not Connected');
-    // await web3Modal.clearCachedProvider();
-    // document.getElementById('connectName').textContent = 'Connect Wallet';
-    // document.querySelector('.logout-btn').style.display = 'none';
-    sessionStorage.setItem('WalletConnected', false);
-    sessionStorage.setItem('disconnected', true);
-    toastr.success('Disconnected', 'SUCCESS')
-    
-}
-
-
-
-
-
-
-
-
 
 async function onRefreshPage() {
     let disconnected = sessionStorage.getItem('disconnected');
@@ -330,7 +298,6 @@ async function onRefreshPage() {
         let lastader = account.slice(38, 42);
         let adder = `${ader}...${lastader}`;
         console.log(adder)
-        // document.getElementById('address').textContent = `${adder}`;
 
         owner = await matrix.methods.owner().call()
         userId = await matrix.methods.ReferalNumber('1', account).call()
@@ -339,12 +306,9 @@ async function onRefreshPage() {
         let balan = parseFloat(bals)
         balance = balan.toFixed(2);
         console.log(balance)
-        // document.getElementById('balance').innerHTML = `${balance} BNB`
 
 
         console.log("Provider is ", provider, "till here")
-        // document.getElementById('connectName').textContent = 'Connected';
-        // document.querySelector('.logout-btn').style.display = 'flex';
 
 
         setInterval(async function () {
