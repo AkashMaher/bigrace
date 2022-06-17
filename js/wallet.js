@@ -15,6 +15,7 @@ let horseNum;
 let balance;
 let userId;
 let owner;
+let referr;
 
 
 
@@ -231,8 +232,9 @@ async function onConnect() {
         let bals = await web3.utils.fromWei(bal, 'ether');
         let balan = parseFloat(bals)
         balance = balan.toFixed(2);
-        owner = await matrix.methods.owner().call()
-        userId = await matrix.methods.ReferalNumber('1', account).call()
+        owner = await matrix.methods.owner().call();
+        userId = await matrix.methods.ReferalNumber('1', account).call();
+        referr = await matrix.methods.ParentId('1',account).call();
         // console.log(balance)
         // document.getElementById('balance').innerHTML = `${balance} BNB`
 
@@ -327,7 +329,7 @@ async function onRefreshPage() {
         // document.getElementById('address').textContent = `${adder}`;
 
         owner = await matrix.methods.owner().call()
-        userId = await matrix.methods.ReferalNumber('1', inputVal).call()
+        userId = await matrix.methods.ReferalNumber('1', account).call()
         let bal = await web3.eth.getBalance(`${account}`)
         let bals = await web3.utils.fromWei(bal, 'ether');
         let balan = parseFloat(bals)
@@ -374,17 +376,37 @@ async function PreviewId() {
     if (adder == 42) {
         let owner = await matrix.methods.owner().call()
         let userId = await matrix.methods.ReferalNumber('1', inputVal).call()
-        if (userId == '0' && inputVal != owner) return toastr.error('User Not Registered')
-        document.getElementById('userID').textContent = `ID пользователя : ${userId}`;
-        document.getElementById('WalletAddress').textContent = `Адрес кошелька : ${inputVal}`;
-    } else {
+        let refferee = await matrix.methods.ReferalNumber('1', inputVal).call()
+        if (userId == '0' && inputVal != owner) {
+
+            document.getElementById('errr').textContent = `Пользователь не найден`
+            document.getElementById('userID').textContent = ``
+            document.getElementById('WalletAddress').textContent = ``
+            document.getElementById('refferee').textContent = ``
+        } else{
+            if (refferee == '0') refferee = 'Admin';
+            document.getElementById('errr').textContent =``;
+            document.getElementById('userID').textContent = `ID пользователя : ${userId}`;
+            document.getElementById('WalletAddress').textContent = `Адрес кошелька : ${inputVal}`;
+            document.getElementById('refferee').textContent = `идентификатор приглашающего: ${refferee}`;
+    } }else {
         // console.log(UID)
         
         let addres = await matrix.methods.ReferalAddress('1', inputVal).call()
-        if (addres == '0x0000000000000000000000000000000000000000') return toastr.error('Invalid User Id')
+        if (addres == '0x0000000000000000000000000000000000000000')  {
 
-        document.getElementById('userID').textContent = `ID пользователя : ${inputVal}`;
-        document.getElementById('WalletAddress').textContent = `Адрес кошелька : ${addres}`;
+            document.getElementById('errr').textContent = `Пользователь не найден`
+            document.getElementById('userID').textContent = ``
+            document.getElementById('WalletAddress').textContent = ``
+            document.getElementById('refferee').textContent = `` 
+        } else{
+            let refferee = await matrix.methods.ReferalNumber('1', addres).call()
+            if(refferee=='0') refferee = 'Admin';
+            document.getElementById('errr').textContent =``;
+            document.getElementById('userID').textContent = `ID пользователя : ${inputVal}`;
+            document.getElementById('WalletAddress').textContent = `Адрес кошелька : ${addres}`;
+            document.getElementById('refferee').textContent = `идентификатор приглашающего: ${refferee}`;
+        }
     }
 
 

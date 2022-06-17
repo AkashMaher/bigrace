@@ -10,6 +10,7 @@
       integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
       crossorigin="anonymous"
     />
+    <link rel="icon" href="./assets/img/bigrace-icon.jpg">
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -121,24 +122,24 @@
               <div class="d-flex align-items-center avatar-container">
                 <img src="./assets/img/avatar.png" alt="" />
                 <div class="avatar-desc-container">
-                  <h2>ID <span id="userId">0000001</span></h2>
+                  <h2>ID <span id="userId">0000000</span></h2>
                   <p class="mb-0 mt-0">
-                    <span id="userAddress">0x00...000</span>
+                    <span id="userAddress">0x00...0000</span>
                     <button class="copy-btn" id="copyAddress">
                       <img src="./assets/img/copy.png" alt="" />
                     </button>
                   </p>
                   <p class="mb-0 text-w-link">
-                    Invited By <a href="#"><span id="referId">ID 000000</span></a>
+                    идентификатор приглашающего <a href="#"><span id="referId">000000</span></a>
                   </p>
                 </div>
               </div>
               <div class="link-profile-container">
-                <p class="mb-0">My personal link ?</p>
-                <a href="#"><span id="MyReferLink">bigrace.game/?invite=0000001</span></a>
+                <p class="mb-0">Моя личная ссылка?</p>
+                <a href="#"><span id="MyReferLink">bigrace.game/?invite=0</span></a>
                 <div class="d-flex align-items-center link-profile-button">
-                  <button id="copyReferLink">Copy</button>
-                  <button class="mr-0" id="shareLink">Share</button>
+                  <button id="copyReferLink">Копировать</button>
+                  <button class="mr-0" id="shareLink">Делиться</button>
                 </div>
               </div>
             </div>
@@ -148,7 +149,7 @@
     </section>
     <div class="share-dialog">
       <header>
-        <h3 class="dialog-title">Share Invite Link</h3>
+        <h3 class="dialog-title">Поделиться ссылкой-приглашением</h3>
         <button class="close-button"><svg>
             <use href="#close"></use>
           </svg></button>
@@ -158,33 +159,33 @@
           <svg>
             <use href="#facebook"></use>
           </svg>
-          <span>Facebook</span>
+          <span>Фейсбук</span>
         </a>
     
         <a class="button" id="TwitterShare">
           <svg>
             <use href="#twitter"></use>
           </svg>
-          <span>Twitter</span>
+          <span>Твиттер</span>
         </a>
     
-        <!-- <a class="button" id="LinkedInShare">
+        <a class="button" id="TelegramShare">
           <svg>
-            <use href="#linkedin"></use>
+            <use href="#telegram"></use>
           </svg>
-          <span>LinkedIn</span>
+          <span>Телеграмма</span>
         </a>
     
-        <a class="button" id="EmailShare">
+        <a class="button" id="WhatsAppShare">
           <svg>
-            <use href="#email"></use>
+            <use href="#whatsapp"></use>
           </svg>
-          <span>Email</span>
-        </a> -->
+          <span>WhatsApp</span>
+        </a>
       </div>
       <div class="link">
         <div class="pen-url"><span id="inviteLinkShare"></span></div>
-        <button class="copy-link" id="copylinkinvite">Copy Link</button>
+        <button class="copy-link" id="copylinkinvite">Копировать</button>
       </div>
     </div>
     
@@ -198,6 +199,9 @@
           <polyline points="16 6 12 2 8 6"></polyline>
           <line x1="12" y1="2" x2="12" y2="15"></line>
         </symbol>
+
+        <symbol id="telegram" width="16" height="16" fill="currentColor" class="bi bi-telegram" viewBox="0 0 16 16"> <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.287 5.906c-.778.324-2.334.994-4.666 2.01-.378.15-.577.298-.595.442-.03.243.275.339.69.47l.175.055c.408.133.958.288 1.243.294.26.006.549-.1.868-.32 2.179-1.471 3.304-2.214 3.374-2.23.05-.012.12-.026.166.016.047.041.042.12.037.141-.03.129-1.227 1.241-1.846 1.817-.193.18-.33.307-.358.336a8.154 8.154 0 0 1-.188.186c-.38.366-.664.64.015 1.088.327.216.589.393.85.571.284.194.568.387.936.629.093.06.183.125.27.187.331.236.63.448.997.414.214-.02.435-.22.547-.82.265-1.417.786-4.486.906-5.751a1.426 1.426 0 0 0-.013-.315.337.337 0 0 0-.114-.217.526.526 0 0 0-.31-.093c-.3.005-.763.166-2.984 1.09z"/>
+          </symbol>
     
         <symbol id="facebook" viewBox="0 0 24 24" fill="#3b5998" stroke="#3b5998" stroke-width="2" stroke-linecap="round"
           stroke-linejoin="round" class="feather feather-facebook">
@@ -217,11 +221,7 @@
           <polyline points="22,6 12,13 2,6"></polyline>
         </symbol>
     
-        <symbol id="linkedin" viewBox="0 0 24 24" fill="#0077B5" stroke="#0077B5" stroke-width="2" stroke-linecap="round"
-          stroke-linejoin="round" class="feather feather-linkedin">
-          <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
-          <rect x="2" y="9" width="4" height="12"></rect>
-          <circle cx="4" cy="4" r="2"></circle>
+        <symbol id="whatsapp" viewBox="0 0 32 32" class="whatsapp-ico"><path d=" M19.11 17.205c-.372 0-1.088 1.39-1.518 1.39a.63.63 0 0 1-.315-.1c-.802-.402-1.504-.817-2.163-1.447-.545-.516-1.146-1.29-1.46-1.963a.426.426 0 0 1-.073-.215c0-.33.99-.945.99-1.49 0-.143-.73-2.09-.832-2.335-.143-.372-.214-.487-.6-.487-.187 0-.36-.043-.53-.043-.302 0-.53.115-.746.315-.688.645-1.032 1.318-1.06 2.264v.114c-.015.99.472 1.977 1.017 2.78 1.23 1.82 2.506 3.41 4.554 4.34.616.287 2.035.888 2.722.888.817 0 2.15-.515 2.478-1.318.13-.33.244-.73.244-1.088 0-.058 0-.144-.03-.215-.1-.172-2.434-1.39-2.678-1.39zm-2.908 7.593c-1.747 0-3.48-.53-4.942-1.49L7.793 24.41l1.132-3.337a8.955 8.955 0 0 1-1.72-5.272c0-4.955 4.04-8.995 8.997-8.995S25.2 10.845 25.2 15.8c0 4.958-4.04 8.998-8.998 8.998zm0-19.798c-5.96 0-10.8 4.842-10.8 10.8 0 1.964.53 3.898 1.546 5.574L5 27.176l5.974-1.92a10.807 10.807 0 0 0 16.03-9.455c0-5.958-4.842-10.8-10.802-10.8z" fill-rule="evenodd"></path>
         </symbol>
     
         <symbol id="close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"

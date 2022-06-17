@@ -3,7 +3,8 @@
 let Ader;
 let inviteLink;
 let UserAddress;
-
+let referre;
+let textwithLink = 'Приглашаем вас сыграть в замечательную игру о скачках "BIG RACE"';
 
 async function userInfo(){
 
@@ -20,7 +21,9 @@ async function userInfo(){
     if (search) {
         if (!code) {
             UserAddress = account;
-            let Uid = await matrix.methods.ReferalNumber('1',UserAddress).call()
+            referre = await matrix.methods.ParentId('1', account).call();
+            console.log(referre)
+            let Uid = await matrix.methods.ReferalNumber('1',UserAddress).call();
             console.log(Uid)
             let ader = UserAddress.slice(0, 5);
             let lastader = UserAddress.slice(37, 42);
@@ -28,13 +31,15 @@ async function userInfo(){
             console.log(adder)
             document.getElementById('userAddress').textContent = `${adder}`;
             document.getElementById('userId').textContent = `${Uid}`;
-            inviteLink = `https://bigrace.io?invite=${Uid}`
+            document.getElementById('referId').textContent = `${referre}`;
+            inviteLink =`https://bigrace.io?invite=${Uid}`
             document.getElementById('MyReferLink').textContent = `${inviteLink}`
             document.getElementById('inviteLinkShare').textContent = `${inviteLink}`
             
         } else{
             UserAddress = await matrix.methods.ReferalAddress('1',code).call()
             console.log(UserAddress)
+            referre = await matrix.methods.ParentId('1', UserAddress).call();
             let ader = UserAddress.slice(0, 5);
             let lastader = UserAddress.slice(37, 42);
             let adder = `${ader}....${lastader}`;
@@ -42,6 +47,7 @@ async function userInfo(){
             document.getElementById('userId').textContent = `${code}`;
             document.getElementById('userAddress').textContent = `${adder}`;
             inviteLink = `https://bigrace.io?invite=${code}`
+            document.getElementById('referId').textContent = `${referre}`;
             document.getElementById('MyReferLink').textContent = `${inviteLink}`
             document.getElementById('inviteLinkShare').textContent = `${inviteLink}`
 
@@ -49,6 +55,7 @@ async function userInfo(){
     } else {
         UserAddress = account;
         let Uid = await matrix.methods.ReferalNumber('1', UserAddress).call()
+        referre = await matrix.methods.ParentId('1', UserAddress).call();
         console.log(Uid)
         let ader = UserAddress.slice(0, 5);
         let lastader = UserAddress.slice(37, 42);
@@ -59,6 +66,7 @@ async function userInfo(){
         inviteLink = `https://bigrace.io?invite=${Uid}`
         document.getElementById('MyReferLink').textContent = `${inviteLink}`
         document.getElementById('inviteLinkShare').textContent = `${inviteLink}`
+        document.getElementById('referId').textContent = `${referre}`;
     }
 }
 
@@ -100,6 +108,13 @@ closeButton.addEventListener('click', event => {
 });
 
 
+const inviter = document.querySelector("#referId");
+
+inviter.addEventListener('click', async function (){
+    window.open(`./profile.html?user=${referre}`,'_self')
+})
+
+
 
 const fbbtn = document.querySelector('#FacebookShare');
 const twbtn = document.querySelector('#TwitterShare');
@@ -107,24 +122,24 @@ const libtn = document.querySelector('#LinkedInShare');
 const emailbtn = document.querySelector('#EmailShare');
 
 async function fbshare(){
-    window.open(`https://www.facebook.com/share.php?u=${inviteLink}`,'_blank')
+    window.open(`https://www.facebook.com/share.php?u=${inviteLink}&quote=${textwithLink}`,'_blank')
     shareDialog.classList.remove('is-open');
 }
 
 async function tweetshare() {
-    window.open(`http://www.twitter.com/share?url=${inviteLink}`, '_blank')
+    window.open(`http://www.twitter.com/share?url=${inviteLink}&text=${textwithLink}`, '_blank')
     shareDialog.classList.remove('is-open');
 }
 
-// async function Lishare() {
-//     window.open(`https://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2F${inviteLink}&source=LinkedIn`, '_blank')
-//     shareDialog.classList.remove('is-open');
-// }
+async function TgShare() {
+    window.open(`https://t.me/share/url?url=${inviteLink}&text=${textwithLink}`, '_blank')
+    shareDialog.classList.remove('is-open');
+}
 
-// async function emailShare() {
-//     window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${inviteLink}`, '_blank')
-//     shareDialog.classList.remove('is-open');
-// }
+async function WaShare() {
+    window.open(`https://api.whatsapp.com/send?phone=whatsappphonenumber&text=urlencodedtext=${textwithLink} : ${inviteLink}`, '_blank')
+    shareDialog.classList.remove('is-open');
+}
 
 
 window.addEventListener('load', async () => {
@@ -133,6 +148,6 @@ window.addEventListener('load', async () => {
     document.querySelector("#copylinkinvite").addEventListener("click", copyInviteLink);
     document.querySelector('#FacebookShare').addEventListener("click", fbshare)
     document.querySelector('#TwitterShare').addEventListener("click", tweetshare)
-    // document.querySelector('#LinkedInShare').addEventListener("click", Lishare)
-    // document.querySelector('#EmailShare').addEventListener("click", emailShare)
+    document.querySelector('#TelegramShare').addEventListener("click", TgShare)
+    document.querySelector('#WhatsAppShare').addEventListener("click", WaShare)
 });

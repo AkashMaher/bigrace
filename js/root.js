@@ -416,10 +416,14 @@ const main = `<section>
             <div class="result-container d-flex justify-content-between align-items-center">
                 <div>
                   <p class="mb-0" ><span id="userID"></span></p>
-                  <p class="result-sub-text mb-0"><span id="WalletAddress"></span></p>
+                  <p class="mb-0"><span id="refferee"></span></p>
+                  <p class="mb-0"><span id="WalletAddress"></span></p>
+                  <p class="mb-0"><span id="errr"></span></p>
+                  
                 </div>
                 <div>
-                  <p class="mb-0"><span id="userlvl"></span></p>
+                  
+                  <p class="result-sub-text mb-0"><span id="userlvl"></span></p>
                 </div>
       
               </div>
