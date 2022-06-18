@@ -102,7 +102,7 @@ async function userInfo(){
             }
             let UserId = await matrix.methods.UniqueID(inputVal).call()
             if (UserId === '0' && inputVal !== admin) {
-                toastr.error('user not found', "ERROR")
+                // toastr.error('user not found', "ERROR")
                 console.log('test1')
             } else if (UserId !== '0') {
                 window.open(`./profile.html?user=${UserId}`, '_self')
