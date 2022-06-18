@@ -123,6 +123,9 @@
   .game-tablet-container {
     padding-top: 5rem;
   }
+  .user-btn-pc{
+    display: none;
+  }
   .sidebar-container {
     height: 100vh;
     position: fixed;

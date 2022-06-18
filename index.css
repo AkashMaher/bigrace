@@ -1532,3 +1532,13 @@ iframe{
   color: black
 }
 
+.user-btn-pc{
+  display: flex;
+    background: #ffffff;
+    border-radius: 50px;
+    padding: 0.6rem;
+    align-items: center;
+    justify-content: center;
+    margin-left: 0.75rem;
+}
+
