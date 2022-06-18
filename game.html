@@ -206,7 +206,9 @@
         <h1 class="text-center choose-horse-text">
           Выберите лошадь <br />
           До старта осталось минут <br />
-          <span id="startCountDown">00:00</span>
+          <span id="startCountDown"></span>
+
+          
         </h1>
         <div
           class="d-flex mob-horse-container-choose justify-content-center mb-5"
@@ -217,13 +219,14 @@
             <div
               class="d-flex mob-horse-choose-container justify-content-between align-items-center"
             >
-              <div class="total-wallet">
+              <div class="wallet-add-btn total-wallet">
+                <button id="StartRace">Начать гонку</button>
                 <!-- <h2 class="mb-0">Баланс кошелька:</h2>
                 <p class="mb-0"><span id="balanceonBuyPage"></span></p> -->
               </div>
               <div class="wallet-add-btn">
                 
-                <!-- <button id="startcount"><span id="startCountDown"></span></button> -->
+                <button id="startcount"><span id="startCountDown"></span></button>
                 <button id="buyTicket">Купить билет (0,05 BNB)</button>
               </div>
             </div>
@@ -333,7 +336,7 @@
           document.querySelector("#horse2").addEventListener("click", chooseHorse2);
           document.querySelector("#horse3").addEventListener("click", chooseHorse3);
           document.querySelector("#horse4").addEventListener("click", chooseHorse4);
-          // document.querySelector("#StartRace").addEventListener("click", onStartRace);
+          document.querySelector("#StartRace").addEventListener("click", onStartRace);
         });
       function show(text) {
         document.getElementById("textBox-text").innerHTML = text;

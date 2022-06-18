@@ -413,12 +413,12 @@ async function chooseHorse4() {
     console.log(horseNum)
 }
 
-// async function onStartRace() {
-//     if(!account) return toastr.info('please connect wallet');
-//     await racing.methods.startRacing().send({from:account})
-//     toastr.info('racing started')
-//     auto()
-// }
+async function onStartRace() {
+    if(!account) return toastr.info('please connect wallet');
+    await racing.methods.startRacing().send({from:account})
+    toastr.info('racing started')
+    auto()
+}
 async function onBuyTicket(){
     if(!account) return toastr.info('please login by connect wallet')
     console.log(horseNum)

@@ -139,13 +139,13 @@ async function isInvited() {
         invCheck()
         automate2()
         document.querySelector("#register").addEventListener("click", onConnect)
-        document.querySelector('#activate').addEventListener('click', onActivate)
+        document.querySelector('#activate').addEventListener('click', activate)
       }
     } 
     
     else {
       // document.getElementById('root').innerHTML = main;
-      document.querySelector('#activate2').addEventListener('click', onActivate)
+      document.querySelector('#activate2').addEventListener('click', onActivate2)
       automate()
       document.querySelector("#register").addEventListener("click", onConnect);
       document.querySelector('#preview').addEventListener('click', PreviewId)
