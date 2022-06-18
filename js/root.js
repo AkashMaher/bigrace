@@ -100,7 +100,11 @@ async function activate(){
 }
 
 
-async function onActivate2(){
+}
+
+
+async function onActivate2() {
+
   let id = document.getElementById('lvls').value;
   if (id == '1') { Referval = '50000000000000000'; InputID = 16 }
   else if (id == '2') { Referval = '70000000000000000'; InputID = 15 }
@@ -110,12 +114,6 @@ async function onActivate2(){
 
   await matrix.methods.addUser(InputID, 0).send({ from: account, value: Referval })
   window.open('./profile.html', '_self')
-
-}
-  
-
-
-
 
 }
 
