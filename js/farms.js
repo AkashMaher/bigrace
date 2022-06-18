@@ -61,4 +61,61 @@ FarmOpenIn('1656072000', '6', 'YetToActivate6', 'Activated6')
 FarmOpenIn('1656072000', '5', 'YetToActivate5', 'Activated5')
 
 
+
+
+async function activateFarm(lvlID, Value) {
+    console.log('Test')
+    console.log(document.getElementsByClassName('horse-card-container')[lvlID - 1])
+    console.log(lvlID)
+
+    let result = await matrix.methods.addUser(lvlID, 0).send({
+        from: account,
+        gasLimit: 10000000,
+        value: Value
+    })
+
+    console.log(result)
+
+    document.getElementsByClassName('horse-card-container')[lvlID - 1].classList.add('activated')
+
+    let horseCont = document.getElementsByClassName('horse-card-container')[lvlID - 1]
+
+    console.log(horseCont.querySelector('div:nth-child(2)'))
+
+
+    let text = document.getElementById("textBox-text").innerHTML;
+    if (text === "Русский") {
+
+        horseCont.querySelector('div:nth-child(2)').innerHTML = '' +
+            '<div>' +
+            '          <p class="text-center main-card-text">данная ферма</p>' +
+            '          <div class="d-flex justify-content-center">' +
+            '            <h3 style="color: white;">Активирована</h3>' +
+            '          </div>' +
+            '        </div>';
+
+    } else if (text === "English") {
+
+        horseCont.querySelector('div:nth-child(2)').innerHTML = '' +
+            '<div>' +
+            '          <p class="text-center main-card-text">this farm is</p>' +
+            '          <div class="d-flex justify-content-center">' +
+            '            <h3 style="color: white;">Activated</h3>' +
+            '          </div>' +
+            '        </div>';
+
+    } else if (text === "Hindi") {
+
+        horseCont.querySelector('div:nth-child(2)').innerHTML = '' +
+            '<div>' +
+            '          <p class="text-center main-card-text">यह खेत</p>' +
+            '          <div class="d-flex justify-content-center">' +
+            '            <h3 style="color: white;">सक्रिय है</h3>' +
+            '          </div>' +
+            '        </div>';
+
+    }
+
+}
+
 // document.getElementById('16').addEventListener('click', activateFarm(16,'50000000000000000'))
