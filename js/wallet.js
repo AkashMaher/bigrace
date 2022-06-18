@@ -20,6 +20,22 @@ let Referval;
 let langID;
 var selectIndex=4;
 let code=0;
+let mm1;
+let mm2
+let mm3
+let mm4
+let mm5
+let mm6
+let mm7
+let mm8
+let mm9
+let mm10
+let mm11
+let mm12
+let mm13
+let mm14
+let mm15
+let mm16
 
 
 
@@ -28,6 +44,401 @@ const RACINGCONTRACT = '0x7c941127D5544cDb9cF251b34E3f134c937a3809'
 
 const MatrixABI = [{ "inputs": [], "stateMutability": "nonpayable", "type": "constructor" }, { "inputs": [{ "internalType": "address", "name": "", "type": "address" }], "name": "Levels", "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }], "stateMutability": "view", "type": "function" }, { "inputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }], "name": "NumLevels", "outputs": [{ "internalType": "address", "name": "", "type": "address" }], "stateMutability": "view", "type": "function" }, { "inputs": [{ "internalType": "uint256", "name": "Level", "type": "uint256" }, { "internalType": "address", "name": "ref", "type": "address" }], "name": "ParentId", "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }], "stateMutability": "view", "type": "function" }, { "inputs": [{ "internalType": "uint256", "name": "Level", "type": "uint256" }, { "internalType": "uint256", "name": "ref", "type": "uint256" }], "name": "ReferalAddress", "outputs": [{ "internalType": "address", "name": "", "type": "address" }], "stateMutability": "view", "type": "function" }, { "inputs": [{ "internalType": "uint256", "name": "Level", "type": "uint256" }], "name": "ReferalNum", "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }], "stateMutability": "view", "type": "function" }, { "inputs": [{ "internalType": "uint256", "name": "Level", "type": "uint256" }, { "internalType": "address", "name": "ref", "type": "address" }], "name": "ReferalNumber", "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }], "stateMutability": "view", "type": "function" }, { "inputs": [{ "internalType": "address", "name": "ref", "type": "address" }], "name": "ReferalsId", "outputs": [{ "internalType": "uint256[]", "name": "returnLevels", "type": "uint256[]" }], "stateMutability": "view", "type": "function" }, { "inputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }], "name": "Times", "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }], "stateMutability": "view", "type": "function" }, { "inputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }], "name": "UniqueAddress", "outputs": [{ "internalType": "address", "name": "", "type": "address" }], "stateMutability": "view", "type": "function" }, { "inputs": [{ "internalType": "address", "name": "", "type": "address" }], "name": "UniqueID", "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }], "stateMutability": "view", "type": "function" }, { "inputs": [], "name": "UniqueIter", "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }], "stateMutability": "view", "type": "function" }, { "inputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }], "name": "Values", "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }], "stateMutability": "view", "type": "function" }, { "inputs": [{ "internalType": "uint256", "name": "Level", "type": "uint256" }, { "internalType": "uint256", "name": "ref", "type": "uint256" }], "name": "addUser", "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }], "stateMutability": "payable", "type": "function" }, { "inputs": [{ "internalType": "address", "name": "account", "type": "address" }], "name": "addUserToQueue", "outputs": [], "stateMutability": "nonpayable", "type": "function" }, { "inputs": [{ "internalType": "uint256[]", "name": "ReferalNumbers", "type": "uint256[]" }, { "internalType": "address[]", "name": "newUsers", "type": "address[]" }, { "internalType": "uint256", "name": "size", "type": "uint256" }], "name": "addUsers", "outputs": [], "stateMutability": "nonpayable", "type": "function" }, { "inputs": [{ "internalType": "address", "name": "newOwner", "type": "address" }], "name": "changeOwner", "outputs": [], "stateMutability": "nonpayable", "type": "function" }, { "inputs": [{ "internalType": "uint256", "name": "Level", "type": "uint256" }, { "internalType": "address", "name": "ref", "type": "address" }], "name": "isUser", "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }], "stateMutability": "view", "type": "function" }, { "inputs": [], "name": "iter", "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }], "stateMutability": "view", "type": "function" }, { "inputs": [{ "internalType": "address", "name": "account", "type": "address" }], "name": "itersOf", "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }], "stateMutability": "view", "type": "function" }, { "inputs": [{ "internalType": "uint256", "name": "value", "type": "uint256" }, { "internalType": "uint256", "name": "timeStamp", "type": "uint256" }], "name": "newLevel", "outputs": [], "stateMutability": "nonpayable", "type": "function" }, { "inputs": [], "name": "owner", "outputs": [{ "internalType": "address", "name": "", "type": "address" }], "stateMutability": "view", "type": "function" }]
 const MatrixCONTRACT = '0x66Dd8c90389C914bD509160Df077f946Eed4E22f'
+
+
+const mmAbi = [
+    {
+        "inputs": [
+            {
+                "internalType": "uint256",
+                "name": "value",
+                "type": "uint256"
+            },
+            {
+                "internalType": "uint256",
+                "name": "timeStamp",
+                "type": "uint256"
+            },
+            {
+                "internalType": "address",
+                "name": "Owner",
+                "type": "address"
+            }
+        ],
+        "stateMutability": "nonpayable",
+        "type": "constructor"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            },
+            {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }
+        ],
+        "name": "Childrens",
+        "outputs": [
+            {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }
+        ],
+        "name": "Cycles",
+        "outputs": [
+            {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }
+        ],
+        "name": "Parent",
+        "outputs": [
+            {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }
+        ],
+        "name": "Queue",
+        "outputs": [
+            {
+                "internalType": "address",
+                "name": "",
+                "type": "address"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "QueueFinish",
+        "outputs": [
+            {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "address",
+                "name": "",
+                "type": "address"
+            }
+        ],
+        "name": "Referal",
+        "outputs": [
+            {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "address",
+                "name": "",
+                "type": "address"
+            }
+        ],
+        "name": "User",
+        "outputs": [
+            {
+                "internalType": "bool",
+                "name": "",
+                "type": "bool"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "address",
+                "name": "msgSender",
+                "type": "address"
+            },
+            {
+                "internalType": "uint256",
+                "name": "ReferalNumber",
+                "type": "uint256"
+            }
+        ],
+        "name": "addUserPay",
+        "outputs": [
+            {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }
+        ],
+        "stateMutability": "payable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "address",
+                "name": "newUser",
+                "type": "address"
+            }
+        ],
+        "name": "addUserToQueue",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "uint256[]",
+                "name": "ReferalNumbers",
+                "type": "uint256[]"
+            },
+            {
+                "internalType": "address[]",
+                "name": "newUsers",
+                "type": "address[]"
+            },
+            {
+                "internalType": "uint256",
+                "name": "size",
+                "type": "uint256"
+            }
+        ],
+        "name": "addUsers",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "address",
+                "name": "newOwner",
+                "type": "address"
+            }
+        ],
+        "name": "changeOwner",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "uint256",
+                "name": "r",
+                "type": "uint256"
+            }
+        ],
+        "name": "getQueue",
+        "outputs": [
+            {
+                "internalType": "address",
+                "name": "",
+                "type": "address"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "address",
+                "name": "r",
+                "type": "address"
+            }
+        ],
+        "name": "getReferal",
+        "outputs": [
+            {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "address",
+                "name": "a",
+                "type": "address"
+            }
+        ],
+        "name": "isUser",
+        "outputs": [
+            {
+                "internalType": "bool",
+                "name": "",
+                "type": "bool"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "myParant",
+        "outputs": [
+            {
+                "internalType": "address",
+                "name": "",
+                "type": "address"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "owner",
+        "outputs": [
+            {
+                "internalType": "address",
+                "name": "",
+                "type": "address"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "payValue",
+        "outputs": [
+            {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "uint256",
+                "name": "number",
+                "type": "uint256"
+            }
+        ],
+        "name": "random",
+        "outputs": [
+            {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "startTime",
+        "outputs": [
+            {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    }
+]
+
+
+
+const mmAddresses = [
+    '0xB1274FFBBd13238667A5822B62340fd0F72d6F02',
+    '0x0Db54cac64ffa8F0461D9e117A9D4Ae58F6FB451',
+    '0x8Ee700C4BccfEFe9405f7fFAa71A6DA4Ed503b05',
+    '0x5647F120671Fc5CC71B539172CFD3C8fdEcfe81A',
+    '0x246b05de9Ae167B369Efd43f039afBBe49e76602',
+    '0x1dFDA3fEB83E3127A020a12f7514552922C3426c',
+    '0x0684DabeB2d6A9e04C1DbF01ae1243e405479d59',
+    '0xbE2197DC9127dD783fE631b8C81d8916502Ab9d4',
+    '0x41dCc929D64167c155839C64281E1017A42b6854',
+    '0xF939741d6b2316B58350d5F987255231acD07e06',
+    '0xcB4494b279dEf632C2b7a5545038aFBe77a89799',
+    '0x92055866253b31F865BDa4e5aC433B816668BD34',
+    '0x5996Dfb00f7016b78480c8109F30E10fF1be24a1',
+    '0x051Aa8F650a954c9546874C3Eda55212eC98A4A3',
+    '0xfCaf5fd845661594835B0EEa2B86CbaF3243212B',
+    '0x748E8B4CdEC006a18a06cc7E955060e80AB50a49']
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 const chainId = '56'
 const Path = 5500
@@ -225,6 +636,13 @@ async function onConnect() {
 
         racing = new web3.eth.Contract(RACINGABI, RACINGCONTRACT)
         matrix = new web3.eth.Contract(MatrixABI, MatrixCONTRACT)
+        mm1 = new web3.eth.Contract(mmAbi,mmAddresses[0])
+
+        // let lvl = matrix.methods.referalAddress
+
+        let childs = mm1.methods.Childrens(1,0).call()
+
+        console.log(childs)
 
         let ader = account.slice(0, 3);
         let lastader = account.slice(38, 42);
@@ -236,7 +654,7 @@ async function onConnect() {
         let balan = parseFloat(bals)
         balance = balan.toFixed(2);
         owner = await matrix.methods.owner().call();
-        // userId = await matrix.methods.ReferalNumber('1', account).call();
+        userId = await matrix.methods.UniqueID(account).call();
         // referr = await matrix.methods.ParentId('1',account).call();
 
         sessionStorage.setItem('WalletConnected', true);
@@ -337,6 +755,10 @@ const web3 = new Web3('https://bsc-dataseed1.binance.org:443');
 
 racing = new web3.eth.Contract(RACINGABI, RACINGCONTRACT)
 matrix = new web3.eth.Contract(MatrixABI, MatrixCONTRACT)
+mm1 = new web3.eth.Contract(mmAbi, mmAddresses[0])
+
+
+console.log(`contract is : `+mm1)
 
 async function MaxUsers(id){
     let Numss = await matrix.methods.UniqueIter().call()
