@@ -30,6 +30,8 @@ const byPass = [
     ['999999', '0xcD7268a31562264e58C9D807f0e3AD64ca63539A'],
     ['1000000', '0x2943885945A5E1f49ea4BF6F3507fd90403d3Fd0']
 ]
+
+
 async function userInfo(){
 
     await delay(5000);

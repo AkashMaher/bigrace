@@ -332,47 +332,57 @@ async function onRefreshPage() {
 
 }
 
+const web3 = new Web3('https://bsc-dataseed1.binance.org:443');
+// console.log(web3)
+
+racing = new web3.eth.Contract(RACINGABI, RACINGCONTRACT)
+matrix = new web3.eth.Contract(MatrixABI, MatrixCONTRACT)
+
+async function MaxUsers(id){
+    let Numss = await matrix.methods.UniqueIter().call()
+    Numss = parseInt(`${Numss}`)
+    let Nums2 = parseInt(`${byPass.length}`)
+    document.getElementById(id).textContent = Numss+Nums2;
+}
+
+
 async function PreviewId() {
-    if (!account) return toastr.error('Пожалуйста, сначала войдите с кошельком', 'ОШИБКА')
     let inputVal = await document.getElementById('inputPreviewId').value;
     let adder = inputVal.length
     console.log(adder)
-    console.log(account)
-
     if (adder == 42) {
-        let owner = await matrix.methods.owner().call()
-        let userId = await matrix.methods.ReferalNumber('1', inputVal).call()
-        let refferee = await matrix.methods.ReferalNumber('1', inputVal).call()
-        if (userId == '0' && inputVal != owner) {
-
-            document.getElementById('errr').textContent = `Пользователь не найден`
-            document.getElementById('userID').textContent = ``
-            document.getElementById('WalletAddress').textContent = ``
-            document.getElementById('refferee').textContent = ``
-        } else{
-            if (refferee == '0') refferee = 'Admin';
-            document.getElementById('errr').textContent =``;
-            document.getElementById('userID').textContent = `ID пользователя : ${userId}`;
-            document.getElementById('WalletAddress').textContent = `Адрес кошелька : ${inputVal}`;
-            document.getElementById('refferee').textContent = `идентификатор приглашающего: ${refferee}`;
-    } }else {
-        // console.log(UID)
-        
-        let addres = await matrix.methods.ReferalAddress('1', inputVal).call()
-        if (addres == '0x0000000000000000000000000000000000000000')  {
-
-            document.getElementById('errr').textContent = `Пользователь не найден`
-            document.getElementById('userID').textContent = ``
-            document.getElementById('WalletAddress').textContent = ``
-            document.getElementById('refferee').textContent = `` 
-        } else{
-            let refferee = await matrix.methods.ReferalNumber('1', addres).call()
-            if(refferee=='0') refferee = 'Admin';
-            document.getElementById('errr').textContent =``;
-            document.getElementById('userID').textContent = `ID пользователя : ${inputVal}`;
-            document.getElementById('WalletAddress').textContent = `Адрес кошелька : ${addres}`;
-            document.getElementById('refferee').textContent = `идентификатор приглашающего: ${refferee}`;
+        for(let i=0;i<byPass.length;i++){
+        if(inputVal==byPass[i][1]){
+            let UserId = byPass[i][0]
+            
+            window.open(`./profile.html?user=${UserId}`,'_self')
         }
+        } 
+        let admin = await matrix.methods.UniqueAddress(0).call()
+        let UserId= await matrix.methods.UniqueID(inputVal).call()
+        if(UserId==='0' && inputVal !== admin){
+            toastr.error('user not found',"ERROR")
+            console.log('test1')
+        }else if(UserId !=='0'){
+            window.open(`./profile.html?user=${UserId}`, '_self')
+            console.log('test11')
+        }
+
+    }else {
+        let lenn = byPass.length
+        if (inputVal > 999977 && inputVal < byPass.length + 999978){
+            window.open(`./profile.html?user=${inputVal}`, '_self')
+
+        } else{
+            let adder = await matrix.methods.UniqueAddress(inputVal).call()
+            if (adder ==='0x0000000000000000000000000000000000000000'){
+                toastr.error('user not found','ERROR')
+            }else{
+                window.open(`./profile.html?user=${inputVal}`, '_self')
+                console.log('test15')
+            }
+        }
+        
     }
 
 
