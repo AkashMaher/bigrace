@@ -87,7 +87,28 @@ async function userInfo(){
             }
         } 
     } else {
-        
+        UserAddress = account;
+        Uid = await matrix.methods.UniqueID(UserAddress).call()
+        let admin = await matrix.methods.UniqueAddress(0).call()
+        console.log(Uid)
+        let inputVal = account;
+        let adder = inputVal.length
+        console.log(adder)
+            for (let i = 0; i < byPass.length; i++) {
+                if (inputVal == byPass[i][1]) {
+                    let UserId = byPass[i][0]
+
+                    window.open(`./profile.html?user=${UserId}`, '_self')
+                }
+            }
+            let UserId = await matrix.methods.UniqueID(inputVal).call()
+            if (UserId === '0' && inputVal !== admin) {
+                toastr.error('user not found', "ERROR")
+                console.log('test1')
+            } else if (UserId !== '0') {
+                window.open(`./profile.html?user=${UserId}`, '_self')
+                console.log('test11')
+            }
             // document.getElementById('referId').textContent = `${referre}`;
 
     }
@@ -99,32 +120,60 @@ async function userInfo(){
 
 
 async function uInfo(){
-    UserAddress = account;
-    Uid = await matrix.methods.UniqueID(UserAddress).call()
-    let admin = await matrix.methods.UniqueAddress(0).call()
-    console.log(Uid)
-    let inputVal = account;
-    let adder = inputVal.length
-    console.log(adder)
-    for (let i = 0; i < byPass.length; i++) {
-        if (inputVal == byPass[i][1]) {
-            let UserId = byPass[i][0]
+    let Url = window.location.href;
+    let url = new URL(Url);
+    code = url.searchParams.get("user");
+    let search = window.location.search;
+    if (!search) {
+        UserAddress = account;
+        Uid = await matrix.methods.UniqueID(UserAddress).call()
+        let admin = await matrix.methods.UniqueAddress(0).call()
+        console.log(Uid)
 
-            window.open(`./?user=${UserId}`, '_self')
-        }
-    }
-    let UserId = await matrix.methods.UniqueID(inputVal).call()
-    if (UserId === '0' && inputVal !== admin) {
-        toastr.error('user not found', "ERROR")
-        console.log('test1')
-    } else if (UserId !== '0') {
-        window.open(`./?user=${UserId}`, '_self')
-        console.log('test11')
+        if (Uid === '0' && UserAddress !== admin) {
+            // console.log(Uid,'testing111')
+            console.log('test2')
+            document.getElementById('userId').textContent = 'No User'
+            document.getElementById('userAddress').textContent = ''
+            document.getElementById('MyReferLink').textContent = ``
+            document.getElementById('inviteLinkShare').textContent = ``
+            
+        } else {
+            for (let i = 0; i > byPass.length; i++) {
+                if (account === byPass[i][1]) {
+                    Uid = byPass[i][0];
+                    console.log(Uid)
+                    let ader = UserAddress.slice(0, 5);
+                    let lastader = UserAddress.slice(37, 42);
+                    let adder = `${ader}....${lastader}`;
+                    console.log(adder)
+                    document.getElementById('userId').textContent = `${Uid}`;
+                    document.getElementById('userAddress').textContent = `${adder}`;
+                    inviteLink = `https://bigrace.io?invite=${Uid}`
+                    document.getElementById('MyReferLink').textContent = `${inviteLink}`
+                    document.getElementById('inviteLinkShare').textContent = `${inviteLink}`
+                    console.log('test3')
+                    // document.getElementById('referId').textContent = `${referre}`;
+                }
+            }
+            console.log('test4')
+            Uid = await matrix.methods.UniqueID(UserAddress).call()
+            console.log(Uid)
+            let ader = UserAddress.slice(0, 5);
+            let lastader = UserAddress.slice(37, 42);
+            let adder = `${ader}....${lastader}`;
+            console.log(adder)
+            document.getElementById('userId').textContent = `${Uid}`;
+            document.getElementById('userAddress').textContent = `${adder}`;
+            inviteLink = `https://bigrace.io?invite=${Uid}`
+            document.getElementById('MyReferLink').textContent = `${inviteLink}`
+            document.getElementById('inviteLinkShare').textContent = `${inviteLink}`
+        } 
     }
     
 }
 
-uInfo()
+// uInfo()
 
 
 async function copyAddress(){
