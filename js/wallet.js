@@ -246,9 +246,7 @@ async function onConnect() {
             document.getElementById('ifYes').style.display = 'flex';
             document.getElementById('ifNo').style.display = 'none';
             console.log('new user')
-        } else{
-            window.open('./profile.html','_self')
-        }
+        } 
     } catch (e) {
         console.log("Could not get a wallet connection", e);
         return;
