@@ -28,7 +28,8 @@ const byPass = [
     ['999997', '0x1aaFedF0282D5A5322233260c4B8a59C2eAC7CAF'],
     ['999998', '0xb643E289A9C70f8C11096b1A304537362d05aE13'],
     ['999999', '0xcD7268a31562264e58C9D807f0e3AD64ca63539A'],
-    ['1000000', '0x2943885945A5E1f49ea4BF6F3507fd90403d3Fd0']
+    ['1000000', '0x2943885945A5E1f49ea4BF6F3507fd90403d3Fd0'],
+    ['1000001', '0x2F1b87C0EE11e810b8Bf9B5D78e70D400eb3f645']
 ]
 
 
@@ -97,15 +98,35 @@ async function userInfo(){
                 if (inputVal == byPass[i][1]) {
                     let UserId = byPass[i][0]
 
-                    window.open(`./profile.html?user=${UserId}`, '_self')
+                    console.log('test000')
+                    // window.open(`./profile.html?user=${UserId}`, '_self')
+                    let ader = UserAddress.slice(0, 5);
+                    let lastader = UserAddress.slice(37, 42);
+                    let adder = `${ader}....${lastader}`;
+                    console.log(adder)
+                    document.getElementById('userId').textContent = `${UserId}`;
+                    document.getElementById('userAddress').textContent = `${adder}`;
+                    inviteLink = `https://bigrace.io?invite=${UserId}`
+                    // document.getElementById('referId').textContent = `${referre}`;
+                    document.getElementById('MyReferLink').textContent = `${inviteLink}`
+                    document.getElementById('inviteLinkShare').textContent = `${inviteLink}`
                 }
             }
-            let UserId = await matrix.methods.UniqueID(inputVal).call()
-            if (UserId === '0' && inputVal !== admin) {
+            // let UserId = await matrix.methods.UniqueID(inputVal).call()
+            if (Uid === '0' && inputVal !== admin) {
                 // toastr.error('user not found', "ERROR")
                 console.log('test1')
-            } else if (UserId !== '0') {
-                window.open(`./profile.html?user=${UserId}`, '_self')
+            } else if (Uid !== '0') {
+                // window.open(`./profile.html?user=${UserId}`, '_self')
+                let ader = UserAddress.slice(0, 5);
+                let lastader = UserAddress.slice(37, 42);
+                let adder = `${ader}....${lastader}`;
+                console.log(adder)
+                document.getElementById('userId').textContent = `${Uid}`;
+                document.getElementById('userAddress').textContent = `${adder}`;
+                inviteLink = `https://bigrace.io?invite=${Uid}`
+                document.getElementById('MyReferLink').textContent = `${inviteLink}`
+                document.getElementById('inviteLinkShare').textContent = `${inviteLink}`
                 console.log('test11')
             }
             // document.getElementById('referId').textContent = `${referre}`;
