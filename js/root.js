@@ -40,7 +40,9 @@ async function invCheck() {
     
         document.getElementById('inviteCode').textContent = `${inviter}`
       
-}
+  } else{
+    document.getElementById('inviteCode').textContent = 'invalid inviter'
+  }
 }
 
 
@@ -89,21 +91,18 @@ async function isInvited() {
   
     let Url = window.location.href;
     let url = new URL(Url);
-    code = url.searchParams.get("invite");
+    inviter = url.searchParams.get("invite");
   let search =  window.location.search;
   console.log(search)
     let pathname = window.location.pathname
     console.log('code is: '+code)
     console.log(pathname)
     if(search){
-      if(!code){
-          // document.getElementById('root').innerHTML = main;
-        // automate()
-        // document.querySelector('#activate2').addEventListener('click', activate)
-        // document.querySelector("#register").addEventListener("click", onConnect);
+      if(inviter.length !== '42'){
+        
       } else{
           // document.getElementById('root').innerHTML = invited;
-          window.open(`./invite.html?invite=${code}`,'_self')
+        window.open(`./invite.html?invite=${code}`,'_self')
         invCheck()
         automate2()
         document.querySelector("#register").addEventListener("click", onConnect)
