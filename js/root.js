@@ -1,6 +1,7 @@
 
 let InputID;
 let UAddress;
+let inviter;
 
 const byPass = [
   ['999978', '0x93965A19CD9f32Ea9bF8E15BCa3C5BE1Dd2D220A'],
@@ -28,40 +29,18 @@ const byPass = [
   ['1000000', '0x2943885945A5E1f49ea4BF6F3507fd90403d3Fd0']
 ]
 async function invCheck() {
-  
+
   let Url = window.location.href;
   let url = new URL(Url);
-  code = url.searchParams.get("invite");
-  console.log(code)
+  inviter = url.searchParams.get("invite");
+  console.log(inviter)
   
 
-  if (code > 999978 && code < 999978 + byPass.length) {
-    let i = 0;
-    for (i = 0; i < byPass.length; i++) {
-      if (code === byPass[i][0]) {
-        UAddress = byPass[i][1]
-        document.getElementById('inviteCode').textContent = `${UAddress}`
-      }
-    }
-  }
-  else {
-    UAddress = await matrix.methods.UniqueAddress(code).call()
-    if (UAddress === '0x0000000000000000000000000000000000000000') return document.getElementById('inviteCode').textContent = `INVALID CODE`
-    console.log(UAddress)
-    document.getElementById('inviteCode').textContent = `${UAddress}`
-
-  }
-  // if (code == null || code == undefined) {
-  //   code = 0;
-  // }
-  // // if (code.length != 6) {document.getElementById('inviteCode').textContent = 'Invalid invite code'}
-  // document.getElementById('inviteCode').textContent = `ID ${code}`;
-  // maxNum = await matrix.methods.ReferalNum(1).call()
-  // console.log(maxNum)
-  // if (code > maxNum - 1) {
-  //   document.getElementById('inviteCode').textContent = `Invalid Id`
-  //   code = 0
-  // }
+  if (inviter.length==='42') {
+    
+        document.getElementById('inviteCode').textContent = `${inviter}`
+      
+}
 }
 
 
@@ -72,15 +51,9 @@ async function activate(){
 
   let Url = window.location.href;
   let url = new URL(Url);
-  code = url.searchParams.get("invite");
-  console.log(byPass.length)
+  inviter = url.searchParams.get("invite");
 
-  if (code > 999978 && code < 999978+byPass.length){
-  let i = 0;
-  for(i=0; i<byPass.length;i++) {
-    if(code===byPass[i][0]){
-      UAddress = byPass[i][1]
-      console.log(UAddress)
+  if (inviter.length ==='42'){
       let id = document.getElementById('lvls').value;
       if (id == '1') {Referval = '50000000000000000'; InputID = 16}
       else if (id == '2') {Referval = '70000000000000000';InputID = 15}
@@ -88,35 +61,14 @@ async function activate(){
       else if (id == "4") {Referval = '140000000000000000';InputID = 13}
       else if (id == "16") {Referval = '8000000000000000000';InputID = 1}
 
-      ReferId = await matrix.methods.ReferalNumber(InputID,UAddress).call()
+      ReferId = await matrix.methods.ReferalNumber(InputID,inviter).call()
       console.log(ReferId)
       console.log(InputID, ReferId)
 
       await matrix.methods.addUser(InputID, ReferId).send({ from: account, value: Referval })
       window.open('./profile.html','_self')
-    }
+    } 
   }
-} else{
-  UAddress = await matrix.methods.UniqueAddress(code).call()
-    if (UAddress ==='0x0000000000000000000000000000000000000000') return toastr.error('invalid invite')
-    console.log(UAddress)
-    let id = document.getElementById('lvls').value;
-    if (id == '1') { Referval = '50000000000000000'; InputID = 16 }
-    else if (id == '2') { Referval = '70000000000000000'; InputID = 15 }
-    else if (id == "3") { Referval = '100000000000000000'; InputID = 14 }
-    else if (id == "4") { Referval = '140000000000000000'; InputID = 13 }
-    else if (id == "16") { Referval = '8000000000000000000'; InputID = 1 }
-
-    ReferId = await matrix.methods.ReferalNumber(InputID, UAddress).call()
-    console.log(ReferId)
-    console.log(InputID, ReferId)
-
-    await matrix.methods.addUser(InputID, ReferId).send({ from: account, value: Referval })
-    window.open('./profile.html', '_self')
-}
-
-
-}
 
 
 async function onActivate2() {
