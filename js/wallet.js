@@ -660,15 +660,19 @@ async function onConnect() {
         sessionStorage.setItem('WalletConnected', true);
         sessionStorage.setItem('disconnected', false)
         toastr.success('Wallet Connected', 'SUCCESS')
-        if (userId == '0' && account != owner) {
-            document.getElementById('ifYes').style.display = 'flex';
-            document.getElementById('ifNo').style.display = 'none';
-            console.log('new user')
-        } else {
-            document.getElementById('ifYes').style.display = 'flex';
-            document.getElementById('ifNo').style.display = 'none';
-            console.log('old user')
-        }
+
+        document.getElementById('ifYes').style.display = 'flex';
+        document.getElementById('ifNo').style.display = 'none';
+        console.log('invite user')
+        // if (userId == '0' && account != owner) {
+        //     document.getElementById('ifYes').style.display = 'flex';
+        //     document.getElementById('ifNo').style.display = 'none';
+        //     console.log('new user')
+        // } else {
+        //     document.getElementById('ifYes').style.display = 'flex';
+        //     document.getElementById('ifNo').style.display = 'none';
+        //     console.log('old user')
+        // }
     } catch (e) {
         console.log("Could not get a wallet connection", e);
         return;
