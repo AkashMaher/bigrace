@@ -125,7 +125,8 @@ async function userInfo(){
                 document.getElementById('userId').textContent = `${Uid}`;
                 document.getElementById('userAddress').textContent = `${adder}`;
                 inviteLink = `https://bigrace.io?invite=${UserAddress}`
-                document.getElementById('MyReferLink').textContent = `${inviteLink}`
+                let refershortlink = `bigrace.io?invite=${adder}`
+                document.getElementById('MyReferLink').textContent = `${refershortlink}`
                 document.getElementById('inviteLinkShare').textContent = `${inviteLink}`
                 console.log('test11')
             }
