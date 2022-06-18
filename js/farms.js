@@ -34,7 +34,7 @@ async function FarmOpenIn(timestamp,id){
         if (seconds < 0) {
             document.getElementById(id).textContent = `00:00`;
         } else
-            document.getElementById(id).textContent =days+":"+hours+":"+minutes+":"+seconds;
+            document.getElementById(id).textContent =days+"d "+hours+"h "+minutes+"m";
 
         if (distance < 0) {
             clearInterval(x);
