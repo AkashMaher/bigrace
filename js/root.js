@@ -47,7 +47,6 @@ async function activate(){
   let url = new URL(Url);
   inviter = url.searchParams.get("invite");
 
-  if (inviter.length ==='42'){
       let id = document.getElementById('lvls').value;
       if (id == '1') {Referval = '50000000000000000'; InputID = 16}
       else if (id == '2') {Referval = '70000000000000000';InputID = 15}
@@ -62,7 +61,7 @@ async function activate(){
       await matrix.methods.addUser(InputID, ReferId).send({ from: account, value: Referval })
       window.open('./profile.html','_self')
     } 
-  }
+  
 
 
 async function onActivate2() {
@@ -87,15 +86,16 @@ async function isInvited() {
   let search =  window.location.search;
   console.log(search)
     let pathname = window.location.pathname
-    console.log('code is: '+code)
+    console.log('code is: '+inviter)
     console.log(pathname)
     if(search){
           // document.getElementById('root').innerHTML = invited;
         window.open(`./invite.html?invite=${inviter}`,'_self')
-        invCheck()
-        automate2()
+        // invCheck()
+        // automate2()
         document.querySelector("#register").addEventListener("click", onConnect)
         document.querySelector('#activate').addEventListener('click', activate)
+      document.querySelector("#register").addEventListener("click", automate2);
       
     } 
     
@@ -110,20 +110,33 @@ async function isInvited() {
   }
 
 
+  // async function automate2(){
+    
+  //   if(account){
+  //     const boxx = document.getElementById('exampleModal2');
+  //     boxx.style.display = 'block';
+  //     boxx.classList.add('show')
+  //     boxx.setAttribute('role','dialog')
+  //   } else{
+  //     onConnect()
+  //   }
+    
+  // }
+
 
 
 
 async function automate2() {
-  setInterval(async function () {
-    if (!account) {
-      document.getElementById('ifYes').style.display = 'none'
-      document.getElementById('ifNo').style.display = 'flex'
-      // console.log('test1')
-    } else {
-      
+  setInterval(function () {
+    if (account) {
       document.getElementById('ifNo').style.display = 'none'
       document.getElementById('ifYes').style.display = 'flex'
-      // console.log('test2')
+      
+      console.log('test1')
+    } else {
+      
+      
+      console.log('test2')
     }
   }, 1000);
 

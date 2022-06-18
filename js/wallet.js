@@ -636,13 +636,7 @@ async function onConnect() {
 
         racing = new web3.eth.Contract(RACINGABI, RACINGCONTRACT)
         matrix = new web3.eth.Contract(MatrixABI, MatrixCONTRACT)
-        mm1 = new web3.eth.Contract(mmAbi,mmAddresses[0])
-
-        // let lvl = matrix.methods.referalAddress
-
-        let childs = mm1.methods.Childrens(1,0).call()
-
-        console.log(childs)
+        
 
         let ader = account.slice(0, 3);
         let lastader = account.slice(38, 42);
@@ -661,10 +655,11 @@ async function onConnect() {
         sessionStorage.setItem('disconnected', false)
         toastr.success('Wallet Connected', 'SUCCESS')
 
-        document.getElementById('ifYes').style.display = 'flex';
-        document.getElementById('ifNo').style.display = 'none';
-        console.log('invite user')
-        // if (userId == '0' && account != owner) {
+        
+        // document.getElementById('ifNo2').style.opacity = '0';
+        // console.log('invite user')
+        
+        // if (account) {
         //     document.getElementById('ifYes').style.display = 'flex';
         //     document.getElementById('ifNo').style.display = 'none';
         //     console.log('new user')
@@ -673,6 +668,14 @@ async function onConnect() {
         //     document.getElementById('ifNo').style.display = 'none';
         //     console.log('old user')
         // }
+
+        mm1 = new web3.eth.Contract(mmAbi, mmAddresses[0])
+
+        // let lvl = matrix.methods.referalAddress
+
+        let childs = await mm1.methods.Childrens(1, 0).call()
+
+        console.log(childs)
     } catch (e) {
         console.log("Could not get a wallet connection", e);
         return;

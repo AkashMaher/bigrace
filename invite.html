@@ -173,7 +173,7 @@
           <div class="position-absolute profile-container w-100">
             <div class="d-flex align-items-center justify-content-center flex-column invite-inner-container">
               <img src="./assets/img/avatar.png" alt="">
-              <h1><span id="inviteCode"></span></h1>
+              <h4><span id="inviteCode"></span></h4>
               <h2 class="text-center">
                 <font style="vertical-align: inherit;">
                   <font style="vertical-align: inherit;">
@@ -189,20 +189,17 @@
   
               <div class="invitesss smalltext" id="ifNo">
                 <button type="button" id="register">
-                  <font style="vertical-align: inherit;">
-                    <font style="vertical-align: inherit;">
+                  
                       Register Now
-                    </font>
-                  </font>
+                    
                 </button>
+              </div>
               
-              <div class="noview smalltext" id="ifYes">
+              <div class="noview smalltext" id="ifYes" >
                 <button type="button" data-bs-toggle="modal" data-bs-target="#exampleModal2">
-                  <font style="vertical-align: inherit;">
-                    <font style="vertical-align: inherit;">
+                  
                       Register Now
-                    </font>
-                  </font>
+                    
                 </button>
               </div>
   
@@ -476,14 +473,9 @@
   <script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
   <script src="https://cdn.jsdelivr.net/gh/chrisdickinson/bops@master/dist/bops.js" type="module"></script>
 
-  <script type="text/javascript" src="./js/wallet.js"></script>
-  <script type="text/javascript" src="./js/path.js"></script>
-  <script type="text/javascript" src="./js/game.js"></script>
   
-  <script type="text/javascript" src="./js/game-win.js"></script>
-  <script type="text/javascript" src="./js/in-game.js"></script>
   <script type="text/javascript" src="./js/root.js"></script>
-  <script type="text/javascript" src="./js/invite.js"></script>
+  <script type="text/javascript" src="./js/wallet.js"></script>
 
   <script>
     window.addEventListener('load', async () => {
@@ -572,9 +564,10 @@
 
   });
   invCheck()
-    // automate2()
+    automate2()
     document.querySelector("#register").addEventListener("click", onConnect)
     document.querySelector('#activate').addEventListener('click', activate)
+    // document.querySelector("#register").addEventListener("click", automate2);
   function show(text) {
     document.getElementById("textBox-text").innerHTML = text;
     if (text === "Русский") {
