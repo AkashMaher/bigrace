@@ -172,7 +172,7 @@ async function checkIfActivated(checkIfLogin){
                 } else{
                     document.getElementById(checkIfLogin).innerHTML = Ru1
                 }
-                clearInterval(x)
+                // clearInterval(x)
 
             } else{
                 for(let i=0;i<activatedFarms.length;i++){
@@ -209,25 +209,11 @@ async function checkIfActivated(checkIfLogin){
                         }
                     
                     } else{
-                        let lvlId = checkIfLogin.slice(5)
-                        console.log(lvlId)
-                        let lvlPrice = farmPrice[lvlId - 1][1]
-                        console.log(lvlPrice)
-                        const Ru1 = `<a onclick="activateFarm(${lvlId},${lvlPrice})" style="padding-left: 35px"><button>Активировать</button></a>`
-                        const En1 = `<a onclick="activateFarm(${lvlId},${lvlPrice})" style="padding-left: 35px"><button>Activate</button></a>`
-                        const Hi1 = `<a onclick="activateFarm(${lvlId},${lvlPrice})" style="padding-left: 35px"><button>सक्रिय</button></a>`
-
-                        if (text === 'English') {
-                            document.getElementById(checkIfLogin).innerHTML = En1
-                        } else if (text === 'Hindi') {
-                            document.getElementById(checkIfLogin).innerHTML = Hi1
-                        } else {
-                            document.getElementById(checkIfLogin).innerHTML = Ru1
-                        }
+                        
 
                     } 
                 }
-                clearInterval(x)
+                // clearInterval(x)
             }
 
             
