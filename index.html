@@ -482,9 +482,9 @@
 
         });
         isInvited()
-        automate()
+        document.querySelector("#register").addEventListener("click", automate);
           document.querySelector('#activate2').addEventListener('click', onActivate2)
-          document.querySelector("#register").addEventListener("click", onConnect);
+          // document.querySelector("#register").addEventListener("click", onConnect);
           MaxUsers('participants');
       function show(text) {
         document.getElementById("textBox-text").innerHTML = text;

@@ -34,7 +34,10 @@ async function invCheck() {
   let url = new URL(Url);
   inviter = url.searchParams.get("invite");
   console.log(inviter)
-        document.getElementById('inviteCode').textContent = `${inviter}`
+  if(inviter !==null){
+    document.getElementById('inviteCode').textContent = `${inviter}`
+  }
+        
 }
 
 
@@ -102,8 +105,8 @@ async function isInvited() {
     else {
       // document.getElementById('root').innerHTML = main;
       document.querySelector('#activate2').addEventListener('click', onActivate2)
-      automate()
-      document.querySelector("#register").addEventListener("click", onConnect);
+      // document.querySelector("#register").addEventListener("click", automate);
+      // document.querySelector("#register").addEventListener("click", onConnect);
       document.querySelector('#preview').addEventListener('click', PreviewId)
     }
 
@@ -127,15 +130,15 @@ async function isInvited() {
 
 
 async function automate2() {
-  setInterval(function () {
-    if (account) {
-      document.getElementById('ifNo').style.display = 'none'
-      document.getElementById('ifYes').style.display = 'flex'
+  var x = setInterval(function () {
+    if (!account) {
+      
       
       console.log('test1')
     } else {
-      
-      
+      document.getElementById('ifNo').style.display = 'none'
+      document.getElementById('ifYes').style.display = 'flex'
+      clearInterval(x)
       console.log('test2')
     }
   }, 1000);
@@ -143,29 +146,49 @@ async function automate2() {
 }
 
 
+// async function automate(){
+//   var y= setInterval(async function ()  {
+//     let activatedFarms;
+//     if(account) activatedFarms = await matrix.methods.ReferalsId(account).call();
+//     if (!account) {
+      
+//       // console.log('test1')
+//     } else if (activatedFarms.legth === 0) {
+//           document.getElementById('ifNo').style.display = 'none'
+//           document.getElementById('ifYes').style.display = 'flex'
+//           clearInterval(y)
+//           console.log('new user')
+//     } else if(activatedFarms.length>0){
+//           // window.open('./profile.html', '_self')
+//           console.log('old user')
+//           clearInterval(y)
+//     }
+    
+//   }, 1000);
+  
+// }
+
+
+
 async function automate(){
-  var y= setInterval(async function ()  {
-    if (!account) {
-      document.getElementById('playy').style.display = 'none'
-      document.getElementById('ifYes').style.display = 'none'
-      document.getElementById('ifNo').style.display = 'flex'
-      // console.log('test1')
-    } else {
-      owner = await matrix.methods.owner().call()
-      userId = await matrix.methods.ReferalNumber('1', account).call()
-      if (userId == '0' && account != owner) {
-        document.getElementById('ifNo').style.display = 'none'
-        document.getElementById('logintoPlay').style.display = 'none'
-        document.getElementById('ifYes').style.display = 'flex'
-        document.getElementById('playy').style.display = 'flex'
-      } else {
-        clearInterval(y);
-      } 
-    }
-  }, 1000);
+  await onConnect()
+
+  if(!account) return console.log('account')
+  let activatedFarms = await matrix.methods.ReferalsId(account).call();
+  console.log(activatedFarms)
+  console.log(activatedFarms.length)
+  if (activatedFarms.length === 0) {
+    document.getElementById('ifNo').style.display = 'none'
+    document.getElementById('ifYes').style.display = 'flex'
+    // clearInterval(y)
+    console.log('new user')
+  } else{
+    window.open('./profile.html', '_self')
+    console.log('old user')
+    // clearInterval(y)
   
 }
-
+}
 
 
 

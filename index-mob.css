@@ -2,6 +2,10 @@
   .textBox {
     width: 72px;
   }
+
+  #inviteCode{
+    font-size: small;
+  }
   .option div {
     width: 72px;
   }
