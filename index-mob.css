@@ -3,6 +3,12 @@
     width: 72px;
   }
 
+  #userAddress{
+    font-size: 10px;
+  }
+  #MyReferLink{
+    font-size: 10px;
+  }
   #inviteCode{
     font-size: small;
   }

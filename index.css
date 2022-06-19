@@ -691,6 +691,7 @@ body {
 .copy-btn {
   background-color: transparent;
   border: none;
+  display: none;
 }
 .link-profile-container {
   background: #ffffff;
@@ -1552,4 +1553,15 @@ iframe{
   text-align: center;
   padding-top: 10px;
   font-size: medium;
+}
+
+.UserAvatar{
+  position: relative;
+  text-align: center;
+}
+
+.UserInfo{
+  padding-top:20px;
+  position: relative;
+  text-align: center;
 }

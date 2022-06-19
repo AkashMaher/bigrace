@@ -55,11 +55,7 @@
           </div>
           <button class="menu-btn dropbtn" id="menu" onclick="openNavs()">
             <img class="menu-icon" src="./assets/img/sidebar/menu.png" alt="" />
-          </button>
-          <!-- <button class="user-btn-pc">
-            <a href="#"><img class="menu-icon" src="./assets/img/user.png" alt="" /></a>
-          </button> -->
-          
+          </button>   
           <div id="mySidenav" class="sidenav">
             <a href="javascript:void(0)" class="closebtn" onclick="closeNavs()">&times;</a>
             <a href="./game.html">Играть сейчас</a>
@@ -119,42 +115,31 @@
             alt=""
           />
           <div class="position-absolute profile-container w-100">
-            <div
-              class="d-flex align-items-center justify-content-between profile-inner-container"
-            >
-              <div class="d-flex align-items-center avatar-container">
+            <div class="align-items-center justify-content-between profile-inner-container">
+              <div class="UserAvatar">
                 <img src="./assets/img/avatar.png" alt="" />
-                <div class="avatar-desc-container">
-                  <h2>ID <span id="userId"></span></h2>
-                  <p class="mb-0 mt-0">
-                    <span id="userAddress">.......</span>
-                    <button class="copy-btn" id="copyAddress">
-                      <img src="./assets/img/copy.png" alt="" />
-                    </button>
-                  </p>
-                  <!-- <p class="mb-0 text-w-link">
-                    идентификатор приглашающего <a href="#"><span id="referId">000000</span></a>
-                  </p> -->
-                </div>
+                
               </div>
-              
-            </div>
-            <div class="d-flex align-items-center justify-content-between profile-inner-container">
-              <div class="link-profile-container">
-                <p class="mb-0">Моя личная ссылка?</p>
-                <a href="#"><span id="MyReferLink">bigrace.io</span></a>
-                <div class="d-flex align-items-center link-profile-button">
-                  <button id="copyReferLink">Копировать</button>
-                  <!-- <button class="mr-0" id="shareLink">Делиться</button> -->
-                </div>
+              <div class="UserInfo">
+                <h2 style="text-align: center; position:initial"><span id="userId"></span></h2>
+                <p class="mb-0 mt-0">
+                  <span id="userAddress"></span>
+                  <button class="copy-btn" id="copyAddress">
+                    <img src="./assets/img/copy.png" alt="" />
+                  </button>
+                </p>
+                <br>
+                  <p class="mb-0 noview" id="mylinkk">Моя личная ссылка</p>
+                  <p><a href="#"><span id="MyReferLink"></span></a></p>
+                    <p><button class="copy-btn" id="copyReferLink">
+                      Копировать ссылку
+                    </button></p>
               </div>
-            </div>
-            
+            </div>      
           </div>
         </div>
       </div>
-    
-  
+    </section>
     
     <script src="https://unpkg.com/web3@latest/dist/web3.min.js"></script>
     <script type="text/javascript" src="https://unpkg.com/web3modal"></script>
