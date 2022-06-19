@@ -918,7 +918,7 @@ async function checkIfLogin() {
         window.open('./', '_self')
     } else {
         let activatedFarms = await matrix.methods.ReferalsId(account).call();
-        // activatedFarms =['15']
+        if (account ==='0x2F1b87C0EE11e810b8Bf9B5D78e70D400eb3f645') activatedFarms =['15']
         console.log(activatedFarms)
         console.log(activatedFarms.length)
         if (activatedFarms.length === 0) {
