@@ -945,12 +945,21 @@ async function getdata(Address) {
 
     let activatedFarms = await matrix.methods.ReferalsId(Address).call()
     console.log(activatedFarms)
+    let UserEarning = 0;
     for(let i=0; i<activatedFarms.length;i++){
         let lvladdress = mmAddresses[activatedFarms[i]-1]
         console.log(lvladdress)
         await $.getJSON(`https://api.bscscan.com/api?module=account&action=txlistinternal&address=${lvladdress}&startblock=0&endblock=99999999&page=1&sort=asc&apikey=YZZJNMX94KF6S42XQYC983WMXCQJT1MF47`, function (data) {
-            console.log(data.result)
+            console.log(data.result.length)
+            for(let j=0;j<data.result.length;j++){
+                if(Address===data.result[i].to){
+                    UserEarning += data.result[i].value
+                    console.log(UserEarning)
+                    
+                }
+            }
         });
+        
     }
     await $.getJSON(`https://api.bscscan.com/api?module=account&action=txlistinternal&address=${Address}&startblock=0&endblock=99999999&page=1&sort=asc&apikey=YZZJNMX94KF6S42XQYC983WMXCQJT1MF47`, function (data) {
         console.log(data.result)
