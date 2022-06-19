@@ -190,7 +190,7 @@ closeButton.addEventListener('click', event => {
 //     window.open(`./profile.html?user=${referre}`,'_self')
 // })
 
-// checkIfLogin()
+checkIfLogin()
 
 const fbbtn = document.querySelector('#FacebookShare');
 const twbtn = document.querySelector('#TwitterShare');

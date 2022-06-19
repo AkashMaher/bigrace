@@ -252,7 +252,7 @@ checkIfActivated('check1')
 
 
 
-// checkIfLogin()
+checkIfLogin()
 
 
 

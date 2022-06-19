@@ -946,7 +946,7 @@ async function getdata(Address) {
     let activatedFarms = await matrix.methods.ReferalsId(Address).call()
     console.log(activatedFarms)
     for(let i=0; i<activatedFarms.length;i++){
-        let lvladdress = 
+        let lvladdress = activatedFarms[i]
         await $.getJSON(`https://api.bscscan.com/api?module=account&action=txlistinternal&address=${Address}&startblock=0&endblock=99999999&page=1&sort=asc&apikey=YZZJNMX94KF6S42XQYC983WMXCQJT1MF47`, function (data) {
             console.log(data.result)
         });
