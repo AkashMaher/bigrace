@@ -669,7 +669,7 @@ async function onConnect() {
         //     console.log('old user')
         // }
 
-        mm1 = new web3.eth.Contract(mmAbi, mmAddresses[0])
+        
 
         // let lvl = matrix.methods.referalAddress
 
@@ -766,10 +766,11 @@ const web3 = new Web3('https://bsc-dataseed1.binance.org:443');
 
 racing = new web3.eth.Contract(RACINGABI, RACINGCONTRACT)
 matrix = new web3.eth.Contract(MatrixABI, MatrixCONTRACT)
+
 mm1 = new web3.eth.Contract(mmAbi, mmAddresses[0])
+console.log(mm1)
 
-
-console.log(`contract is : `+mm1)
+// let childs = mm1.methods.Childrens().call()
 
 async function MaxUsers(id){
     let Numss = await matrix.methods.UniqueIter().call()

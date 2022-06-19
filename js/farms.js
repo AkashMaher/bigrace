@@ -46,9 +46,9 @@ async function FarmOpenIn(timestamp,id,Yet,Live){
     }, 1000);
 }
 
-FarmOpenIn('1655640000', '15', 'YetToActivate15', 'Activated15')
-FarmOpenIn('1655640000', '14', 'YetToActivate14', 'Activated14')
-FarmOpenIn('1655640000', '13', 'YetToActivate13', 'Activated13')
+// FarmOpenIn('1655640000', '15', 'YetToActivate15', 'Activated15')
+// FarmOpenIn('1655640000', '14', 'YetToActivate14', 'Activated14')
+// FarmOpenIn('1655640000', '13', 'YetToActivate13', 'Activated13')
 
 FarmOpenIn('1655812800', '12', 'YetToActivate12', 'Activated12')
 FarmOpenIn('1655812800', '11', 'YetToActivate11', 'Activated11')
@@ -118,4 +118,109 @@ async function activateFarm(lvlID, Value) {
 
 }
 
+
+let  farmPrice = [
+    ['1','8000000000000000000'],
+    ['2','6500000000000000000'],
+    ['3','4400000000000000000'],
+    ['4', '3200000000000000000'],
+    ['5', '2600000000000000000'],
+    ['6', '1600000000000000000'],
+    ['7', '1100000000000000000'],
+    ['8', '800000000000000000'],
+    ['9', '550000000000000000'],
+    ['10', '400000000000000000'],
+    ['11', '280000000000000000'],
+    ['12', '200000000000000000'],
+    ['13', '140000000000000000'],
+    ['14', '100000000000000000'],
+    ['15', '70000000000000000'],
+    ['16', '50000000000000000'],
+]
+
+async function checkIfActivated(checkIfLogin){
+    
+    var x = setInterval(async function () {
+        if(account){
+            let activatedFarms =await matrix.methods.ReferalsId(account).call();
+            // activatedFarms =['15']
+            console.log(activatedFarms)
+            console.log(activatedFarms.length)
+            if (activatedFarms.length === 0) {
+                let lvlId = checkIfLogin.slice(5)
+                let lvlPrice = farmPrice[lvlId - 1][1]
+
+                console.log(lvlPrice)
+
+                document.getElementById(checkIfLogin).innerHTML = `
+                <a onclick="activateFarm(${lvlId},${lvlPrice})"><button>Активировать</button></a>`
+
+                clearInterval(x)
+
+            } else{
+                for(let i=0;i<activatedFarms.length;i++){
+                    let lvlId = checkIfLogin.slice(5)
+                    if(lvlId===activatedFarms[i]){
+                        let getId = `check${activatedFarms[i]}`
+                        let ifAct = `ifAct${activatedFarms[i]}`
+                        let referBonus = ''
+                        let UserEarning = ''
+                        document.getElementById(getId).classList.remove('d-flex')
+                        document.getElementById(getId).innerHTML = `<p class='earning1' style='font-size:medium' >Направление бонус: ${referBonus}</p>
+                    <p class='earning2'style='font-size:medium' >Ваш доход: ${UserEarning}</p>`
+                        document.getElementById(ifAct).textContent = `Активированная ферма`
+                        // clearInterval(x)
+                        // let lvlId = checkIfLogin.slice(5)
+                        console.log(lvlId)
+                    } else{
+                        let lvlPrice = farmPrice[lvlId - 1][1]
+
+                        console.log(lvlPrice)
+
+                        document.getElementById(checkIfLogin).innerHTML = `
+                <a onclick="activateFarm(${lvlId},${lvlPrice})"><button>Активировать</button></a>`
+
+                    } 
+                }
+                clearInterval(x)
+            }
+
+
+        } else{
+            document.getElementById(checkIfLogin).innerHTML = `<button>требуется логин</button>`
+            
+            
+        }
+        
+    }, 1000);
+}
+
+// checkIfActivated('check16')
+// checkIfActivated('check15')
+// checkIfActivated('check14')
+// checkIfActivated('check13')
+// checkIfActivated('check12')
+// checkIfActivated('check11')
+// checkIfActivated('check10')
+// checkIfActivated('check9')
+// checkIfActivated('check8')
+// checkIfActivated('check7')
+// checkIfActivated('check6')
+// checkIfActivated('check5')
+// checkIfActivated('check4')
+// checkIfActivated('check3')
+// checkIfActivated('check2')
+// checkIfActivated('check1')
+
+
+async function checkIfLogin(){
+    delay(3000)
+    // window.open('./','_self')
+    
+}
+
+checkIfLogin()
+
+let text = document.getElementById("textBox-text").innerHTML;
+console.log(text)
 // document.getElementById('16').addEventListener('click', activateFarm(16,'50000000000000000'))
