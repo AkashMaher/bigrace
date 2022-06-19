@@ -896,16 +896,26 @@ function closeNavs() {
     document.getElementById("mySidenav").style.width = "0";
 }
 
-function auto22(){
-    // document.getElementById('title').textContent = 'BIG RACE GAME'
+
+
+
+async function checkIfLogin() {
+    await delay(3000)
+    if (!account) {
+        window.open('./', '_self')
+    } else {
+        let activatedFarms = await matrix.methods.ReferalsId(account).call();
+        // activatedFarms =['15']
+        console.log(activatedFarms)
+        console.log(activatedFarms.length)
+        if (activatedFarms.length === 0) {
+            window.open('./', '_self')
+        } else {
+        }
+    }
 }
-auto22()
-
-// language api 
 
 
-
-// language api end
 
 
 

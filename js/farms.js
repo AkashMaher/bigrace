@@ -139,7 +139,20 @@ let  farmPrice = [
 ]
 
 async function checkIfActivated(checkIfLogin){
+
+    let lvlId = checkIfLogin.slice(5)
+    let lvlPrice = farmPrice[lvlId - 1][1]
+    const Ru1 = `<a onclick="activateFarm(${lvlId},${lvlPrice})"><button>Активировать</button></a>`
     
+
+
+    const En1 = `<a onclick="activateFarm(${lvlId},${lvlPrice})"><button>Activate</button></a>`
+    
+
+    const Hi1 = `<a onclick="activateFarm(${lvlId},${lvlPrice})"><button>सक्रिय</button></a>`
+    
+    let text = document.getElementById("textBox-text").innerHTML;
+    console.log(text)
     var x = setInterval(async function () {
         if(account){
             let activatedFarms =await matrix.methods.ReferalsId(account).call();
@@ -152,9 +165,13 @@ async function checkIfActivated(checkIfLogin){
 
                 console.log(lvlPrice)
 
-                document.getElementById(checkIfLogin).innerHTML = `
-                <a onclick="activateFarm(${lvlId},${lvlPrice})"><button>Активировать</button></a>`
-
+                if(text==='English'){
+                    document.getElementById(checkIfLogin).innerHTML = En1
+                } else if(text==='Hindi'){
+                    document.getElementById(checkIfLogin).innerHTML = Hi1
+                } else{
+                    document.getElementById(checkIfLogin).innerHTML = Ru1
+                }
                 clearInterval(x)
 
             } else{
@@ -165,10 +182,32 @@ async function checkIfActivated(checkIfLogin){
                         let ifAct = `ifAct${activatedFarms[i]}`
                         let referBonus = ''
                         let UserEarning = ''
+
+                        const Ru2 = `<p class='earning1' style='font-size:medium' >Реферальное вознаграждение: ${referBonus}</p>
+                    <p class='earning2'style='font-size:medium' >Доход фермы: ${UserEarning}</p>`
+                        const Ru3 = `Активированная ферма`
+
+                        const En2 = `<p class='earning1' style='font-size:medium' >Referral reward: ${referBonus}</p>
+                    <p class='earning2'style='font-size:medium' >Farm Income: ${UserEarning}</p>`
+                        const En3 = `Activated farm`
+
+                        const Hi2 = `<p class='earning1' style='font-size:medium' >रेफरल इनाम: ${referBonus}</p>
+                    <p class='earning2'style='font-size:medium' >खेत आय: ${UserEarning}</p>`
+                        const Hi3 = `सक्रिय खेत`
+
+
                         document.getElementById(getId).classList.remove('d-flex')
-                        document.getElementById(getId).innerHTML = `<p class='earning1' style='font-size:medium' >Направление бонус: ${referBonus}</p>
-                    <p class='earning2'style='font-size:medium' >Ваш доход: ${UserEarning}</p>`
-                        document.getElementById(ifAct).textContent = `Активированная ферма`
+                        if (text === 'English') {
+                            document.getElementById(getId).innerHTML = En2
+                            document.getElementById(ifAct).textContent = En3
+                        } else if (text === 'Hindi') {
+                            document.getElementById(getId).innerHTML = Hi2
+                            document.getElementById(ifAct).textContent = Hi3
+                        } else {
+                            document.getElementById(getId).innerHTML = Ru2
+                            document.getElementById(ifAct).textContent = Ru3
+                        }
+                        
                         // clearInterval(x)
                         // let lvlId = checkIfLogin.slice(5)
                         console.log(lvlId)
@@ -177,8 +216,13 @@ async function checkIfActivated(checkIfLogin){
 
                         console.log(lvlPrice)
 
-                        document.getElementById(checkIfLogin).innerHTML = `
-                <a onclick="activateFarm(${lvlId},${lvlPrice})"><button>Активировать</button></a>`
+                        if (text === 'English') {
+                            document.getElementById(checkIfLogin).innerHTML = En1
+                        } else if (text === 'Hindi') {
+                            document.getElementById(checkIfLogin).innerHTML = Hi1
+                        } else {
+                            document.getElementById(checkIfLogin).innerHTML = Ru1
+                        }
 
                     } 
                 }
@@ -187,7 +231,19 @@ async function checkIfActivated(checkIfLogin){
 
 
         } else{
-            document.getElementById(checkIfLogin).innerHTML = `<button>требуется логин</button>`
+
+            const Ru4 = `<button>требуется логин</button>`
+            const Hi4 = `<button>लॉगिन आवश्यक</button>`
+            const En4 = `<button>Login Required</button>`
+
+
+            if (text === 'English') {
+                document.getElementById(checkIfLogin).innerHTML = En1
+            } else if (text === 'Hindi') {
+                document.getElementById(checkIfLogin).innerHTML = Hi1
+            } else {
+                document.getElementById(checkIfLogin).innerHTML = Ru1
+            }
             
             
         }
@@ -195,35 +251,27 @@ async function checkIfActivated(checkIfLogin){
     }, 1000);
 }
 
-// checkIfActivated('check16')
-// checkIfActivated('check15')
-// checkIfActivated('check14')
-// checkIfActivated('check13')
-// checkIfActivated('check12')
-// checkIfActivated('check11')
-// checkIfActivated('check10')
-// checkIfActivated('check9')
-// checkIfActivated('check8')
-// checkIfActivated('check7')
-// checkIfActivated('check6')
-// checkIfActivated('check5')
-// checkIfActivated('check4')
-// checkIfActivated('check3')
-// checkIfActivated('check2')
-// checkIfActivated('check1')
+checkIfActivated('check16')
+checkIfActivated('check15')
+checkIfActivated('check14')
+checkIfActivated('check13')
+checkIfActivated('check12')
+checkIfActivated('check11')
+checkIfActivated('check10')
+checkIfActivated('check9')
+checkIfActivated('check8')
+checkIfActivated('check7')
+checkIfActivated('check6')
+checkIfActivated('check5')
+checkIfActivated('check4')
+checkIfActivated('check3')
+checkIfActivated('check2')
+checkIfActivated('check1')
 
 
-async function checkIfLogin(){
-    await delay(3000)
-    if(!account){
-        window.open('./', '_self')
-    }
-    
-    
-}
 
-checkIfLogin()
 
-let text = document.getElementById("textBox-text").innerHTML;
-console.log(text)
+// checkIfLogin()
+
+
 // document.getElementById('16').addEventListener('click', activateFarm(16,'50000000000000000'))
