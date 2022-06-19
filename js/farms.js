@@ -183,7 +183,7 @@ async function checkIfActivated(checkIfLogin){
                         let referBonus = ''
                         let UserEarning = ''
 
-                        const Ru2 = `<p class='earning1' style='font-size:medium' >Реферальное вознаграждение: ${referBonus}</p>
+                        const Ru2 = `<p class='earning1' style='font-size:medium' >Вознаграждения: ${referBonus}</p>
                     <p class='earning2'style='font-size:medium' >Доход фермы: ${UserEarning}</p>`
                         const Ru3 = `Активированная ферма`
 
