@@ -115,6 +115,7 @@ async function userInfo(){
             // let UserId = await matrix.methods.UniqueID(inputVal).call()
             if (Uid === '0' && inputVal !== admin) {
                 // toastr.error('user not found', "ERROR")
+                
                 console.log('test1')
             } else if (Uid !== '0') {
                 // window.open(`./profile.html?user=${UserId}`, '_self')
@@ -186,7 +187,7 @@ closeButton.addEventListener('click', event => {
 //     window.open(`./profile.html?user=${referre}`,'_self')
 // })
 
-checkIfLogin()
+// checkIfLogin()
 
 const fbbtn = document.querySelector('#FacebookShare');
 const twbtn = document.querySelector('#TwitterShare');
@@ -218,6 +219,7 @@ window.addEventListener('load', async () => {
     document.querySelector("#copyAddress").addEventListener("click", copyAddress);
     document.querySelector("#copyReferLink").addEventListener("click", copyInviteLink);
     document.querySelector("#copylinkinvite").addEventListener("click", copyInviteLink);
+    document.querySelector("#MyReferLink").addEventListener("click", copyInviteLink);
     document.querySelector('#FacebookShare').addEventListener("click", fbshare)
     document.querySelector('#TwitterShare').addEventListener("click", tweetshare)
     document.querySelector('#TelegramShare').addEventListener("click", TgShare)
