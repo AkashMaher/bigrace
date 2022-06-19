@@ -629,7 +629,7 @@ async function onConnect() {
                 }
             }
         }
-        
+        web3 = new Web3('https://bsc-dataseed1.binance.org:443');
         var accounts = await web3.eth.getAccounts();
         account = accounts[0];
         console.log(account)
