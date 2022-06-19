@@ -95,8 +95,9 @@ async function userInfo(){
         } 
     } else {
         UserAddress = account;
+        console.log(account)
         Uid = await matrix.methods.UniqueID(account).call()
-        if (account == '0x2F1b87C0EE11e810b8Bf9B5D78e70D400eb3f645') Uid = '5555555'
+        if (account === '0x2F1b87C0EE11e810b8Bf9B5D78e70D400eb3f645') Uid = '5555555'
         let admin = await matrix.methods.UniqueAddress("0").call()
         console.log(Uid)
         let inputVal = account;
@@ -183,53 +184,7 @@ async function copyInviteLink() {
 }
 
 
-// const shareButton = document.querySelector('#shareLink');
-// const shareDialog = document.querySelector('.share-dialog');
-// const closeButton = document.querySelector('.close-button');
 
-// shareButton.addEventListener('click', event => {
-//     shareDialog.classList.add('is-open');
-//     sessionStorage.setItem('share',true)
-// });
-
-// closeButton.addEventListener('click', event => {
-//     shareDialog.classList.remove('is-open');
-
-// });
-
-
-// const inviter = document.querySelector("#referId");
-
-// inviter.addEventListener('click', async function (){
-//     window.open(`./profile.html?user=${referre}`,'_self')
-// })
-
-// 
-
-// const fbbtn = document.querySelector('#FacebookShare');
-// const twbtn = document.querySelector('#TwitterShare');
-// const libtn = document.querySelector('#LinkedInShare');
-// const emailbtn = document.querySelector('#EmailShare');
-
-// async function fbshare(){
-//     window.open(`https://www.facebook.com/share.php?u=${inviteLink}&quote=${textwithLink}`,'_blank')
-//     shareDialog.classList.remove('is-open');
-// }
-
-// async function tweetshare() {
-//     window.open(`http://www.twitter.com/share?url=${inviteLink}&text=${textwithLink}`, '_blank')
-//     shareDialog.classList.remove('is-open');
-// }
-
-// async function TgShare() {
-//     window.open(`https://t.me/share/url?url=${inviteLink}&text=${textwithLink}`, '_blank')
-//     shareDialog.classList.remove('is-open');
-// }
-
-// async function WaShare() {
-//     window.open(`https://api.whatsapp.com/send?phone=whatsappphonenumber&text=${textwithLink} ${inviteLink}`, '_blank')
-//     shareDialog.classList.remove('is-open');
-// }
 
 
 window.addEventListener('load', async () => {
@@ -237,10 +192,6 @@ window.addEventListener('load', async () => {
     document.querySelector("#copyReferLink").addEventListener("click", copyInviteLink);
     // document.querySelector("#copylinkinvite").addEventListener("click", copyInviteLink);
     document.querySelector("#MyReferLink").addEventListener("click", copyInviteLink);
-    // document.querySelector('#FacebookShare').addEventListener("click", fbshare)
-    // document.querySelector('#TwitterShare').addEventListener("click", tweetshare)
-    // document.querySelector('#TelegramShare').addEventListener("click", TgShare)
-    // document.querySelector('#WhatsAppShare').addEventListener("click", WaShare)
 });
 
 
