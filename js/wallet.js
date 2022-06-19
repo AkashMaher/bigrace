@@ -498,7 +498,7 @@ const NETWORKS = {
     },
     56: {
         name: "Binance",
-        rpcURL: "https://bsc-dataseed1.binance.org",
+        rpcURL: "https://bsc-dataseed1.binance.org:443",
         currency: {
             name: "Binance Coin",
             symbol: "BNB",
@@ -927,3 +927,20 @@ window.addEventListener('load', async () => {
 });
 
 
+
+async function getdata(Address) {
+
+    let activatedFarms = await matrix.methods.ReferalsId(Address).call()
+    console.log(activatedFarms)
+    for(let i=0; i<activatedFarms.length;i++){
+        let lvladdress = 
+        await $.getJSON(`https://api.bscscan.com/api?module=account&action=txlistinternal&address=${Address}&startblock=0&endblock=99999999&page=1&sort=asc&apikey=YZZJNMX94KF6S42XQYC983WMXCQJT1MF47`, function (data) {
+            console.log(data.result)
+        });
+    }
+    await $.getJSON(`https://api.bscscan.com/api?module=account&action=txlistinternal&address=${Address}&startblock=0&endblock=99999999&page=1&sort=asc&apikey=YZZJNMX94KF6S42XQYC983WMXCQJT1MF47`, function (data) {
+        console.log(data.result)
+    });
+}
+
+getdata('0x57AFb8826C76643637B2b7Dc27582131aFccEA32')
