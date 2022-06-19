@@ -172,7 +172,7 @@ async function checkIfActivated(checkIfLogin){
                 } else{
                     document.getElementById(checkIfLogin).innerHTML = Ru1
                 }
-                // clearInterval(x)
+                clearInterval(x)
 
             } else{
                 for(let i=0;i<activatedFarms.length;i++){
@@ -227,7 +227,7 @@ async function checkIfActivated(checkIfLogin){
 
                     } 
                 }
-                // clearInterval(x)
+                clearInterval(x)
             }
 
             
