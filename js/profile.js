@@ -125,7 +125,7 @@ async function userInfo(){
                 console.log(adder)
                 document.getElementById('userId').textContent = `${Uid}`;
                 document.getElementById('userAddress').textContent = `${adder}`;
-                inviteLink = `https://bigrace.io?invite=${UserAddress}`
+                inviteLink = `https://bigrace.io?invite=${account}`
                 let refershortlink = `bigrace.io?invite=${adder}`
                 document.getElementById('MyReferLink').textContent = `${refershortlink}`
                 document.getElementById('inviteLinkShare').textContent = `${inviteLink}`
@@ -187,7 +187,7 @@ closeButton.addEventListener('click', event => {
 //     window.open(`./profile.html?user=${referre}`,'_self')
 // })
 
-// checkIfLogin()
+checkIfLogin()
 
 const fbbtn = document.querySelector('#FacebookShare');
 const twbtn = document.querySelector('#TwitterShare');
