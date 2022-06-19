@@ -172,7 +172,7 @@ async function checkIfActivated(checkIfLogin){
                 } else{
                     document.getElementById(checkIfLogin).innerHTML = Ru1
                 }
-                clearInterval(x)
+                // clearInterval(x)
 
             } else{
                 for(let i=0;i<activatedFarms.length;i++){
@@ -200,7 +200,7 @@ async function checkIfActivated(checkIfLogin){
                         if (text === 'English') {
                             document.getElementById(getId).innerHTML = En2
                             document.getElementById(ifAct).textContent = En3
-                        } else if (text === 'Hindi') {
+                        } else if (text ==='Hindi') {
                             document.getElementById(getId).innerHTML = Hi2
                             document.getElementById(ifAct).textContent = Hi3
                         } else {
@@ -226,7 +226,7 @@ async function checkIfActivated(checkIfLogin){
 
                     } 
                 }
-                clearInterval(x)
+                // clearInterval(x)
             }
 
 

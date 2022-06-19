@@ -39,17 +39,23 @@
               <img class="ml-auto select-arrow" src="./assets/img/select.svg" alt="" />
             </div>
             <div class="option">
-              <div onclick="show('Русский')">
-                <img src="./assets/img/russia.png" alt="" />
-                <p>Русский</p>
+              <div class="languageOption" id="4" data-lang="ru" onclick="show('Русский')">
+                <a class="langName" href="#" target="_self">
+                  <img src="../assets/img/russia.png" alt="" />
+                  <p>Русский</p>
+                </a>
               </div>
-              <div onclick="show('English')">
-                <img src="./assets/img/eng.png" alt="" />
-                <p>English</p>
+              <div class="languageOption" id="1" data-lang="en" onclick="show('English')">
+                <a class="langName" href="./en/farms.html" target="_self">
+                  <img src="../assets/img/eng.png" alt="" />
+                  <p>English</p>
+                </a>
               </div>
-              <div onclick="show('Hindi')">
-                <img src="./assets/img/hindi.png" alt="" />
-                <p>Hindi</p>
+              <div class="languageOption" id="3" data-lang="hi" onclick="show('Hindi')">
+                <a class="langName" href="./hi/farms.html" target="_self">
+                  <img src="../assets/img/hindi.png" alt="" />
+                  <p>Hindi</p>
+                </a>
               </div>
             </div>
           </div>
@@ -544,8 +550,8 @@
     <script type="text/javascript" src="https://unpkg.com/@walletconnect/web3-provider"></script>
     <script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
     
-    <!-- <script type="text/javascript" src="./js/wallet.js"></script>
-    <script type="text/javascript" src="./js/farms.js"></script> -->
+    <script type="text/javascript" src="./js/wallet.js"></script>
+    <script type="text/javascript" src="./js/farms.js"></script>
     <script>
       function show(text) {
         document.getElementById("textBox-text").innerHTML = text;
