@@ -204,7 +204,7 @@ async function copyInviteLink() {
 //     window.open(`./profile.html?user=${referre}`,'_self')
 // })
 
-// checkIfLogin()
+// 
 
 // const fbbtn = document.querySelector('#FacebookShare');
 // const twbtn = document.querySelector('#TwitterShare');
@@ -242,3 +242,8 @@ window.addEventListener('load', async () => {
     // document.querySelector('#TelegramShare').addEventListener("click", TgShare)
     // document.querySelector('#WhatsAppShare').addEventListener("click", WaShare)
 });
+
+
+
+
+checkIfLogin()

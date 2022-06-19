@@ -219,11 +219,11 @@ async function checkIfActivated(checkIfLogin){
 
 
             if (text === 'English') {
-                document.getElementById(checkIfLogin).innerHTML = En1
+                document.getElementById(checkIfLogin).innerHTML = En4
             } else if (text === 'Hindi') {
-                document.getElementById(checkIfLogin).innerHTML = Hi1
+                document.getElementById(checkIfLogin).innerHTML = Hi4
             } else {
-                document.getElementById(checkIfLogin).innerHTML = Ru1
+                document.getElementById(checkIfLogin).innerHTML = Ru4
             }
             
             
