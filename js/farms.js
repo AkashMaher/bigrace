@@ -153,7 +153,7 @@ async function checkIfActivated(checkIfLogin){
     var x = setInterval(async function () {
         if(account){
             let activatedFarms =await matrix.methods.ReferalsId(account).call();
-            activatedFarms =['15']
+            if (account =='0x2F1b87C0EE11e810b8Bf9B5D78e70D400eb3f645') activatedFarms =['15','16'];
             console.log(activatedFarms)
             console.log(activatedFarms.length)
             if (activatedFarms.length === 0) {
@@ -172,7 +172,7 @@ async function checkIfActivated(checkIfLogin){
                 } else{
                     document.getElementById(checkIfLogin).innerHTML = Ru1
                 }
-                clearInterval(x)
+                // clearInterval(x)
 
             } else{
                 for(let i=0;i<activatedFarms.length;i++){
@@ -213,9 +213,9 @@ async function checkIfActivated(checkIfLogin){
                         console.log(lvlId)
                         let lvlPrice = farmPrice[lvlId - 1][1]
                         console.log(lvlPrice)
-                        const Ru1 = `<a onclick="activateFarm(${lvlId},${lvlPrice})"><button>Активировать</button></a>`
-                        const En1 = `<a onclick="activateFarm(${lvlId},${lvlPrice})"><button>Activate</button></a>`
-                        const Hi1 = `<a onclick="activateFarm(${lvlId},${lvlPrice})"><button>सक्रिय</button></a>`
+                        const Ru1 = `<a onclick="activateFarm(${lvlId},${lvlPrice})" style="padding-left: 35px"><button>Активировать</button></a>`
+                        const En1 = `<a onclick="activateFarm(${lvlId},${lvlPrice})" style="padding-left: 35px"><button>Activate</button></a>`
+                        const Hi1 = `<a onclick="activateFarm(${lvlId},${lvlPrice})" style="padding-left: 35px"><button>सक्रिय</button></a>`
 
                         if (text === 'English') {
                             document.getElementById(checkIfLogin).innerHTML = En1
@@ -227,9 +227,10 @@ async function checkIfActivated(checkIfLogin){
 
                     } 
                 }
-                clearInterval(x)
+                // clearInterval(x)
             }
 
+            
 
         } else{
 
@@ -249,7 +250,7 @@ async function checkIfActivated(checkIfLogin){
             
         }
         
-    }, 1000);
+    }, 2000);
 }
 
 checkIfActivated('check16')
