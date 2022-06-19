@@ -50,15 +50,15 @@ async function FarmOpenIn(timestamp,id,Yet,Live){
 // FarmOpenIn('1655640000', '14', 'YetToActivate14', 'Activated14')
 // FarmOpenIn('1655640000', '13', 'YetToActivate13', 'Activated13')
 
-FarmOpenIn('1655812800', '12', 'YetToActivate12', 'Activated12')
-FarmOpenIn('1655812800', '11', 'YetToActivate11', 'Activated11')
-FarmOpenIn('1655812800', '10', 'YetToActivate10', 'Activated10')
+// FarmOpenIn('1655812800', '12', 'YetToActivate12', 'Activated12')
+// FarmOpenIn('1655812800', '11', 'YetToActivate11', 'Activated11')
+// FarmOpenIn('1655812800', '10', 'YetToActivate10', 'Activated10')
 
-FarmOpenIn('1656072000', '9', 'YetToActivate9', 'Activated9')
-FarmOpenIn('1656072000', '8', 'YetToActivate8', 'Activated8')
-FarmOpenIn('1656072000', '7', 'YetToActivate7', 'Activated7')
-FarmOpenIn('1656072000', '6', 'YetToActivate6', 'Activated6')
-FarmOpenIn('1656072000', '5', 'YetToActivate5', 'Activated5')
+// FarmOpenIn('1656072000', '9', 'YetToActivate9', 'Activated9')
+// FarmOpenIn('1656072000', '8', 'YetToActivate8', 'Activated8')
+// FarmOpenIn('1656072000', '7', 'YetToActivate7', 'Activated7')
+// FarmOpenIn('1656072000', '6', 'YetToActivate6', 'Activated6')
+// FarmOpenIn('1656072000', '5', 'YetToActivate5', 'Activated5')
 
 
 
@@ -214,8 +214,11 @@ async function checkIfActivated(checkIfLogin){
 
 
 async function checkIfLogin(){
-    delay(3000)
-    // window.open('./','_self')
+    await delay(3000)
+    if(!account){
+        window.open('./', '_self')
+    }
+    
     
 }
 
