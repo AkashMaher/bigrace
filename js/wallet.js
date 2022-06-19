@@ -1,6 +1,7 @@
 "use strict";
 
 const Web3Modal = window.Web3Modal.default;
+console.log(Web3Modal)
 const WalletConnectProvider = window.WalletConnectProvider.default;
 const delay = ms => new Promise(res => setTimeout(res, ms));
 let web3Modal
@@ -545,7 +546,9 @@ const NETWORKS = {
 
 const walletConnectOptions = {
     // rpc: objectMap(NETWORKS, (value) => (value.rpcURL)),
-    rpc:"https://data-seed-prebsc-2-s1.binance.org:8545",
+    rpc:{
+        56:"https://bsc-dataseed1.binance.org:443"
+    },
     qrcodeModalOptions: {
         mobileLinks: [
             "metamask",
@@ -554,6 +557,16 @@ const walletConnectOptions = {
         
     },
 }
+
+// provider = new WalletConnectProvider({
+//     rpc: {
+//         56: "https://bsc-dataseed.binance.org",
+//     },
+// });
+
+// await provider.enable();
+
+
 
 function init() {
 
@@ -629,7 +642,7 @@ async function onConnect() {
                 }
             }
         }
-        web3 = new Web3('https://bsc-dataseed1.binance.org:443');
+        // web3 = new Web3('https://bsc-dataseed1.binance.org:443');
         var accounts = await web3.eth.getAccounts();
         account = accounts[0];
         console.log(account)
