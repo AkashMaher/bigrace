@@ -60,7 +60,8 @@ async function userInfo(){
                         document.getElementById('userAddress').textContent = `${adder}`;
                         inviteLink = `https://bigrace.io?invite=${UserAddress}`
                         // document.getElementById('referId').textContent = `${referre}`;
-                        document.getElementById('MyReferLink').textContent = `${inviteLink}`
+                        let refershortlink = `bigrace.io?invite=${adder}`
+                        document.getElementById('MyReferLink').textContent = `${refershortlink}`
                         document.getElementById('inviteLinkShare').textContent = `${inviteLink}`
                     }
                     
@@ -106,9 +107,11 @@ async function userInfo(){
                     console.log(adder)
                     document.getElementById('userId').textContent = `${UserId}`;
                     document.getElementById('userAddress').textContent = `${adder}`;
-                    inviteLink = `https://bigrace.io?invite=${UserAddress}`
+                    inviteLink = `bigrace.io?invite=${UserAddress}`
                     // document.getElementById('referId').textContent = `${referre}`;
-                    document.getElementById('MyReferLink').textContent = `${inviteLink}`
+                    let refershortlink = `bigrace.io?invite=${adder}`
+                    document.getElementById('MyReferLink').textContent = `${refershortlink}`
+                    // document.getElementById('MyReferLink').textContent = `${inviteLink}`
                     document.getElementById('inviteLinkShare').textContent = `${inviteLink}`
                 }
             }
@@ -187,7 +190,7 @@ closeButton.addEventListener('click', event => {
 //     window.open(`./profile.html?user=${referre}`,'_self')
 // })
 
-checkIfLogin()
+// checkIfLogin()
 
 const fbbtn = document.querySelector('#FacebookShare');
 const twbtn = document.querySelector('#TwitterShare');
