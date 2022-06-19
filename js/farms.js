@@ -140,13 +140,6 @@ let  farmPrice = [
 
 async function checkIfActivated(checkIfLogin){
 
-    let lvlId = checkIfLogin.slice(5)
-    console.log(lvlId)
-    let lvlPrice = farmPrice[lvlId - 1][1]
-    console.log(lvlPrice)
-    const Ru1 = `<a onclick="activateFarm(${lvlId},${lvlPrice})"><button>Активировать</button></a>`
-    const En1 = `<a onclick="activateFarm(${lvlId},${lvlPrice})"><button>Activate</button></a>`
-    const Hi1 = `<a onclick="activateFarm(${lvlId},${lvlPrice})"><button>सक्रिय</button></a>`
     
     let text = document.getElementById("textBox-text").innerHTML;
     console.log(text)
@@ -183,11 +176,11 @@ async function checkIfActivated(checkIfLogin){
                         let referBonus = ''
                         let UserEarning = ''
 
-                        const Ru2 = `<p class='earning1' style='font-size:medium' >Вознаграждения: ${referBonus}</p>
+                        const Ru2 = `<p class='earning1' style='font-size:medium' >реф вознаграждение: ${referBonus}</p>
                     <p class='earning2'style='font-size:medium' >Доход фермы: ${UserEarning}</p>`
                         const Ru3 = `Активированная ферма`
 
-                        const En2 = `<p class='earning1' style='font-size:medium' >Referral reward: ${referBonus}</p>
+                        const En2 = `<p class='earning1' style='font-size:medium' >Ref. reward: ${referBonus}</p>
                     <p class='earning2'style='font-size:medium' >Farm Income: ${UserEarning}</p>`
                         const En3 = `Activated farm`
 
