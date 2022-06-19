@@ -271,7 +271,7 @@ checkIfActivated('check1')
 
 
 
-// checkIfLogin()
+checkIfLogin()
 
 
 // document.getElementById('16').addEventListener('click', activateFarm(16,'50000000000000000'))
