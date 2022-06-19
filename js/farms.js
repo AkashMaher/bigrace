@@ -141,14 +141,11 @@ let  farmPrice = [
 async function checkIfActivated(checkIfLogin){
 
     let lvlId = checkIfLogin.slice(5)
+    console.log(lvlId)
     let lvlPrice = farmPrice[lvlId - 1][1]
+    console.log(lvlPrice)
     const Ru1 = `<a onclick="activateFarm(${lvlId},${lvlPrice})"><button>Активировать</button></a>`
-    
-
-
     const En1 = `<a onclick="activateFarm(${lvlId},${lvlPrice})"><button>Activate</button></a>`
-    
-
     const Hi1 = `<a onclick="activateFarm(${lvlId},${lvlPrice})"><button>सक्रिय</button></a>`
     
     let text = document.getElementById("textBox-text").innerHTML;
@@ -156,14 +153,17 @@ async function checkIfActivated(checkIfLogin){
     var x = setInterval(async function () {
         if(account){
             let activatedFarms =await matrix.methods.ReferalsId(account).call();
-            // activatedFarms =['15']
+            activatedFarms =['15']
             console.log(activatedFarms)
             console.log(activatedFarms.length)
             if (activatedFarms.length === 0) {
                 let lvlId = checkIfLogin.slice(5)
+                console.log(lvlId)
                 let lvlPrice = farmPrice[lvlId - 1][1]
-
                 console.log(lvlPrice)
+                const Ru1 = `<a onclick="activateFarm(${lvlId},${lvlPrice})"><button>Активировать</button></a>`
+                const En1 = `<a onclick="activateFarm(${lvlId},${lvlPrice})"><button>Activate</button></a>`
+                const Hi1 = `<a onclick="activateFarm(${lvlId},${lvlPrice})"><button>सक्रिय</button></a>`
 
                 if(text==='English'){
                     document.getElementById(checkIfLogin).innerHTML = En1
@@ -172,7 +172,7 @@ async function checkIfActivated(checkIfLogin){
                 } else{
                     document.getElementById(checkIfLogin).innerHTML = Ru1
                 }
-                // clearInterval(x)
+                clearInterval(x)
 
             } else{
                 for(let i=0;i<activatedFarms.length;i++){
@@ -207,14 +207,15 @@ async function checkIfActivated(checkIfLogin){
                             document.getElementById(getId).innerHTML = Ru2
                             document.getElementById(ifAct).textContent = Ru3
                         }
-                        
-                        // clearInterval(x)
-                        // let lvlId = checkIfLogin.slice(5)
-                        console.log(lvlId)
+                    
                     } else{
+                        let lvlId = checkIfLogin.slice(5)
+                        console.log(lvlId)
                         let lvlPrice = farmPrice[lvlId - 1][1]
-
                         console.log(lvlPrice)
+                        const Ru1 = `<a onclick="activateFarm(${lvlId},${lvlPrice})"><button>Активировать</button></a>`
+                        const En1 = `<a onclick="activateFarm(${lvlId},${lvlPrice})"><button>Activate</button></a>`
+                        const Hi1 = `<a onclick="activateFarm(${lvlId},${lvlPrice})"><button>सक्रिय</button></a>`
 
                         if (text === 'English') {
                             document.getElementById(checkIfLogin).innerHTML = En1
@@ -226,7 +227,7 @@ async function checkIfActivated(checkIfLogin){
 
                     } 
                 }
-                // clearInterval(x)
+                clearInterval(x)
             }
 
 
@@ -271,7 +272,7 @@ checkIfActivated('check1')
 
 
 
-checkIfLogin()
+// checkIfLogin()
 
 
 
