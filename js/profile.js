@@ -126,6 +126,16 @@ async function userInfo(){
                     document.getElementById('mylinkk').classList.remove('noview')
                 }
             }
+
+            if(account===admin){
+                document.getElementById('userId').textContent = `ID: Admin`;
+                document.getElementById('userAddress').textContent = `${account}`;
+                inviteLink = `bigrace.io?invite=${UserAddress}`;
+                document.getElementById('MyReferLink').textContent = `${inviteLink}`
+                document.getElementById('copyAddress').style.display = 'contents'
+                document.getElementById('copyReferLink').style.display = 'contents'
+                document.getElementById('mylinkk').classList.remove('noview')
+            }
             // let UserId = await matrix.methods.UniqueID(inputVal).call()
             if (Uid === '0' && inputVal !== admin) {
                 // toastr.error('user not found', "ERROR")
