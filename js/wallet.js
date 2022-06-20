@@ -686,6 +686,7 @@ async function onConnect() {
 
         // let lvl = matrix.methods.referalAddress
 
+        getdata(account)
         let childs = await mm1.methods.Childrens(1, 0).call()
 
         console.log(childs)
@@ -766,6 +767,7 @@ async function onRefreshPage() {
             // document.getElementById('balance').innerHTML = `${balance} BNB`
             
         }, 30000);
+        getdata(account)
 
     } catch (e) {
         console.log("Could not get a wallet connection", e);
@@ -942,7 +944,6 @@ window.addEventListener('load', async () => {
 
 
 async function getdata(Address) {
-
     let activatedFarms = await matrix.methods.ReferalsId(Address).call()
     console.log(activatedFarms)
     let UserEarning = 0;
@@ -952,18 +953,74 @@ async function getdata(Address) {
         await $.getJSON(`https://api.bscscan.com/api?module=account&action=txlistinternal&address=${lvladdress}&startblock=0&endblock=99999999&page=1&sort=asc&apikey=YZZJNMX94KF6S42XQYC983WMXCQJT1MF47`, function (data) {
             console.log(data.result.length)
             for(let j=0;j<data.result.length;j++){
-                if(Address===data.result[i].to){
-                    UserEarning += data.result[i].value
+                // console.log('test step 1')
+                // console.log(data.result[j].to)
+                let getaddress = data.result[j].to.toLowerCase()
+                let inputAddress = Address.toLowerCase()
+                // console.log(getaddress)
+                // console.log(data.result[j].value)
+                if (getaddress === inputAddress){
+                    console.log(data.result[j].value)
+                    console.log('yes')
+                    UserEarning += parseInt(data.result[j].value)
+
                     console.log(UserEarning)
                     
+                    
+                }else{
+
                 }
             }
+            
+
         });
         
     }
+
+    let earningInBNB = web3.utils.fromWei(`${UserEarning}`, 'ether')
+    console.log(earningInBNB)
+
+    
+
     await $.getJSON(`https://api.bscscan.com/api?module=account&action=txlistinternal&address=${Address}&startblock=0&endblock=99999999&page=1&sort=asc&apikey=YZZJNMX94KF6S42XQYC983WMXCQJT1MF47`, function (data) {
         console.log(data.result)
     });
 }
 
-getdata('0x57AFb8826C76643637B2b7Dc27582131aFccEA32')
+
+async function getEarningByAddressAndLvL(Address, LvlID) {
+    let UserEarning = 0;
+    let earningInBNB = 0;
+    let lvladdress = mmAddresses[LvlID - 1]
+    console.log(lvladdress)
+    await $.getJSON(`https://api.bscscan.com/api?module=account&action=txlistinternal&address=${lvladdress}&startblock=0&endblock=99999999&page=1&sort=asc&apikey=YZZJNMX94KF6S42XQYC983WMXCQJT1MF47`, function (data) {
+        console.log(data.result.length)
+        for (let j = 0; j < data.result.length; j++) {
+            let getaddress = data.result[j].to.toLowerCase()
+            let inputAddress = Address.toLowerCase()
+            if (getaddress === inputAddress) {
+                console.log(data.result[j].value)
+                console.log('yes')
+                UserEarning += parseInt(data.result[j].value)
+
+                console.log(UserEarning)
+
+            } else {
+
+            }
+        }
+        // let earningInBNB = web3.utils.fromWei(`${UserEarning}`, 'ether')
+        // console.log(earningInBNB)
+        
+    })
+
+
+
+
+    
+    console.log('hello')
+    earningInBNB = web3.utils.fromWei(`${UserEarning}`, 'ether')
+    console.log(earningInBNB)
+}
+
+getEarningByAddressAndLvL('0xAC5d5F9550e410595A0f3E006152eC7eFF515C4e',14)

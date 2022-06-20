@@ -138,11 +138,17 @@ let  farmPrice = [
     ['16', '50000000000000000'],
 ]
 
+
+
+
+
+
 async function checkIfActivated(checkIfLogin){
 
     
     let text = document.getElementById("textBox-text").innerHTML;
     console.log(text)
+    
     var x = setInterval(async function () {
         if(account){
             let activatedFarms =await matrix.methods.ReferalsId(account).call();
@@ -173,19 +179,60 @@ async function checkIfActivated(checkIfLogin){
                     if(lvlId===activatedFarms[i]){
                         let getId = `check${activatedFarms[i]}`
                         let ifAct = `ifAct${activatedFarms[i]}`
+
+
+                        let lvladdress = mmAddresses[LvlID - 1]
+                        let UserEarning = 0;
+                        let earningInBNB = 0;
+                        console.log(lvladdress)
+                        await $.getJSON(`https://api.bscscan.com/api?module=account&action=txlistinternal&address=${lvladdress}&startblock=0&endblock=99999999&page=1&sort=asc&apikey=YZZJNMX94KF6S42XQYC983WMXCQJT1MF47`, function (data) {
+                            console.log(data.result.length)
+                            for (let j = 0; j < data.result.length; j++) {
+                                let getaddress = data.result[j].to.toLowerCase()
+                                let inputAddress = Address.toLowerCase()
+                                if (getaddress === inputAddress) {
+                                    console.log(data.result[j].value)
+                                    console.log('yes')
+                                    UserEarning += parseInt(data.result[j].value)
+
+                                    console.log(UserEarning)
+
+                                } else {
+
+                                }
+                            }
+
+                            earningInBNB = web3.utils.fromWei(`${UserEarning}`, 'ether')
+                            console.log(earningInBNB)
+                        });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                         let referBonus = ''
-                        let UserEarning = ''
+                        
+                        
 
                         const Ru2 = `<p class='earning1' style='font-size:medium' >Реф вознаграждение: ${referBonus}</p>
-                    <p class='earning2'style='font-size:medium' >Вознаграждения: ${UserEarning}</p>`
+                    <p class='earning2'style='font-size:medium' >Вознаграждения: ${earningInBNB} <img src="./assets/img/bnb.png" alt="" /></p>`
                         const Ru3 = `Активированная ферма`
 
                         const En2 = `<p class='earning1' style='font-size:medium' >Ref. reward: ${referBonus}</p>
-                    <p class='earning2'style='font-size:medium' >Farm Income: ${UserEarning}</p>`
+                    <p class='earning2'style='font-size:medium' >Farm Income: ${earningInBNB} <img src="../assets/img/bnb.png" alt="" /></p>`
                         const En3 = `Activated farm`
 
                         const Hi2 = `<p class='earning1' style='font-size:medium' >रेफरल इनाम: ${referBonus}</p>
-                    <p class='earning2'style='font-size:medium' >खेत आय: ${UserEarning}</p>`
+                    <p class='earning2'style='font-size:medium' >खेत आय: ${earningInBNB} <img src="../assets/img/bnb.png" alt="" /></p>`
                         const Hi3 = `सक्रिय खेत`
 
 
