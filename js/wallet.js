@@ -594,7 +594,7 @@ function init() {
 
 const swichNetwork = async (chainId) => {
 
-    const currentChainId = await getNetworkId()
+    const currentChainId = await web3.eth.net.getId()
 
     if (currentChainId !== chainId) {
         try {
@@ -626,22 +626,23 @@ async function onConnect() {
         provider = await web3Modal.connect();
         var web3 = new Web3(provider);
         
-        const currentChainId = await web3.eth.net.getNetworkType();
+        const currentChainId = await web3.eth.net.getId();
         console.log(currentChainId)
 
-        if (currentChainId !== chainId) {
-            try {
-                await web3.currentProvider.request({
-                    method: 'wallet_switchEthereumChain',
-                    params: [{ chainId: Web3.utils.toHex(chainId) }],
-                });
-            } catch (switchError) {
-                // This error code indicates that the chain has not been added to MetaMask.
-                if (switchError.code === 4902) {
-                    alert('add this chain id')
-                }
-            }
-        }
+        await swichNetwork(chainId)
+        // if (currentChainId !== chainId) {
+        //     try {
+        //         await web3.currentProvider.request({
+        //             method: 'wallet_switchEthereumChain',
+        //             params: [{ chainId: Web3.utils.toHex(chainId) }],
+        //         });
+        //     } catch (switchError) {
+        //         // This error code indicates that the chain has not been added to MetaMask.
+        //         if (switchError.code === 4902) {
+        //             alert('add this chain id')
+        //         }
+        //     }
+        // }
         // web3 = new Web3('https://bsc-dataseed1.binance.org:443');
         var accounts = await web3.eth.getAccounts();
         account = accounts[0];
@@ -713,22 +714,12 @@ async function onRefreshPage() {
 
         var web3 = new Web3(provider);
         
-        const currentChainId = await web3.eth.net.getNetworkType();
+        const currentChainId = await web3.eth.net.getId();
         console.log(currentChainId)
 
-        if (currentChainId !== chainId) {
-            try {
-                await web3.currentProvider.request({
-                    method: 'wallet_switchEthereumChain',
-                    params: [{ chainId: Web3.utils.toHex(chainId) }],
-                });
-            } catch (switchError) {
-                // This error code indicates that the chain has not been added to MetaMask.
-                if (switchError.code === 4902) {
-                    alert('add this chain id')
-                }
-            }
-        }
+        // if (currentChainId === chainId) {}
+        await swichNetwork(chainId)
+
         racing = new web3.eth.Contract(RACINGABI, RACINGCONTRACT)
         matrix = new web3.eth.Contract(MatrixABI, MatrixCONTRACT)
         var accounts = await web3.eth.getAccounts();
@@ -992,14 +983,16 @@ async function getEarningByAddressAndLvL(Address, LvlID) {
     let UserEarning = 0;
     let earningInBNB = 0;
     let lvladdress = mmAddresses[LvlID - 1]
+    lvladdress = '0x66dd8c90389c914bd509160df077f946eed4e22f'
     console.log(lvladdress)
     await $.getJSON(`https://api.bscscan.com/api?module=account&action=txlistinternal&address=${lvladdress}&startblock=0&endblock=99999999&page=1&sort=asc&apikey=YZZJNMX94KF6S42XQYC983WMXCQJT1MF47`, function (data) {
         console.log(data.result.length)
         for (let j = 0; j < data.result.length; j++) {
             let getaddress = data.result[j].to.toLowerCase()
             let inputAddress = Address.toLowerCase()
+            // console.log(data.result[j])
             if (getaddress === inputAddress) {
-                console.log(data.result[j].value)
+                console.log(data.result[j])
                 console.log('yes')
                 UserEarning += parseInt(data.result[j].value)
 
