@@ -92,13 +92,16 @@ async function isInvited() {
     console.log('code is: '+inviter)
     console.log(pathname)
     if(search){
-          // document.getElementById('root').innerHTML = invited;
-        window.open(`./invite.html?invite=${inviter}`,'_self')
+      if(inviter.length>40){
+        window.open(`./invite.html?invite=${inviter}`, '_self')
         // invCheck()
         // automate2()
         document.querySelector("#register").addEventListener("click", onConnect)
         document.querySelector('#activate').addEventListener('click', activate)
-      document.querySelector("#register").addEventListener("click", automate2);
+        document.querySelector("#register").addEventListener("click", automate2);
+      }
+          // document.getElementById('root').innerHTML = invited;
+        
       
     } 
     
