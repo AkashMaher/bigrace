@@ -92,7 +92,7 @@ async function isInvited() {
     console.log('code is: '+inviter)
     console.log(pathname)
     if(search){
-      if(inviter.length>40){
+      if (inviter.length > 41 && inviter.length<43){
         window.open(`./invite.html?invite=${inviter}`, '_self')
         // invCheck()
         // automate2()
