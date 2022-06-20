@@ -1546,13 +1546,11 @@ iframe{
 
 .earning1{
   text-align: center;
-  padding-top:20px;
-  font-size: medium;
+  padding-top:15px;
 }
 .earning2 {
   text-align: center;
-  padding-top: 10px;
-  font-size: medium;
+  padding-top: 1px;
 }
 
 .UserAvatar{
@@ -1564,4 +1562,8 @@ iframe{
   padding-top:20px;
   position: relative;
   text-align: center;
+}
+
+.ifAct{
+  font-size: 23px;
 }

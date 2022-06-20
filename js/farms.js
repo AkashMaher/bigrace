@@ -181,7 +181,7 @@ async function checkIfActivated(checkIfLogin){
                         let ifAct = `ifAct${activatedFarms[i]}`
 
 
-                        let lvladdress = mmAddresses[LvlID - 1]
+                        let lvladdress = mmAddresses[lvlId - 1]
                         let UserEarning = 0;
                         let earningInBNB = 0;
                         console.log(lvladdress)
@@ -189,7 +189,7 @@ async function checkIfActivated(checkIfLogin){
                             console.log(data.result.length)
                             for (let j = 0; j < data.result.length; j++) {
                                 let getaddress = data.result[j].to.toLowerCase()
-                                let inputAddress = Address.toLowerCase()
+                                let inputAddress = account.toLowerCase()
                                 if (getaddress === inputAddress) {
                                     console.log(data.result[j].value)
                                     console.log('yes')
@@ -223,23 +223,25 @@ async function checkIfActivated(checkIfLogin){
                         
                         
 
-                        const Ru2 = `<p class='earning1' style='font-size:medium' >Реф вознаграждение: ${referBonus}</p>
-                    <p class='earning2'style='font-size:medium' >Вознаграждения: ${earningInBNB} <img src="./assets/img/bnb.png" alt="" /></p>`
-                        const Ru3 = `Активированная ферма`
+                        const Ru2 = `<p class='earning1' style='font-size:14px' >Реф вознаграждение: ${referBonus}</p>
+                    <p class='earning2'style='font-size:14px' >Вознаграждения: ${earningInBNB} <img src="./assets/img/bnb.png" alt="" style="width:14px" /></p>`
+                        const Ru3 = `Активировано`
 
-                        const En2 = `<p class='earning1' style='font-size:medium' >Ref. reward: ${referBonus}</p>
-                    <p class='earning2'style='font-size:medium' >Farm Income: ${earningInBNB} <img src="../assets/img/bnb.png" alt="" /></p>`
-                        const En3 = `Activated farm`
+                        const En2 = `<p class='earning1' style='font-size:14px' >Ref. reward: ${referBonus}</p>
+                    <p class='earning2'style='font-size:14px' >Farm Income: ${earningInBNB} <img src="../assets/img/bnb.png" alt="" style="width:14px" /></p>`
+                        const En3 = `Activated`
 
-                        const Hi2 = `<p class='earning1' style='font-size:medium' >रेफरल इनाम: ${referBonus}</p>
-                    <p class='earning2'style='font-size:medium' >खेत आय: ${earningInBNB} <img src="../assets/img/bnb.png" alt="" /></p>`
-                        const Hi3 = `सक्रिय खेत`
+                        const Hi2 = `<p class='earning1' style='font-size:14px' >रेफरल इनाम: ${referBonus}</p>
+                    <p class='earning2'style='font-size:14px' >खेत आय: ${earningInBNB} <img src="../assets/img/bnb.png" alt="" style="width:14px" /></p>`
+                        const Hi3 = `सक्रिय`
 
 
                         document.getElementById(getId).classList.remove('d-flex')
+                        document.getElementById(ifAct).classList.add('ifAct')
                         if (text === 'English') {
                             document.getElementById(getId).innerHTML = En2
                             document.getElementById(ifAct).textContent = En3
+                            
                         } else if (text ==='Hindi') {
                             document.getElementById(getId).innerHTML = Hi2
                             document.getElementById(ifAct).textContent = Hi3
