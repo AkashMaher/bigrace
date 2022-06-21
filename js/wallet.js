@@ -688,9 +688,8 @@ async function onConnect() {
         // let lvl = matrix.methods.referalAddress
 
         getdata(account)
-        let childs = await mm1.methods.Childrens(1, 0).call()
+        
 
-        console.log(childs)
     } catch (e) {
         console.log("Could not get a wallet connection", e);
         return;
@@ -758,7 +757,7 @@ async function onRefreshPage() {
             // document.getElementById('balance').innerHTML = `${balance} BNB`
             
         }, 30000);
-        getdata(account)
+        // getdata(account)
 
     } catch (e) {
         console.log("Could not get a wallet connection", e);
@@ -776,7 +775,77 @@ matrix = new web3.eth.Contract(MatrixABI, MatrixCONTRACT)
 mm1 = new web3.eth.Contract(mmAbi, mmAddresses[0])
 console.log(mm1)
 
-// let childs = mm1.methods.Childrens().call()
+async function GetEarning(Address,levelId){
+    
+    let SumchildValue13 = 0;
+    let SumchildValue8 = 0;
+    let SumchildValue5 = 0;
+    let referEarning;
+    let childs;
+    let i = await matrix.methods.ReferalNumber(levelId,Address).call()
+    
+    let mm1 = new web3.eth.Contract(mmAbi, mmAddresses[levelId-1])
+    
+    console.log(mm1)
+    let MaxIds = await matrix.methods.ReferalNum(16).call()
+    console.log(MaxIds)
+    let methods = await mm1.methods
+    let queue = await mm1.methods.getQueue(i).call()
+    console.log(queue)
+    console.log(methods)
+        
+        childs = await mm1.methods.Childrens(i, "0").call()
+        let address = await matrix.methods.ReferalAddress(levelId,i).call()
+        console.log(childs)
+        console.log(address)
+        if(childs>0){
+            for(let j=0;j<childs;j++){           
+                let Childrenss = await mm1.methods.Childrens(i, j+1).call()                    
+                let childValue13 = await mm1.methods.Childrens(Childrenss,'1').call()
+                
+                let childsOfChild = await mm1.methods.Childrens(Childrenss, '0').call()
+                console.log(childsOfChild)
+                if(childsOfChild>0){
+                    for (let q = 0; q < childsOfChild; q++) {
+                        let childrensss = await mm1.methods.Childrens(Childrenss, q + 1).call()
+                        let childsOfChilds = await mm1.methods.Childrens(childrensss, '0').call()
+                        console.log(childrensss)
+                        if (childsOfChilds > 0) {
+                            for (let p = 0; p < childsOfChilds; p++) {
+                                let childrenssss = await mm1.methods.Childrens(childrensss, p + 1).call()
+                                let childsOfChilds = await mm1.methods.Childrens(childrenssss, '0').call()
+                                console.log(childrenssss)
+                                console.log(childsOfChilds)
+                                SumchildValue5 += 1
+                            }
+                        }
+                        SumchildValue8 += 1
+                        console.log(SumchildValue8)
+                    }
+                }
+                console.log(childValue13)
+                SumchildValue13 += 1
+                console.log(SumchildValue13, SumchildValue8, SumchildValue5)
+            }
+        let valueOfLevel = await mm1.methods.payValue().call()
+
+        let User13 = (SumchildValue13 * valueOfLevel) * 0.13       //referral income
+        let User8 = (SumchildValue8 * valueOfLevel) * 0.08         // income from referals of childrens
+        let User5 = (SumchildValue5 * valueOfLevel) * 0.05         // income from referals of childrens of childrens
+        console.log(User13,User8,User5)
+
+
+        referEarning = User13+User8+User5
+
+        referEarning = web3.utils.fromWei(`${referEarning}`, 'ether')
+
+        console.log(referEarning)
+    }
+}
+
+// GetEarning('0x38Bf787f49895Bf8cE399652093534FE46c266F1','16')
+
+
 
 async function MaxUsers(id){
     let Numss = await matrix.methods.UniqueIter().call()
@@ -1016,4 +1085,4 @@ async function getEarningByAddressAndLvL(Address, LvlID) {
     console.log(earningInBNB)
 }
 
-getEarningByAddressAndLvL('0xAC5d5F9550e410595A0f3E006152eC7eFF515C4e',14)
+// getEarningByAddressAndLvL('0xAC5d5F9550e410595A0f3E006152eC7eFF515C4e',14)

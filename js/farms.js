@@ -147,14 +147,17 @@ async function checkIfActivated(checkIfLogin){
 
     
     let text = document.getElementById("textBox-text").innerHTML;
-    console.log(text)
+    // console.log(text)
+    
     
     var x = setInterval(async function () {
         if(account){
             let activatedFarms =await matrix.methods.ReferalsId(account).call();
             if (account =='0x2F1b87C0EE11e810b8Bf9B5D78e70D400eb3f645') activatedFarms =['15','16'];
-            console.log(activatedFarms)
-            console.log(activatedFarms.length)
+            // console.log(activatedFarms)
+            // account = '0x38Bf787f49895Bf8cE399652093534FE46c266F1'            //test
+            // activatedFarms = await matrix.methods.ReferalsId(account).call();    //test
+            // console.log(activatedFarms.length)
             if (activatedFarms.length === 0) {
                 let lvlId = checkIfLogin.slice(5)
                 console.log(lvlId)
@@ -184,55 +187,122 @@ async function checkIfActivated(checkIfLogin){
                         let lvladdress = mmAddresses[lvlId - 1]
                         let UserEarning = 0;
                         let earningInBNB = 0;
-                        console.log(lvladdress)
+                        // console.log(lvladdress)
                         await $.getJSON(`https://api.bscscan.com/api?module=account&action=txlistinternal&address=${lvladdress}&startblock=0&endblock=99999999&page=1&sort=asc&apikey=YZZJNMX94KF6S42XQYC983WMXCQJT1MF47`, function (data) {
-                            console.log(data.result.length)
+                            // console.log(data.result.length)
                             for (let j = 0; j < data.result.length; j++) {
                                 let getaddress = data.result[j].to.toLowerCase()
+                                
                                 let inputAddress = account.toLowerCase()
-                                if (getaddress === inputAddress) {
-                                    console.log(data.result[j].value)
-                                    console.log('yes')
-                                    UserEarning += parseInt(data.result[j].value)
+                                // console.log(getaddress,inputAddress)
 
-                                    console.log(UserEarning)
+                                if (getaddress === inputAddress) {
+                                    // console.log(data.result[j].value)
+                                    // console.log('yes')
+
+                                    UserEarning += parseInt(data.result[j].value)
+                                    // console.log(data.result[j].value)
+                                    // console.log(UserEarning)
 
                                 } else {
 
                                 }
                             }
 
+                            
+
+
                             earningInBNB = web3.utils.fromWei(`${UserEarning}`, 'ether')
-                            console.log(earningInBNB)
+                            // console.log(lvlId,earningInBNB)
                         });
 
 
+                        // let lvlId = checkIfLogin.slice(5)
+                        
+                        let SumchildValue13 = 0;
+                        let SumchildValue8 = 0;
+                        let SumchildValue5 = 0;
+                        let referEarning =0;
+                        let childs;
+                        let UserReferId = await matrix.methods.ReferalNumber(lvlId, account).call()
+                        // console.log(UserReferId)
+                        // UserReferId = '153'   //test
+                        let mm1 = new web3.eth.Contract(mmAbi, mmAddresses[lvlId - 1])
+
+                        // console.log(mm1)
+                        // let MaxIds = await matrix.methods.ReferalNum(16).call()
+                        // console.log(MaxIds)
+                        childs = await mm1.methods.Childrens(UserReferId, "0").call()
+                    
+                        // console.log(childs)
+                        
+                        if (childs > 0 && UserReferId !== '0') {
+                            for (let j = 0; j < childs; j++) {
+                                let Childrenss = await mm1.methods.Childrens(UserReferId, j + 1).call()
+                                // let childValue13 = await mm1.methods.Childrens(Childrenss, '1').call()
+
+                                let childsOfChild = await mm1.methods.Childrens(Childrenss, '0').call()
+                                // console.log(childsOfChild)
+                                if (childsOfChild > 0) {
+                                    for (let q = 0; q < childsOfChild; q++) {
+                                        let childrensss = await mm1.methods.Childrens(Childrenss, q + 1).call()
+                                        let childsOfChilds = await mm1.methods.Childrens(childrensss, '0').call()
+                                        // console.log(childrensss)
+                                        if (childsOfChilds > 0) {
+                                            for (let p = 0; p < childsOfChilds; p++) {
+                                                let childrenssss = await mm1.methods.Childrens(childrensss, p + 1).call()
+                                                // let childsOfChilds = await mm1.methods.Childrens(childrenssss, '0').call()
+                                                // console.log(childrenssss)
+                                                // console.log(childsOfChilds)
+                                                SumchildValue5 += 1
+                                            }
+                                        }
+                                        SumchildValue8 += 1
+                                        // console.log(SumchildValue8)
+                                    }
+                                }
+                                // console.log(childValue13)
+                                SumchildValue13 += 1
+                                // console.log(SumchildValue13, SumchildValue8, SumchildValue5)
+                            }
 
 
+                            let valueOfLevel = await mm1.methods.payValue().call()
+
+                            let User13 = (SumchildValue13 * valueOfLevel) * 0.13       //referral income
+                            let User8 = (SumchildValue8 * valueOfLevel) * 0.08         // income from referals of childrens
+                            let User5 = (SumchildValue5 * valueOfLevel) * 0.05         // income from referals of childrens of childrens
+                            // console.log(User13, User8, User5)
 
 
+                            referEarning = User13 + User8 + User5
 
+                            referEarning = web3.utils.fromWei(`${referEarning}`, 'ether')
 
+                            
+                        }
+                        let farmEarn = earningInBNB - referEarning
+                        console.log('level ' + lvlId, 'Refer: ' + referEarning, 'farm: '+farmEarn, "Total: " + earningInBNB)
+                        // console.log('Total Earning of level '+lvlId,earningInBNB)
 
-
-
-
-
+                        
+                        // console.log('Farm earning of level '+lvlId,farmEarn)
+                        
 
                         let referBonus = ''
                         
                         
 
-                        const Ru2 = `<p class='earning1' style='font-size:14px' >Реф вознаграждение: ${referBonus}</p>
-                    <p class='earning2'style='font-size:14px' >Вознаграждения: ${earningInBNB} <img src="./assets/img/bnb.png" alt="" style="width:14px" /></p>`
+                        const Ru2 = `<p class='earning1' style='font-size:14px' >Реф вознаграждение: ${referEarning} <img src="./assets/img/bnb.png" alt="" style="width:14px" /></p>
+                    <p class='earning2'style='font-size:14px' >Вознаграждения: ${farmEarn} <img src="./assets/img/bnb.png" alt="" style="width:14px" /></p>`
                         const Ru3 = `Активировано`
 
-                        const En2 = `<p class='earning1' style='font-size:14px' >Ref. reward: ${referBonus}</p>
-                    <p class='earning2'style='font-size:14px' >Farm Income: ${earningInBNB} <img src="../assets/img/bnb.png" alt="" style="width:14px" /></p>`
+                        const En2 = `<p class='earning1' style='font-size:14px' >Ref. reward: ${referEarning} <img src="../assets/img/bnb.png" alt="" style="width:14px" /></p>
+                    <p class='earning2'style='font-size:14px' >Farm Income: ${farmEarn} <img src="../assets/img/bnb.png" alt="" style="width:14px" /></p>`
                         const En3 = `Activated`
 
-                        const Hi2 = `<p class='earning1' style='font-size:14px' >रेफरल इनाम: ${referBonus}</p>
-                    <p class='earning2'style='font-size:14px' >खेत आय: ${earningInBNB} <img src="../assets/img/bnb.png" alt="" style="width:14px" /></p>`
+                        const Hi2 = `<p class='earning1' style='font-size:14px' >रेफरल इनाम: ${referEarning} <img src="../assets/img/bnb.png" alt="" style="width:14px" /></p>
+                    <p class='earning2'style='font-size:14px' >खेत आय: ${farmEarn} <img src="../assets/img/bnb.png" alt="" style="width:14px" /></p>`
                         const Hi3 = `सक्रिय`
 
 
@@ -301,7 +371,7 @@ checkIfActivated('check1')
 
 
 
-checkIfLogin()
+// checkIfLogin()
 
 
 
