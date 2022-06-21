@@ -5,9 +5,6 @@ let RacIter;
 let RacingEnded;
 // const delay = ms => new Promise(res => setTimeout(res, ms));
 async function auto1(){
-
-    await delay(5000);
-    if(!account) return;
     // await setInterval(async function () {
     
     console.log(balance)

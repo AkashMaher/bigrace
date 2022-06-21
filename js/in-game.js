@@ -26,8 +26,6 @@ async function onSpeedUp(){
 
 async function auto2() {
 
-    await delay(5000);
-    if (!account) return;
     // await setInterval(async function () {
     
         console.log(balance)
@@ -73,7 +71,7 @@ async function auto2() {
                     clearInterval(x);
                     // document.getElementById("startCountDown").textContent = "Started";
                     document.getElementById('finishRace').style.display = 'flex';
-                    document.getElementById('accelarate').style.display = 'none';
+                    document.getElementById('SpeedUp').style.display = 'none';
                     // window.open('./game-win.html', '_self')
                     
                 } else {
