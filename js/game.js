@@ -89,32 +89,6 @@ async function onBuy() {
 }
 
 
-async function timeremaing() {
-    var difference = 1655234899 - Math.floor(new Date().getTime() / 1000.0);
-    var daysDifference = difference/60;
-    console.log(parseInt(daysDifference))
-    return daysDifference;
-    
-}
-
-async function StartCountDown(){
-    
-}
 
 
 
-
-checkIfLogin()
-
-
-
-// window.addEventListener('load', async () => {
-//     auto()
-//     StartCountDown()
-//     document.querySelector("#buyTicket").addEventListener("click", onBuy);
-//     document.querySelector("#horse1").addEventListener("click", chooseHorse1);
-//     document.querySelector("#horse2").addEventListener("click", chooseHorse2);
-//     document.querySelector("#horse3").addEventListener("click", chooseHorse3);
-//     document.querySelector("#horse4").addEventListener("click", chooseHorse4);
-//     document.querySelector("#StartRace").addEventListener("click", onStartRace);
-// });

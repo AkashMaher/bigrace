@@ -72,9 +72,9 @@ async function auto2() {
                 if (distance < 0) {
                     clearInterval(x);
                     // document.getElementById("startCountDown").textContent = "Started";
-                    // document.getElementById('finishRace').style.display = 'flex';
-                    // document.getElementById('accelarate').style.display = 'none';
-                    window.open('./game-win.html', '_self')
+                    document.getElementById('finishRace').style.display = 'flex';
+                    document.getElementById('accelarate').style.display = 'none';
+                    // window.open('./game-win.html', '_self')
                     
                 } else {
                     // document.getElementById('StartRace').style.display = 'none';
@@ -90,10 +90,24 @@ async function auto2() {
 }
 
 
+async function finishRace() {
+    if (!account) return;
+    let RaceEnded = await racing.methods.racingEnded().call()
+    console.log(RaceEnded)
+
+    if(RaceEnded===true){
+        window.open('./game-win.html', '_self')
+    } else{
+        await racing.methods.finish().send({ from: account })
+        await delay(3000)
+        window.open('./game-win.html', '_self')
+    }
+}
+
 window.addEventListener('load', async () => {
 
 
     
 });
 
-checkIfLogin()
+// checkIfLogin()

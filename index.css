@@ -1196,18 +1196,8 @@ body {
   color: #ffffff;
 }
 
-#startcount{
-  display: none;
-}
 
-.plybtn{
-  text-decoration: none;
-  color: white;
-}
 
-#finishRace{
-  display: none;
-}
 
 
 svg {
@@ -1569,6 +1559,7 @@ iframe{
 
 .stat-tb{
   
+  
 }
 
 .stat-2title{
@@ -1584,11 +1575,12 @@ iframe{
 }
 
 .farm-stat{
-  padding-right: 2.5rem;
+  padding-top: 2rem;
 }
 
 .inv-stat{
-  padding-left: 2.5rem;
+  padding-top: 3rem;
+  
 }
 
 .stat-titles{
@@ -1612,4 +1604,15 @@ iframe{
   background-image: url('./assets/img/card-horse-clock.png');
 }
 
+
+
+
+#startcount {
+  display: none;
+}
+
+.plybtn {
+  text-decoration: none;
+  color: white;
+}
 

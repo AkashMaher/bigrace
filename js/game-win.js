@@ -15,7 +15,7 @@ async function auto3() {
  
 }
 
-checkIfLogin()
+// checkIfLogin()
 
 window.addEventListener('load', async () => {
     // auto()

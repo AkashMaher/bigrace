@@ -9,7 +9,7 @@ let TotalEarningByLevel = 0;
 let activatedFarms;
 
 
-// checkIfLogin()
+checkIfLogin()
 
 
 
@@ -188,7 +188,9 @@ async function test11(){
     let refer = web3.utils.fromWei(`${referEarning}`)
 
     document.getElementById('totalEarning').textContent = `${total} BNB`
+    await delay(500)
     document.getElementById('farmIncome').textContent = `${farm} BNB`
+    await delay(500)
     document.getElementById('referEarning').textContent = `${refer} BNB`
     
 }

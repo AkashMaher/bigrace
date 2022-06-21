@@ -1,6 +1,0 @@
-
-let timeOfLevel;
-let ValueOfLevel;
-
-
-
