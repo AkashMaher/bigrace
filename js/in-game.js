@@ -71,7 +71,7 @@ async function auto2() {
                     clearInterval(x);
                     // document.getElementById("startCountDown").textContent = "Started";
                     document.getElementById('finishRace').style.display = 'flex';
-                    document.getElementById('SpeedUp').style.display = 'none';
+                    document.getElementById('accelarate').style.display = 'none';
                     // window.open('./game-win.html', '_self')
                     
                 } else {
