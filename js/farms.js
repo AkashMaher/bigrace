@@ -1,14 +1,8 @@
 
 
-async function UsersFarms(){
-    document.getElementById('16').classList.add('horse-clock-container')
-}
 
-
-UsersFarms()
 
 async function activateFarm(lvlID,Value){
-    console.log('Test')
     await matrix.methods.addUser(lvlID, 0).send({ from: account, value: Value })
 }
 
@@ -63,79 +57,79 @@ async function FarmOpenIn(timestamp,id,Yet,Live){
 
 
 
-async function activateFarm(lvlID, Value) {
-    console.log('Test')
-    console.log(document.getElementsByClassName('horse-card-container')[lvlID - 1])
-    console.log(lvlID)
+// async function activateFarm(lvlID, Value) {
+//     console.log('Test')
+//     console.log(document.getElementsByClassName('horse-card-container')[lvlID - 1])
+//     console.log(lvlID)
 
-    let result = await matrix.methods.addUser(lvlID, 0).send({
-        from: account,
-        gasLimit: 10000000,
-        value: Value
-    })
+//     let result = await matrix.methods.addUser(lvlID, 0).send({
+//         from: account,
+//         gasLimit: 10000000,
+//         value: Value
+//     })
 
-    console.log(result)
+//     console.log(result)
 
-    document.getElementsByClassName('horse-card-container')[lvlID - 1].classList.add('activated')
+//     document.getElementsByClassName('horse-card-container')[lvlID - 1].classList.add('activated')
 
-    let horseCont = document.getElementsByClassName('horse-card-container')[lvlID - 1]
+//     let horseCont = document.getElementsByClassName('horse-card-container')[lvlID - 1]
 
-    console.log(horseCont.querySelector('div:nth-child(2)'))
+//     console.log(horseCont.querySelector('div:nth-child(2)'))
 
 
-    let text = document.getElementById("textBox-text").innerHTML;
-    if (text === "Русский") {
+//     let text = document.getElementById("textBox-text").innerHTML;
+//     if (text === "Русский") {
 
-        horseCont.querySelector('div:nth-child(2)').innerHTML = '' +
-            '<div>' +
-            '          <p class="text-center main-card-text">данная ферма</p>' +
-            '          <div class="d-flex justify-content-center">' +
-            '            <h3 style="color: white;">Активирована</h3>' +
-            '          </div>' +
-            '        </div>';
+//         horseCont.querySelector('div:nth-child(2)').innerHTML = '' +
+//             '<div>' +
+//             '          <p class="text-center main-card-text">данная ферма</p>' +
+//             '          <div class="d-flex justify-content-center">' +
+//             '            <h3 style="color: white;">Активирована</h3>' +
+//             '          </div>' +
+//             '        </div>';
 
-    } else if (text === "English") {
+//     } else if (text === "English") {
 
-        horseCont.querySelector('div:nth-child(2)').innerHTML = '' +
-            '<div>' +
-            '          <p class="text-center main-card-text">this farm is</p>' +
-            '          <div class="d-flex justify-content-center">' +
-            '            <h3 style="color: white;">Activated</h3>' +
-            '          </div>' +
-            '        </div>';
+//         horseCont.querySelector('div:nth-child(2)').innerHTML = '' +
+//             '<div>' +
+//             '          <p class="text-center main-card-text">this farm is</p>' +
+//             '          <div class="d-flex justify-content-center">' +
+//             '            <h3 style="color: white;">Activated</h3>' +
+//             '          </div>' +
+//             '        </div>';
 
-    } else if (text === "Hindi") {
+//     } else if (text === "Hindi") {
 
-        horseCont.querySelector('div:nth-child(2)').innerHTML = '' +
-            '<div>' +
-            '          <p class="text-center main-card-text">यह खेत</p>' +
-            '          <div class="d-flex justify-content-center">' +
-            '            <h3 style="color: white;">सक्रिय है</h3>' +
-            '          </div>' +
-            '        </div>';
+//         horseCont.querySelector('div:nth-child(2)').innerHTML = '' +
+//             '<div>' +
+//             '          <p class="text-center main-card-text">यह खेत</p>' +
+//             '          <div class="d-flex justify-content-center">' +
+//             '            <h3 style="color: white;">सक्रिय है</h3>' +
+//             '          </div>' +
+//             '        </div>';
 
-    }
+//     }
 
-}
+// };
 
 
 let  farmPrice = [
-    ['1','8000000000000000000'],
-    ['2','6500000000000000000'],
-    ['3','4400000000000000000'],
-    ['4', '3200000000000000000'],
-    ['5', '2600000000000000000'],
-    ['6', '1600000000000000000'],
-    ['7', '1100000000000000000'],
-    ['8', '800000000000000000'],
-    ['9', '550000000000000000'],
-    ['10', '400000000000000000'],
-    ['11', '280000000000000000'],
-    ['12', '200000000000000000'],
-    ['13', '140000000000000000'],
-    ['14', '100000000000000000'],
-    ['15', '70000000000000000'],
-    ['16', '50000000000000000'],
+    ['1','8000000000000000000','16'],
+    ['2','6500000000000000000','15'],
+    ['3','4400000000000000000','14'],
+    ['4', '3200000000000000000','13'],
+    ['5', '2600000000000000000','12'],
+    ['6', '1600000000000000000','11'],
+    ['7', '1100000000000000000','10'],
+    ['8', '800000000000000000','9'],
+    ['9', '550000000000000000','8'],
+    ['10', '400000000000000000','7'],
+    ['11', '280000000000000000','6'],
+    ['12', '200000000000000000','5'],
+    ['13', '140000000000000000','4'],
+    ['14', '100000000000000000','3'],
+    ['15', '70000000000000000','2'],
+    ['16', '50000000000000000','1'],
 ]
 
 
@@ -155,7 +149,7 @@ async function checkIfActivated(checkIfLogin){
             let activatedFarms =await matrix.methods.ReferalsId(account).call();
             if (account =='0x2F1b87C0EE11e810b8Bf9B5D78e70D400eb3f645') activatedFarms =['15','16'];
             // console.log(activatedFarms)
-            // account = '0xF203d98c761BD9fcFaEa55dc7C35aAC31c65458e'            //test
+            // account = '0x3830c6776B6BEbb005b89Df994756c14BBECd0E3'            //test
             activatedFarms = await matrix.methods.ReferalsId(account).call();    //test
             // console.log(activatedFarms.length)
             if (activatedFarms.length === 0) {
@@ -163,9 +157,9 @@ async function checkIfActivated(checkIfLogin){
                 // console.log(lvlId)
                 let lvlPrice = farmPrice[lvlId - 1][1]
                 // console.log(lvlPrice)
-                const Ru1 = `<a onclick="activateFarm(${lvlId},${lvlPrice})"><button>Активировать</button></a>`
-                const En1 = `<a onclick="activateFarm(${lvlId},${lvlPrice})"><button>Activate</button></a>`
-                const Hi1 = `<a onclick="activateFarm(${lvlId},${lvlPrice})"><button>सक्रिय</button></a>`
+                const Ru1 = `<a onclick="activateFarm('${lvlId}','${lvlPrice}')"><button>Активировать</button></a>`
+                const En1 = `<a onclick="activateFarm('${lvlId}','${lvlPrice}')"><button>Activate</button></a>`
+                const Hi1 = `<a onclick="activateFarm('${lvlId}','${lvlPrice}')"><button>सक्रिय</button></a>`
 
                 if(text==='English'){
                     document.getElementById(checkIfLogin).innerHTML = En1
@@ -183,17 +177,7 @@ async function checkIfActivated(checkIfLogin){
                 // console.log(lvlId)
                 let lvlPrice = farmPrice[lvlId - 1][1]
                 // console.log(lvlPrice)
-                const Ru1 = `<a onclick="activateFarm(${lvlId},${lvlPrice})"><button>Активировать</button></a>`
-                const En1 = `<a onclick="activateFarm(${lvlId},${lvlPrice})"><button>Activate</button></a>`
-                const Hi1 = `<a onclick="activateFarm(${lvlId},${lvlPrice})"><button>सक्रिय</button></a>`
-
-                if (text === 'English') {
-                    document.getElementById(checkIfLogin).innerHTML = En1
-                } else if (text === 'Hindi') {
-                    document.getElementById(checkIfLogin).innerHTML = Hi1
-                } else {
-                    document.getElementById(checkIfLogin).innerHTML = Ru1
-                }
+                
 
 
 
@@ -202,6 +186,8 @@ async function checkIfActivated(checkIfLogin){
                 if (activatedFarms.includes(`${lvlId}`)){
                         let getId = `check${lvlId}`
                         let ifAct = `ifAct${lvlId}`
+                        let iddd = farmPrice[lvlId - 1][2]
+                        let activatedId = `Activated${iddd}`
 
 
                         let lvladdress = mmAddresses[lvlId - 1]
@@ -304,9 +290,12 @@ async function checkIfActivated(checkIfLogin){
                             
                         }
                         let farmEarn = earningInBNB - referEarning
-                        farmEarn = parseFloat(farmEarn).toFixed(4)
-                        referEarning = parseFloat(referEarning).toFixed(4)
-                        earningInBNB = parseFloat(earningInBNB).toFixed(4)
+                        farmEarn = parseFloat(farmEarn).toFixed(3)
+                        referEarning = parseFloat(referEarning).toFixed(3)
+                        earningInBNB = parseFloat(earningInBNB).toFixed(3)
+                        if(farmEarn == 0) farmEarn = 0
+                        if(referEarning == 0) referEarning = 0
+                        if(earningInBNB == 0) earningInBNB = 0
                         console.log('level ' + lvlId, 'Refer: ' + referEarning, 'farm: '+farmEarn, "Total: " + earningInBNB)
                         // console.log('Total Earning of level '+lvlId,earningInBNB)
 
@@ -318,20 +307,21 @@ async function checkIfActivated(checkIfLogin){
                         
                         
 
-                        const Ru2 = `<p class='earning1' style='font-size:14px' >Реф вознаграждение: ${referEarning} <img src="./assets/img/bnb.png" alt="" style="width:14px" /></p>
-                    <p class='earning2'style='font-size:14px' >Вознаграждения: ${farmEarn} <img src="./assets/img/bnb.png" alt="" style="width:14px" /></p>`
+                        const Ru2 = `<p class='earning1' style='font-size:11px' >Реф вознаграждение: ${referEarning} <img src="./assets/img/bnb.png" alt="" style="width:11px" /></p>
+                    <p class='earning2'style='font-size:11px' >Вознаграждения: ${farmEarn} <img src="./assets/img/bnb.png" alt="" style="width:11px" /></p>`
                         const Ru3 = `Активировано`
 
-                        const En2 = `<p class='earning1' style='font-size:14px' >Ref. reward: ${referEarning} <img src="../assets/img/bnb.png" alt="" style="width:14px" /></p>
-                    <p class='earning2'style='font-size:14px' >Farm Income: ${farmEarn} <img src="../assets/img/bnb.png" alt="" style="width:14px" /></p>`
+                        const En2 = `<p class='earning1' style='font-size:11px' >Ref. reward: ${referEarning} <img src="../assets/img/bnb.png" alt="" style="width:11px" /></p>
+                    <p class='earning2'style='font-size:11px' >Farm Income: ${farmEarn} <img src="../assets/img/bnb.png" alt="" style="width:11px" /></p>`
                         const En3 = `Activated`
 
-                        const Hi2 = `<p class='earning1' style='font-size:14px' >रेफरल इनाम: ${referEarning} <img src="../assets/img/bnb.png" alt="" style="width:14px" /></p>
-                    <p class='earning2'style='font-size:14px' >खेत आय: ${farmEarn} <img src="../assets/img/bnb.png" alt="" style="width:14px" /></p>`
+                        const Hi2 = `<p class='earning1' style='font-size:11px' >रेफरल इनाम: ${referEarning} <img src="../assets/img/bnb.png" alt="" style="width:11px" /></p>
+                    <p class='earning2'style='font-size:11px' >खेत आय: ${farmEarn} <img src="../assets/img/bnb.png" alt="" style="width:11px" /></p>`
                         const Hi3 = `सक्रिय`
 
 
                         document.getElementById(getId).classList.remove('d-flex')
+                        document.getElementById(activatedId).style.backgroundImage = `url('./assets/img/card-horse-clock.png')`
                         document.getElementById(ifAct).classList.add('ifAct')
                         if (text === 'English') {
                             document.getElementById(getId).innerHTML = En2
@@ -347,6 +337,21 @@ async function checkIfActivated(checkIfLogin){
                     
                     } else{
 
+                    let lvlId = checkIfLogin.slice(5)
+                    // console.log(lvlId)
+                    let lvlPrice = farmPrice[lvlId - 1][1]
+                    // console.log(lvlPrice)
+                    const Ru1 = `<a onclick="activateFarm('${lvlId}','${lvlPrice}')"><button>Активировать</button></a>`
+                    const En1 = `<a onclick="activateFarm('${lvlId}','${lvlPrice}')"><button>Activate</button></a>`
+                    const Hi1 = `<a onclick="activateFarm('${lvlId}','${lvlPrice}')"><button>सक्रिय</button></a>`
+
+                    if (text === 'English') {
+                        document.getElementById(checkIfLogin).innerHTML = En1
+                    } else if (text === 'Hindi') {
+                        document.getElementById(checkIfLogin).innerHTML = Hi1
+                    } else {
+                        document.getElementById(checkIfLogin).innerHTML = Ru1
+                    }
                         
                         
 
@@ -402,8 +407,6 @@ test11()
 
 
 // checkIfLogin()
-
-
 
 
 // document.getElementById('16').addEventListener('click', activateFarm(16,'50000000000000000'))

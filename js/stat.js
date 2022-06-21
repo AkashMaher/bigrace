@@ -33,7 +33,7 @@ let farmPrice = [
 ]
 
 async function checkIfActivated(lvlId) {
-    await delay(5000)
+    await delay(1000)
         if (account) {
             activatedFarms = await matrix.methods.ReferalsId(account).call();
             if (account == '0x2F1b87C0EE11e810b8Bf9B5D78e70D400eb3f645') activatedFarms = ['15', '16'];
@@ -170,7 +170,7 @@ async function test11(){
 
     await delay(5000)
 
-    account = '0x38Bf787f49895Bf8cE399652093534FE46c266F1'
+    // account = '0xF203d98c761BD9fcFaEa55dc7C35aAC31c65458e'
     activatedFarms = await matrix.methods.ReferalsId(account).call()
     
     for(let i = 0; i<activatedFarms.length;i++){

@@ -1546,11 +1546,10 @@ iframe{
 
 .earning1{
   text-align: center;
-  padding-top:15px;
+  padding-top:9px;
 }
 .earning2 {
   text-align: center;
-  padding-top: 1px;
 }
 
 .UserAvatar{
@@ -1608,3 +1607,9 @@ iframe{
 .stat-1title{
   text-decoration: dashed underline rgb(119, 119, 119);
 }
+
+.activated-farm{
+  background-image: url('./assets/img/card-horse-clock.png');
+}
+
+
