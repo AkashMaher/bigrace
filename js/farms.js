@@ -155,7 +155,7 @@ async function checkIfActivated(checkIfLogin){
             let activatedFarms =await matrix.methods.ReferalsId(account).call();
             if (account =='0x2F1b87C0EE11e810b8Bf9B5D78e70D400eb3f645') activatedFarms =['15','16'];
             // console.log(activatedFarms)
-            account = '0xF203d98c761BD9fcFaEa55dc7C35aAC31c65458e'            //test
+            // account = '0xF203d98c761BD9fcFaEa55dc7C35aAC31c65458e'            //test
             activatedFarms = await matrix.methods.ReferalsId(account).call();    //test
             // console.log(activatedFarms.length)
             if (activatedFarms.length === 0) {
