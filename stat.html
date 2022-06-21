@@ -124,72 +124,28 @@
               <div
                 class="d-flex align-items-center stat-title-container justify-content-center w-100"
               >
-                <h1>Stats</h1>
-                <h1 class="mr-0"><!--Id here--></h1>
+                <h1 class="stat-1title">My Statistics</h>
               </div>
-              <div class="overflow-table">
-                <table class="table">
-                  <thead>
-                    <tr>
-                      <th scope="col">Date</th>
-                      <th scope="col">ID</th>
-                      <th scope="col">Level</th>
-                      <th scope="col">Wallet</th>
-                      <th scope="col">BNB Profit/Type</th>
-                    </tr>
-                  </thead>
-                  <!-- <tbody class="stat-t-body">
-                    <tr>
-                      <th class="wallet-th" scope="row">2022.04.16 14:32</th>
-                      <th class="wallet-th">ID 3234324</th>
-                      <th class="wallet-th">4</th>
-                      <td class="wallet-td d-flex align-items-center">
-                        2423...4323
-                        <button class="d-flex align-items-center">
-                          <img src="./assets/img/copy.png" alt="" />
-                        </button>
-                      </td>
-                      <th class="wallet-th">+ GIFT 0.0435 BNB</th>
-                    </tr>
-                    <tr>
-                      <th class="wallet-th" scope="row">2022.04.16 14:32</th>
-                      <th class="wallet-th">ID 3234324</th>
-                      <th class="wallet-th">4</th>
-                      <td class="wallet-td d-flex align-items-center">
-                        2423...4323
-                        <button class="d-flex align-items-center">
-                          <img src="./assets/img/copy.png" alt="" />
-                        </button>
-                      </td>
-                      <th class="wallet-th">+ GIFT 0.0435 BNB</th>
-                    </tr>
-                    <tr>
-                      <th class="wallet-th" scope="row">2022.04.16 14:32</th>
-                      <th class="wallet-th">ID 3234324</th>
-                      <th class="wallet-th">4</th>
-                      <td class="wallet-td d-flex align-items-center">
-                        2423...4323
-                        <button class="d-flex align-items-center">
-                          <img src="./assets/img/copy.png" alt="" />
-                        </button>
-                      </td>
-                      <th class="wallet-th">+ GIFT 0.0435 BNB</th>
-                    </tr>
-                    <tr>
-                      <th class="wallet-th" scope="row">2022.04.16 14:32</th>
-                      <th class="wallet-th">ID 3234324</th>
-                      <th class="wallet-th">4</th>
-                      <td class="wallet-td d-flex align-items-center">
-                        2423...4323
-                        <button class="d-flex align-items-center">
-                          <img src="./assets/img/copy.png" alt="" />
-                        </button>
-                      </td>
-                      <th class="wallet-th">+ GIFT 0.0435 BNB</th>
-                    </tr>
-                  </tbody> -->
-                </table>
-              </div>
+              <section>
+                <div class='stat-2title text-align-center stat-titles'>
+                  <p>TOTAL EARNING</p>
+                  <p class="amount"><span id="totalEarning"></span></p>
+                </div>
+                <div class="d-flex justify-content-center stat-line-3">
+                  
+                  <div class="stat-tb text-align-center farm-stat stat-titles">
+                    <p>FARM INCOME</p>
+                    <p class="amount"><span id="farmIncome"></span></p>
+                  </div>
+                  <div class="stat-tb text-align-center inv-stat stat-titles">
+                    <p>REFERAL EARNING</p>
+                    <p class="amount"><span id="referEarning"></span></p>
+                  </div>
+                </div>
+                
+
+                
+              </section>
             </div>
           </div>
         </div>
@@ -201,6 +157,7 @@
     <script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
     
     <script type="text/javascript" src="./js/wallet.js"></script>
+    <script type="text/javascript" src="./js/stat.js"></script>
     <script>
       function show(text) {
         document.getElementById("textBox-text").innerHTML = text;

@@ -1567,3 +1567,44 @@ iframe{
 .ifAct{
   font-size: 23px;
 }
+
+.stat-tb{
+  
+}
+
+.stat-2title{
+ 
+}
+
+.text-align-center{
+  text-align: center;
+}
+
+.stat-line-3{
+  padding-top: 2rem;
+}
+
+.farm-stat{
+  padding-right: 2.5rem;
+}
+
+.inv-stat{
+  padding-left: 2.5rem;
+}
+
+.stat-titles{
+  color: #2c2c2c;
+  line-height: 49px;
+  font-family: "Montserrat", sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 1.7rem;
+}
+
+.amount{
+  font-size: 1.4rem;
+}
+
+.stat-1title{
+  text-decoration: dashed underline rgb(119, 119, 119);
+}

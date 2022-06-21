@@ -144,25 +144,25 @@ let  farmPrice = [
 
 
 async function checkIfActivated(checkIfLogin){
-
+    // await delay(5000)
     
     let text = document.getElementById("textBox-text").innerHTML;
     // console.log(text)
     
     
-    var x = setInterval(async function () {
+    // var x = setInterval(async function () {
         if(account){
             let activatedFarms =await matrix.methods.ReferalsId(account).call();
             if (account =='0x2F1b87C0EE11e810b8Bf9B5D78e70D400eb3f645') activatedFarms =['15','16'];
             // console.log(activatedFarms)
-            // account = '0x38Bf787f49895Bf8cE399652093534FE46c266F1'            //test
-            // activatedFarms = await matrix.methods.ReferalsId(account).call();    //test
+            // account = '0xF203d98c761BD9fcFaEa55dc7C35aAC31c65458e'            //test
+            activatedFarms = await matrix.methods.ReferalsId(account).call();    //test
             // console.log(activatedFarms.length)
             if (activatedFarms.length === 0) {
                 let lvlId = checkIfLogin.slice(5)
-                console.log(lvlId)
+                // console.log(lvlId)
                 let lvlPrice = farmPrice[lvlId - 1][1]
-                console.log(lvlPrice)
+                // console.log(lvlPrice)
                 const Ru1 = `<a onclick="activateFarm(${lvlId},${lvlPrice})"><button>Активировать</button></a>`
                 const En1 = `<a onclick="activateFarm(${lvlId},${lvlPrice})"><button>Activate</button></a>`
                 const Hi1 = `<a onclick="activateFarm(${lvlId},${lvlPrice})"><button>सक्रिय</button></a>`
@@ -174,23 +174,44 @@ async function checkIfActivated(checkIfLogin){
                 } else{
                     document.getElementById(checkIfLogin).innerHTML = Ru1
                 }
-                clearInterval(x)
+
 
             } else{
-                for(let i=0;i<activatedFarms.length;i++){
-                    let lvlId = checkIfLogin.slice(5)
-                    if(lvlId===activatedFarms[i]){
-                        let getId = `check${activatedFarms[i]}`
-                        let ifAct = `ifAct${activatedFarms[i]}`
+
+
+                let lvlId = checkIfLogin.slice(5)
+                // console.log(lvlId)
+                let lvlPrice = farmPrice[lvlId - 1][1]
+                // console.log(lvlPrice)
+                const Ru1 = `<a onclick="activateFarm(${lvlId},${lvlPrice})"><button>Активировать</button></a>`
+                const En1 = `<a onclick="activateFarm(${lvlId},${lvlPrice})"><button>Activate</button></a>`
+                const Hi1 = `<a onclick="activateFarm(${lvlId},${lvlPrice})"><button>सक्रिय</button></a>`
+
+                if (text === 'English') {
+                    document.getElementById(checkIfLogin).innerHTML = En1
+                } else if (text === 'Hindi') {
+                    document.getElementById(checkIfLogin).innerHTML = Hi1
+                } else {
+                    document.getElementById(checkIfLogin).innerHTML = Ru1
+                }
+
+
+
+                
+                    // let lvlId = checkIfLogin.slice(5)
+                if (activatedFarms.includes(`${lvlId}`)){
+                        let getId = `check${lvlId}`
+                        let ifAct = `ifAct${lvlId}`
 
 
                         let lvladdress = mmAddresses[lvlId - 1]
                         let UserEarning = 0;
                         let earningInBNB = 0;
                         // console.log(lvladdress)
-                        await $.getJSON(`https://api.bscscan.com/api?module=account&action=txlistinternal&address=${lvladdress}&startblock=0&endblock=99999999&page=1&sort=asc&apikey=YZZJNMX94KF6S42XQYC983WMXCQJT1MF47`, function (data) {
+                        await $.getJSON(`https://api.bscscan.com/api?module=account&action=txlistinternal&address=${lvladdress}&startblock=0&endblock=99999999&page=1&sort=asc&apikey=YZZJNMX94KF6S42XQYC983WMXCQJT1MF47`,async function (data) {
                             // console.log(data.result.length)
                             for (let j = 0; j < data.result.length; j++) {
+
                                 let getaddress = data.result[j].to.toLowerCase()
                                 
                                 let inputAddress = account.toLowerCase()
@@ -207,6 +228,7 @@ async function checkIfActivated(checkIfLogin){
                                 } else {
 
                                 }
+                                
                             }
 
                             
@@ -321,54 +343,59 @@ async function checkIfActivated(checkIfLogin){
                         }
                     
                     } else{
+
+                        
                         
 
                     } 
-                }
-                clearInterval(x)
+                
+                
             }
 
             
 
         } else{
 
-            const Ru4 = `<button>требуется логин</button>`
-            const Hi4 = `<button>लॉगिन आवश्यक</button>`
-            const En4 = `<button>Login Required</button>`
+            // const Ru4 = `<button>Загрузка...</button>`
+            // const Hi4 = `<button>Loading...</button>`
+            // const En4 = `<button>लोड हो रहा है...</button>`
 
 
-            if (text === 'English') {
-                document.getElementById(checkIfLogin).innerHTML = En4
-            } else if (text === 'Hindi') {
-                document.getElementById(checkIfLogin).innerHTML = Hi4
-            } else {
-                document.getElementById(checkIfLogin).innerHTML = Ru4
-            }
+            // if (text === 'English') {
+            //     document.getElementById(checkIfLogin).innerHTML = En4
+            // } else if (text === 'Hindi') {
+            //     document.getElementById(checkIfLogin).innerHTML = Hi4
+            // } else {
+            //     document.getElementById(checkIfLogin).innerHTML = Ru4
+            // }
             
             
         }
         
-    }, 2000);
+    // }, 1000);
 }
 
-checkIfActivated('check16')
-checkIfActivated('check15')
-checkIfActivated('check14')
-checkIfActivated('check13')
-checkIfActivated('check12')
-checkIfActivated('check11')
-checkIfActivated('check10')
-checkIfActivated('check9')
-checkIfActivated('check8')
-checkIfActivated('check7')
-checkIfActivated('check6')
-checkIfActivated('check5')
-checkIfActivated('check4')
-checkIfActivated('check3')
-checkIfActivated('check2')
-checkIfActivated('check1')
+async function test11(){
+    await delay(5000)
+    await checkIfActivated('check16')
+    await checkIfActivated('check15')
+    await checkIfActivated('check14')
+    await checkIfActivated('check13')
+    await checkIfActivated('check12')
+    await checkIfActivated('check11')
+    await checkIfActivated('check10')
+    await checkIfActivated('check9')
+    await checkIfActivated('check8')
+    await checkIfActivated('check7')
+    await checkIfActivated('check6')
+    await checkIfActivated('check5')
+    await checkIfActivated('check4')
+    await checkIfActivated('check3')
+    await checkIfActivated('check2')
+    await checkIfActivated('check1')
+}
 
-
+test11()
 
 
 // checkIfLogin()
