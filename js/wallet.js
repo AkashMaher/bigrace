@@ -687,7 +687,7 @@ async function onConnect() {
 
         // let lvl = matrix.methods.referalAddress
 
-        getdata(account)
+        // getdata(account)
         
 
     } catch (e) {
