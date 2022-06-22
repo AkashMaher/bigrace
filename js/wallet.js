@@ -859,38 +859,61 @@ async function PreviewId() {
     let inputVal = await document.getElementById('inputPreviewId').value;
     let adder = inputVal.length
     console.log(adder)
-    if (adder == 42) {
+    if (adder === 42) {
         for(let i=0;i<byPass.length;i++){
         if(inputVal==byPass[i][1]){
             let UserId = byPass[i][0]
             
-            window.open(`./profile.html?user=${UserId}`,'_self')
+            document.getElementById('userID').textContent = `ID ${UserId}`;
+            document.getElementById('WalletAddress').textContent = `- ${inputVal}`;
         }
         } 
         let admin = await matrix.methods.UniqueAddress(0).call()
-        let UserId= await matrix.methods.UniqueID(inputVal).call()
-        if(UserId==='0' && inputVal !== admin){
+        let UserId= await matrix.methods.UniqueID(`${inputVal}`).call()
+
+        if(inputVal === admin){
+            document.getElementById('userID').textContent = `ID ${UserId}`;
+            document.getElementById('WalletAddress').textContent = `- ${inputVal}`;
+        }
+        else if(UserId==='0' && inputVal !== admin){
             toastr.error('user not found',"ERROR")
             console.log('test1')
         }else if(UserId !=='0'){
-            window.open(`./profile.html?user=${UserId}`, '_self')
+
+            // window.open(`./profile.html?user=${UserId}`, '_self')
+            document.getElementById('userID').textContent = `ID ${UserId}`;
+            document.getElementById('WalletAddress').textContent = `- ${inputVal}`;
             console.log('test11')
         }
 
     }else {
-        let lenn = byPass.length
-        if (inputVal > 999977 && inputVal < byPass.length + 999978){
-            window.open(`./profile.html?user=${inputVal}`, '_self')
+        toastr.error('no user found:(')
+        // let lenn = byPass.length
+        // if (inputVal > 999977 && inputVal < byPass.length + 999978){
 
-        } else{
-            let adder = await matrix.methods.UniqueAddress(inputVal).call()
-            if (adder ==='0x0000000000000000000000000000000000000000'){
-                toastr.error('user not found','ERROR')
-            }else{
-                window.open(`./profile.html?user=${inputVal}`, '_self')
-                console.log('test15')
-            }
-        }
+        //     for (let i = 0; i < byPass.length; i++) {
+        //         if (inputVal == byPass[i][0]) {
+        //             let Address = byPass[i][1]
+
+        //             document.getElementById('userID').textContent = `ID ${inputVal}`;
+        //             document.getElementById('WalletAddress').textContent = `- ${Address}`;
+        //         }
+        //     }
+        //     // window.open(`./profile.html?user=${inputVal}`, '_self')
+
+
+        // } else{
+        //     let adder = await matrix.methods.UniqueAddress(inputVal).call()
+        //     if (adder ==='0x0000000000000000000000000000000000000000'){
+        //         toastr.error('user not found','ERROR')
+        //     }else{
+        //         // window.open(`./profile.html?user=${inputVal}`, '_self')
+        //         let Address = await matrix.methods.UniqueAddress(`${inputVal}`).call()
+        //         document.getElementById('userID').textContent = `ID ${inputVal}`;
+        //         document.getElementById('WalletAddress').textContent = `- ${Address}`;
+        //         console.log('test15')
+        //     }
+        // }
         
     }
 
@@ -979,15 +1002,20 @@ async function checkIfLogin() {
     if (!account) {
         window.open('./', '_self')
     } else {
-        let activatedFarms = await matrix.methods.ReferalsId(account).call();
-        if (account ==='0x2F1b87C0EE11e810b8Bf9B5D78e70D400eb3f645') activatedFarms = ['15']
-        console.log(activatedFarms)
-        console.log(activatedFarms.length)
-        if (activatedFarms.length === 0) {
-            window.open('./', '_self')
-        } else {
+        if (account === '0x2F1b87C0EE11e810b8Bf9B5D78e70D400eb3f645'){
+            console.log('dev access accepted')
+        }else {
+            let activatedFarms = await matrix.methods.ReferalsId(account).call();
+            if (account === '0x2F1b87C0EE11e810b8Bf9B5D78e70D400eb3f645') activatedFarms = ['15']
+            console.log(activatedFarms)
+            console.log(activatedFarms.length)
+            if (activatedFarms.length === 0) {
+                window.open('./', '_self')
+            } else {
+            }
         }
-    }
+        }
+        
 }
 
 

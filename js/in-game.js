@@ -25,7 +25,7 @@ async function onSpeedUp(){
 
 
 async function auto2() {
-
+    console.log('test')
     // await setInterval(async function () {
     
         // console.log(balance)
@@ -63,12 +63,14 @@ async function auto2() {
                 // Output the result in an element with id="demo"
                 if (seconds < 0) {
                     document.getElementById("startCountDown2").textContent = `00:00`;
+                    console.log('timer end')
                 } else
                     document.getElementById("startCountDown2").textContent = minutes + ":" + seconds;
 
                 // If the count down is over, write some text 
                 if (distance < 0) {
                     clearInterval(x);
+                    console.log('finish')
                     // document.getElementById("startCountDown").textContent = "Started";
                     document.getElementById('finishRace').style.display = 'flex';
                     document.getElementById('accelarate').style.display = 'none';
@@ -109,3 +111,5 @@ window.addEventListener('load', async () => {
 });
 
 // checkIfLogin()
+
+auto2()

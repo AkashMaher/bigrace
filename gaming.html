@@ -114,36 +114,49 @@
                     <div>
                         <div class="d-flex align-items-center horses-bar-container">
                             <h1>1</h1>
-                            <img class="position-absolute" src="./assets/img/horse/1.png" alt="" />
+                            <img class="position-absolute" src="./assets/img/horse/1.png" alt="" id="horse11" style="left: 5%" />
                             <div class="progress w-100 position-relative">
-                                <div class="progress-bar" role="progressbar" style="width: 0%" aria-valuenow="0"
-                                    aria-valuemin="0" aria-valuemax="100"></div>
+                                <div class="progress-bar" role="progressbar" id="horse111" style="
+                                              width: 0%;
+                                              background-color: #915e36;
+                                              border-radius: 26px;
+                                            " aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
                             </div>
                         </div>
                         <div class="d-flex align-items-center horses-bar-container second">
                             <h1>2</h1>
-                            <img class="position-absolute" src="./assets/img/horse/2.png" alt="" />
+                            <img class="position-absolute" src="./assets/img/horse/2.png" alt="" id="horse22" style="left: 5%" />
                             <div class="progress w-100 position-relative">
-                                <div class="progress-bar" role="progressbar" style="width: 0%" aria-valuenow="0"
-                                    aria-valuemin="0" aria-valuemax="100"></div>
+                                <div class="progress-bar" role="progressbar" id="horse222" style="
+                                              width: 0%;
+                                              background-color: #7483d1;
+                                              border-radius: 26px;
+                                            " aria-valuenow="56" aria-valuemin="0" aria-valuemax="100"></div>
                             </div>
                         </div>
                         <div class="d-flex align-items-center horses-bar-container third">
                             <h1>3</h1>
-                            <img class="position-absolute" src="./assets/img/horse/3.png" alt="" />
+                            <img class="position-absolute" src="./assets/img/horse/3.png" alt="" id="horse33" style="left: 5%" />
                             <div class="progress w-100 position-relative">
-                                <div class="progress-bar" role="progressbar" style="width: 0%" aria-valuenow="0"
-                                    aria-valuemin="0" aria-valuemax="100"></div>
+                                <div class="progress-bar" role="progressbar" id="horse333" style="
+                                              width: 0%;
+                                              background-color: #83bf64;
+                                              border-radius: 26px;
+                                            " aria-valuenow="78" aria-valuemin="0" aria-valuemax="100"></div>
                             </div>
                         </div>
                         <div class="d-flex align-items-center horses-bar-container fourth">
                             <h1>4</h1>
-                            <img class="position-absolute" src="./assets/img/horse/4.png" alt="" />
+                            <img class="position-absolute" src="./assets/img/horse/4.png" alt="" id="horse44" style="left: 5%" />
                             <div class="progress w-100 position-relative">
-                                <div class="progress-bar" role="progressbar" style="width: 0%" aria-valuenow="0"
-                                    aria-valuemin="0" aria-valuemax="100"></div>
+                                <div class="progress-bar" role="progressbar" id="horse444" style="
+                                              width: 0%;
+                                              background-color: #d64c4c;
+                                              border-radius: 26px;
+                                            " aria-valuenow="34" aria-valuemin="0" aria-valuemax="100"></div>
                             </div>
                         </div>
+                        
                         <div class="push-horse-btn">
                             <button class="noview" id="StartRace">Start Racing</button>
                             <button class="noview" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" id="accelarate">
@@ -151,14 +164,44 @@
                             </button>
                         
                             <button class="noview" type="button" id="finishRace">
-                                Finish Race to Check Winner!
+                                Finish Race!
                             </button>
+                        </div>
+                        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <button type="button" class="btn-close-modal" data-bs-dismiss="modal" aria-label="Close"></button>
+                            <div class="modal-dialog modal-dialog-centered">
+                                <div class="modal-content">
+                                    <div class="modal-body">
+                                        <h1 class="mb-0">Ускорение</h1>
+                                        <div class="slidecontainer">
+                                            <div class="d-flex justify-content-between range-span">
+                                                <span id="demo"></span>
+                                                <span>100 BNB</span>
+                                            </div>
+                                            <input type="range" min="1" max="10000" value="1" class="slider" id="myRange" />
+                                        </div>
+                                        <p class="text-center input-title-text">Ускорить на</p>
+                                        <div class="input-group">
+                                            <input type="number" id="range-input" class="form-control input-bnb"
+                                                aria-label="Dollar amount (with dot and two decimal places)" />
+                                            <span class="input-group-text">BNB</span>
+                                        </div>
+                                        <div class="d-flex justify-content-center">
+                                            <button type="button" class="btn-push" id="SpeedUp">
+                                                Ускорить
+                                            </button>
+                        
+                        
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
             <h1 class="text-center choose-horse-text" >
-                <p id="gameStatus">
+                <p ><span id="gameStatus"></span>
                     
                 </p>
                 <span id="startCountDown"></span>
@@ -174,7 +217,7 @@
                         <div class="wallet-add-btn">
 
                             <button id="startcount"><span id="startCountDown"></span></button>
-                            <button class="noview" id="buyTicket">Buy Ticket (0,05 BNB)</button>
+                            <button class="noview" id="BuyTicket">Buy Ticket (0,05 BNB)</button>
                         </div>
                     </div>
                     <div class="flex-wrap d-flex align-items-center choose-horse-container">
@@ -210,13 +253,14 @@
 
     <script>
         window.addEventListener('load', async () => {
-            auto1()
-            document.querySelector("#buyTicket").addEventListener("click", onBuy);
+            document.querySelector("#BuyTicket").addEventListener("click", onBuy);
             document.querySelector("#horse1").addEventListener("click", chooseHorse1);
             document.querySelector("#horse2").addEventListener("click", chooseHorse2);
             document.querySelector("#horse3").addEventListener("click", chooseHorse3);
             document.querySelector("#horse4").addEventListener("click", chooseHorse4);
             document.querySelector("#StartRace").addEventListener("click", onStartRace);
+            document.querySelector("#finishRace").addEventListener("click", finishRace);
+            document.querySelector("#SpeedUp").addEventListener("click", onSpeedUp);
         });
         function show(text) {
             document.getElementById("textBox-text").innerHTML = text;
@@ -255,6 +299,26 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
         crossorigin="anonymous"></script>
+        <script>
+      var slider = document.getElementById("myRange");
+      var output = document.getElementById("demo");
+      var input = document.getElementById("range-input");
+      output.innerHTML = `0.0${slider.value} BNB`;
+      input.value = `0.0${slider.value}`;
+
+      slider.oninput = function () {
+        if(this.value<10){
+        output.innerHTML = `0.0${this.value} BNB`;
+        input.value = `0.0${slider.value}`;
+        } else if(this.value>9 && this.value<100){
+          output.innerHTML = `0.${this.value} BNB`;
+          input.value = `0.${slider.value}`;
+        } else if(this.value>99){
+          output.innerHTML = `${this.value/100} BNB`;
+          input.value = `${slider.value/100}`;
+        } 
+      };
+    </script>
 </body>
 
 </html>
