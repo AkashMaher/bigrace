@@ -135,7 +135,8 @@ async function isInvited() {
 async function automate2() {
   var x = setInterval(function () {
     if (!account) {
-      
+      document.getElementById('ifNo').style.display = 'flex'
+      document.getElementById('ifYes').style.display = 'none'
       
       console.log('test1')
     } else {
