@@ -1113,4 +1113,23 @@ async function getEarningByAddressAndLvL(Address, LvlID) {
     console.log(earningInBNB)
 }
 
+
+function show(text) {
+    document.getElementById("textBox-text").innerHTML = text;
+    if (text === "English") {
+        document.getElementById("textBox-img").src =
+            "../assets/img/eng.png";
+    } else if (text === "Hindi") {
+        document.getElementById("textBox-img").src = "../assets/img/Hindi.png";
+    } else if (text === "Russia") {
+        document.getElementById("textBox-img").src = "../assets/img/Russia.png";
+    }
+}
+
+let dropdown = document.querySelector(".select-dropdown");
+dropdown.onclick = function () {
+    dropdown.classList.toggle("active-dropdown");
+};
+
+
 // getEarningByAddressAndLvL('0xAC5d5F9550e410595A0f3E006152eC7eFF515C4e',14)
