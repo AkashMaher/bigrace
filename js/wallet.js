@@ -887,7 +887,7 @@ async function PreviewId() {
         }
 
     }else {
-        toastr.error('no user found:(')
+        toastr.error('Enter Valid BNB Address:(')
         // let lenn = byPass.length
         // if (inputVal > 999977 && inputVal < byPass.length + 999978){
 
@@ -1031,98 +1031,108 @@ window.addEventListener('load', async () => {
 
 
 
-async function getdata(Address) {
-    let activatedFarms = await matrix.methods.ReferalsId(Address).call()
-    console.log(activatedFarms)
-    let UserEarning = 0;
-    for(let i=0; i<activatedFarms.length;i++){
-        let lvladdress = mmAddresses[activatedFarms[i]-1]
-        console.log(lvladdress)
-        await $.getJSON(`https://api.bscscan.com/api?module=account&action=txlistinternal&address=${lvladdress}&startblock=0&endblock=99999999&page=1&sort=asc&apikey=YZZJNMX94KF6S42XQYC983WMXCQJT1MF47`, function (data) {
-            console.log(data.result.length)
-            for(let j=0;j<data.result.length;j++){
-                // console.log('test step 1')
-                // console.log(data.result[j].to)
-                let getaddress = data.result[j].to.toLowerCase()
-                let inputAddress = Address.toLowerCase()
-                // console.log(getaddress)
-                // console.log(data.result[j].value)
-                if (getaddress === inputAddress){
-                    console.log(data.result[j].value)
-                    console.log('yes')
-                    UserEarning += parseInt(data.result[j].value)
+// async function getdata(Address) {
+//     let activatedFarms = await matrix.methods.ReferalsId(Address).call()
+//     console.log(activatedFarms)
+//     let UserEarning = 0;
+//     for(let i=0; i<activatedFarms.length;i++){
+//         let lvladdress = mmAddresses[activatedFarms[i]-1]
+//         console.log(lvladdress)
+//         await $.getJSON(`https://api.bscscan.com/api?module=account&action=txlistinternal&address=${lvladdress}&startblock=0&endblock=99999999&page=1&sort=asc&apikey=YZZJNMX94KF6S42XQYC983WMXCQJT1MF47`, function (data) {
+//             console.log(data.result.length)
+//             for(let j=0;j<data.result.length;j++){
+//                 // console.log('test step 1')
+//                 // console.log(data.result[j].to)
+//                 let getaddress = data.result[j].to.toLowerCase()
+//                 let inputAddress = Address.toLowerCase()
+//                 // console.log(getaddress)
+//                 // console.log(data.result[j].value)
+//                 if (getaddress === inputAddress){
+//                     console.log(data.result[j].value)
+//                     console.log('yes')
+//                     UserEarning += parseInt(data.result[j].value)
 
-                    console.log(UserEarning)
+//                     console.log(UserEarning)
                     
                     
-                }else{
+//                 }else{
 
-                }
-            }
+//                 }
+//             }
             
 
-        });
+//         });
         
-    }
+//     }
 
-    let earningInBNB = web3.utils.fromWei(`${UserEarning}`, 'ether')
-    console.log(earningInBNB)
+//     let earningInBNB = web3.utils.fromWei(`${UserEarning}`, 'ether')
+//     console.log(earningInBNB)
 
     
 
-    await $.getJSON(`https://api.bscscan.com/api?module=account&action=txlistinternal&address=${Address}&startblock=0&endblock=99999999&page=1&sort=asc&apikey=YZZJNMX94KF6S42XQYC983WMXCQJT1MF47`, function (data) {
-        console.log(data.result)
-    });
-}
+//     await $.getJSON(`https://api.bscscan.com/api?module=account&action=txlistinternal&address=${Address}&startblock=0&endblock=99999999&page=1&sort=asc&apikey=YZZJNMX94KF6S42XQYC983WMXCQJT1MF47`, function (data) {
+//         console.log(data.result)
+//     });
+// }
 
 
-async function getEarningByAddressAndLvL(Address, LvlID) {
-    let UserEarning = 0;
-    let earningInBNB = 0;
-    let lvladdress = mmAddresses[LvlID - 1]
-    lvladdress = '0x66dd8c90389c914bd509160df077f946eed4e22f'
-    console.log(lvladdress)
-    await $.getJSON(`https://api.bscscan.com/api?module=account&action=txlistinternal&address=${lvladdress}&startblock=0&endblock=99999999&page=1&sort=asc&apikey=YZZJNMX94KF6S42XQYC983WMXCQJT1MF47`, function (data) {
-        console.log(data.result.length)
-        for (let j = 0; j < data.result.length; j++) {
-            let getaddress = data.result[j].to.toLowerCase()
-            let inputAddress = Address.toLowerCase()
-            // console.log(data.result[j])
-            if (getaddress === inputAddress) {
-                console.log(data.result[j])
-                console.log('yes')
-                UserEarning += parseInt(data.result[j].value)
+// async function getEarningByAddressAndLvL(Address, LvlID) {
+//     let UserEarning = 0;
+//     let earningInBNB = 0;
+//     let lvladdress = mmAddresses[LvlID - 1]
+//     lvladdress = '0x66dd8c90389c914bd509160df077f946eed4e22f'
+//     console.log(lvladdress)
+//     await $.getJSON(`https://api.bscscan.com/api?module=account&action=txlistinternal&address=${lvladdress}&startblock=0&endblock=99999999&page=1&sort=asc&apikey=YZZJNMX94KF6S42XQYC983WMXCQJT1MF47`, function (data) {
+//         console.log(data.result.length)
+//         for (let j = 0; j < data.result.length; j++) {
+//             let getaddress = data.result[j].to.toLowerCase()
+//             let inputAddress = Address.toLowerCase()
+//             // console.log(data.result[j])
+//             if (getaddress === inputAddress) {
+//                 console.log(data.result[j])
+//                 console.log('yes')
+//                 UserEarning += parseInt(data.result[j].value)
 
-                console.log(UserEarning)
+//                 console.log(UserEarning)
 
-            } else {
+//             } else {
 
-            }
-        }
-        // let earningInBNB = web3.utils.fromWei(`${UserEarning}`, 'ether')
-        // console.log(earningInBNB)
+//             }
+//         }
+//         // let earningInBNB = web3.utils.fromWei(`${UserEarning}`, 'ether')
+//         // console.log(earningInBNB)
         
-    })
+//     })
 
 
 
 
     
-    console.log('hello')
-    earningInBNB = web3.utils.fromWei(`${UserEarning}`, 'ether')
-    console.log(earningInBNB)
-}
+//     console.log('hello')
+//     earningInBNB = web3.utils.fromWei(`${UserEarning}`, 'ether')
+//     console.log(earningInBNB)
+// }
 
 
 function show(text) {
     document.getElementById("textBox-text").innerHTML = text;
     if (text === "English") {
         document.getElementById("textBox-img").src =
-            "../assets/img/eng.png";
+            "./assets/img/eng.png";
     } else if (text === "Hindi") {
-        document.getElementById("textBox-img").src = "../assets/img/Hindi.png";
+        document.getElementById("textBox-img").src = "./assets/img/Hindi.png";
     } else if (text === "Russia") {
-        document.getElementById("textBox-img").src = "../assets/img/Russia.png";
+        document.getElementById("textBox-img").src = "./assets/img/Russia.png";
+    } else if (text === "Italian") {
+        document.getElementById("textBox-img").src = "./assets/img/Italian.png";
+    } else if (text === "Vietnamese") {
+        document.getElementById("textBox-img").src = "./assets/img/Vietnamese.png";
+    } else if (text === "Indonesian") {
+        document.getElementById("textBox-img").src = "./assets/img/Indonesian.png";
+    } else if (text === "Farsi") {
+        document.getElementById("textBox-img").src = "./assets/img/Farsi.png";
+    } else if (text === "Portuguese") {
+        document.getElementById("textBox-img").src = "./assets/img/Portuguese.png";
     }
 }
 
