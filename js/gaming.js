@@ -87,6 +87,7 @@ async function ClaimAndWithdraw(){
         
     let userWinningRaces = await racing.methods.GetIDs(account).call()
     let WinningRaceCount = userWinningRaces.length
+    if(WinningRaceCount === '0') return console.log('no any pending winnings')
     await racing.methods.getPrizes(userWinningRaces,WinningRaceCount,true).request({from:account})
         .on('transactionHash', function (hash) {
             console.log(hash);
@@ -265,6 +266,7 @@ async function CheckGameStatus(){
                     
                     document.getElementById('accelarate').style.display = 'none';
                     // document.getElementById('StartRace').style.display = 'none';
+
                     document.getElementById('BuyTicket').style.display = 'none'
                     document.getElementById('finishRace').style.display = 'flex'
 
