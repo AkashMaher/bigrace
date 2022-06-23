@@ -4,10 +4,24 @@ let EndTime;
 let RacIter;
 let RacingEnded;
 let LastWinnerHorse;
-let LastGameID
+let LastGameID;
+
+let hw1 = 0
+let hl1 = 5
+let hw2 = 0
+let hl2 = 5
+let hw3 = 0
+let hl3 = 5
+let hw4 = 0
+let hl4 = 5
 
 
+let testAbi = [{ "inputs": [], "stateMutability": "nonpayable", "type": "constructor" }, { "inputs": [{ "internalType": "address", "name": "", "type": "address" }], "name": "balances", "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }], "stateMutability": "view", "type": "function" }, { "inputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }, { "internalType": "address", "name": "", "type": "address" }], "name": "bids", "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }], "stateMutability": "view", "type": "function" }, { "inputs": [{ "internalType": "uint256", "name": "horseNum", "type": "uint256" }], "name": "buyTicket", "outputs": [], "stateMutability": "payable", "type": "function" }, { "inputs": [{ "internalType": "address", "name": "newOwner", "type": "address" }], "name": "changeOwner", "outputs": [], "stateMutability": "nonpayable", "type": "function" }, { "inputs": [], "name": "finish", "outputs": [], "stateMutability": "nonpayable", "type": "function" }, { "inputs": [{ "internalType": "uint256[]", "name": "vals", "type": "uint256[]" }, { "internalType": "uint256", "name": "valSize", "type": "uint256" }, { "internalType": "bool", "name": "withdrawBalance", "type": "bool" }], "name": "getPrices", "outputs": [], "stateMutability": "nonpayable", "type": "function" }, { "inputs": [{ "internalType": "uint256", "name": "val", "type": "uint256" }, { "internalType": "bool", "name": "withdrawBalance", "type": "bool" }], "name": "getPrices", "outputs": [], "stateMutability": "nonpayable", "type": "function" }, { "inputs": [{ "internalType": "address", "name": "a", "type": "address" }], "name": "getPrices", "outputs": [{ "internalType": "uint256[]", "name": "result", "type": "uint256[]" }], "stateMutability": "view", "type": "function" }, { "inputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }], "name": "horseFour", "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }], "stateMutability": "view", "type": "function" }, { "inputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }], "name": "horseOne", "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }], "stateMutability": "view", "type": "function" }, { "inputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }], "name": "horseThree", "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }], "stateMutability": "view", "type": "function" }, { "inputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }], "name": "horseTwo", "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }], "stateMutability": "view", "type": "function" }, { "inputs": [], "name": "owner", "outputs": [{ "internalType": "address", "name": "", "type": "address" }], "stateMutability": "view", "type": "function" }, { "inputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }], "name": "prices", "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }], "stateMutability": "view", "type": "function" }, { "inputs": [], "name": "racIter", "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }], "stateMutability": "view", "type": "function" }, { "inputs": [], "name": "racingEnded", "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }], "stateMutability": "view", "type": "function" }, { "inputs": [], "name": "speedUp", "outputs": [], "stateMutability": "payable", "type": "function" }, { "inputs": [], "name": "startRacing", "outputs": [], "stateMutability": "nonpayable", "type": "function" }, { "inputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }], "name": "timeStampStart", "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }], "stateMutability": "view", "type": "function" }, { "inputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }], "name": "timeStampStop", "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }], "stateMutability": "view", "type": "function" }, { "inputs": [{ "internalType": "address", "name": "", "type": "address" }, { "internalType": "uint256", "name": "", "type": "uint256" }], "name": "userChoice", "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }], "stateMutability": "view", "type": "function" }, { "inputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }], "name": "winners", "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }], "stateMutability": "view", "type": "function" }, { "inputs": [{ "internalType": "uint256", "name": "val", "type": "uint256" }], "name": "withdraw", "outputs": [], "stateMutability": "nonpayable", "type": "function" }]
+let testContract = '0x0FbA62Ec7f614cD2E2A18488bB31e70FfC59C457'
 
+let testRace = new web3.eth.Contract(testAbi,testContract)
+
+console.log(testRace)
 async function onSpeedUp() {
     delay(3000);
     if (!account) return toastr.info('Пожалуйста, подключите свой кошелек');
@@ -75,50 +89,142 @@ async function finishRace() {
         
     }
 }
-// moveHorse()
+
+
+moveHorse()
 
 async function moveHorse(){
 
     setInterval(async function () {
     let gameid = await racing.methods.racIter().call()
-    gameid = '1'
-    const Bidhorse1 = await racing.methods.horseOne(gameid).call()
-    const Bidhorse2 = await racing.methods.horseTwo(gameid).call()
-    const Bidhorse3 = await racing.methods.horseThree(gameid).call()
-    const Bidhorse4 = await racing.methods.horseFour(gameid).call()
+    // gameid = '1'
+
+        const Bidhorse1 = await racing.methods.horseOne(gameid).call()
+        const Bidhorse2 = await racing.methods.horseTwo(gameid).call()
+        const Bidhorse3 = await racing.methods.horseThree(gameid).call()
+        const Bidhorse4 = await racing.methods.horseFour(gameid).call()
 
 
 
-        let bid1 = web3.utils.fromWei(`${Bidhorse1}`, 'finney')
+        let bid1 = parseInt((web3.utils.fromWei(`${Bidhorse1}`, 'finney'))/5)
+        
         console.log(bid1)
 
-        let bid2 = web3.utils.fromWei(`${Bidhorse2}`, 'finney')
+        let bid2 = parseInt((web3.utils.fromWei(`${Bidhorse2}`, 'finney'))/5)
         console.log(bid2)
 
 
-        let bid3= web3.utils.fromWei(`${Bidhorse3}`, 'finney')
+        let bid3 = parseInt((web3.utils.fromWei(`${Bidhorse3}`, 'finney'))/5)
         console.log(bid3)
+
+        let bid4 = parseInt((web3.utils.fromWei(`${Bidhorse4}`, 'finney'))/5)
+        console.log(bid4)
+
+        let hw11 = 0 + (bid1)
+        let hl11 = 5 + (bid1)
+        let hw22 = 0 + (bid2)
+        let hl22 = 5 + (bid2)
+        let hw33 = 0 + (bid3)
+        let hl33 = 5 + (bid3)
+        let hw44 = 0 + (bid4)
+        let hl44 = 5 + (bid4)
+
+        if(hw11>25 && hw11<=50){
+            hw11 = 25 + [(hw11-25)/1.5]
+            hl11 = 25 + [(hl11 - 25) / 1.5]
+        } else if (hw11 >50 && hw11<=75){
+            hw11 = 42 + [(hw11 - 50) / 2]
+            hl11 = 42 + [(hl11 - 50) / 2]
+        } else if (hw11 > 75 && hw11 <= 100) {
+            hw11 = 55 + [(hw11 - 75) / 2.5]
+            hl11 = 55 + [(hl11 - 75) / 2.5]
+        } else if (hw11 > 100 && hwll <= 145){
+            hw11 = 65 + [(hw11 - 100) / 3]
+            hl11 = 65 + [(hl11 - 100) / 3]
+        } else if(hw11>145 && hw11 <= 245){
+            hw11 = 80 + [(hw11 - 145) / 10]
+            hl11 = 80 + [(hl11 - 145) / 10]
+        } else if(hw11>245){
+            hw11 = 90
+            hl11 = 100
+        }
+
+        if (hw22 > 25 && hw22 <= 50) {
+            hw22 = 25 + [(hw22 - 25) / 1.5]
+            hl22 = 25 + [(hl22 - 25) / 1.5]
+        } else if (hw22 > 50 && hw22 <= 75) {
+            hw22 = 42 + [(hw22 - 50) / 2]
+            hl22 = 42 + [(hl22 - 50) / 2]
+        } else if (hw22 > 75 && hw22 <= 100) {
+            hw22 = 55 + [(hw22 - 75) / 2.5]
+            hl22 = 55 + [(hl22 - 75) / 2.5]
+        } else if (hw22 > 100 && hwll <= 145) {
+            hw22 = 65 + [(hw22 - 100) / 3]
+            hl22 = 65 + [(hl22 - 100) / 3]
+        } else if (hw22 > 145 && hw22 <= 245) {
+            hw22 = 80 + [(hw22 - 145) / 10]
+            hl22 = 80 + [(hl22 - 145) / 10]
+        } else if (hw22 > 245) {
+            hw22 = 90
+            hl22 = 100
+        }
+
+        if (hw33 > 25 && hw33 <= 50) {
+            hw33 = 25 + [(hw33 - 25) / 1.5]
+            hl33 = 25 + [(hl33 - 25) / 1.5]
+        } else if (hw33 > 50 && hw33 <= 75) {
+            hw33 = 42 + [(hw33 - 50) / 2]
+            hl33 = 42 + [(hl33 - 50) / 2]
+        } else if (hw33 > 75 && hw33 <= 100) {
+            hw33 = 55 + [(hw33 - 75) / 2.5]
+            hl33 = 55 + [(hl33 - 75) / 2.5]
+        } else if (hw33 > 100 && hwll <= 145) {
+            hw33 = 65 + [(hw33 - 100) / 3]
+            hl33 = 65 + [(hl33 - 100) / 3]
+        } else if (hw33 > 145 && hw33 <= 245) {
+            hw33 = 80 + [(hw33 - 145) / 10]
+            hl33 = 80 + [(hl33 - 145) / 10]
+        } else if (hw33 > 245) {
+            hw33 = 90
+            hl33 = 100
+        }
+
+
+        if (hw44 > 25 && hw44 <= 50) {
+            hw44 = 25 + [(hw44 - 25) / 1.5]
+            hl44 = 25 + [(hl44 - 25) / 1.5]
+        } else if (hw44 > 50 && hw44 <= 75) {
+            hw44 = 42 + [(hw44 - 50) / 2]
+            hl44 = 42 + [(hl44 - 50) / 2]
+        } else if (hw44 > 75 && hw44 <= 100) {
+            hw44 = 55 + [(hw44 - 75) / 2.5]
+            hl44 = 55 + [(hl44 - 75) / 2.5]
+        } else if (hw44 > 100 && hwll <= 145) {
+            hw44 = 65 + [(hw44 - 100) / 3]
+            hl44 = 65 + [(hl44 - 100) / 3]
+        } else if (hw44 > 145 && hw44 <= 245) {
+            hw44 = 80 + [(hw44 - 145) / 10]
+            hl44 = 80 + [(hl44 - 145) / 10]
+        } else if (hw44 > 245) {
+            hw44 = 90
+            hl44 = 100
+        }
 
         
 
-        let bid4 = web3.utils.fromWei(`${Bidhorse4}`, 'finney')
-        console.log(bid4)
+        document.getElementById('horse111').style.width = `${hw11}%`
+        document.getElementById('horse11').style.left = `${hl11}%`
 
+        document.getElementById('horse222').style.width = `${hw22}%`
+        document.getElementById('horse22').style.left = `${hl22}%`
 
+        document.getElementById('horse333').style.width = `${hw33}%`
+        document.getElementById('horse33').style.left = `${hl33}%`
 
-        document.getElementById('horse111').style.width = `0%`
-        document.getElementById('horse11').style.left = `5%`
+        document.getElementById('horse444').style.width = `${hw44}%`
+        document.getElementById('horse44').style.left = `${hl44}%`
 
-        document.getElementById('horse222').style.width = `0%`
-        document.getElementById('horse22').style.left = `5%`
-
-        document.getElementById('horse333').style.width = `0%`
-        document.getElementById('horse33').style.left = `5%`
-
-        document.getElementById('horse444').style.width = `0%`
-        document.getElementById('horse44').style.left = `5%`
-
-    },5000)
+    },1000)
 }
 
 
@@ -286,17 +392,135 @@ async function CheckGameStatus(){
                     document.getElementById('accelarate').style.display = 'flex';
                     document.getElementById('finishRace').style.display = 'none';
 
-                    document.getElementById('horse111').style.width = `0%`
-                    document.getElementById('horse11').style.left = `5%`
 
-                    document.getElementById('horse222').style.width = `0%`
-                    document.getElementById('horse22').style.left = `5%`
+                    let gameid = await racing.methods.racIter().call()
+                    // gameid = '1'
 
-                    document.getElementById('horse333').style.width = `0%`
-                    document.getElementById('horse33').style.left = `5%`
+                    const Bidhorse1 = await racing.methods.horseOne(gameid).call()
+                    const Bidhorse2 = await racing.methods.horseTwo(gameid).call()
+                    const Bidhorse3 = await racing.methods.horseThree(gameid).call()
+                    const Bidhorse4 = await racing.methods.horseFour(gameid).call()
 
-                    document.getElementById('horse444').style.width = `0%`
-                    document.getElementById('horse44').style.left = `5%`
+
+
+                    let bid1 = parseInt((web3.utils.fromWei(`${Bidhorse1}`, 'finney')) / 5)
+
+                    console.log(bid1)
+
+                    let bid2 = parseInt((web3.utils.fromWei(`${Bidhorse2}`, 'finney')) / 5)
+                    console.log(bid2)
+
+
+                    let bid3 = parseInt((web3.utils.fromWei(`${Bidhorse3}`, 'finney')) / 5)
+                    console.log(bid3)
+
+                    let bid4 = parseInt((web3.utils.fromWei(`${Bidhorse4}`, 'finney')) / 5)
+                    console.log(bid4)
+
+                    let hw11 = 0 + (bid1)
+                    let hl11 = 5 + (bid1)
+                    let hw22 = 0 + (bid2)
+                    let hl22 = 5 + (bid2)
+                    let hw33 = 0 + (bid3)
+                    let hl33 = 5 + (bid3)
+                    let hw44 = 0 + (bid4)
+                    let hl44 = 5 + (bid4)
+
+                    if (hw11 > 25 && hw11 <= 50) {
+                        hw11 = 25 + [(hw11 - 25) / 1.5]
+                        hl11 = 25 + [(hl11 - 25) / 1.5]
+                    } else if (hw11 > 50 && hw11 <= 75) {
+                        hw11 = 42 + [(hw11 - 50) / 2]
+                        hl11 = 42 + [(hl11 - 50) / 2]
+                    } else if (hw11 > 75 && hw11 <= 100) {
+                        hw11 = 55 + [(hw11 - 75) / 2.5]
+                        hl11 = 55 + [(hl11 - 75) / 2.5]
+                    } else if (hw11 > 100 && hwll <= 145) {
+                        hw11 = 65 + [(hw11 - 100) / 3]
+                        hl11 = 65 + [(hl11 - 100) / 3]
+                    } else if (hw11 > 145 && hw11 <= 245) {
+                        hw11 = 80 + [(hw11 - 145) / 10]
+                        hl11 = 80 + [(hl11 - 145) / 10]
+                    } else if (hw11 > 245) {
+                        hw11 = 90
+                        hl11 = 100
+                    }
+
+                    if (hw22 > 25 && hw22 <= 50) {
+                        hw22 = 25 + [(hw22 - 25) / 1.5]
+                        hl22 = 25 + [(hl22 - 25) / 1.5]
+                    } else if (hw22 > 50 && hw22 <= 75) {
+                        hw22 = 42 + [(hw22 - 50) / 2]
+                        hl22 = 42 + [(hl22 - 50) / 2]
+                    } else if (hw22 > 75 && hw22 <= 100) {
+                        hw22 = 55 + [(hw22 - 75) / 2.5]
+                        hl22 = 55 + [(hl22 - 75) / 2.5]
+                    } else if (hw22 > 100 && hwll <= 145) {
+                        hw22 = 65 + [(hw22 - 100) / 3]
+                        hl22 = 65 + [(hl22 - 100) / 3]
+                    } else if (hw22 > 145 && hw22 <= 245) {
+                        hw22 = 80 + [(hw22 - 145) / 10]
+                        hl22 = 80 + [(hl22 - 145) / 10]
+                    } else if (hw22 > 245) {
+                        hw22 = 90
+                        hl22 = 100
+                    }
+
+                    if (hw33 > 25 && hw33 <= 50) {
+                        hw33 = 25 + [(hw33 - 25) / 1.5]
+                        hl33 = 25 + [(hl33 - 25) / 1.5]
+                    } else if (hw33 > 50 && hw33 <= 75) {
+                        hw33 = 42 + [(hw33 - 50) / 2]
+                        hl33 = 42 + [(hl33 - 50) / 2]
+                    } else if (hw33 > 75 && hw33 <= 100) {
+                        hw33 = 55 + [(hw33 - 75) / 2.5]
+                        hl33 = 55 + [(hl33 - 75) / 2.5]
+                    } else if (hw33 > 100 && hwll <= 145) {
+                        hw33 = 65 + [(hw33 - 100) / 3]
+                        hl33 = 65 + [(hl33 - 100) / 3]
+                    } else if (hw33 > 145 && hw33 <= 245) {
+                        hw33 = 80 + [(hw33 - 145) / 10]
+                        hl33 = 80 + [(hl33 - 145) / 10]
+                    } else if (hw33 > 245) {
+                        hw33 = 90
+                        hl33 = 100
+                    }
+
+
+                    if (hw44 > 25 && hw44 <= 50) {
+                        hw44 = 25 + [(hw44 - 25) / 1.5]
+                        hl44 = 25 + [(hl44 - 25) / 1.5]
+                    } else if (hw44 > 50 && hw44 <= 75) {
+                        hw44 = 42 + [(hw44 - 50) / 2]
+                        hl44 = 42 + [(hl44 - 50) / 2]
+                    } else if (hw44 > 75 && hw44 <= 100) {
+                        hw44 = 55 + [(hw44 - 75) / 2.5]
+                        hl44 = 55 + [(hl44 - 75) / 2.5]
+                    } else if (hw44 > 100 && hwll <= 145) {
+                        hw44 = 65 + [(hw44 - 100) / 3]
+                        hl44 = 65 + [(hl44 - 100) / 3]
+                    } else if (hw44 > 145 && hw44 <= 245) {
+                        hw44 = 80 + [(hw44 - 145) / 10]
+                        hl44 = 80 + [(hl44 - 145) / 10]
+                    } else if (hw44 > 245) {
+                        hw44 = 90
+                        hl44 = 100
+                    }
+
+
+
+                    document.getElementById('horse111').style.width = `${hw11}%`
+                    document.getElementById('horse11').style.left = `${hl11}%`
+
+                    document.getElementById('horse222').style.width = `${hw22}%`
+                    document.getElementById('horse22').style.left = `${hl22}%`
+
+                    document.getElementById('horse333').style.width = `${hw33}%`
+                    document.getElementById('horse33').style.left = `${hl33}%`
+
+                    document.getElementById('horse444').style.width = `${hw44}%`
+                    document.getElementById('horse44').style.left = `${hl44}%`
+
                     
                 } else if(Gameseconds<0){
                    
@@ -378,5 +602,5 @@ window.addEventListener('load', async () => {
 
 
 
-checkIfLogin()
+// checkIfLogin()
 
