@@ -481,22 +481,7 @@
           document.querySelector('#activate2').addEventListener('click', onActivate2)
           // document.querySelector("#register").addEventListener("click", onConnect);
           MaxUsers('participants');
-      function show(text) {
-        document.getElementById("textBox-text").innerHTML = text;
-        if (text === "Русский") {
-          document.getElementById("textBox-img").src =
-            "./assets/img/russia.png";
-        } else if (text === "English") {
-          document.getElementById("textBox-img").src = "./assets/img/eng.png";
-        } else if (text === "Hindi") {
-          document.getElementById("textBox-img").src = "./assets/img/hindi.png";
-        }
-      }
-
-      let dropdown = document.querySelector(".select-dropdown");
-      dropdown.onclick = function () {
-        dropdown.classList.toggle("active-dropdown");
-      };
+      
     </script>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"

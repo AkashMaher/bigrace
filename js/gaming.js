@@ -63,6 +63,12 @@ async function finishRace() {
 }
 
 
+async function ClaimAndWithdraw(GameID,ifWithdraw){
+    if(!account) return;
+
+    await racing.methods.getPrizes(GameID,ifWithdraw)
+}
+
 async function CheckGameStatus(){
 
     let text = document.getElementById("textBox-text").innerHTML;
@@ -80,7 +86,7 @@ async function CheckGameStatus(){
 
         
 
-        document.getElementById('StartRace').classList.remove('noview')
+        // document.getElementById('StartRace').classList.remove('noview')
         if(text==='English'){
             document.getElementById('gameStatus').textContent = en1
         } else if(text ==='Hindi'){
@@ -143,7 +149,7 @@ async function CheckGameStatus(){
                     }
 
 
-                    document.getElementById('StartRace').style.display = 'none';
+                    // document.getElementById('StartRace').style.display = 'none';
                     document.getElementById('BuyTicket').style.display = 'flex';
                     document.getElementById("startCountDown").textContent = minutes + ":" + seconds;
                 }
@@ -182,7 +188,7 @@ async function CheckGameStatus(){
                     console.log('test 5')
                     
                     document.getElementById('accelarate').style.display = 'none';
-                    document.getElementById('StartRace').style.display = 'none';
+                    // document.getElementById('StartRace').style.display = 'none';
                     document.getElementById('BuyTicket').style.display = 'none'
                     document.getElementById('finishRace').style.display = 'flex'
 
@@ -219,7 +225,7 @@ async function CheckGameStatus(){
                 } else if(distance<0 && GameTime>0) {
                     console.log('test 6')
                     // document.getElementById('accelarate').classList.remove('noview');
-                    document.getElementById('StartRace').style.display = 'none';
+                    // document.getElementById('StartRace').style.display = 'none';
                     document.getElementById('BuyTicket').classList.add('noview')
                     document.getElementById('accelarate').style.display = 'flex';
                     // document.getElementById('startcount').style.display = 'flex';

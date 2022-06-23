@@ -106,7 +106,7 @@
         </div>
 
         <div id="main" class="content-container content-h-full w-100 d-flex flex-column justify-content-center">
-            <div class="position-relative d-flex justify-content-center">
+            <div class="position-relative justify-content-center" id="RacingPhase" style="display: flex;">
                 <img class="mob-none horse-tablet-back-none width-tablet" src="./assets/img/profile-paper.png" alt="" />
                 <img class="desk-none horse-tablet-back" src="./assets/img/profile-paper-mob.png" alt="" />
                 <div class="position-absolute profile-container game-container-mob horses-rent-container">
@@ -158,7 +158,7 @@
                         </div>
                         
                         <div class="push-horse-btn">
-                            <button class="noview" id="StartRace">Start Racing</button>
+                            
                             <button class="noview" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" id="accelarate">
                                 SpeedUp to 0,01 BNB
                             </button>
@@ -200,6 +200,56 @@
                     </div>
                 </div>
             </div>
+            <div class="position-relative justify-content-center" id="winningPhase" style="display: flex;">
+                <img class="mob-none horse-tablet-back-none winner-tablet-back width-tablet" src="./assets/img/win-layer.png"
+                    alt="" />
+                <img class="desk-none horse-tablet-back" src="./assets/img/profile-paper-mob.png" alt="" />
+                <div class="position-absolute profile-container winner-container winner-container-mob w-100 horses-rent-container">
+                    <h1 class="text-center">Winner</h1>
+                    <h2 class="text-center"><span id="winner"></span></h2>
+                    <div class="d-flex justify-content-center">
+                        <img src="./assets/img/win-cub.png" alt="" />
+                    </div>
+                    <div class="push-horse-btn">
+                    
+                    
+                        <button type="button" data-bs-toggle="modal" data-bs-target="#exampleModal2" id="claim">
+                            Claim Prize
+                        </button>
+                    </div>
+                    <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <button type="button" class="btn-close-modal" data-bs-dismiss="modal" aria-label="Close"></button>
+                        <div class="modal-dialog modal-dialog-centered modal">
+                            <div class="modal-content">
+                                <div class="modal-body modal-body-wallet">
+                                    <h1 class="mb-0">Prize Distribution</h1>
+                                    <div>
+                                        <p>Get Your Winning Prize Instantly</p>
+                                        <div class="activate-wallet-input">
+                                            <label for="basic-url" class="form-label">Enter GameID if You Have Any Pending Prizes</label>
+                                            
+                                            <div class="input-group mb-3">
+                                                    <input
+                                                      type="text"
+                                                      class="form-control"
+                                                      id="basic-url"
+                                                      aria-describedby="basic-addon3"
+                                                    />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="d-flex justify-content-center push-horse-btn">
+                                        <button type="button" id="Claim">Get Prizes</button>
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+
+            </div>
             <h1 class="text-center choose-horse-text" >
                 <p ><span id="gameStatus"></span>
                     
@@ -240,6 +290,7 @@
                     </div>
                 </div>
             </div>
+            
         </div>
     </section>
     <script src="https://unpkg.com/web3@latest/dist/web3.min.js"></script>
@@ -258,7 +309,7 @@
             document.querySelector("#horse2").addEventListener("click", chooseHorse2);
             document.querySelector("#horse3").addEventListener("click", chooseHorse3);
             document.querySelector("#horse4").addEventListener("click", chooseHorse4);
-            document.querySelector("#StartRace").addEventListener("click", onStartRace);
+            // document.querySelector("#StartRace").addEventListener("click", onStartRace);
             document.querySelector("#finishRace").addEventListener("click", finishRace);
             document.querySelector("#SpeedUp").addEventListener("click", onSpeedUp);
         });
