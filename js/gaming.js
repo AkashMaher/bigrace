@@ -64,7 +64,7 @@ async function finishRace() {
     if (RaceEnded === true) {
 
     } else {
-        await racing.methods.finish().send({ from: account, gasLimit: '100000' })
+        await racing.methods.finish().request({ from: account, gasLimit: '100000' })
             .on('transactionHash', function (hash) {
                 console.log(hash);
                 tnxHash = hash;
@@ -88,7 +88,7 @@ async function ClaimAndWithdraw(){
     let userWinningRaces = await racing.methods.getPrices(account).call()
     let WinningRaceCount = userWinningRaces.length
     if (WinningRaceCount === '0') return console.log('no any pending winnings'), toastr.info('you have no pending winnings');
-    await racing.methods.getPrizes(userWinningRaces,WinningRaceCount,true).request({from:account})
+    await racing.methods.getPrices(userWinningRaces,WinningRaceCount,true).request({from:account})
         .on('transactionHash', function (hash) {
             console.log(hash);
             tnxHash = hash;
