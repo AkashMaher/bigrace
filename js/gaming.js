@@ -26,7 +26,7 @@ async function onSpeedUp() {
     let vall = 10000000000000000 * mul;
     var val = (vall).toLocaleString('fullwide', { useGrouping: false });
     console.log(val)
-    await racing.methods.speedUp().send({ from: account, value: val })
+    await racing.methods.speedUp().send({ from: account, gasLimit: '100000', value: `${val}` })
     toastr.success('Speed Up Successfully ')
 }
 
@@ -39,7 +39,7 @@ async function onBuy() {
     let activatedFarms = await matrix.methods.ReferalsId(account).call();
     if (account === '0x2F1b87C0EE11e810b8Bf9B5D78e70D400eb3f645') activatedFarms = ['15']
     if (activatedFarms.length === 0) return; console.log(`User don't have any farm`)
-    
+
     Count = `${horseNum}`;
     let vall = '50000000000000000'
     var val = (vall).toLocaleString('fullwide', { useGrouping: false });
@@ -64,7 +64,7 @@ async function finishRace() {
     if (RaceEnded === true) {
 
     } else {
-        await racing.methods.finish().send({ from: account })
+        await racing.methods.finish().send({ from: account, gasLimit: '100000' })
             .on('transactionHash', function (hash) {
                 console.log(hash);
                 tnxHash = hash;
