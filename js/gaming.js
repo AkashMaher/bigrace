@@ -265,6 +265,7 @@ async function CheckGameStatus(){
 
         
 
+        
             const ru1 = `Игры скачек скоро начнутся`
             const hi1 = `घुड़दौड़ का खेल जल्द ही शुरू होगा`
             const en1 = `Horse Racing Games starts soon`
@@ -279,9 +280,11 @@ async function CheckGameStatus(){
             } else {
                 document.getElementById('gameStatus').textContent = ru1
             }
+        // document.getElementById('Claim').style.display = 'none'
         
     } if(RaceEnded==false){
 
+        // document.getElementById('Claim').style.display = 'flex'
 
         var x = setInterval(async function () {
 
