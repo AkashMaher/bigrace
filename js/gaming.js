@@ -277,7 +277,7 @@ async function CheckGameStatus(){
                 document.getElementById('gameStatus').textContent = en1
             } else if (text === 'Hindi') {
                 document.getElementById('gameStatus').textContent = hi1
-            } else {
+            } else if (text === 'Русский') {
                 document.getElementById('gameStatus').textContent = ru1
             }
         // document.getElementById('Claim').style.display = 'none'
