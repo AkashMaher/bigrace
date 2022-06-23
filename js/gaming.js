@@ -374,6 +374,7 @@ async function CheckGameStatus(){
                     
                     document.getElementById('BuyTicket').style.display = 'flex';
                     document.getElementById("startCountDown").textContent = minutes + ":" + seconds;
+                    document.getElementById('accelarate').style.display = 'none';
                 }
                 // Output the result in an element with id="demo"
                 else if (seconds<0 && Gameseconds > 0) {
