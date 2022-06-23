@@ -202,6 +202,17 @@ async function CheckGameStatus(){
 
                     // document.getElementById('StartRace').style.display = 'none';
                     
+                    document.getElementById('horse111').style.width = `0%`
+                    document.getElementById('horse11').style.left = `5%`
+
+                    document.getElementById('horse222').style.width = `0%`
+                    document.getElementById('horse22').style.left = `5%`
+
+                    document.getElementById('horse333').style.width = `0%`
+                    document.getElementById('horse33').style.left = `5%`
+
+                    document.getElementById('horse444').style.width = `0%`
+                    document.getElementById('horse44').style.left = `5%`
                     
                     document.getElementById('BuyTicket').style.display = 'flex';
                     document.getElementById("startCountDown").textContent = minutes + ":" + seconds;
@@ -227,6 +238,18 @@ async function CheckGameStatus(){
                     document.getElementById('BuyTicket').style.display = 'none';
                     document.getElementById('accelarate').style.display = 'flex';
                     document.getElementById('finishRace').style.display = 'none';
+
+                    document.getElementById('horse111').style.width = `0%`
+                    document.getElementById('horse11').style.left = `5%`
+
+                    document.getElementById('horse222').style.width = `0%`
+                    document.getElementById('horse22').style.left = `5%`
+
+                    document.getElementById('horse333').style.width = `0%`
+                    document.getElementById('horse33').style.left = `5%`
+
+                    document.getElementById('horse444').style.width = `0%`
+                    document.getElementById('horse44').style.left = `5%`
                     
                 } else if(Gameseconds<0){
                    
