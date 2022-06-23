@@ -297,5 +297,5 @@ window.addEventListener('load', async () => {
 
 
 
-
+checkIfLogin()
 

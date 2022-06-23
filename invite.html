@@ -100,46 +100,46 @@
             <div class="modal-body modal-body-wallet">
               <h1 class="mb-0">
                 <font style="vertical-align: inherit;">
-                  <font style="vertical-align: inherit;">Activate wallet</font>
+                  <font style="vertical-align: inherit;">Активировать кошелек</font>
                 </font>
               </h1>
               <div>
                 <p>
                   <font style="vertical-align: inherit;">
-                    <font style="vertical-align: inherit;">Activate Big Race in one transaction with BNB</font>
+                    <font style="vertical-align: inherit;">Активируйте Big Race за одну транзакцию с BNB</font>
                   </font>
                 </p>
                 <div class="activate-wallet-input">
                   <label for="basic-url" class="form-label">
                     <font style="vertical-align: inherit;">
-                      <font style="vertical-align: inherit;">Amount for activation</font>
+                      <font style="vertical-align: inherit;">Сумма для активации</font>
                     </font>
                   </label>
                   <div class="selectLvls">
                     <select name="lvls" id="lvls" class="lvls">
                       <option value="1">
                         <font style="vertical-align: inherit;">
-                          <font style="vertical-align: inherit;">Tier 1d (0.05 BNB)</font>
+                          <font style="vertical-align: inherit;">Уровень 1d (0.05 BNB)</font>
                         </font>
                       </option>
                       <option value="2">
                         <font style="vertical-align: inherit;">
-                          <font style="vertical-align: inherit;">Tier 2d (0.07 BNB)</font>
+                          <font style="vertical-align: inherit;">Уровень 2d (0.07 BNB)</font>
                         </font>
                       </option>
                       <option value="3">
                         <font style="vertical-align: inherit;">
-                          <font style="vertical-align: inherit;">Tier 3d (0.1 BNB)</font>
+                          <font style="vertical-align: inherit;">Уровень 3d (0.1 BNB)</font>
                         </font>
                       </option>
                       <option value="4">
                         <font style="vertical-align: inherit;">
-                          <font style="vertical-align: inherit;">Tier 4d (0.14 BNB)</font>
+                          <font style="vertical-align: inherit;">Уровень 4d (0.14 BNB)</font>
                         </font>
                       </option>
                       <option value="16">
                         <font style="vertical-align: inherit;">
-                          <font style="vertical-align: inherit;">Tier 16 (8 BNB)</font>
+                          <font style="vertical-align: inherit;">Уровень 16 (8 BNB)</font>
                         </font>
                       </option>
   
@@ -157,7 +157,7 @@
               </div>
               <div class="d-flex justify-content-center">
                 <button id="activate">
-                  Activate Farm
+                  Активировать ферму
                 </button>
               </div>
             </div>
@@ -175,11 +175,11 @@
               <h2 class="text-center">
                 <font style="vertical-align: inherit;">
                   <font style="vertical-align: inherit;">
-                    invites you </font>
+                    приглашает вас</font>
                 </font><br>
                 <font style="vertical-align: inherit;">
                   <font style="vertical-align: inherit;">
-                    Big Race
+                    Большая гонка
                   </font>
                 </font>
               </h2>
@@ -188,7 +188,7 @@
               <div class="invitesss smalltext" id="ifNo">
                 <button type="button" id="register">
                   
-                      Register Now
+                      Зарегистрируйтесь сейчас
                     
                 </button>
               </div>
@@ -196,7 +196,7 @@
               <div class="noview smalltext" id="ifYes" >
                 <button type="button" data-bs-toggle="modal" data-bs-target="#exampleModal2">
                   
-                      Register Now
+                      Зарегистрируйтесь сейчас
                     
                 </button>
               </div>
@@ -423,69 +423,15 @@
   <script type="text/javascript" src="./js/wallet.js"></script>
 
   <script>
-    window.addEventListener('load', async () => {
-      // document.querySelector("#connect2").addEventListener("click", onConnect);
-
-
-    });
-    function show(text) {
-      document.getElementById("textBox-text").innerHTML = text;
-      if (text === "Русский") {
-        document.getElementById("textBox-img").src =
-          "./assets/img/russia.png";
-      } else if (text === "English") {
-        document.getElementById("textBox-img").src = "./assets/img/eng.png";
-      } else if (text === "Hindi") {
-        document.getElementById("textBox-img").src = "./assets/img/hindi.png";
-      }
-    }
-
-    let dropdown = document.querySelector(".select-dropdown");
-    dropdown.onclick = function () {
-      dropdown.classList.toggle("active-dropdown");
-    };
+    
+   
+  
   </script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
     crossorigin="anonymous"></script>
-  <!-- Code injected by live-server -->
-  <script type="text/javascript">
-    // <![CDATA[  <-- For SVG support
-    if ('WebSocket' in window) {
-      (function () {
-        function refreshCSS() {
-          var sheets = [].slice.call(document.getElementsByTagName("link"));
-          var head = document.getElementsByTagName("head")[0];
-          for (var i = 0; i < sheets.length; ++i) {
-            var elem = sheets[i];
-            var parent = elem.parentElement || head;
-            parent.removeChild(elem);
-            var rel = elem.rel;
-            if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
-              var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
-              elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
-            }
-            parent.appendChild(elem);
-          }
-        }
-        var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
-        var address = protocol + window.location.host + window.location.pathname + '/ws';
-        var socket = new WebSocket(address);
-        socket.onmessage = function (msg) {
-          if (msg.data == 'reload') window.location.reload();
-          else if (msg.data == 'refreshcss') refreshCSS();
-        };
-        if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
-          console.log('Live reload enabled.');
-          sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
-        }
-      })();
-    }
-    else {
-      console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
-    }
-	// ]]>
-  </script>
+
+  
 
  
 </body>
@@ -513,22 +459,7 @@
     document.querySelector("#register").addEventListener("click", onConnect)
     document.querySelector('#activate').addEventListener('click', activate)
     // document.querySelector("#register").addEventListener("click", automate2);
-  function show(text) {
-    document.getElementById("textBox-text").innerHTML = text;
-    if (text === "Русский") {
-      document.getElementById("textBox-img").src =
-        "./assets/img/russia.png";
-    } else if (text === "English") {
-      document.getElementById("textBox-img").src = "./assets/img/eng.png";
-    } else if (text === "Hindi") {
-      document.getElementById("textBox-img").src = "./assets/img/hindi.png";
-    }
-  }
 
-  dropdown = document.querySelector(".select-dropdown");
-  dropdown.onclick = function () {
-    dropdown.classList.toggle("active-dropdown");
-  };
 </script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
   integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
