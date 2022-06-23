@@ -75,6 +75,52 @@ async function finishRace() {
         
     }
 }
+// moveHorse()
+
+async function moveHorse(){
+
+    setInterval(async function () {
+    let gameid = await racing.methods.racIter().call()
+    gameid = '1'
+    const Bidhorse1 = await racing.methods.horseOne(gameid).call()
+    const Bidhorse2 = await racing.methods.horseTwo(gameid).call()
+    const Bidhorse3 = await racing.methods.horseThree(gameid).call()
+    const Bidhorse4 = await racing.methods.horseFour(gameid).call()
+
+
+
+        let bid1 = web3.utils.fromWei(`${Bidhorse1}`, 'finney')
+        console.log(bid1)
+
+        let bid2 = web3.utils.fromWei(`${Bidhorse2}`, 'finney')
+        console.log(bid2)
+
+
+        let bid3= web3.utils.fromWei(`${Bidhorse3}`, 'finney')
+        console.log(bid3)
+
+        
+
+        let bid4 = web3.utils.fromWei(`${Bidhorse4}`, 'finney')
+        console.log(bid4)
+
+
+
+        document.getElementById('horse111').style.width = `0%`
+        document.getElementById('horse11').style.left = `5%`
+
+        document.getElementById('horse222').style.width = `0%`
+        document.getElementById('horse22').style.left = `5%`
+
+        document.getElementById('horse333').style.width = `0%`
+        document.getElementById('horse33').style.left = `5%`
+
+        document.getElementById('horse444').style.width = `0%`
+        document.getElementById('horse44').style.left = `5%`
+
+    },5000)
+}
+
 
 
 async function ClaimAndWithdraw(){
