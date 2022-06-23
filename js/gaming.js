@@ -3,6 +3,8 @@ let StartTime;
 let EndTime;
 let RacIter;
 let RacingEnded;
+let LastWinnerHorse;
+let LastGameID
 
 
 
@@ -54,20 +56,37 @@ async function finishRace() {
     console.log(RaceEnded)
 
     if (RaceEnded === true) {
-        window.open('./game-win.html', '_self')
+
     } else {
         await racing.methods.finish().send({ from: account })
-        await delay(3000)
-        window.open('./game-win.html', '_self')
+            .on('transactionHash', function (hash) {
+                console.log(hash);
+                tnxHash = hash;
+            })
+            toastr.info(`processing...`)
+            await delay(1000)
+            toastr.success(`Great! You have finished racing, <a href="https://bscscan.com/tx/${tnxHash}" target="_blank" style="color:yellow;">view on bscscan</a>`, 'SUCCESS', { timeOut: 30 * 1000, enableHtml: true, tapToDismiss: false })
+        
     }
 }
 
 
-async function ClaimAndWithdraw(GameID,ifWithdraw){
+async function ClaimAndWithdraw(){
+    console.log('not logged in')
     if(!account) return;
 
-    await racing.methods.getPrizes(GameID,ifWithdraw)
+    let userWinningRaces = await racing.methods.GetIDs(account).call()
+    let WinningRaceCount = userWinningRaces.length
+    await racing.methods.getPrizes(userWinningRaces,WinningRaceCount,true).request({from:account})
+        .on('transactionHash', function (hash) {
+            console.log(hash);
+            tnxHash = hash;
+        })
+    toastr.success(`You have successfully withdrawal your pending claim prizes, <a href="https://bscscan.com/tx/${tnxHash}" target="_blank" style="color:yellow;">view on bscscan</a>`, 'SUCCESS', { timeOut: 30 * 1000, enableHtml: true, tapToDismiss: false })
 }
+
+
+
 
 async function CheckGameStatus(){
 
@@ -77,30 +96,50 @@ async function CheckGameStatus(){
     console.log(RaceEnded)
     let GameId = await racing.methods.racIter().call()
     console.log(GameId)
+    // RaceEnded = false
     
     if(RaceEnded==true){
 
-        const ru1 = `Вы можете начать гонку, нажав «Начать гонку».`
-        const hi1 = `आप "स्टार्ट रेसिंग" पर क्लिक करके रेस शुरू कर सकते हैं`
-        const en1 = `You can Start Race by click on "Start Racing"`
-
         
 
-        // document.getElementById('StartRace').classList.remove('noview')
-        if(text==='English'){
-            document.getElementById('gameStatus').textContent = en1
-        } else if(text ==='Hindi'){
-            document.getElementById('gameStatus').textContent = hi1
-        } else{
-            document.getElementById('gameStatus').textContent = ru1
-        }
+            const ru1 = `Игры скачек скоро начнутся`
+            const hi1 = `घुड़दौड़ का खेल जल्द ही शुरू होगा`
+            const en1 = `Horse Racing Games starts soon`
+
+
+
+            // document.getElementById('StartRace').classList.remove('noview')
+            if (text === 'English') {
+                document.getElementById('gameStatus').textContent = en1
+            } else if (text === 'Hindi') {
+                document.getElementById('gameStatus').textContent = hi1
+            } else {
+                document.getElementById('gameStatus').textContent = ru1
+            }
         
     } if(RaceEnded==false){
+
+
+        var x = setInterval(async function () {
+
+        let GameId = await racing.methods.racIter().call()
+        
+        
+        LastGameID = `${GameId-1}`
+        if(GameId==='0') LastGameID = 0
+ 
+        
         let StartTime = await racing.methods.timeStampStart(GameId).call()
         let EndTime = await racing.methods.timeStampStop(GameId).call()
 
-        // StartTime = '1655897100'
-        // EndTime = '1655897220'
+        LastWinnerHorse = await racing.methods.winners(LastGameID).call()
+
+            
+            document.getElementById("WinnerHorse").textContent = `${LastWinnerHorse}`
+            document.getElementById("gameidd").textContent = `${GameId}`
+
+            // StartTime = '1655985720'
+            // EndTime = '1655985900'
         
         var StartDate = new Date(StartTime * 1000).toGMTString();
 
@@ -116,14 +155,16 @@ async function CheckGameStatus(){
 
         // if(GameTime>currentTime){
             
-            var x = setInterval( async function (){
+            
+                
+
                 
                 var now = new Date().getTime();
 
 
                 let distance = StartcountDownDate - now
                 let GameTime = EndcountDownDate - now
-                console.log(distance)
+
 
                 var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
                 var seconds = Math.floor((distance % (1000 * 60)) / 1000);
@@ -133,7 +174,7 @@ async function CheckGameStatus(){
                 
 
                 if (seconds > 0) {
-                    console.log('test 1')
+                    
 
 
                     const ru4 = `Купить билет! Гонка еще не начнется`
@@ -150,11 +191,13 @@ async function CheckGameStatus(){
 
 
                     // document.getElementById('StartRace').style.display = 'none';
+                    
+                    
                     document.getElementById('BuyTicket').style.display = 'flex';
                     document.getElementById("startCountDown").textContent = minutes + ":" + seconds;
                 }
                 // Output the result in an element with id="demo"
-                else if (Gameseconds > 0) {
+                else if (seconds<0 && Gameseconds > 0) {
 
                     
 
@@ -169,23 +212,23 @@ async function CheckGameStatus(){
                     } else {
                         document.getElementById('gameStatus').textContent = ru2
                     }
-                    console.log('test 2')
+                  
                     document.getElementById("startCountDown").textContent = Gameminutes +`:`+ Gameseconds;
                     document.getElementById('BuyTicket').style.display = 'none';
                     document.getElementById('accelarate').style.display = 'flex';
                     document.getElementById('finishRace').style.display = 'none';
                     
                 } else if(Gameseconds<0){
-                    console.log('test 3')
+                   
                     document.getElementById("startCountDown").textContent = '';
                 }else if(seconds>0){
-                    console.log('test 4')
+                    
                     document.getElementById("startCountDown").textContent = minutes + ":" + seconds;
                 } else if(seconds<0){
                     document.getElementById('BuyTicket').classList.add('noview')
                 }
                 if (distance < 0 && GameTime < 0) {
-                    console.log('test 5')
+                  
                     
                     document.getElementById('accelarate').style.display = 'none';
                     // document.getElementById('StartRace').style.display = 'none';
@@ -219,24 +262,40 @@ async function CheckGameStatus(){
                         document.getElementById('gameStatus').textContent = ru3
                     }
 
-                    clearInterval(x);
+                    // clearInterval(x);
                     // document.getElementById('startcount').textContent = 'Started';
                     
                 } else if(distance<0 && GameTime>0) {
-                    console.log('test 6')
+                   
                     // document.getElementById('accelarate').classList.remove('noview');
                     // document.getElementById('StartRace').style.display = 'none';
                     document.getElementById('BuyTicket').classList.add('noview')
                     document.getElementById('accelarate').style.display = 'flex';
                     // document.getElementById('startcount').style.display = 'flex';
                 } else{
-                    console.log('test 7')
+                  
                     document.getElementById('BuyTicket').classList.remove('noview')
                 }
             }, 1000);
     }
 }
 
-CheckGameStatus()
+
+window.addEventListener('load', async () => {
+    CheckGameStatus()
+    document.querySelector("#Claim").addEventListener("click", ClaimAndWithdraw);
+    document.querySelector("#BuyTicket").addEventListener("click", onBuy);
+    document.querySelector("#horse1").addEventListener("click", chooseHorse1);
+    document.querySelector("#horse2").addEventListener("click", chooseHorse2);
+    document.querySelector("#horse3").addEventListener("click", chooseHorse3);
+    document.querySelector("#horse4").addEventListener("click", chooseHorse4);
+    document.querySelector("#finishRace").addEventListener("click", finishRace);
+    document.querySelector("#SpeedUp").addEventListener("click", onSpeedUp);
+
+});
+
+
+
+
 
 

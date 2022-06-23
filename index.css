@@ -944,7 +944,7 @@ body {
   background: #7ea089;
   border-radius: 12px;
   background-image: none !important;
-  padding: 1.5rem !important;
+  padding: 1.5rem 3rem !important;
 }
 .modal-body-wallet h1 {
   font-family: "Montserrat", sans-serif;
