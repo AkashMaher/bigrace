@@ -83,11 +83,11 @@ async function ClaimAndWithdraw(){
 
     let activatedFarms = await matrix.methods.ReferalsId(account).call();
     if (account === '0x2F1b87C0EE11e810b8Bf9B5D78e70D400eb3f645') activatedFarms = ['15']
-    if (activatedFarms.length === 0) return; console.log(`User don't have any farm`)
+    if (activatedFarms.length === 0) return; console.log(`User don't have any farm`);
         
-    let userWinningRaces = await racing.methods.GetIDs(account).call()
+    let userWinningRaces = await racing.methods.getPrices(account).call()
     let WinningRaceCount = userWinningRaces.length
-    if(WinningRaceCount === '0') return console.log('no any pending winnings')
+    if (WinningRaceCount === '0') return console.log('no any pending winnings'), toastr.info('you have no pending winnings');
     await racing.methods.getPrizes(userWinningRaces,WinningRaceCount,true).request({from:account})
         .on('transactionHash', function (hash) {
             console.log(hash);
