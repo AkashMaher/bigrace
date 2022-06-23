@@ -64,7 +64,7 @@ async function finishRace() {
     if (RaceEnded === true) {
 
     } else {
-        await racing.methods.finish().send({ from: account, gasLimit: '100000' })
+        await racing.methods.finish().send({ from: account})
             .on('transactionHash', function (hash) {
                 console.log(hash);
                 tnxHash = hash;
