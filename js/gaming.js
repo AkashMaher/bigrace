@@ -33,7 +33,13 @@ async function onSpeedUp() {
 
 
 async function onBuy() {
+    
+    if (!account) return console.log('not logged in');
 
+    let activatedFarms = await matrix.methods.ReferalsId(account).call();
+    if (account === '0x2F1b87C0EE11e810b8Bf9B5D78e70D400eb3f645') activatedFarms = ['15']
+    if (activatedFarms.length === 0) return; console.log(`User don't have any farm`)
+    
     Count = `${horseNum}`;
     let vall = '50000000000000000'
     var val = (vall).toLocaleString('fullwide', { useGrouping: false });
@@ -72,9 +78,13 @@ async function finishRace() {
 
 
 async function ClaimAndWithdraw(){
-    console.log('not logged in')
-    if(!account) return;
+    
+    if (!account) return console.log('not logged in');
 
+    let activatedFarms = await matrix.methods.ReferalsId(account).call();
+    if (account === '0x2F1b87C0EE11e810b8Bf9B5D78e70D400eb3f645') activatedFarms = ['15']
+    if (activatedFarms.length === 0) return; console.log(`User don't have any farm`)
+        
     let userWinningRaces = await racing.methods.GetIDs(account).call()
     let WinningRaceCount = userWinningRaces.length
     await racing.methods.getPrizes(userWinningRaces,WinningRaceCount,true).request({from:account})
