@@ -290,7 +290,8 @@ async function CheckGameStatus(){
 
         let GameId = await racing.methods.racIter().call()
         
-        
+            let text = document.getElementById("textBox-text").innerHTML;
+            
         LastGameID = `${GameId-1}`
         if(GameId==='0') LastGameID = 0
  
