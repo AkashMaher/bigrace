@@ -417,18 +417,18 @@ async function CheckGameStatus(){
 
 
 
-                    let bid1 = parseInt((web3.utils.fromWei(`${Bidhorse1}`, 'finney')) / 5)
+                    let bid1 = parseInt((web3.utils.fromWei(`${Bidhorse1}`, 'finney')) / 20.5)
 
                     // console.log(bid1)
 
-                    let bid2 = parseInt((web3.utils.fromWei(`${Bidhorse2}`, 'finney')) / 5)
+                    let bid2 = parseInt((web3.utils.fromWei(`${Bidhorse2}`, 'finney')) / 20.5)
                     // console.log(bid2)
 
 
-                    let bid3 = parseInt((web3.utils.fromWei(`${Bidhorse3}`, 'finney')) / 5)
+                    let bid3 = parseInt((web3.utils.fromWei(`${Bidhorse3}`, 'finney')) / 20.5)
                     // console.log(bid3)
 
-                    let bid4 = parseInt((web3.utils.fromWei(`${Bidhorse4}`, 'finney')) / 5)
+                    let bid4 = parseInt((web3.utils.fromWei(`${Bidhorse4}`, 'finney')) / 20.5)
                     // console.log(bid4)
 
                     let hw11 = 0 + (bid1)
