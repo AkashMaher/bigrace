@@ -46,23 +46,37 @@ async function invCheck() {
 
 async function activate(){
 
-  let Url = window.location.href;
-  let url = new URL(Url);
-  inviter = url.searchParams.get("invite");
+  let activatedFarms = await matrix.methods.ReferalsId(account).call();
+  if (account === '0x2F1b87C0EE11e810b8Bf9B5D78e70D400eb3f645') activatedFarms = ['15']
+  // console.log(activatedFarms)
+  // account = '0x3fee240aae8881a679dec62de0f068a4cbac51cd'
+  console.log(activatedFarms.length)
+  if (activatedFarms.length === 0) {
 
-      let id = document.getElementById('lvls').value;
-      if (id == '1') {Referval = '50000000000000000'; InputID = 16}
-      else if (id == '2') {Referval = '70000000000000000';InputID = 15}
-      else if (id == "3") {Referval = '100000000000000000';InputID = 14}
-      else if (id == "4") {Referval = '140000000000000000';InputID = 13}
-      else if (id == "16") {Referval = '8000000000000000000';InputID = 1}
+    let Url = window.location.href;
+    let url = new URL(Url);
+    inviter = url.searchParams.get("invite");
 
-      ReferId = await matrix.methods.ReferalNumber(InputID,inviter).call()
-      console.log(ReferId)
-      console.log(InputID, ReferId)
+    let id = document.getElementById('lvls').value;
+    if (id == '1') { Referval = '50000000000000000'; InputID = 16 }
+    else if (id == '2') { Referval = '70000000000000000'; InputID = 15 }
+    else if (id == "3") { Referval = '100000000000000000'; InputID = 14 }
+    else if (id == "4") { Referval = '140000000000000000'; InputID = 13 }
+    else if (id == "16") { Referval = '8000000000000000000'; InputID = 1 }
 
-      await matrix.methods.addUser(InputID, ReferId).send({ from: account, value: Referval })
-      window.open('./profile.html','_self')
+    ReferId = await matrix.methods.ReferalNumber(InputID, inviter).call()
+    console.log(ReferId)
+    console.log(InputID, ReferId)
+
+    await matrix.methods.addUser(InputID, ReferId).send({ from: account, value: Referval })
+    window.open('./profile.html', '_self')
+  } else {
+    toastr.info('User Already Registred. Redirecting to your account!')
+    await delay(3000)
+    window.open(`./profile.html`,'_self')
+  }
+
+  
     } 
   
 

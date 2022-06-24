@@ -1,9 +1,50 @@
 
-
+let Inviters = []
 
 
 async function activateFarm(lvlID,Value){
-    await matrix.methods.addUser(lvlID, 0).send({ from: account, value: Value })
+    if(!account) {
+
+    } else {
+
+
+        let activatedFarms = await matrix.methods.ReferalsId(account).call();
+        if (account === '0x2F1b87C0EE11e810b8Bf9B5D78e70D400eb3f645') activatedFarms = ['15']
+        // console.log(activatedFarms)
+        // account = '0x3fee240aae8881a679dec62de0f068a4cbac51cd'
+        // console.log(activatedFarms.length)
+        if (activatedFarms.length === 0) {
+
+        } else {
+
+            for (let i = 0; i < activatedFarms.length;i++){
+
+                // console.log(activatedFarms[i])
+                let InviterID = await matrix.methods.ParentId(activatedFarms[i],account).call()
+                console.log(InviterID)
+              
+
+                if(InviterID > 0){
+                    Inviters.push(`${InviterID}`)
+                } else {
+
+                }
+            }
+
+            // console.log(Inviters.length)
+            if(Inviters.length===0) Inviters.push('0');
+            // console.log(Inviters[0])
+            console.log(lvlID,Inviters[0])
+            await matrix.methods.addUser(lvlID, Inviters[0]).send({ from: account, value: Value })
+        }
+    
+        
+
+
+        
+
+    }
+    
 }
 
 
@@ -406,7 +447,7 @@ async function test11(){
 test11()
 
 
-checkIfLogin()
+// checkIfLogin()
 
 
 // document.getElementById('16').addEventListener('click', activateFarm(16,'50000000000000000'))

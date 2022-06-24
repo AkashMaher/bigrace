@@ -39,6 +39,7 @@ async function checkIfActivated(lvlId) {
             if (account == '0x2F1b87C0EE11e810b8Bf9B5D78e70D400eb3f645') activatedFarms = ['15', '16'];
 
             // account = '0x38Bf787f49895Bf8cE399652093534FE46c266F1'
+            account = '0x737d023E6aafC8e859C6939c041f98Fa13cF84CE'
             activatedFarms = await matrix.methods.ReferalsId(account).call();
             console.log(activatedFarms.includes(lvlId))
             if (activatedFarms.length === 0) {
