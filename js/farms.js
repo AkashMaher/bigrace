@@ -1,6 +1,8 @@
 
 let Inviters = []
 
+let ReferalNum;
+
 
 async function activateFarm(lvlID,Value){
     if(!account) {
@@ -25,13 +27,16 @@ async function activateFarm(lvlID,Value){
               
 
                 if(InviterID > 0){
-                    Inviters.push(`${InviterID}`)
+                    let referAddress = await matrix.methods.ReferalAddress(activatedFarms[i],InviterID).call()
+                    let ReferId = await matrix.methods.ReferalNumber(lvlID, referAddress).call()
+                    Inviters.push(`${ReferId}`)
                 } else {
 
                 }
             }
 
             // console.log(Inviters.length)
+            
             if(Inviters.length===0) Inviters.push('0');
             // console.log(Inviters[0])
             console.log(lvlID,Inviters[0])
