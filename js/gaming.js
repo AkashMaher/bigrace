@@ -99,29 +99,31 @@ async function moveHorse(){
     let gameid = await racing.methods.racIter().call()
     // gameid = '1'
 
-        const Bidhorse1 = await racing.methods.horseOne(gameid).call()
-        const Bidhorse2 = await racing.methods.horseTwo(gameid).call()
-        const Bidhorse3 = await racing.methods.horseThree(gameid).call()
-        const Bidhorse4 = await racing.methods.horseFour(gameid).call()
+        let Bidhorse1 = await racing.methods.horseOne(gameid).call()
+        let Bidhorse2 = await racing.methods.horseTwo(gameid).call()
+        let Bidhorse3 = await racing.methods.horseThree(gameid).call()
+        let Bidhorse4 = await racing.methods.horseFour(gameid).call()
 
 
 
-        let bid1 = parseInt((web3.utils.fromWei(`${Bidhorse1}`, 'finney'))/5)
+
+
+        let bid1 = parseInt((web3.utils.fromWei(`${Bidhorse1}`, 'finney'))/20.5)
         
         console.log(bid1)
 
-        let bid2 = parseInt((web3.utils.fromWei(`${Bidhorse2}`, 'finney'))/5)
+        let bid2 = parseInt((web3.utils.fromWei(`${Bidhorse2}`, 'finney'))/20.5)
         console.log(bid2)
 
 
-        let bid3 = parseInt((web3.utils.fromWei(`${Bidhorse3}`, 'finney'))/5)
+        let bid3 = parseInt((web3.utils.fromWei(`${Bidhorse3}`, 'finney'))/20.5)
         console.log(bid3)
 
-        let bid4 = parseInt((web3.utils.fromWei(`${Bidhorse4}`, 'finney'))/5)
+        let bid4 = parseInt((web3.utils.fromWei(`${Bidhorse4}`, 'finney'))/20.5)
         console.log(bid4)
 
 
-        // bid3 = 100
+        
 
         let hw11 = 0 + (bid1)
         let hl11 = 5 + (bid1)
@@ -141,7 +143,7 @@ async function moveHorse(){
         } else if (hw11 > 75 && hw11 <=100) {
             hw11 = parseInt(55) + parseFloat([(hw11 - 75) / 2.5])
             hl11 = parseInt(55) + parseFloat([(hl11 - 75) / 2.5])
-        } else if (hw11 > 100 && hwll <= 145){
+        } else if (hw11 > 100 && hw11 <= 145){
             hw11 = parseInt(65) + parseFloat([(hw11 - 100) / 3])
             hl11 = parseInt(65) + parseFloat([(hl11 - 100) / 3])
         } else if(hw11>145 && hw11 <= 245){
@@ -161,7 +163,7 @@ async function moveHorse(){
         } else if (hw22 > 75 && hw22 <= 100) {
             hw22 = parseInt(55) + parseFloat([(hw22 - 75) / 2.5])
             hl22 = parseInt(55) + parseFloat([(hl22 - 75) / 2.5])
-        } else if (hw22 > 100 && hwll <= 145) {
+        } else if (hw22 > 100 && hw22 <= 145) {
             hw22 = parseInt(65) + parseFloat([(hw22 - 100) / 3])
             hl22 = parseInt(65) + parseFloat([(hl22 - 100) / 3])
         } else if (hw22 > 145 && hw22 <= 245) {
@@ -181,7 +183,7 @@ async function moveHorse(){
         } else if (hw33 > 75 && hw33 <= 100) {
             hw33 = parseInt(55) + parseFloat([(hw33 - 75) / 2.5])
             hl33 = parseInt(55) + parseFloat([(hl33 - 75) / 2.5])
-        } else if (hw33 > 100 && hwll <= 145) {
+        } else if (hw33 > 100 && hw33 <= 145) {
             hw33 = parseInt(65) + parseFloat([(hw33 - 100) / 3])
             hl33 = parseInt(65) + parseFloat([(hl33 - 100) / 3])
         } else if (hw33 > 145 && hw33 <= 245) {
@@ -202,7 +204,7 @@ async function moveHorse(){
         } else if (hw44 > 75 && hw44 <= 100) {
             hw44 = parseInt(55) + parseFloat([(hw44 - 75) / 2.5])
             hl44 = parseInt(55) + parseFloat([(hl44 - 75) / 2.5])
-        } else if (hw44 > 100 && hwll <= 145) {
+        } else if (hw44 > 100 && hw44 <= 145) {
             hw44 = parseInt(65) + parseFloat([(hw44 - 100) / 3])
             hl44 = parseInt(65) + parseFloat([(hl44 - 100) / 3])
         } else if (hw44 > 145 && hw44 <= 245) {
@@ -410,26 +412,31 @@ async function CheckGameStatus(){
                     let gameid = await racing.methods.racIter().call()
                     // gameid = '1'
 
-                    const Bidhorse1 = await racing.methods.horseOne(gameid).call()
-                    const Bidhorse2 = await racing.methods.horseTwo(gameid).call()
-                    const Bidhorse3 = await racing.methods.horseThree(gameid).call()
-                    const Bidhorse4 = await racing.methods.horseFour(gameid).call()
+                    let Bidhorse1 = await racing.methods.horseOne(gameid).call()
+                    let Bidhorse2 = await racing.methods.horseTwo(gameid).call()
+                    let Bidhorse3 = await racing.methods.horseThree(gameid).call()
+                    let Bidhorse4 = await racing.methods.horseFour(gameid).call()
+
+
 
 
 
                     let bid1 = parseInt((web3.utils.fromWei(`${Bidhorse1}`, 'finney')) / 20.5)
 
-                    // console.log(bid1)
+                    console.log(bid1)
 
                     let bid2 = parseInt((web3.utils.fromWei(`${Bidhorse2}`, 'finney')) / 20.5)
-                    // console.log(bid2)
+                    console.log(bid2)
 
 
                     let bid3 = parseInt((web3.utils.fromWei(`${Bidhorse3}`, 'finney')) / 20.5)
-                    // console.log(bid3)
+                    console.log(bid3)
 
                     let bid4 = parseInt((web3.utils.fromWei(`${Bidhorse4}`, 'finney')) / 20.5)
-                    // console.log(bid4)
+                    console.log(bid4)
+
+
+
 
                     let hw11 = 0 + (bid1)
                     let hl11 = 5 + (bid1)
@@ -449,7 +456,7 @@ async function CheckGameStatus(){
                     } else if (hw11 > 75 && hw11 <= 100) {
                         hw11 = parseInt(55) + parseFloat([(hw11 - 75) / 2.5])
                         hl11 = parseInt(55) + parseFloat([(hl11 - 75) / 2.5])
-                    } else if (hw11 > 100 && hwll <= 145) {
+                    } else if (hw11 > 100 && hw11 <= 145) {
                         hw11 = parseInt(65) + parseFloat([(hw11 - 100) / 3])
                         hl11 = parseInt(65) + parseFloat([(hl11 - 100) / 3])
                     } else if (hw11 > 145 && hw11 <= 245) {
@@ -469,7 +476,7 @@ async function CheckGameStatus(){
                     } else if (hw22 > 75 && hw22 <= 100) {
                         hw22 = parseInt(55) + parseFloat([(hw22 - 75) / 2.5])
                         hl22 = parseInt(55) + parseFloat([(hl22 - 75) / 2.5])
-                    } else if (hw22 > 100 && hwll <= 145) {
+                    } else if (hw22 > 100 && hw22 <= 145) {
                         hw22 = parseInt(65) + parseFloat([(hw22 - 100) / 3])
                         hl22 = parseInt(65) + parseFloat([(hl22 - 100) / 3])
                     } else if (hw22 > 145 && hw22 <= 245) {
@@ -489,7 +496,7 @@ async function CheckGameStatus(){
                     } else if (hw33 > 75 && hw33 <= 100) {
                         hw33 = parseInt(55) + parseFloat([(hw33 - 75) / 2.5])
                         hl33 = parseInt(55) + parseFloat([(hl33 - 75) / 2.5])
-                    } else if (hw33 > 100 && hwll <= 145) {
+                    } else if (hw33 > 100 && hw33 <= 145) {
                         hw33 = parseInt(65) + parseFloat([(hw33 - 100) / 3])
                         hl33 = parseInt(65) + parseFloat([(hl33 - 100) / 3])
                     } else if (hw33 > 145 && hw33 <= 245) {
@@ -510,7 +517,7 @@ async function CheckGameStatus(){
                     } else if (hw44 > 75 && hw44 <= 100) {
                         hw44 = parseInt(55) + parseFloat([(hw44 - 75) / 2.5])
                         hl44 = parseInt(55) + parseFloat([(hl44 - 75) / 2.5])
-                    } else if (hw44 > 100 && hwll <= 145) {
+                    } else if (hw44 > 100 && hw44 <= 145) {
                         hw44 = parseInt(65) + parseFloat([(hw44 - 100) / 3])
                         hl44 = parseInt(65) + parseFloat([(hl44 - 100) / 3])
                     } else if (hw44 > 145 && hw44 <= 245) {
