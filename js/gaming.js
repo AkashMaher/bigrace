@@ -120,6 +120,9 @@ async function moveHorse(){
         let bid4 = parseInt((web3.utils.fromWei(`${Bidhorse4}`, 'finney'))/5)
         console.log(bid4)
 
+
+        // bid3 = 100
+
         let hw11 = 0 + (bid1)
         let hl11 = 5 + (bid1)
         let hw22 = 0 + (bid2)
@@ -130,87 +133,91 @@ async function moveHorse(){
         let hl44 = 5 + (bid4)
 
         if(hw11>25 && hw11<=50){
-            hw11 = 25 + [(hw11-25)/1.5]
-            hl11 = 25 + [(hl11 - 25) / 1.5]
+            hw11 = parseInt(25) + parseFloat([(hw11-25)/1.5])
+            hl11 = parseInt(25) + parseFloat([(hl11 - 25) / 1.5])
         } else if (hw11 >50 && hw11<=75){
-            hw11 = 42 + [(hw11 - 50) / 2]
-            hl11 = 42 + [(hl11 - 50) / 2]
-        } else if (hw11 > 75 && hw11 <= 100) {
-            hw11 = 55 + [(hw11 - 75) / 2.5]
-            hl11 = 55 + [(hl11 - 75) / 2.5]
+            hw11 = parseInt(42) + parseFloat([(hw11 - 50) / 2])
+            hl11 = parseInt(42) + parseFloat([(hl11 - 50) / 2])
+        } else if (hw11 > 75 && hw11 <=100) {
+            hw11 = parseInt(55) + parseFloat([(hw11 - 75) / 2.5])
+            hl11 = parseInt(55) + parseFloat([(hl11 - 75) / 2.5])
         } else if (hw11 > 100 && hwll <= 145){
-            hw11 = 65 + [(hw11 - 100) / 3]
-            hl11 = 65 + [(hl11 - 100) / 3]
+            hw11 = parseInt(65) + parseFloat([(hw11 - 100) / 3])
+            hl11 = parseInt(65) + parseFloat([(hl11 - 100) / 3])
         } else if(hw11>145 && hw11 <= 245){
-            hw11 = 80 + [(hw11 - 145) / 10]
-            hl11 = 80 + [(hl11 - 145) / 10]
+            hw11 = parseInt(80) + parseFloat([(hw11 - 145) / 10])
+            hl11 = parseInt(80) + parseFloat([(hl11 - 145) / 10])
         } else if(hw11>245){
-            hw11 = 90
-            hl11 = 100
+            hw11 = parseInt(90)
+            hl11 = parseInt(100)
         }
 
         if (hw22 > 25 && hw22 <= 50) {
-            hw22 = 25 + [(hw22 - 25) / 1.5]
-            hl22 = 25 + [(hl22 - 25) / 1.5]
+            hw22 = parseInt(25) + parseFloat([(hw22 - 25) / 1.5])
+            hl22 = parseInt(25) + parseFloat([(hl22 - 25) / 1.5])
         } else if (hw22 > 50 && hw22 <= 75) {
-            hw22 = 42 + [(hw22 - 50) / 2]
-            hl22 = 42 + [(hl22 - 50) / 2]
+            hw22 = parseInt(42) + parseFloat([(hw22 - 50) / 2])
+            hl22 = parseInt(42) + parseFloat([(hl22 - 50) / 2])
         } else if (hw22 > 75 && hw22 <= 100) {
-            hw22 = 55 + [(hw22 - 75) / 2.5]
-            hl22 = 55 + [(hl22 - 75) / 2.5]
+            hw22 = parseInt(55) + parseFloat([(hw22 - 75) / 2.5])
+            hl22 = parseInt(55) + parseFloat([(hl22 - 75) / 2.5])
         } else if (hw22 > 100 && hwll <= 145) {
-            hw22 = 65 + [(hw22 - 100) / 3]
-            hl22 = 65 + [(hl22 - 100) / 3]
+            hw22 = parseInt(65) + parseFloat([(hw22 - 100) / 3])
+            hl22 = parseInt(65) + parseFloat([(hl22 - 100) / 3])
         } else if (hw22 > 145 && hw22 <= 245) {
-            hw22 = 80 + [(hw22 - 145) / 10]
-            hl22 = 80 + [(hl22 - 145) / 10]
+            hw22 = parseInt(80) + parseFloat([(hw22 - 145) / 10])
+            hl22 = parseInt(80) + parseFloat([(hl22 - 145) / 10])
         } else if (hw22 > 245) {
-            hw22 = 90
-            hl22 = 100
+            hw22 = parseInt(90)
+            hl22 = parseInt(100)
         }
 
         if (hw33 > 25 && hw33 <= 50) {
-            hw33 = 25 + [(hw33 - 25) / 1.5]
-            hl33 = 25 + [(hl33 - 25) / 1.5]
+            hw33 = parseInt(25) + parseFloat([(hw33 - 25) / 1.5])
+            hl33 = parseInt(25) + parseFloat([(hl33 - 25) / 1.5])
         } else if (hw33 > 50 && hw33 <= 75) {
-            hw33 = 42 + [(hw33 - 50) / 2]
-            hl33 = 42 + [(hl33 - 50) / 2]
+            hw33 = parseInt(42) + parseFloat([(hw33 - 50) / 2])
+            hl33 = parseInt(42) + parseFloat([(hl33 - 50) / 2])
         } else if (hw33 > 75 && hw33 <= 100) {
-            hw33 = 55 + [(hw33 - 75) / 2.5]
-            hl33 = 55 + [(hl33 - 75) / 2.5]
+            hw33 = parseInt(55) + parseFloat([(hw33 - 75) / 2.5])
+            hl33 = parseInt(55) + parseFloat([(hl33 - 75) / 2.5])
         } else if (hw33 > 100 && hwll <= 145) {
-            hw33 = 65 + [(hw33 - 100) / 3]
-            hl33 = 65 + [(hl33 - 100) / 3]
+            hw33 = parseInt(65) + parseFloat([(hw33 - 100) / 3])
+            hl33 = parseInt(65) + parseFloat([(hl33 - 100) / 3])
         } else if (hw33 > 145 && hw33 <= 245) {
-            hw33 = 80 + [(hw33 - 145) / 10]
-            hl33 = 80 + [(hl33 - 145) / 10]
+            hw33 = parseInt(80) + parseFloat([(hw33 - 145) / 10])
+            hl33 = parseInt(80) + parseFloat([(hl33 - 145) / 10])
         } else if (hw33 > 245) {
-            hw33 = 90
-            hl33 = 100
+            hw33 = parseInt(90)
+            hl33 = parseInt(100)
         }
 
 
         if (hw44 > 25 && hw44 <= 50) {
-            hw44 = 25 + [(hw44 - 25) / 1.5]
-            hl44 = 25 + [(hl44 - 25) / 1.5]
+            hw44 = parseInt(25) + parseFloat([(hw44 - 25) / 1.5])
+            hl44 = parseInt(25) + parseFloat([(hl44 - 25) / 1.5])
         } else if (hw44 > 50 && hw44 <= 75) {
-            hw44 = 42 + [(hw44 - 50) / 2]
-            hl44 = 42 + [(hl44 - 50) / 2]
+            hw44 = parseInt(42) + parseFloat([(hw44 - 50) / 2])
+            hl44 = parseInt(42) + parseFloat([(hl44 - 50) / 2])
         } else if (hw44 > 75 && hw44 <= 100) {
-            hw44 = 55 + [(hw44 - 75) / 2.5]
-            hl44 = 55 + [(hl44 - 75) / 2.5]
+            hw44 = parseInt(55) + parseFloat([(hw44 - 75) / 2.5])
+            hl44 = parseInt(55) + parseFloat([(hl44 - 75) / 2.5])
         } else if (hw44 > 100 && hwll <= 145) {
-            hw44 = 65 + [(hw44 - 100) / 3]
-            hl44 = 65 + [(hl44 - 100) / 3]
+            hw44 = parseInt(65) + parseFloat([(hw44 - 100) / 3])
+            hl44 = parseInt(65) + parseFloat([(hl44 - 100) / 3])
         } else if (hw44 > 145 && hw44 <= 245) {
-            hw44 = 80 + [(hw44 - 145) / 10]
-            hl44 = 80 + [(hl44 - 145) / 10]
+            hw44 = parseInt(80) + parseFloat([(hw44 - 145) / 10])
+            hl44 = parseInt(80) + parseFloat([(hl44 - 145) / 10])
         } else if (hw44 > 245) {
-            hw44 = 90
-            hl44 = 100
+            hw44 = parseInt(90)
+            hl44 = parseInt(100)
         }
 
         
+
+        console.log(hw11, hl11)
+        console.log(hw22, hl22)
+        console.log(hw33, hl33)
 
         document.getElementById('horse111').style.width = `${hw11}%`
         document.getElementById('horse11').style.left = `${hl11}%`
@@ -224,7 +231,7 @@ async function moveHorse(){
         document.getElementById('horse444').style.width = `${hw44}%`
         document.getElementById('horse44').style.left = `${hl44}%`
 
-    },1000)
+    }, 1000)
 }
 
 
@@ -434,84 +441,84 @@ async function CheckGameStatus(){
                     let hl44 = 5 + (bid4)
 
                     if (hw11 > 25 && hw11 <= 50) {
-                        hw11 = 25 + [(hw11 - 25) / 1.5]
-                        hl11 = 25 + [(hl11 - 25) / 1.5]
+                        hw11 = parseInt(25) + parseFloat([(hw11 - 25) / 1.5])
+                        hl11 = parseInt(25) + parseFloat([(hl11 - 25) / 1.5])
                     } else if (hw11 > 50 && hw11 <= 75) {
-                        hw11 = 42 + [(hw11 - 50) / 2]
-                        hl11 = 42 + [(hl11 - 50) / 2]
+                        hw11 = parseInt(42) + parseFloat([(hw11 - 50) / 2])
+                        hl11 = parseInt(42) + parseFloat([(hl11 - 50) / 2])
                     } else if (hw11 > 75 && hw11 <= 100) {
-                        hw11 = 55 + [(hw11 - 75) / 2.5]
-                        hl11 = 55 + [(hl11 - 75) / 2.5]
+                        hw11 = parseInt(55) + parseFloat([(hw11 - 75) / 2.5])
+                        hl11 = parseInt(55) + parseFloat([(hl11 - 75) / 2.5])
                     } else if (hw11 > 100 && hwll <= 145) {
-                        hw11 = 65 + [(hw11 - 100) / 3]
-                        hl11 = 65 + [(hl11 - 100) / 3]
+                        hw11 = parseInt(65) + parseFloat([(hw11 - 100) / 3])
+                        hl11 = parseInt(65) + parseFloat([(hl11 - 100) / 3])
                     } else if (hw11 > 145 && hw11 <= 245) {
-                        hw11 = 80 + [(hw11 - 145) / 10]
-                        hl11 = 80 + [(hl11 - 145) / 10]
+                        hw11 = parseInt(80) + parseFloat([(hw11 - 145) / 10])
+                        hl11 = parseInt(80) + parseFloat([(hl11 - 145) / 10])
                     } else if (hw11 > 245) {
-                        hw11 = 90
-                        hl11 = 100
+                        hw11 = parseInt(90)
+                        hl11 = parseInt(100)
                     }
 
                     if (hw22 > 25 && hw22 <= 50) {
-                        hw22 = 25 + [(hw22 - 25) / 1.5]
-                        hl22 = 25 + [(hl22 - 25) / 1.5]
+                        hw22 = parseInt(25) + parseFloat([(hw22 - 25) / 1.5])
+                        hl22 = parseInt(25) + parseFloat([(hl22 - 25) / 1.5])
                     } else if (hw22 > 50 && hw22 <= 75) {
-                        hw22 = 42 + [(hw22 - 50) / 2]
-                        hl22 = 42 + [(hl22 - 50) / 2]
+                        hw22 = parseInt(42) + parseFloat([(hw22 - 50) / 2])
+                        hl22 = parseInt(42) + parseFloat([(hl22 - 50) / 2])
                     } else if (hw22 > 75 && hw22 <= 100) {
-                        hw22 = 55 + [(hw22 - 75) / 2.5]
-                        hl22 = 55 + [(hl22 - 75) / 2.5]
+                        hw22 = parseInt(55) + parseFloat([(hw22 - 75) / 2.5])
+                        hl22 = parseInt(55) + parseFloat([(hl22 - 75) / 2.5])
                     } else if (hw22 > 100 && hwll <= 145) {
-                        hw22 = 65 + [(hw22 - 100) / 3]
-                        hl22 = 65 + [(hl22 - 100) / 3]
+                        hw22 = parseInt(65) + parseFloat([(hw22 - 100) / 3])
+                        hl22 = parseInt(65) + parseFloat([(hl22 - 100) / 3])
                     } else if (hw22 > 145 && hw22 <= 245) {
-                        hw22 = 80 + [(hw22 - 145) / 10]
-                        hl22 = 80 + [(hl22 - 145) / 10]
+                        hw22 = parseInt(80) + parseFloat([(hw22 - 145) / 10])
+                        hl22 = parseInt(80) + parseFloat([(hl22 - 145) / 10])
                     } else if (hw22 > 245) {
-                        hw22 = 90
-                        hl22 = 100
+                        hw22 = parseInt(90)
+                        hl22 = parseInt(100)
                     }
 
                     if (hw33 > 25 && hw33 <= 50) {
-                        hw33 = 25 + [(hw33 - 25) / 1.5]
-                        hl33 = 25 + [(hl33 - 25) / 1.5]
+                        hw33 = parseInt(25) + parseFloat([(hw33 - 25) / 1.5])
+                        hl33 = parseInt(25) + parseFloat([(hl33 - 25) / 1.5])
                     } else if (hw33 > 50 && hw33 <= 75) {
-                        hw33 = 42 + [(hw33 - 50) / 2]
-                        hl33 = 42 + [(hl33 - 50) / 2]
+                        hw33 = parseInt(42) + parseFloat([(hw33 - 50) / 2])
+                        hl33 = parseInt(42) + parseFloat([(hl33 - 50) / 2])
                     } else if (hw33 > 75 && hw33 <= 100) {
-                        hw33 = 55 + [(hw33 - 75) / 2.5]
-                        hl33 = 55 + [(hl33 - 75) / 2.5]
+                        hw33 = parseInt(55) + parseFloat([(hw33 - 75) / 2.5])
+                        hl33 = parseInt(55) + parseFloat([(hl33 - 75) / 2.5])
                     } else if (hw33 > 100 && hwll <= 145) {
-                        hw33 = 65 + [(hw33 - 100) / 3]
-                        hl33 = 65 + [(hl33 - 100) / 3]
+                        hw33 = parseInt(65) + parseFloat([(hw33 - 100) / 3])
+                        hl33 = parseInt(65) + parseFloat([(hl33 - 100) / 3])
                     } else if (hw33 > 145 && hw33 <= 245) {
-                        hw33 = 80 + [(hw33 - 145) / 10]
-                        hl33 = 80 + [(hl33 - 145) / 10]
+                        hw33 = parseInt(80) + parseFloat([(hw33 - 145) / 10])
+                        hl33 = parseInt(80) + parseFloat([(hl33 - 145) / 10])
                     } else if (hw33 > 245) {
-                        hw33 = 90
-                        hl33 = 100
+                        hw33 = parseInt(90)
+                        hl33 = parseInt(100)
                     }
 
 
                     if (hw44 > 25 && hw44 <= 50) {
-                        hw44 = 25 + [(hw44 - 25) / 1.5]
-                        hl44 = 25 + [(hl44 - 25) / 1.5]
+                        hw44 = parseInt(25) + parseFloat([(hw44 - 25) / 1.5])
+                        hl44 = parseInt(25) + parseFloat([(hl44 - 25) / 1.5])
                     } else if (hw44 > 50 && hw44 <= 75) {
-                        hw44 = 42 + [(hw44 - 50) / 2]
-                        hl44 = 42 + [(hl44 - 50) / 2]
+                        hw44 = parseInt(42) + parseFloat([(hw44 - 50) / 2])
+                        hl44 = parseInt(42) + parseFloat([(hl44 - 50) / 2])
                     } else if (hw44 > 75 && hw44 <= 100) {
-                        hw44 = 55 + [(hw44 - 75) / 2.5]
-                        hl44 = 55 + [(hl44 - 75) / 2.5]
+                        hw44 = parseInt(55) + parseFloat([(hw44 - 75) / 2.5])
+                        hl44 = parseInt(55) + parseFloat([(hl44 - 75) / 2.5])
                     } else if (hw44 > 100 && hwll <= 145) {
-                        hw44 = 65 + [(hw44 - 100) / 3]
-                        hl44 = 65 + [(hl44 - 100) / 3]
+                        hw44 = parseInt(65) + parseFloat([(hw44 - 100) / 3])
+                        hl44 = parseInt(65) + parseFloat([(hl44 - 100) / 3])
                     } else if (hw44 > 145 && hw44 <= 245) {
-                        hw44 = 80 + [(hw44 - 145) / 10]
-                        hl44 = 80 + [(hl44 - 145) / 10]
+                        hw44 = parseInt(80) + parseFloat([(hw44 - 145) / 10])
+                        hl44 = parseInt(80) + parseFloat([(hl44 - 145) / 10])
                     } else if (hw44 > 245) {
-                        hw44 = 90
-                        hl44 = 100
+                        hw44 = parseInt(90)
+                        hl44 = parseInt(100)
                     }
 
 
