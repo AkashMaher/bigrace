@@ -9,7 +9,7 @@ let TotalEarningByLevel = 0;
 let activatedFarms;
 
 
-checkIfLogin()
+// checkIfLogin()
 
 
 
@@ -39,7 +39,8 @@ async function checkIfActivated(lvlId) {
             if (account == '0x2F1b87C0EE11e810b8Bf9B5D78e70D400eb3f645') activatedFarms = ['15', '16'];
 
             // account = '0x38Bf787f49895Bf8cE399652093534FE46c266F1'
-            account = '0x737d023E6aafC8e859C6939c041f98Fa13cF84CE'
+            // account = '0x737d023E6aafC8e859C6939c041f98Fa13cF84CE'
+
             activatedFarms = await matrix.methods.ReferalsId(account).call();
             console.log(activatedFarms.includes(lvlId))
             if (activatedFarms.length === 0) {
@@ -171,7 +172,8 @@ async function test11(){
 
     await delay(5000)
 
-    // account = '0xF203d98c761BD9fcFaEa55dc7C35aAC31c65458e'
+    // account = '0x1aaFedF0282D5A5322233260c4B8a59C2eAC7CAF'
+
     activatedFarms = await matrix.methods.ReferalsId(account).call()
     
     for(let i = 0; i<activatedFarms.length;i++){
