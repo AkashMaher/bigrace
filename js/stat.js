@@ -169,30 +169,37 @@ async function checkIfActivated(lvlId) {
 async function test11(){
 
     await delay(5000)
+    if(account){
 
-    // account = '0x1aaFedF0282D5A5322233260c4B8a59C2eAC7CAF'
+        // account = '0x1aaFedF0282D5A5322233260c4B8a59C2eAC7CAF'
 
-    activatedFarms = await matrix.methods.ReferalsId(account).call()
-    
-    for(let i = 0; i<activatedFarms.length;i++){
-        let lvlId = activatedFarms[i]
-        await checkIfActivated(lvlId)
+        activatedFarms = await matrix.methods.ReferalsId(account).call()
+
+        for (let i = 0; i < activatedFarms.length; i++) {
+            let lvlId = activatedFarms[i]
+            await checkIfActivated(lvlId)
+        }
+
+        FarmEarning = TotalEarningByLevel - referEarning
+        console.log('total: ' + web3.utils.fromWei(`${TotalEarningByLevel}`))
+        console.log('refer: ' + web3.utils.fromWei(`${referEarning}`))
+        console.log('farm income: ' + web3.utils.fromWei(`${FarmEarning}`))
+
+        let total = web3.utils.fromWei(`${TotalEarningByLevel}`)
+        let farm = web3.utils.fromWei(`${FarmEarning}`)
+        let refer = web3.utils.fromWei(`${referEarning}`)
+
+        document.getElementById('totalEarning').textContent = `${total} BNB`
+        await delay(500)
+        document.getElementById('farmIncome').textContent = `${farm} BNB`
+        await delay(500)
+        document.getElementById('referEarning').textContent = `${refer} BNB`
+
+    } else {
+        
     }
 
-    FarmEarning = TotalEarningByLevel-referEarning
-    console.log('total: ' + web3.utils.fromWei(`${TotalEarningByLevel}`))
-    console.log('refer: ' + web3.utils.fromWei(`${referEarning}`))
-    console.log('farm income: ' + web3.utils.fromWei(`${FarmEarning}`))
-
-    let total = web3.utils.fromWei(`${TotalEarningByLevel}`)
-    let farm = web3.utils.fromWei(`${FarmEarning}`)
-    let refer = web3.utils.fromWei(`${referEarning}`)
-
-    document.getElementById('totalEarning').textContent = `${total} BNB`
-    await delay(500)
-    document.getElementById('farmIncome').textContent = `${farm} BNB`
-    await delay(500)
-    document.getElementById('referEarning').textContent = `${refer} BNB`
+    
     
 }
 
