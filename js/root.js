@@ -30,9 +30,9 @@ const byPass = [
 ]
 async function invCheck() {
 
-  let Url = window.location.href;
-  let url = new URL(Url);
-  inviter = url.searchParams.get("invite");
+  // let Url = window.location.href;
+  // let url = new URL(Url);
+  inviter = await sessionStorage.getItem('Inviter')
   console.log(inviter)
   if(inviter !==null){
     document.getElementById('inviteCode').textContent = `${inviter}`
@@ -47,15 +47,20 @@ async function invCheck() {
 async function activate(){
 
   let activatedFarms = await matrix.methods.ReferalsId(account).call();
-  if (account === '0x2F1b87C0EE11e810b8Bf9B5D78e70D400eb3f645') activatedFarms = ['15']
+  // if (account === '0x2F1b87C0EE11e810b8Bf9B5D78e70D400eb3f645') activatedFarms = ['15']
   // console.log(activatedFarms)
   // account = '0x3fee240aae8881a679dec62de0f068a4cbac51cd'
   console.log(activatedFarms.length)
   if (activatedFarms.length === 0) {
 
-    let Url = window.location.href;
-    let url = new URL(Url);
-    inviter = url.searchParams.get("invite");
+    // let Url = window.location.href;
+    // let url = new URL(Url);
+    // inviter = url.searchParams.get("invite");
+    let testttttt = await sessionStorage.getItem('Inviter')
+
+    console.log(testttttt)
+
+    inviter = await sessionStorage.getItem('Inviter')
 
     let id = document.getElementById('lvls').value;
     if (id == '1') { Referval = '50000000000000000'; InputID = 16 }
@@ -107,6 +112,8 @@ async function isInvited() {
     console.log(pathname)
     if(search){
       if (inviter.length > 41 && inviter.length<45){
+
+        await sessionStorage.setItem('Inviter',inviter)
         window.open(`./invite.html?invite=${inviter}`, '_self')
         // invCheck()
         // automate2()
