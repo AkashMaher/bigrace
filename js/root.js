@@ -68,6 +68,17 @@ async function activate(){
     else if (id == "3") { Referval = '100000000000000000'; InputID = 14 }
     else if (id == "4") { Referval = '140000000000000000'; InputID = 13 }
     else if (id == "16") { Referval = '8000000000000000000'; InputID = 1 }
+    else if (id == "15") { Referval = '6500000000000000000'; InputID = 2 }
+    else if (id == "14") { Referval = '4400000000000000000'; InputID = 3 }
+    else if (id == "13") { Referval = '3200000000000000000'; InputID = 4 }
+    else if (id == "12") { Referval = '2600000000000000000'; InputID = 5 }
+    else if (id == "11") { Referval = '1600000000000000000'; InputID = 6 }
+    else if (id == "10") { Referval = '1100000000000000000'; InputID = 7 }
+    else if (id == "9") { Referval = '800000000000000000'; InputID = 8 }
+    else if (id == "8") { Referval = '550000000000000000'; InputID = 9 }
+    else if (id == "7") { Referval = '400000000000000000'; InputID = 10 }
+    else if (id == "6") { Referval = '280000000000000000'; InputID = 11 }
+    else if (id == "5") { Referval = '200000000000000000'; InputID = 12 }
 
     ReferId = await matrix.methods.ReferalNumber(InputID, inviter).call()
     console.log(ReferId)
@@ -94,6 +105,17 @@ async function onActivate2() {
   else if (id == "3") { Referval = '100000000000000000'; InputID = 14 }
   else if (id == "4") { Referval = '140000000000000000'; InputID = 13 }
   else if (id == "16") { Referval = '8000000000000000000'; InputID = 1 }
+  else if (id == "15") { Referval = '6500000000000000000'; InputID = 2 }
+  else if (id == "14") { Referval = '4400000000000000000'; InputID = 3 }
+  else if (id == "13") { Referval = '3200000000000000000'; InputID = 4 }
+  else if (id == "12") { Referval = '2600000000000000000'; InputID = 5 }
+  else if (id == "11") { Referval = '1600000000000000000'; InputID = 6 }
+  else if (id == "10") { Referval = '1100000000000000000'; InputID = 7 }
+  else if (id == "9") { Referval = '800000000000000000'; InputID = 8 }
+  else if (id == "8") { Referval = '550000000000000000'; InputID = 9 }
+  else if (id == "7") { Referval = '400000000000000000'; InputID = 10 }
+  else if (id == "6") { Referval = '280000000000000000'; InputID = 11 }
+  else if (id == "5") { Referval = '200000000000000000'; InputID = 12 }
 
   await matrix.methods.addUser(InputID, 0).send({ from: account, value: Referval })
   window.open('./profile.html', '_self')
