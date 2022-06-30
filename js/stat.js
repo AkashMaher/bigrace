@@ -159,6 +159,10 @@ async function checkIfActivated(lvlId) {
                 }
                 FarmEarning = TotalEarningByLevel - referEarning
 
+                if (FarmEarning <= 0) FarmEarning = 0
+                if (referEarning <= 0) referEarning = 0
+                if (TotalEarningByLevel <= 0) TotalEarningByLevel = 0
+
                 console.log('level ' + lvlId, 'Refer: ' + web3.utils.fromWei(`${referEarning}`), 'farm: ' + web3.utils.fromWei(`${FarmEarning}`), "Total: " + web3.utils.fromWei(`${TotalEarningByLevel}`))
             }
         }
@@ -188,6 +192,8 @@ async function test11(){
         let total = web3.utils.fromWei(`${TotalEarningByLevel}`)
         let farm = web3.utils.fromWei(`${FarmEarning}`)
         let refer = web3.utils.fromWei(`${referEarning}`)
+
+        
 
         document.getElementById('totalEarning').textContent = `${total} BNB`
         await delay(500)
