@@ -36,10 +36,11 @@ async function checkIfActivated(lvlId) {
     await delay(1000)
         if (account) {
             activatedFarms = await matrix.methods.ReferalsId(account).call();
+            
+
+
+
             if (account == '0x2F1b87C0EE11e810b8Bf9B5D78e70D400eb3f645') activatedFarms = ['15', '16'];
-
-
-            activatedFarms = await matrix.methods.ReferalsId(account).call();
             console.log(activatedFarms.includes(lvlId))
             if (activatedFarms.length === 0) {
                 
