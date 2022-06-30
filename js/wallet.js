@@ -992,10 +992,7 @@ function closeNavs() {
 
 
 async function checkIfLogin() {
-    await delay(6000)
-    if (!account) {
-        window.open('./', '_self')
-    } else {
+    
         if (account === '0x2F1b87C0EE11e810b8Bf9B5D78e70D400eb3f645'){
             console.log('dev access accepted')
         }else {
@@ -1007,7 +1004,7 @@ async function checkIfLogin() {
         }
         }
         
-}
+
 
 
 
