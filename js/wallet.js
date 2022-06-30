@@ -660,8 +660,11 @@ async function onConnect() {
         console.log(activatedFarms)
         console.log(activatedFarms.length)
         if (activatedFarms.length > 0) {
-            sessionStorage.setItem('User',true);
+            await sessionStorage.setItem('User',true);
         }
+
+        let Test = await sessionStorage.getItem('User')
+        console.log(Test)
 
         
         // document.getElementById('ifNo2').style.opacity = '0';
@@ -991,18 +994,15 @@ function closeNavs() {
 
 
 
-async function checkIfLogin() {
-    
-        if (account === '0x2F1b87C0EE11e810b8Bf9B5D78e70D400eb3f645'){
-            console.log('dev access accepted')
-        }else {
+function checkIfLogin() {
+
             let CheckIfUser = sessionStorage.getItem('User');
             if (CheckIfUser !==true) {
                 window.open('./', '_self')
             } else {
             }
         }
-        }
+        
         
 
 
