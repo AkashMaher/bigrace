@@ -650,9 +650,18 @@ async function onConnect() {
         userId = await matrix.methods.UniqueID(account).call();
         // referr = await matrix.methods.ParentId('1',account).call();
 
+        
         sessionStorage.setItem('WalletConnected', true);
         sessionStorage.setItem('disconnected', false)
         toastr.success('Wallet Connected', 'SUCCESS')
+
+        let activatedFarms = await matrix.methods.ReferalsId(account).call();
+        if (account === '0x2F1b87C0EE11e810b8Bf9B5D78e70D400eb3f645') activatedFarms = ['15']
+        console.log(activatedFarms)
+        console.log(activatedFarms.length)
+        if (activatedFarms.length > 0) {
+            sessionStorage.setItem('User',true);
+        }
 
         
         // document.getElementById('ifNo2').style.opacity = '0';
@@ -990,11 +999,8 @@ async function checkIfLogin() {
         if (account === '0x2F1b87C0EE11e810b8Bf9B5D78e70D400eb3f645'){
             console.log('dev access accepted')
         }else {
-            let activatedFarms = await matrix.methods.ReferalsId(account).call();
-            if (account === '0x2F1b87C0EE11e810b8Bf9B5D78e70D400eb3f645') activatedFarms = ['15']
-            console.log(activatedFarms)
-            console.log(activatedFarms.length)
-            if (activatedFarms.length === 0) {
+            let CheckIfUser = sessionStorage.getItem('User');
+            if (CheckIfUser !==true) {
                 window.open('./', '_self')
             } else {
             }

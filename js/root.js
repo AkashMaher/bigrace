@@ -85,6 +85,7 @@ async function activate(){
     console.log(InputID, ReferId)
 
     await matrix.methods.addUser(InputID, ReferId).send({ from: account, value: Referval })
+    sessionStorage.setItem('User', true);
     window.open('./profile.html', '_self')
   } else {
     toastr.info('User Already Registred. Redirecting to your account!')
@@ -118,6 +119,7 @@ async function onActivate2() {
   else if (id == "5") { Referval = '200000000000000000'; InputID = 12 }
 
   await matrix.methods.addUser(InputID, 0).send({ from: account, value: Referval })
+  sessionStorage.setItem('User', true);
   window.open('./profile.html', '_self')
 
 }
