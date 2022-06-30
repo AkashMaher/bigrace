@@ -452,7 +452,7 @@ async function test11(){
 test11()
 
 
-// checkIfLogin()
+checkIfLogin()
 
 
 // document.getElementById('16').addEventListener('click', activateFarm(16,'50000000000000000'))
