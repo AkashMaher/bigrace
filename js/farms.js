@@ -193,10 +193,11 @@ async function checkIfActivated(checkIfLogin){
     // var x = setInterval(async function () {
         if(account){
             let activatedFarms =await matrix.methods.ReferalsId(account).call();
-            if (account =='0x2F1b87C0EE11e810b8Bf9B5D78e70D400eb3f645') activatedFarms =['15','16'];
+            
             // console.log(activatedFarms)
             // account = '0x3830c6776B6BEbb005b89Df994756c14BBECd0E3'            //test
-            activatedFarms = await matrix.methods.ReferalsId(account).call();    //test
+            activatedFarms = await matrix.methods.ReferalsId(account).call(); 
+            if (account === '0x2F1b87C0EE11e810b8Bf9B5D78e70D400eb3f645') activatedFarms = ['15', '16'];   //test
             // console.log(activatedFarms.length)
             if (activatedFarms.length === 0) {
                 let lvlId = checkIfLogin.slice(5)

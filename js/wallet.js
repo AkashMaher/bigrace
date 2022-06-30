@@ -995,7 +995,6 @@ function closeNavs() {
 
 
 function checkIfLogin() {
-
             let CheckIfUser = sessionStorage.getItem('User');
             if (CheckIfUser !=='true') {
                 window.open('./', '_self')
