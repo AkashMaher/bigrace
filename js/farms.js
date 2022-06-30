@@ -55,35 +55,38 @@ async function activateFarm(lvlID,Value){
 
 async function FarmOpenIn(timestamp,id,Yet,Live){
 
-    var StartDate = new Date(timestamp * 1000).toGMTString();
-    console.log(StartDate)
+    document.getElementById(Yet).style.display = 'none'
+    document.getElementById(Live).style.display = 'block'
 
-    var countDownDate = new Date(StartDate).getTime();
+    // var StartDate = new Date(timestamp * 1000).toGMTString();
+    // console.log(StartDate)
+
+    // var countDownDate = new Date(StartDate).getTime();
 
 
-    var x = setInterval(function () {
+    // var x = setInterval(function () {
 
-        var now = new Date().getTime();
+    //     var now = new Date().getTime();
 
-        var distance = countDownDate - now;
+    //     var distance = countDownDate - now;
 
-        var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-        var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-        var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-        if (seconds < 0) {
-            document.getElementById(id).textContent = `00:00`;
-        } else
-            document.getElementById(id).textContent =days+"d "+hours+"h "+minutes+"m " +seconds+"s";
+    //     var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    //     var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    //     var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    //     var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+    //     if (seconds < 0) {
+    //         document.getElementById(id).textContent = `00:00`;
+    //     } else
+    //         document.getElementById(id).textContent =days+"d "+hours+"h "+minutes+"m " +seconds+"s";
 
-        if (distance < 0) {
-            document.getElementById(Yet).style.display = 'none'
-            document.getElementById(Live).style.display = 'block'
-            clearInterval(x);
+    //     if (distance < 0) {
+    //         document.getElementById(Yet).style.display = 'none'
+    //         document.getElementById(Live).style.display = 'block'
+    //         clearInterval(x);
             
-        } else {
-        }
-    }, 1000);
+    //     } else {
+    //     }
+    // }, 1000);
 }
 
 FarmOpenIn('1656244800', '15', 'YetToActivate15', 'Activated15')
