@@ -340,9 +340,9 @@ async function checkIfActivated(checkIfLogin){
                         farmEarn = parseFloat(farmEarn).toFixed(3)
                         referEarning = parseFloat(referEarning).toFixed(3)
                         earningInBNB = parseFloat(earningInBNB).toFixed(3)
-                        if(farmEarn == 0) farmEarn = 0
-                        if(referEarning == 0) referEarning = 0
-                        if(earningInBNB == 0) earningInBNB = 0
+                        if(farmEarn <= 0) farmEarn = 0
+                        if(referEarning <= 0) referEarning = 0
+                        if(earningInBNB <= 0) earningInBNB = 0
                         console.log('level ' + lvlId, 'Refer: ' + referEarning, 'farm: '+farmEarn, "Total: " + earningInBNB)
                         // console.log('Total Earning of level '+lvlId,earningInBNB)
 
@@ -432,6 +432,7 @@ async function checkIfActivated(checkIfLogin){
 
 async function test11(){
     await delay(5000)
+    // account = '0x1aaFedF0282D5A5322233260c4B8a59C2eAC7CAF'
     await checkIfActivated('check16')
     await checkIfActivated('check15')
     await checkIfActivated('check14')
